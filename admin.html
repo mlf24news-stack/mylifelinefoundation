@@ -336,7 +336,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
           <div class="upload-area" onclick="triggerUpload('hero-bg-file','hero-bg-preview','hero-bg-url','hero-backgrounds/')">
             <div class="ico">🖼️</div>
             <p>Click to upload hero background image</p>
-            <p style="font-size:11px;">Recommended: 1920×1080px, max 5MB</p>
+            <p style="font-size:11px;">Recommended: 1920×1080px, max 10MB</p>
             <input type="file" id="hero-bg-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'hero-bg-preview','hero-bg-url','hero-backgrounds/')">
           </div>
           <div class="upload-progress" id="hero-bg-prog"><div class="upload-progress-fill" id="hero-bg-prog-fill"></div></div>
@@ -594,7 +594,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
           <div class="upload-area" onclick="document.getElementById('gal-bulk-file').click()">
             <div class="ico">📤</div>
             <p>Click to upload photos (multiple allowed)</p>
-            <p style="font-size:11px;">JPG, PNG, WebP — max 5MB each</p>
+            <p style="font-size:11px;">JPG, PNG, WebP — max 10MB each</p>
             <input type="file" id="gal-bulk-file" accept="image/*" multiple style="display:none" onchange="handleGalleryUpload(this)">
           </div>
           <div class="upload-progress" id="gal-prog"><div class="upload-progress-fill" id="gal-prog-fill"></div></div>
@@ -1167,7 +1167,7 @@ function triggerUpload(fileId, previewId, urlId, folder) {
 async function handleImageUpload(input, previewId, urlId, folder) {
   const file = input.files[0];
   if (!file) return;
-  if (file.size > 5 * 1024 * 1024) { showToast('File must be under 5MB', 'error'); return; }
+  if (file.size > 5 * 1024 * 1024) { showToast('File must be under 10MB', 'error'); return; }
   showToast('Uploading to Supabase...', '');
   try {
     const url = await uploadToSupabase(file, folder);
