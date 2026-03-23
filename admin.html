@@ -1137,8 +1137,14 @@ function showPage(id) {
 async function checkSupabase() {
   const el = document.getElementById('sbStatus');
   try {
-    const r = await fetch(`${SB_URL}/storage/v1/bucket/${SB_BUCKET}`, {
-      headers: { 'apikey': SB_KEY, 'Authorization': `Bearer ${SB_KEY}` }
+    const r = await fetch(`${SB_URL}/storage/v1/object/list/${SB_BUCKET}`, {
+      method: 'POST',
+      headers: {
+        'apikey': SB_KEY,
+        'Authorization': `Bearer ${SB_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ prefix: '', limit: 1 })
     });
     if (r.ok || r.status === 200) {
       el.className = 'info-box';
@@ -1149,25 +1155,8 @@ async function checkSupabase() {
     }
   } catch (e) {
     el.className = 'warn-box';
-    el.innerHTML = '⚠️ Cannot reach Supabase. Check internet connection. Images will still work if bucket is public.';
+    el.innerHTML = '⚠️ Cannot reach Supabase. Check internet connection.';
   }
-}
-
-async function uploadToSupabase(file, folder) {
-  const ext = file.name.split('.').pop();
-  const fname = `${folder}${Date.now()}_${Math.random().toString(36).substr(2,6)}.${ext}`;
-  const r = await fetch(`${SB_URL}/storage/v1/object/${SB_BUCKET}/${fname}`, {
-    method: 'POST',
-    headers: {
-      'apikey': SB_KEY,
-      'Authorization': `Bearer ${SB_KEY}`,
-      'Content-Type': file.type,
-      'x-upsert': 'true'
-    },
-    body: file
-  });
-  if (!r.ok) throw new Error(`Upload failed: ${r.status}`);
-  return `${SB_URL}/storage/v1/object/public/${SB_BUCKET}/${fname}`;
 }
 
 // ── IMAGE UPLOAD HANDLER ──
