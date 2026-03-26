@@ -51,8 +51,7 @@ body{font-family:'Open Sans',sans-serif;color:var(--text);background:var(--white
 
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:70px;}
-/* FIX 1: Removed hardcoded pexels jpg — JS will set background dynamically */
-.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,77,140,.92) 0%,rgba(10,77,140,.70) 45%,rgba(46,139,87,.75) 100%);transition:background .5s;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,77,140,.92) 0%,rgba(10,77,140,.65) 45%,rgba(46,139,87,.70) 100%),center/cover no-repeat;transition:background .5s;}
 .hero-g1{position:absolute;bottom:-80px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(245,124,0,.2) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
 .hero-g2{position:absolute;top:80px;left:-80px;width:340px;height:340px;background:radial-gradient(circle,rgba(46,139,87,.22) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
 .hero-wrap{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 4%;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
@@ -744,7 +743,7 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
     <div class="contact-info-card"><h3>Get In Touch</h3>
       <div class="ci-row"><div class="ci-ico">📍</div><div class="ci-body"><strong>Office Address</strong><span id="conAddr">Plot No-635, Garapur, In front of Collector Residence, Kendrapara – 754211, Odisha, India</span></div></div>
       <div class="ci-row"><div class="ci-ico">📞</div><div class="ci-body"><strong>Phone</strong><a href="tel:06727796700" id="conP1Link">06727-796700</a><br><a href="tel:+919337994358" id="conP2Link">+91 9337994358</a></div></div>
-      <div class="ci-row"><div class="ci-ico">✉️</div><div class="ci-body"><strong>Email</strong><a href="mailto:info@mylifelinefoundation.org" id="conEmailLink">info@mylifelinefoundation.org</a></div></div>
+      <div class="ci-row"><div class="ci-ico">✉️</div><div class="ci-body"><strong>Email</strong><a href="/cdn-cgi/l/email-protection#e28b8c848da28f9b8e8b84878e8b8c87848d978c8683968b8d8ccc8d9085" id="conEmailLink"><span class="__cf_email__" data-cfemail="b7ded9d1d8f7dacedbded1d2dbded9d2d1d8c2d9d3d6c3ded8d999d8c5d0">[email&#160;protected]</span></a></div></div>
       <div class="ci-row"><div class="ci-ico">🌐</div><div class="ci-body"><strong>Website</strong><a href="http://www.mylifelinefoundation.org" target="_blank">www.mylifelinefoundation.org</a></div></div>
       <div class="ci-row"><div class="ci-ico">💬</div><div class="ci-body"><strong>WhatsApp</strong><a href="https://api.whatsapp.com/send?phone=918480141339&text=I+am+interested+in+joining+MLF" target="_blank" id="conWaLink">+91 8480141339 — Join as Volunteer</a></div></div>
       <div class="niti-badge"><strong>Reg. No:</strong> U85100OR2020NPL032868<br><strong>PAN:</strong> AANCM3910F<br><strong>NITI Aayog ID:</strong> OR/2020/0255447<br>Section 8, Companies Act 2013</div>
@@ -775,7 +774,7 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
     <div class="ft-col"><h4>Contact Us</h4>
       <div class="ft-ci"><div class="ft-ci-ico">📍</div><div class="ft-ci-txt" id="ftAddr">Plot No-635, Garapur, In front of Collector Residence, Kendrapara – 754211, Odisha, India</div></div>
       <div class="ft-ci"><div class="ft-ci-ico">📞</div><div class="ft-ci-txt"><a href="tel:06727796700" id="ftPhone">06727-796700</a></div></div>
-      <div class="ft-ci"><div class="ft-ci-ico">✉️</div><div class="ft-ci-txt"><a href="mailto:info@mylifelinefoundation.org" id="ftEmail">info@mylifelinefoundation.org</a></div></div>
+      <div class="ft-ci"><div class="ft-ci-ico">✉️</div><div class="ft-ci-txt"><a href="/cdn-cgi/l/email-protection#3d54535b527d504451545b58515453585b524853595c4954525313524f5a" id="ftEmail"><span class="__cf_email__" data-cfemail="31585f575e715c485d5857545d585f54575e445f555045585e5f1f5e4356">[email&#160;protected]</span></a></div></div>
     </div>
   </div>
   <div class="ft-bot-wrap"><div class="ft-bot-in"><span id="ftCopy">© 2025 My Lifeline Foundation. All Rights Reserved. | Reg: U85100OR2020NPL032868 | PAN: AANCM3910F | Section 8, Companies Act 2013</span><span>Made with ❤️ for Rural Odisha</span></div></div>
@@ -853,13 +852,7 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
 <!-- PROFILE DASHBOARD -->
 <div class="profile-overlay" id="profileDashboard">
   <div class="profile-header-bar">
-    <!-- FIX 2: Profile bar logo — updated dynamically by JS -->
-    <div class="logo-w">
-      <div class="logo-ico" style="width:36px;height:36px;font-size:16px;overflow:hidden;border-radius:8px;">
-        <img src="Lifeline.png" alt="MLF" id="profileBarLogoImg" onerror="this.style.opacity='.5'" style="width:100%;height:100%;object-fit:contain;">
-      </div>
-      <span id="profileBarOrgName">My Lifeline Foundation — Volunteer Portal</span>
-    </div>
+    <div class="logo-w"><div class="logo-ico" style="width:36px;height:36px;overflow:hidden;border-radius:8px;"><img src="Lifeline.png" alt="MLF" id="profileBarLogoImg" onerror="this.style.opacity='.5'" style="width:100%;height:100%;object-fit:contain;"></div><span id="profileBarOrgName">My Lifeline Foundation — Volunteer Portal</span></div>
     <div class="profile-header-btns">
       <button class="btn-sm btn-sm-save" onclick="saveProfileChanges()">💾 Save Changes</button>
       <button class="btn-sm btn-sm-outline" onclick="closeProfile()">🏠 Home</button>
@@ -903,13 +896,9 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
 </div>
 
 <!-- ID CARD TEMPLATE -->
-<!-- FIX 3: ID card logo — updated dynamically by JS -->
 <div id="id-card-template">
   <div class="id-card-inner">
-    <div class="id-card-top">
-      <div class="id-card-logo"><img src="Lifeline.png" alt="MLF Logo" id="idCardLogoImg" style="width:100%;height:100%;object-fit:contain;"></div>
-      <div class="id-card-org"><strong id="idCardOrgName">My Lifeline Foundation</strong><span>Empowering Rural Odisha</span></div>
-    </div>
+    <div class="id-card-top"><div class="id-card-logo"><img src="Lifeline.png" alt="MLF Logo" id="idCardLogoImg" style="width:100%;height:100%;object-fit:contain;"></div><div class="id-card-org"><strong id="idCardOrgName">My Lifeline Foundation</strong><span>Empowering Rural Odisha</span></div></div>
     <div class="id-card-vol-type">VOLUNTEER ID CARD</div>
     <div class="id-card-main">
       <div id="idCardPhoto" class="id-card-photo-def">👤</div>
@@ -926,7 +915,10 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
 <div id="festivalPopup"><button class="popup-close-btn" id="popupCloseBtn">✕</button><div class="popup-emoji-row" id="popupEmojiRow">🎉</div><div class="popup-title" id="popupTitle"></div><div class="popup-wish-text" id="popupWishText"></div><div class="popup-progress"><div class="popup-progress-fill" id="popupProgressFill"></div></div></div>
 <div id="mlfConfetti"></div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ═══════════════════════════════════════
+   MLF WEBSITE SCRIPT v2.0 — Supabase + Admin Panel Driven
+═══════════════════════════════════════ */
 const ODIA_MONTHS=['ବୈଶାଖ','ଜ୍ୟେଷ୍ଠ','ଆଷାଢ଼','ଶ୍ରାବଣ','ଭାଦ୍ରବ','ଆଶ୍ୱିନ','କାର୍ତ୍ତିକ','ମାର୍ଗଶିର','ପୌଷ','ମାଘ','ଫାଲ୍ଗୁନ','ଚୈତ୍ର'];
 
 // ── DATA ACCESS ──
@@ -948,30 +940,13 @@ function loadAdminContent(){
   function si(id,src){const e=document.getElementById(id);if(e&&src){e.src=src;}}
   function sh(id,v){const e=document.getElementById(id);if(e&&v!=null)e.innerHTML=v;}
 
-  // ── FIX: Logo update — all 4 logo locations ──
   if(D.logo){
-    s('navOrgName',D.logo.n);
-    s('navOrgTag',D.logo.t);
-    s('ftOrgName',D.logo.n);
-    s('ftOrgTag',D.logo.t);
-    // Profile bar org name
-    if(D.logo.n){const pbn=document.getElementById('profileBarOrgName');if(pbn)pbn.textContent=(D.logo.n)+' — Volunteer Portal';}
-    // ID card org name
+    s('navOrgName',D.logo.n); s('navOrgTag',D.logo.t); s('ftOrgName',D.logo.n); s('ftOrgTag',D.logo.t);
+    if(D.logo.n){const pbn=document.getElementById('profileBarOrgName');if(pbn)pbn.textContent=D.logo.n+' — Volunteer Portal';}
     s('idCardOrgName',D.logo.n);
-    if(D.logo.i){
-      // Nav logo
-      si('navLogoImg',D.logo.i);
-      // Footer logo
-      si('ftLogoImg',D.logo.i);
-      // Profile bar logo
-      si('profileBarLogoImg',D.logo.i);
-      // ID card logo
-      si('idCardLogoImg',D.logo.i);
-    }
+    if(D.logo.i){si('navLogoImg',D.logo.i);si('ftLogoImg',D.logo.i);si('profileBarLogoImg',D.logo.i);si('idCardLogoImg',D.logo.i);}
     if(D.logo.tt)document.getElementById('pageTitle').textContent=D.logo.tt;
   }
-
-  // ── FIX: Hero background — dynamic from admin ──
   if(D.hero){
     const h=D.hero;
     const badge=document.getElementById('heroBadge');if(badge&&h.b)badge.childNodes[badge.childNodes.length-1].textContent=' '+h.b;
@@ -980,16 +955,8 @@ function loadAdminContent(){
     s('heroQ','"'+h.q+'"'); s('heroC',h.c);
     if(h.b1){const b=document.getElementById('heroBtn1');if(b)b.textContent='❤️ '+(h.b1);}
     if(h.b2){const b=document.getElementById('heroBtn2');if(b)b.textContent='🤝 '+(h.b2);}
-    // Hero background — use admin image if set, else gradient only
-    const bg=document.getElementById('heroBg');
-    if(bg){
-      if(h.bg){
-        bg.style.background=`linear-gradient(135deg,rgba(10,77,140,.90) 0%,rgba(10,77,140,.65) 45%,rgba(46,139,87,.70) 100%),url('${h.bg}') center/cover no-repeat`;
-      }
-      // If no admin image set, CSS gradient fallback is already applied (no hardcoded jpg)
-    }
+    if(h.bg){const bg=document.getElementById('heroBg');if(bg)bg.style.background=`linear-gradient(135deg,rgba(10,77,140,.90) 0%,rgba(10,77,140,.65) 45%,rgba(46,139,87,.70) 100%),url('${h.bg}') center/cover no-repeat`;}
   }
-
   if(D.about){
     s('aboutP1',D.about.p1); s('aboutP2',D.about.p2); s('aboutBadgeN',D.about.bn); s('aboutBadgeL',D.about.bl);
     s('aboutMT','🎯 '+(D.about.mt||'Our Mission')); s('aboutMP',D.about.mp);
@@ -1074,6 +1041,7 @@ function loadAdminContent(){
   if(D.gallery&&D.gallery.length){
     const g=document.getElementById('dynamicGalleryGrid');
     if(g)g.innerHTML=D.gallery.map(img=>`<div class="fgi"><img src="${img.url}" alt="${img.cap||'MLF Activity'}" loading="lazy" onerror="this.parentElement.style.display='none'"><div class="fgi-ov"><span class="fgi-cap">${img.cap||'MLF Activity'}</span></div></div>`).join('');
+    // Update home gallery with admin photos
     const gi=document.querySelectorAll('#homeGalGrid .gi img'),gc=document.querySelectorAll('#homeGalGrid .gi-cap');
     D.gallery.slice(0,5).forEach((img,i)=>{if(gi[i])gi[i].src=img.url;if(gc[i])gc[i].textContent=img.cap||'MLF Activity';});
   }
@@ -1204,8 +1172,14 @@ function handleClockVisibility(){
   const heroSlot=document.getElementById('hero-clock-slot');
   if(!widget||!navSlot||!heroSlot)return;
   const moveToNav=window.scrollY>window.innerHeight*0.7;
-  if(moveToNav&&!clockInNav){clockInNav=true;widget.classList.add('clock-moving');setTimeout(()=>{navSlot.appendChild(widget);widget.classList.remove('clock-moving');},250);}
-  if(!moveToNav&&clockInNav){clockInNav=false;widget.classList.add('clock-moving');setTimeout(()=>{heroSlot.appendChild(widget);widget.classList.remove('clock-moving');},250);}
+  if(moveToNav&&!clockInNav){
+    clockInNav=true;widget.classList.add('clock-moving');
+    setTimeout(()=>{navSlot.appendChild(widget);widget.classList.remove('clock-moving');heroSlot.style.display='none';},250);
+  }
+  if(!moveToNav&&clockInNav){
+    clockInNav=false;widget.classList.add('clock-moving');heroSlot.style.display='';
+    setTimeout(()=>{heroSlot.appendChild(widget);widget.classList.remove('clock-moving');},250);
+  }
 }
 
 // ── COUNTER ANIMATION ──
@@ -1275,6 +1249,7 @@ async function submitRegistration(e){
   vols.push(vol);
   saveVols(vols);
   setSession(volId);
+  // Sync to sheets
   const sheetsUrl=localStorage.getItem('mlf_url');
   if(sheetsUrl&&sheetsUrl!=='APNA_APPS_SCRIPT_URL_YAHAN'){
     try{await fetch(sheetsUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({tab:'Volunteers',action:'append',row:[vol.id,vol.name,vol.dob,vol.fatherName,vol.motherName,vol.occupation,vol.mobile,vol.aadhaarDisplay,vol.at,vol.post,vol.ps,vol.district,vol.state,vol.pin,vol.joinDate,vol.status]})});}catch(err){}
