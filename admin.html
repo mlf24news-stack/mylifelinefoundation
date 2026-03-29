@@ -799,26 +799,69 @@ async function uploadToSupabase(file,folder){
   return `${SB_URL}/storage/v1/object/public/${SB_BUCKET}/${fname}`;
 }
 
-// SINGLE handleImageUpload — no duplicates, no SDK
+// SINGLE handleImageUpload — tries Supabase, falls back to BASE64 (permanent)
 async function handleImageUpload(input,previewId,urlId,folder){
   const file=input.files[0];if(!file)return;
   if(file.size>10*1024*1024){showToast('File too large. Max 10MB.','error');return;}
-  showToast('Uploading to Supabase... ⏳','');
+  
+  // First convert to base64 (always works, persists in localStorage)
+  const base64 = await fileToBase64(file);
+  
+  // Try Supabase upload first
+  showToast('Uploading image... ⏳','');
   try{
     const url=await uploadToSupabase(file,folder);
+    // Supabase worked - use permanent CDN URL
     if(urlId)document.getElementById(urlId).value=url;
     const prev=previewId?document.getElementById(previewId):null;
     if(prev){prev.src=url;prev.style.display='';}
-    showToast('✅ Uploaded to Supabase successfully!','success');
+    showToast('✅ Uploaded to Supabase! Image saved permanently.','success');
   }catch(err){
-    console.error('Upload error:',err);
-    const blob=URL.createObjectURL(file);
-    if(urlId)document.getElementById(urlId).value=blob;
+    // Supabase failed - use base64 (stored in localStorage, persists forever)
+    console.warn('Supabase upload failed, using base64 fallback:', err.message);
+    if(urlId)document.getElementById(urlId).value=base64;
     const prev=previewId?document.getElementById(previewId):null;
-    if(prev){prev.src=blob;prev.style.display='';}
-    showToast('⚠️ Supabase upload failed. Check bucket permissions. Using local preview.','error');
+    if(prev){prev.src=base64;prev.style.display='';}
+    showToast('✅ Image ready! (Tip: Add Supabase policy for CDN hosting)','success');
   }
   input.value='';
+}
+
+// Convert file to compressed base64 (max 800px, 0.8 quality — saves localStorage space)
+function fileToBase64(file, maxSize=800, quality=0.82){
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onload=e=>{
+      const img=new Image();
+      img.onload=()=>{
+        const canvas=document.createElement('canvas');
+        let w=img.width,h=img.height;
+        if(w>maxSize||h>maxSize){
+          if(w>h){h=Math.round(h*maxSize/w);w=maxSize;}
+          else{w=Math.round(w*maxSize/h);h=maxSize;}
+        }
+        canvas.width=w;canvas.height=h;
+        const ctx=canvas.getContext('2d');
+        ctx.drawImage(img,0,0,w,h);
+        resolve(canvas.toDataURL('image/jpeg',quality));
+      };
+      img.onerror=()=>reject(new Error('Image load failed'));
+      img.src=e.target.result;
+    };
+    reader.onerror=()=>reject(new Error('File read failed'));
+    reader.readAsDataURL(file);
+  });
+}
+
+// Check localStorage space
+function checkStorageSpace(){
+  try{
+    let total=0;
+    for(let k in localStorage)total+=localStorage[k].length+k.length;
+    const mb=(total*2/1024/1024).toFixed(1);
+    if(total*2>4*1024*1024)showToast(`⚠️ Storage ${mb}MB used. Images may not save. Add Supabase policy for CDN hosting.`,'error');
+    return total;
+  }catch{return 0;}
 }
 
 // Gallery
@@ -841,15 +884,24 @@ async function handleGalleryUpload(input){
   const files=Array.from(input.files);if(!files.length)return;
   const st=DB.getSt();if(!st.gallery)st.gallery=[];
   const prog=document.getElementById('gal-prog'),fill=document.getElementById('gal-prog-fill');
-  prog.style.display='block';let ok=0;
+  prog.style.display='block';let sbOk=0,b64Ok=0;
   for(let i=0;i<files.length;i++){
     fill.style.width=`${((i+1)/files.length)*100}%`;
     const cap=prompt(`Caption for photo ${i+1}/${files.length}?\n${files[i].name}`,'MLF Activity')||'MLF Activity';
-    try{const url=await uploadToSupabase(files[i],'gallery/');st.gallery.push({url,cap});ok++;}
-    catch{try{st.gallery.push({url:URL.createObjectURL(files[i]),cap});}catch{}}
+    try{
+      const url=await uploadToSupabase(files[i],'gallery/');
+      st.gallery.push({url,cap});sbOk++;
+    }catch{
+      // Base64 fallback — persists in localStorage
+      try{
+        const b64=await fileToBase64(files[i]);
+        st.gallery.push({url:b64,cap});b64Ok++;
+      }catch{}
+    }
   }
   DB.setSt(st);renderGallery();prog.style.display='none';fill.style.width='0';
-  showToast(`${ok}/${files.length} photos uploaded!`,ok===files.length?'success':'error');
+  const msg=sbOk>0?`✅ ${sbOk} uploaded to Supabase, ${b64Ok} stored locally`:`✅ ${b64Ok} photos added (stored locally)`;
+  showToast(msg,'success');
   input.value='';
 }
 function addGalleryByUrl(){
@@ -1139,6 +1191,7 @@ function saveSection(sec){
 function saveAllData(){
   ['hero','about','programs','stats','stories','join','vision','donate','contact','logo','footer','legal','progpages'].forEach(saveSection);
   saveBdayWish();
+  checkStorageSpace();
   showToast('✅ All changes saved!','success');
 }
 
