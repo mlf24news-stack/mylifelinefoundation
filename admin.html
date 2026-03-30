@@ -20,17 +20,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
 .sb-item:hover{background:rgba(255,255,255,.1);color:#fff;}
 .sb-item.active{background:var(--blue);color:#fff;font-weight:600;}
 .sb-item .ico{font-size:15px;flex-shrink:0;width:20px;text-align:center;}
-.sb-item .badge{margin-left:auto;background:var(--orange);color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:10px;}
-.sb-footer{padding:12px 16px;border-top:1px solid rgba(255,255,255,.09);font-size:11px;color:rgba(255,255,255,.4);}
 .topbar{position:fixed;top:0;left:var(--sidebar);right:0;height:var(--topbar);background:#fff;border-bottom:1px solid var(--gray-lt);display:flex;align-items:center;justify-content:space-between;padding:0 24px;z-index:90;box-shadow:var(--sh);}
 .topbar-title{font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;color:var(--blue);}
 .topbar-right{display:flex;align-items:center;gap:12px;}
 .topbar-btn{padding:7px 16px;border-radius:8px;border:none;font-size:12.5px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;}
 .topbar-btn-primary{background:var(--blue);color:#fff;}
-.topbar-btn-primary:hover{background:var(--blue-lt);}
 .topbar-btn-danger{background:#fee2e2;color:var(--red);}
-.topbar-btn-green{background:#dcfce7;color:var(--green);}
-.admin-badge{background:var(--off);border:1px solid var(--gray-lt);border-radius:20px;padding:5px 12px;font-size:12px;color:var(--gray);}
+.topbar-btn-green{background:var(--green);color:#fff;}
 .main{margin-left:var(--sidebar);padding-top:var(--topbar);flex:1;}
 .page{display:none;padding:28px 28px 60px;}
 .page.active{display:block;}
@@ -40,32 +36,24 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
 .card-body{padding:20px;}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
 .field{display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
 .field label{font-size:11.5px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;}
 .field input,.field select,.field textarea{padding:9px 12px;border:1.5px solid var(--gray-lt);border-radius:9px;font-size:13.5px;font-family:'DM Sans',sans-serif;color:var(--text);outline:none;transition:border-color .2s;background:#fff;}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(10,77,140,.07);}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);}
 .field textarea{resize:vertical;min-height:80px;}
-.field-note{font-size:11px;color:var(--gray);margin-top:3px;}
 .btn{padding:9px 20px;border-radius:9px;border:none;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;display:inline-flex;align-items:center;gap:6px;}
-.btn-blue{background:var(--blue);color:#fff;}.btn-blue:hover{background:var(--blue-lt);}
-.btn-green{background:var(--green);color:#fff;}.btn-green:hover{background:var(--green-lt);}
-.btn-orange{background:var(--orange);color:#fff;}.btn-orange:hover{background:#d96d00;}
-.btn-red{background:var(--red);color:#fff;}.btn-red:hover{background:#dc2626;}
-.btn-outline{background:#fff;color:var(--blue);border:1.5px solid var(--blue);}.btn-outline:hover{background:var(--blue);color:#fff;}
-.btn-sm{padding:6px 14px;font-size:12px;}.btn-xs{padding:4px 10px;font-size:11px;}.btn-full{width:100%;justify-content:center;}
+.btn-blue{background:var(--blue);color:#fff;}
+.btn-green{background:var(--green);color:#fff;}
+.btn-orange{background:var(--orange);color:#fff;}
+.btn-red{background:var(--red);color:#fff;}
+.btn-outline{background:#fff;color:var(--blue);border:1.5px solid var(--blue);}
+.btn-sm{padding:6px 14px;font-size:12px;}
+.btn-full{width:100%;justify-content:center;}
 .upload-area{border:2px dashed var(--gray-lt);border-radius:var(--r-sm);padding:20px;text-align:center;cursor:pointer;transition:all .2s;background:var(--off);}
 .upload-area:hover{border-color:var(--blue);background:#EFF6FF;}
 .upload-area .ico{font-size:28px;margin-bottom:8px;}
-.upload-area p{font-size:12px;color:var(--gray);margin-bottom:4px;}
+.upload-area p{font-size:12px;color:var(--gray);}
 .upload-preview{width:100%;height:140px;object-fit:cover;border-radius:var(--r-sm);margin-top:10px;border:1px solid var(--gray-lt);}
-.tbl{width:100%;border-collapse:collapse;}
-.tbl th{background:var(--off);padding:10px 14px;font-size:11.5px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;text-align:left;border-bottom:1px solid var(--gray-lt);}
-.tbl td{padding:12px 14px;font-size:13px;border-bottom:1px solid var(--gray-lt);vertical-align:middle;}
-.tbl tr:hover td{background:#FAFCFF;}
-.tbl-photo{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--gray-lt);}
-.tbl-photo-def{width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14px;}
-.badge-active{background:#dcfce7;color:var(--green);padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;}
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;}
 .stat-card{background:#fff;border-radius:var(--r);padding:20px;border:1px solid var(--gray-lt);box-shadow:var(--sh);}
 .stat-card .num{font-family:'Poppins',sans-serif;font-size:28px;font-weight:800;color:var(--blue);}
@@ -79,11 +67,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
 .modal-close{width:30px;height:30px;border:none;background:var(--gray-lt);border-radius:7px;cursor:pointer;font-size:14px;}
 .modal-body{padding:20px 22px 24px;}
 .toast{position:fixed;bottom:24px;right:24px;z-index:1000;background:var(--blue-dk);color:#fff;padding:11px 20px;border-radius:10px;font-size:13px;font-weight:600;box-shadow:var(--sh-md);transform:translateY(80px);transition:transform .3s;display:flex;align-items:center;gap:8px;}
-.toast.show{transform:translateY(0);}.toast.success{background:var(--green);}.toast.error{background:var(--red);}
+.toast.show{transform:translateY(0);}
+.toast.success{background:var(--green);}
+.toast.error{background:var(--red);}
 #loginScreen{position:fixed;inset:0;z-index:2000;background:linear-gradient(135deg,var(--blue-dk) 0%,#0d4f30 100%);display:flex;align-items:center;justify-content:center;}
 #loginScreen.hidden{display:none;}
 .login-box{background:#fff;border-radius:20px;padding:36px;width:380px;box-shadow:var(--sh-md);text-align:center;}
-.login-box .logo-big{font-size:44px;margin-bottom:14px;}
 .login-box h2{font-family:'Poppins',sans-serif;font-size:20px;font-weight:800;color:var(--blue);margin-bottom:4px;}
 .login-box p{font-size:13px;color:var(--gray);margin-bottom:24px;}
 .gal-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}
@@ -92,38 +81,32 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
 .gal-item-del{position:absolute;top:5px;right:5px;background:#ef4444;color:#fff;border:none;border-radius:6px;padding:3px 7px;font-size:11px;cursor:pointer;opacity:0;transition:.2s;}
 .gal-item:hover .gal-item-del{opacity:1;}
 .gal-add{aspect-ratio:1;border-radius:var(--r-sm);border:2px dashed var(--gray-lt);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:.2s;background:var(--off);}
-.gal-add:hover{border-color:var(--blue);background:#EFF6FF;}
-.tab-nav{display:flex;gap:4px;margin-bottom:20px;border-bottom:2px solid var(--gray-lt);}
-.tab-btn{padding:9px 18px;border:none;background:none;font-size:13px;font-weight:600;color:var(--gray);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:.2s;font-family:'DM Sans',sans-serif;}
-.tab-btn.active{color:var(--blue);border-bottom-color:var(--blue);}
-.tab-pane{display:none;}.tab-pane.active{display:block;}
-.donor-type-btns{display:flex;gap:8px;margin-bottom:16px;}
-.dtype-btn{flex:1;padding:10px;border:1.5px solid var(--gray-lt);border-radius:9px;cursor:pointer;text-align:center;font-size:13px;font-weight:600;background:#fff;transition:.2s;color:var(--gray);}
-.dtype-btn.active{border-color:var(--orange);background:#FFF3E0;color:var(--orange);}
-.upload-progress{background:var(--gray-lt);border-radius:4px;height:6px;margin-top:8px;overflow:hidden;display:none;}
-.upload-progress-fill{height:100%;background:var(--blue);border-radius:4px;transition:width .3s;}
-.section-divider{height:1px;background:var(--gray-lt);margin:20px 0;}
-.info-box{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:var(--r-sm);padding:14px 16px;font-size:13px;color:var(--blue-dk);line-height:1.65;margin-bottom:16px;}
-.warn-box{background:#fffbeb;border:1px solid #fde68a;border-radius:var(--r-sm);padding:14px 16px;font-size:13px;color:#92400e;line-height:1.65;margin-bottom:16px;}
+.gal-add:hover{border-color:var(--blue);}
 .member-card{background:#fff;border:1px solid var(--gray-lt);border-radius:var(--r-sm);padding:16px;display:flex;gap:14px;align-items:center;margin-bottom:10px;}
 .member-card-photo{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--blue);flex-shrink:0;}
 .member-card-photo-def{width:52px;height:52px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
 .member-card-info{flex:1;}
-.member-card-name{font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;color:var(--blue);margin-bottom:2px;}
+.member-card-name{font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;color:var(--blue);}
 .member-card-role{font-size:12px;color:var(--green);font-weight:600;}
 .member-card-btns{display:flex;gap:6px;flex-shrink:0;}
-.festival-item{background:var(--off);border:1px solid var(--gray-lt);border-radius:var(--r-sm);padding:12px 16px;display:flex;align-items:center;gap:12px;margin-bottom:8px;}
-.festival-item .emoji{font-size:22px;flex-shrink:0;}
-.festival-item .info{flex:1;}
-.festival-item .name{font-size:13px;font-weight:600;color:var(--text);}
-.festival-item .date{font-size:11px;color:var(--gray);}
-@media(max-width:900px){.sidebar{transform:translateX(-100%);transition:.3s;}.sidebar.open{transform:translateX(0);}.main{margin-left:0;}.topbar{left:0;}.stats-row{grid-template-columns:1fr 1fr;}.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}.gal-grid{grid-template-columns:repeat(3,1fr);}}
+.info-box{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:var(--r-sm);padding:14px 16px;font-size:13px;color:var(--blue-dk);line-height:1.65;margin-bottom:16px;}
+.warn-box{background:#fffbeb;border:1px solid #fde68a;border-radius:var(--r-sm);padding:14px 16px;font-size:13px;color:#92400e;line-height:1.65;margin-bottom:16px;}
+.tab-nav{display:flex;gap:4px;margin-bottom:20px;border-bottom:2px solid var(--gray-lt);}
+.tab-btn{padding:9px 18px;border:none;background:none;font-size:13px;font-weight:600;color:var(--gray);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:.2s;font-family:'DM Sans',sans-serif;}
+.tab-btn.active{color:var(--blue);border-bottom-color:var(--blue);}
+.tab-pane{display:none;}
+.tab-pane.active{display:block;}
+.sync-status{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:4px 12px;border-radius:20px;font-weight:600;}
+.sync-ok{background:#dcfce7;color:var(--green);}
+.sync-err{background:#fee2e2;color:var(--red);}
+.sync-ing{background:#FFF3E0;color:var(--orange);}
 </style>
 </head>
 <body>
+
 <div id="loginScreen">
   <div class="login-box">
-    <div class="logo-big">🌱</div>
+    <div style="font-size:44px;margin-bottom:14px;">🌱</div>
     <h2>MLF Admin Panel</h2>
     <p>My Lifeline Foundation — Secure Admin Login</p>
     <div class="field"><label>Username</label><input type="text" id="loginUser" value="admin"></div>
@@ -133,6 +116,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
     <p style="margin-top:16px;font-size:11px;color:var(--gray);">Default: admin / mlf@2024</p>
   </div>
 </div>
+
 <aside class="sidebar" id="sidebar">
   <div class="sb-logo"><div class="sb-logo-icon">🌱</div><div class="sb-logo-txt"><strong>MLF Admin</strong><span>My Lifeline Foundation</span></div></div>
   <nav class="sb-nav">
@@ -145,39 +129,36 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
     <div class="sb-item" onclick="showPage('stats')"><span class="ico">📈</span> Impact Stats</div>
     <div class="sb-item" onclick="showPage('testimonials')"><span class="ico">💬</span> Testimonials</div>
     <div class="sb-item" onclick="showPage('join')"><span class="ico">🤝</span> Join Section</div>
-    <div class="sb-item" onclick="showPage('vision')"><span class="ico">🎯</span> Vision &amp; Mission</div>
+    <div class="sb-item" onclick="showPage('vision')"><span class="ico">🎯</span> Vision & Mission</div>
     <div class="sb-section">People</div>
     <div class="sb-item" onclick="showPage('board')"><span class="ico">👥</span> Board Members</div>
     <div class="sb-item" onclick="showPage('coordinators')"><span class="ico">📍</span> Coordinators</div>
-    <div class="sb-section">Media &amp; Pages</div>
+    <div class="sb-section">Media & Pages</div>
     <div class="sb-item" onclick="showPage('gallery')"><span class="ico">🖼️</span> Gallery</div>
-    <div class="sb-item" onclick="showPage('progpages')"><span class="ico">📄</span> Program Pages</div>
     <div class="sb-section">Organization</div>
     <div class="sb-item" onclick="showPage('donate')"><span class="ico">❤️</span> Donate Page</div>
     <div class="sb-item" onclick="showPage('contact')"><span class="ico">📞</span> Contact Page</div>
-    <div class="sb-item" onclick="showPage('branding')"><span class="ico">🎨</span> Logo &amp; Branding</div>
+    <div class="sb-item" onclick="showPage('branding')"><span class="ico">🎨</span> Logo & Branding</div>
     <div class="sb-item" onclick="showPage('footer')"><span class="ico">📌</span> Footer</div>
-    <div class="sb-item" onclick="showPage('legal')"><span class="ico">📜</span> Legal Documents</div>
-    <div class="sb-item" onclick="showPage('festivals')"><span class="ico">🎉</span> Festivals &amp; Ticker</div>
     <div class="sb-section">Data</div>
-    <div class="sb-item" onclick="showPage('volunteers')"><span class="ico">🙋</span> Volunteers <span class="badge" id="volBadge">0</span></div>
+    <div class="sb-item" onclick="showPage('volunteers')"><span class="ico">🙋</span> Volunteers</div>
     <div class="sb-item" onclick="showPage('donors')"><span class="ico">💝</span> Donors</div>
     <div class="sb-section">Settings</div>
     <div class="sb-item" onclick="showPage('password')"><span class="ico">🔑</span> Change Password</div>
-    <div class="sb-item" onclick="showPage('forgot')"><span class="ico">🔓</span> Forgot Password</div>
-    <div class="sb-item" onclick="showPage('sheets')"><span class="ico">📊</span> Google Sheets</div>
   </nav>
-  <div class="sb-footer">MLF Admin Panel v2.1</div>
+  <div style="padding:12px 16px;border-top:1px solid rgba(255,255,255,.09);font-size:11px;color:rgba(255,255,255,.4);">MLF Admin v3.0 — Supabase Powered</div>
 </aside>
+
 <div class="topbar">
   <div class="topbar-title" id="pageTitle">📊 Dashboard</div>
   <div class="topbar-right">
+    <span id="syncStatusBadge" class="sync-status sync-ing">⏳ Connecting...</span>
     <button class="topbar-btn topbar-btn-green" onclick="saveAllData()">💾 Save All Changes</button>
     <button class="topbar-btn topbar-btn-primary" onclick="window.open('index.html','_blank')">🌐 View Website</button>
-    <span class="admin-badge">👤 Admin</span>
     <button class="topbar-btn topbar-btn-danger" onclick="doLogout()">Logout</button>
   </div>
 </div>
+
 <div class="main">
 
 <!-- DASHBOARD -->
@@ -188,51 +169,44 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
     <div class="stat-card"><span class="ico">🖼️</span><div class="num" id="dash-photos">0</div><div class="lbl">Gallery Photos</div></div>
     <div class="stat-card"><span class="ico">👥</span><div class="num" id="dash-board">0</div><div class="lbl">Board Members</div></div>
   </div>
+  <div class="card">
+    <div class="card-hd"><h3>🌐 Supabase Connection</h3></div>
+    <div class="card-body">
+      <div id="sbStatus" class="info-box">⏳ Connecting to Supabase...</div>
+      <div class="grid-2" style="margin-top:12px;">
+        <div><strong style="font-size:12px;color:var(--gray);display:block;margin-bottom:4px;">PROJECT URL</strong><code style="font-size:11px;background:var(--off);padding:4px 8px;border-radius:6px;word-break:break-all;">https://mvkbczobozlbdigkecwr.supabase.co</code></div>
+        <div><strong style="font-size:12px;color:var(--gray);display:block;margin-bottom:4px;">STORAGE</strong><code style="font-size:12px;background:var(--off);padding:4px 8px;border-radius:6px;">mlf-images (public) ✅</code></div>
+      </div>
+      <div class="info-box" style="margin-top:16px;">✅ <strong>Supabase Database mode active!</strong> All content saves to Supabase — visible on ALL browsers and devices automatically.</div>
+    </div>
+  </div>
   <div class="grid-2">
-    <div class="card"><div class="card-hd"><h3>🕐 Recent Volunteers</h3></div><div class="card-body"><div id="dash-recent-vols"><p style="color:var(--gray);font-size:13px;">No volunteers yet.</p></div></div></div>
     <div class="card"><div class="card-hd"><h3>📢 Quick Actions</h3></div><div class="card-body">
       <button class="btn btn-blue btn-full" style="margin-bottom:10px;" onclick="showPage('board')">➕ Add Board Member</button>
       <button class="btn btn-green btn-full" style="margin-bottom:10px;" onclick="showPage('gallery')">📷 Upload to Gallery</button>
-      <button class="btn btn-orange btn-full" style="margin-bottom:10px;" onclick="showPage('festivals')">🎉 Add Festival</button>
       <button class="btn btn-outline btn-full" onclick="showPage('volunteers')">📋 View All Volunteers</button>
     </div></div>
-  </div>
-  <div class="card"><div class="card-hd"><h3>🌐 Supabase Connection Status</h3></div>
-    <div class="card-body">
-      <div id="sbStatus" class="info-box">⏳ Checking Supabase connection...</div>
-      <div class="grid-2" style="margin-top:12px;">
-        <div><strong style="font-size:12px;color:var(--gray);display:block;margin-bottom:4px;">PROJECT URL</strong><code style="font-size:11px;background:var(--off);padding:4px 8px;border-radius:6px;word-break:break-all;">https://mvkbczobozlbdigkecwr.supabase.co</code></div>
-        <div><strong style="font-size:12px;color:var(--gray);display:block;margin-bottom:4px;">BUCKET</strong><code style="font-size:12px;background:var(--off);padding:4px 8px;border-radius:6px;">mlf-images (public)</code></div>
-      </div>
-      <div class="warn-box" style="margin-top:16px;">
-        <strong>⚠️ Image Upload Fix Required (One-time setup)</strong><br>
-        Go to: <strong>supabase.com → Your Project → Storage → Files → MLF-IMAGES → New Policy</strong><br>
-        → Click <strong>"For full customization"</strong> → Tick <strong>INSERT</strong> → Target roles: <strong>anon</strong> → USING expression: <strong>true</strong> → WITH CHECK: <strong>true</strong> → Save<br><br>
-        <strong>OR</strong> run this SQL in <strong>Supabase → SQL Editor</strong>:<br>
-        <code style="background:#1a2234;color:#7dd3fc;padding:8px 12px;border-radius:6px;display:block;margin-top:8px;font-size:12px;">CREATE POLICY "allow_all_uploads" ON storage.objects FOR INSERT TO anon WITH CHECK (bucket_id = 'mlf-images');<br>CREATE POLICY "allow_all_select" ON storage.objects FOR SELECT TO anon USING (bucket_id = 'mlf-images');</code>
-        <br><strong>Note:</strong> Even without this, images save as base64 locally (works fine for small sites)
-      </div>
-    </div>
+    <div class="card"><div class="card-hd"><h3>🕐 Recent Volunteers</h3></div><div class="card-body"><div id="dash-recent-vols"><p style="color:var(--gray);font-size:13px;">No volunteers yet.</p></div></div></div>
   </div>
 </div>
 
-<!-- HERO PAGE -->
+<!-- HERO -->
 <div class="page" id="page-hero">
   <div class="card">
     <div class="card-hd"><h3>🏠 Hero Section</h3><button class="btn btn-blue btn-sm" onclick="saveSection('hero')">💾 Save Hero</button></div>
     <div class="card-body">
       <div class="grid-2">
         <div>
-          <div class="field"><label>Location Badge Text</label><input type="text" id="hero-b" placeholder="Kendrapara, Odisha — India"></div>
-          <div class="field"><label>Main Heading</label><input type="text" id="hero-h1" placeholder="Empowering Rural Lives Through Education &amp; Hope"></div>
-          <div class="field"><label>Highlighted Word (in heading)</label><input type="text" id="hero-em" placeholder="Education"></div>
-          <div class="field"><label>Description Paragraph</label><textarea id="hero-p" rows="3"></textarea></div>
+          <div class="field"><label>Location Badge</label><input type="text" id="hero-b" placeholder="Kendrapara, Odisha — India"></div>
+          <div class="field"><label>Main Heading</label><input type="text" id="hero-h1"></div>
+          <div class="field"><label>Highlighted Word</label><input type="text" id="hero-em" placeholder="Education"></div>
+          <div class="field"><label>Description</label><textarea id="hero-p" rows="3"></textarea></div>
           <div class="grid-2">
-            <div class="field"><label>Button 1 Text</label><input type="text" id="hero-b1" placeholder="Donate Now"></div>
-            <div class="field"><label>Button 2 Text</label><input type="text" id="hero-b2" placeholder="Join as Volunteer"></div>
+            <div class="field"><label>Button 1</label><input type="text" id="hero-b1" placeholder="Donate Now"></div>
+            <div class="field"><label>Button 2</label><input type="text" id="hero-b2" placeholder="Join as Volunteer"></div>
           </div>
           <div class="field"><label>Testimonial Quote</label><input type="text" id="hero-q"></div>
-          <div class="field"><label>Quote Attribution</label><input type="text" id="hero-c" placeholder="— Beneficiary Family, Kendrapara"></div>
+          <div class="field"><label>Quote Attribution</label><input type="text" id="hero-c"></div>
           <div class="grid-2">
             <div class="field"><label>Stat 1 Number</label><input type="text" id="hero-hs1n" placeholder="500+"></div>
             <div class="field"><label>Stat 1 Label</label><input type="text" id="hero-hs1l" placeholder="Families Helped"></div>
@@ -245,14 +219,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
         <div>
           <div class="field"><label>Background Image</label></div>
           <div class="upload-area" onclick="document.getElementById('hero-bg-file').click()">
-            <div class="ico">🖼️</div><p>Click to upload hero background image</p>
-            <p style="font-size:11px;">Recommended: 1920×1080px, max 10MB</p>
+            <div class="ico">🖼️</div><p>Click to upload hero background</p>
+            <p style="font-size:11px;">1920×1080px recommended</p>
             <input type="file" id="hero-bg-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'hero-bg-preview','hero-bg-url','hero-backgrounds/')">
           </div>
-          <div class="upload-progress" id="hero-bg-prog"><div class="upload-progress-fill" id="hero-bg-prog-fill"></div></div>
           <img id="hero-bg-preview" class="upload-preview" style="display:none" src="">
           <input type="hidden" id="hero-bg-url">
-          <p class="field-note" style="margin-top:6px;">Current: <span id="hero-bg-current" style="color:var(--blue);">Default gradient background</span></p>
+          <p style="font-size:11px;color:var(--gray);margin-top:6px;">Current: <span id="hero-bg-current">Default gradient</span></p>
         </div>
       </div>
     </div>
@@ -269,10 +242,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
           <div class="field"><label>Main Paragraph</label><textarea id="about-p1" rows="4"></textarea></div>
           <div class="field"><label>Second Paragraph</label><textarea id="about-p2" rows="2"></textarea></div>
           <div class="field"><label>Badge Number</label><input type="text" id="about-bn" placeholder="500+"></div>
-          <div class="field"><label>Badge Label</label><input type="text" id="about-bl" placeholder="Families uplifted across Odisha"></div>
-          <div class="field"><label>Mission Title</label><input type="text" id="about-mt" placeholder="Our Mission"></div>
+          <div class="field"><label>Badge Label</label><input type="text" id="about-bl"></div>
+          <div class="field"><label>Mission Title</label><input type="text" id="about-mt"></div>
           <div class="field"><label>Mission Text</label><textarea id="about-mp" rows="2"></textarea></div>
-          <div class="field"><label>Vision Title</label><input type="text" id="about-vt" placeholder="Our Vision"></div>
+          <div class="field"><label>Vision Title</label><input type="text" id="about-vt"></div>
           <div class="field"><label>Vision Text</label><textarea id="about-vp" rows="2"></textarea></div>
         </div>
         <div>
@@ -285,7 +258,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
           <input type="hidden" id="about-main-url">
           <div class="field" style="margin-top:14px;"><label>Float Image</label></div>
           <div class="upload-area" onclick="document.getElementById('about-float-file').click()">
-            <div class="ico">📷</div><p>Upload float image (optional)</p>
+            <div class="ico">📷</div><p>Upload float image</p>
             <input type="file" id="about-float-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'about-float-preview','about-float-url','about/')">
           </div>
           <img id="about-float-preview" class="upload-preview" style="display:none;margin-top:10px;height:80px;" src="">
@@ -299,30 +272,36 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
 <!-- PROGRAMS -->
 <div class="page" id="page-programs">
   <div class="card">
-    <div class="card-hd"><h3>📋 Programs Cards</h3><button class="btn btn-blue btn-sm" onclick="saveSection('programs')">💾 Save Programs</button></div>
+    <div class="card-hd"><h3>📋 Programs</h3><button class="btn btn-blue btn-sm" onclick="saveSection('programs')">💾 Save Programs</button></div>
     <div class="card-body">
       <div class="grid-3">
-        <div class="card" style="border:1.5px solid #BFDBFE;"><div class="card-hd" style="background:#EFF6FF;border-radius:14px 14px 0 0;"><h3 style="color:var(--blue);">Card 1 — Education</h3></div><div class="card-body">
-          <div class="upload-area" onclick="document.getElementById('prg1-file').click()"><div class="ico">🎓</div><p>Upload card image</p><input type="file" id="prg1-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'prg1-preview','prg1-url','programs/')"></div>
-          <img id="prg1-preview" class="upload-preview" style="display:none;margin-top:8px;" src=""><input type="hidden" id="prg1-url">
-          <div class="field" style="margin-top:10px;"><label>Title</label><input type="text" id="prg1-t" placeholder="Education Support"></div>
-          <div class="field"><label>Description</label><textarea id="prg1-p" rows="3"></textarea></div>
-          <div class="field"><label>Link Text</label><input type="text" id="prg1-l" placeholder="Learn More →"></div>
-        </div></div>
-        <div class="card" style="border:1.5px solid #BBF7D0;"><div class="card-hd" style="background:#F0FDF4;border-radius:14px 14px 0 0;"><h3 style="color:var(--green);">Card 2 — Health</h3></div><div class="card-body">
-          <div class="upload-area" onclick="document.getElementById('prg2-file').click()"><div class="ico">🩺</div><p>Upload card image</p><input type="file" id="prg2-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'prg2-preview','prg2-url','programs/')"></div>
-          <img id="prg2-preview" class="upload-preview" style="display:none;margin-top:8px;" src=""><input type="hidden" id="prg2-url">
-          <div class="field" style="margin-top:10px;"><label>Title</label><input type="text" id="prg2-t" placeholder="Health Awareness"></div>
-          <div class="field"><label>Description</label><textarea id="prg2-p" rows="3"></textarea></div>
-          <div class="field"><label>Link Text</label><input type="text" id="prg2-l" placeholder="Learn More →"></div>
-        </div></div>
-        <div class="card" style="border:1.5px solid #FED7AA;"><div class="card-hd" style="background:#FFF7ED;border-radius:14px 14px 0 0;"><h3 style="color:var(--orange);">Card 3 — Rural Youth</h3></div><div class="card-body">
-          <div class="upload-area" onclick="document.getElementById('prg3-file').click()"><div class="ico">👨‍🌾</div><p>Upload card image</p><input type="file" id="prg3-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'prg3-preview','prg3-url','programs/')"></div>
-          <img id="prg3-preview" class="upload-preview" style="display:none;margin-top:8px;" src=""><input type="hidden" id="prg3-url">
-          <div class="field" style="margin-top:10px;"><label>Title</label><input type="text" id="prg3-t" placeholder="Rural Youth Development"></div>
-          <div class="field"><label>Description</label><textarea id="prg3-p" rows="3"></textarea></div>
-          <div class="field"><label>Link Text</label><input type="text" id="prg3-l" placeholder="Learn More →"></div>
-        </div></div>
+        <div class="card" style="border:1.5px solid #BFDBFE;">
+          <div class="card-hd" style="background:#EFF6FF;border-radius:14px 14px 0 0;"><h3 style="color:var(--blue);">Card 1 — Education</h3></div>
+          <div class="card-body">
+            <div class="upload-area" onclick="document.getElementById('prg1-file').click()"><div class="ico">🎓</div><p>Upload image</p><input type="file" id="prg1-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'prg1-preview','prg1-url','programs/')"></div>
+            <img id="prg1-preview" class="upload-preview" style="display:none;margin-top:8px;" src=""><input type="hidden" id="prg1-url">
+            <div class="field" style="margin-top:10px;"><label>Title</label><input type="text" id="prg1-t"></div>
+            <div class="field"><label>Description</label><textarea id="prg1-p" rows="3"></textarea></div>
+          </div>
+        </div>
+        <div class="card" style="border:1.5px solid #BBF7D0;">
+          <div class="card-hd" style="background:#F0FDF4;border-radius:14px 14px 0 0;"><h3 style="color:var(--green);">Card 2 — Health</h3></div>
+          <div class="card-body">
+            <div class="upload-area" onclick="document.getElementById('prg2-file').click()"><div class="ico">🩺</div><p>Upload image</p><input type="file" id="prg2-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'prg2-preview','prg2-url','programs/')"></div>
+            <img id="prg2-preview" class="upload-preview" style="display:none;margin-top:8px;" src=""><input type="hidden" id="prg2-url">
+            <div class="field" style="margin-top:10px;"><label>Title</label><input type="text" id="prg2-t"></div>
+            <div class="field"><label>Description</label><textarea id="prg2-p" rows="3"></textarea></div>
+          </div>
+        </div>
+        <div class="card" style="border:1.5px solid #FED7AA;">
+          <div class="card-hd" style="background:#FFF7ED;border-radius:14px 14px 0 0;"><h3 style="color:var(--orange);">Card 3 — Rural Youth</h3></div>
+          <div class="card-body">
+            <div class="upload-area" onclick="document.getElementById('prg3-file').click()"><div class="ico">👨‍🌾</div><p>Upload image</p><input type="file" id="prg3-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'prg3-preview','prg3-url','programs/')"></div>
+            <img id="prg3-preview" class="upload-preview" style="display:none;margin-top:8px;" src=""><input type="hidden" id="prg3-url">
+            <div class="field" style="margin-top:10px;"><label>Title</label><input type="text" id="prg3-t"></div>
+            <div class="field"><label>Description</label><textarea id="prg3-p" rows="3"></textarea></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -341,18 +320,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
 
 <!-- TESTIMONIALS -->
 <div class="page" id="page-testimonials">
-  <div class="card"><div class="card-hd"><h3>💬 Testimonials</h3><button class="btn btn-blue btn-sm" onclick="saveSection('stories')">💾 Save Stories</button></div>
+  <div class="card"><div class="card-hd"><h3>💬 Testimonials</h3><button class="btn btn-blue btn-sm" onclick="saveSection('stories')">💾 Save</button></div>
     <div class="card-body"><div class="grid-2">
       <div class="card"><div class="card-hd"><h3>Story 1</h3></div><div class="card-body">
-        <div class="upload-area" onclick="document.getElementById('st1-file').click()"><div class="ico">👤</div><p>Upload avatar photo</p><input type="file" id="st1-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'st1-preview','st1-img','stories/')"></div>
-        <img id="st1-preview" style="width:60px;height:60px;border-radius:50%;object-fit:cover;border:2px solid var(--orange);display:none;margin-top:8px;" src=""><input type="hidden" id="st1-img">
+        <div class="upload-area" onclick="document.getElementById('st1-file').click()"><div class="ico">👤</div><p>Upload avatar</p><input type="file" id="st1-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'st1-preview','st1-img','stories/')"></div>
+        <img id="st1-preview" style="width:60px;height:60px;border-radius:50%;object-fit:cover;display:none;margin-top:8px;" src=""><input type="hidden" id="st1-img">
         <div class="field" style="margin-top:12px;"><label>Quote</label><textarea id="st1-q" rows="3"></textarea></div>
         <div class="field"><label>Name</label><input type="text" id="st1-n"></div>
         <div class="field"><label>Location</label><input type="text" id="st1-l"></div>
       </div></div>
       <div class="card"><div class="card-hd"><h3>Story 2</h3></div><div class="card-body">
-        <div class="upload-area" onclick="document.getElementById('st2-file').click()"><div class="ico">👤</div><p>Upload avatar photo</p><input type="file" id="st2-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'st2-preview','st2-img','stories/')"></div>
-        <img id="st2-preview" style="width:60px;height:60px;border-radius:50%;object-fit:cover;border:2px solid var(--orange);display:none;margin-top:8px;" src=""><input type="hidden" id="st2-img">
+        <div class="upload-area" onclick="document.getElementById('st2-file').click()"><div class="ico">👤</div><p>Upload avatar</p><input type="file" id="st2-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'st2-preview','st2-img','stories/')"></div>
+        <img id="st2-preview" style="width:60px;height:60px;border-radius:50%;object-fit:cover;display:none;margin-top:8px;" src=""><input type="hidden" id="st2-img">
         <div class="field" style="margin-top:12px;"><label>Quote</label><textarea id="st2-q" rows="3"></textarea></div>
         <div class="field"><label>Name</label><input type="text" id="st2-n"></div>
         <div class="field"><label>Location</label><input type="text" id="st2-l"></div>
@@ -363,18 +342,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
 
 <!-- JOIN -->
 <div class="page" id="page-join">
-  <div class="card"><div class="card-hd"><h3>🤝 Join Section</h3><button class="btn btn-blue btn-sm" onclick="saveSection('join')">💾 Save Join</button></div>
+  <div class="card"><div class="card-hd"><h3>🤝 Join Section</h3><button class="btn btn-blue btn-sm" onclick="saveSection('join')">💾 Save</button></div>
     <div class="card-body">
-      <div class="field"><label>Section Heading</label><input type="text" id="join-h"></div>
-      <div class="field"><label>Section Description</label><textarea id="join-p" rows="2"></textarea></div>
+      <div class="field"><label>Heading</label><input type="text" id="join-h"></div>
+      <div class="field"><label>Description</label><textarea id="join-p" rows="2"></textarea></div>
       <div class="grid-2">
         <div class="card"><div class="card-hd"><h3>Donate Card</h3></div><div class="card-body">
-          <div class="field"><label>Title</label><input type="text" id="join-d1t" placeholder="Donate Now"></div>
+          <div class="field"><label>Title</label><input type="text" id="join-d1t"></div>
           <div class="field"><label>Description</label><textarea id="join-d1p" rows="2"></textarea></div>
           <div class="field"><label>Button Text</label><input type="text" id="join-d1b"></div>
         </div></div>
         <div class="card"><div class="card-hd"><h3>Volunteer Card</h3></div><div class="card-body">
-          <div class="field"><label>Title</label><input type="text" id="join-d2t" placeholder="Become a Volunteer"></div>
+          <div class="field"><label>Title</label><input type="text" id="join-d2t"></div>
           <div class="field"><label>Description</label><textarea id="join-d2p" rows="2"></textarea></div>
           <div class="field"><label>Button Text</label><input type="text" id="join-d2b"></div>
         </div></div>
@@ -385,11 +364,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
 
 <!-- VISION -->
 <div class="page" id="page-vision">
-  <div class="card"><div class="card-hd"><h3>🎯 Vision &amp; Mission Page</h3><button class="btn btn-blue btn-sm" onclick="saveSection('vision')">💾 Save Vision</button></div>
+  <div class="card"><div class="card-hd"><h3>🎯 Vision & Mission</h3><button class="btn btn-blue btn-sm" onclick="saveSection('vision')">💾 Save</button></div>
     <div class="card-body"><div class="grid-3">
       <div class="card"><div class="card-hd"><h3>🌅 Vision</h3></div><div class="card-body"><div class="field"><label>Text</label><textarea id="vis-v1" rows="5"></textarea></div></div></div>
       <div class="card"><div class="card-hd"><h3>🎯 Mission</h3></div><div class="card-body"><div class="field"><label>Text</label><textarea id="vis-v2" rows="5"></textarea></div></div></div>
-      <div class="card"><div class="card-hd"><h3>💎 Values</h3></div><div class="card-body"><div class="field"><label>Text (HTML allowed)</label><textarea id="vis-v3" rows="5"></textarea></div></div></div>
+      <div class="card"><div class="card-hd"><h3>💎 Values</h3></div><div class="card-body"><div class="field"><label>Text</label><textarea id="vis-v3" rows="5"></textarea></div></div></div>
     </div></div>
   </div>
 </div>
@@ -398,10 +377,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
 <div class="page" id="page-board">
   <div class="card">
     <div class="card-hd"><h3>👥 Board Members</h3><button class="btn btn-green btn-sm" onclick="openAddMember()">➕ Add Member</button></div>
-    <div class="card-body">
-      <div class="info-box">Board is empty by default. Add members using the button above. Photos upload to Supabase.</div>
-      <div id="boardList"><p style="color:var(--gray);font-size:13px;">No board members added yet.</p></div>
-    </div>
+    <div class="card-body"><div id="boardList"><p style="color:var(--gray);font-size:13px;">No board members yet.</p></div></div>
   </div>
 </div>
 
@@ -409,92 +385,41 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
 <div class="page" id="page-coordinators">
   <div class="card">
     <div class="card-hd"><h3>📍 Coordinators</h3><button class="btn btn-green btn-sm" onclick="openAddCoord()">➕ Add Coordinator</button></div>
-    <div class="card-body">
-      <div class="info-box">Coordinators list is empty by default.</div>
-      <div id="coordList"><p style="color:var(--gray);font-size:13px;">No coordinators added yet.</p></div>
-    </div>
+    <div class="card-body"><div id="coordList"><p style="color:var(--gray);font-size:13px;">No coordinators yet.</p></div></div>
   </div>
 </div>
 
 <!-- GALLERY -->
 <div class="page" id="page-gallery">
-  <div class="card"><div class="card-hd"><h3>🖼️ Gallery Management</h3></div>
+  <div class="card"><div class="card-hd"><h3>🖼️ Gallery</h3></div>
     <div class="card-body">
-      <div class="grid-2" style="margin-bottom:16px;">
-        <div>
-          <div class="upload-area" onclick="document.getElementById('gal-bulk-file').click()">
-            <div class="ico">📤</div><p>Click to upload photos (multiple allowed)</p>
-            <p style="font-size:11px;">JPG, PNG, WebP — max 10MB each</p>
-            <input type="file" id="gal-bulk-file" accept="image/*" multiple style="display:none" onchange="handleGalleryUpload(this)">
-          </div>
-          <div class="upload-progress" id="gal-prog"><div class="upload-progress-fill" id="gal-prog-fill"></div></div>
-        </div>
-        <div>
-          <div class="field"><label>Or Add by URL</label><input type="text" id="gal-url-input" placeholder="https://...image.jpg"></div>
-          <div class="field"><label>Caption (optional)</label><input type="text" id="gal-url-cap" placeholder="MLF Activity"></div>
-          <button class="btn btn-outline btn-sm" onclick="addGalleryByUrl()">➕ Add from URL</button>
-        </div>
+      <div class="upload-area" onclick="document.getElementById('gal-bulk-file').click()">
+        <div class="ico">📤</div><p>Click to upload photos (multiple)</p>
+        <input type="file" id="gal-bulk-file" accept="image/*" multiple style="display:none" onchange="handleGalleryUpload(this)">
       </div>
-      <div class="section-divider"></div>
+      <div style="margin-top:16px;"><div class="field"><label>Or Add by URL</label><input type="text" id="gal-url-input" placeholder="https://...image.jpg"></div>
+      <div class="field"><label>Caption</label><input type="text" id="gal-url-cap" placeholder="MLF Activity"></div>
+      <button class="btn btn-outline btn-sm" onclick="addGalleryByUrl()">➕ Add from URL</button></div>
+      <div style="height:1px;background:var(--gray-lt);margin:20px 0;"></div>
       <div class="gal-grid" id="galGrid"></div>
     </div>
   </div>
 </div>
 
-<!-- PROGRAM PAGES -->
-<div class="page" id="page-progpages">
-  <div class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab(event,'edu')">🎓 Education</button>
-    <button class="tab-btn" onclick="switchTab(event,'health')">🩺 Health</button>
-    <button class="tab-btn" onclick="switchTab(event,'rural')">🌾 Rural Youth</button>
-    <button class="tab-btn" onclick="switchTab(event,'env')">🌿 Environment</button>
-  </div>
-  <div id="tab-edu" class="tab-pane active">
-    <div class="card"><div class="card-hd"><h3>🎓 Education Page</h3><button class="btn btn-blue btn-sm" onclick="saveSection('progpages')">💾 Save All Pages</button></div>
-    <div class="card-body"><div class="grid-2">
-      <div><div class="upload-area" onclick="document.getElementById('edu-file').click()"><div class="ico">🎓</div><p>Upload image (blank by default)</p><input type="file" id="edu-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'edu-preview','edu-img','education/')"></div><img id="edu-preview" class="upload-preview" style="display:none;margin-top:8px;" src=""><input type="hidden" id="edu-img"></div>
-      <div><div class="field"><label>Title</label><input type="text" id="edu-t"></div><div class="field"><label>Paragraph 1</label><textarea id="edu-p1" rows="3"></textarea></div><div class="field"><label>Paragraph 2</label><textarea id="edu-p2" rows="3"></textarea></div><div class="field"><label>Featured Box Title</label><input type="text" id="edu-ft"></div><div class="field"><label>Featured Box Text</label><textarea id="edu-fp" rows="2"></textarea></div></div>
-    </div></div></div>
-  </div>
-  <div id="tab-health" class="tab-pane">
-    <div class="card"><div class="card-hd"><h3>🩺 Health Page</h3></div>
-    <div class="card-body"><div class="grid-2">
-      <div><div class="upload-area" onclick="document.getElementById('health-file').click()"><div class="ico">🩺</div><p>Upload image (blank by default)</p><input type="file" id="health-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'health-preview','health-img','health/')"></div><img id="health-preview" class="upload-preview" style="display:none;margin-top:8px;" src=""><input type="hidden" id="health-img"></div>
-      <div><div class="field"><label>Title</label><input type="text" id="health-t"></div><div class="field"><label>Paragraph 1</label><textarea id="health-p1" rows="3"></textarea></div><div class="field"><label>Paragraph 2</label><textarea id="health-p2" rows="3"></textarea></div><div class="field"><label>Featured Box Title</label><input type="text" id="health-ft"></div><div class="field"><label>Featured Box Text</label><textarea id="health-fp" rows="2"></textarea></div></div>
-    </div></div></div>
-  </div>
-  <div id="tab-rural" class="tab-pane">
-    <div class="card"><div class="card-hd"><h3>🌾 Rural Youth Page</h3></div>
-    <div class="card-body"><div class="grid-2">
-      <div><div class="upload-area" onclick="document.getElementById('rural-file').click()"><div class="ico">🌾</div><p>Upload image (blank by default)</p><input type="file" id="rural-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'rural-preview','rural-img','rural/')"></div><img id="rural-preview" class="upload-preview" style="display:none;margin-top:8px;" src=""><input type="hidden" id="rural-img"></div>
-      <div><div class="field"><label>Title</label><input type="text" id="rural-t"></div><div class="field"><label>Paragraph 1</label><textarea id="rural-p1" rows="3"></textarea></div><div class="field"><label>Paragraph 2</label><textarea id="rural-p2" rows="3"></textarea></div><div class="field"><label>Featured Box Title</label><input type="text" id="rural-ft"></div><div class="field"><label>Featured Box Text</label><textarea id="rural-fp" rows="2"></textarea></div></div>
-    </div></div></div>
-  </div>
-  <div id="tab-env" class="tab-pane">
-    <div class="card"><div class="card-hd"><h3>🌿 Environment Page</h3></div>
-    <div class="card-body"><div class="grid-2">
-      <div><div class="upload-area" onclick="document.getElementById('env-file').click()"><div class="ico">🌿</div><p>Upload image (blank by default)</p><input type="file" id="env-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'env-preview','env-img','environment/')"></div><img id="env-preview" class="upload-preview" style="display:none;margin-top:8px;" src=""><input type="hidden" id="env-img"></div>
-      <div><div class="field"><label>Title</label><input type="text" id="env-t"></div><div class="field"><label>Paragraph 1</label><textarea id="env-p1" rows="3"></textarea></div><div class="field"><label>Featured Box Title</label><input type="text" id="env-ft"></div><div class="field"><label>Featured Box Text</label><textarea id="env-fp" rows="2"></textarea></div></div>
-    </div></div></div>
-  </div>
-</div>
-
 <!-- DONATE -->
 <div class="page" id="page-donate">
-  <div class="card"><div class="card-hd"><h3>❤️ Donate Page</h3><button class="btn btn-blue btn-sm" onclick="saveSection('donate')">💾 Save Donate</button></div>
+  <div class="card"><div class="card-hd"><h3>❤️ Donate Page</h3><button class="btn btn-blue btn-sm" onclick="saveSection('donate')">💾 Save</button></div>
     <div class="card-body"><div class="grid-2">
       <div>
-        <div class="field"><label>Page Heading</label><input type="text" id="don-h"></div>
+        <div class="field"><label>Heading</label><input type="text" id="don-h"></div>
         <div class="field"><label>Paragraph 1</label><textarea id="don-p1" rows="3"></textarea></div>
-        <div class="field"><label>Paragraph 2 (HTML OK)</label><textarea id="don-p2" rows="2"></textarea></div>
-        <div class="field"><label>WhatsApp Number</label><input type="text" id="don-wa" placeholder="+91 8480141339"></div>
-        <div class="field"><label>UPI/WhatsApp Label</label><input type="text" id="don-upil"></div>
+        <div class="field"><label>WhatsApp Number</label><input type="text" id="don-wa"></div>
       </div>
       <div>
-        <div class="field"><label>Organization Name</label><input type="text" id="don-org" placeholder="My Lifeline Foundation"></div>
-        <div class="field"><label>Registration Number</label><input type="text" id="don-reg" placeholder="U85100OR2020NPL032868"></div>
-        <div class="field"><label>PAN Number</label><input type="text" id="don-pan" placeholder="AANCM3910F"></div>
-        <div class="field"><label>NITI Aayog ID</label><input type="text" id="don-niti" placeholder="OR/2020/0255447"></div>
+        <div class="field"><label>Organization Name</label><input type="text" id="don-org"></div>
+        <div class="field"><label>Registration Number</label><input type="text" id="don-reg"></div>
+        <div class="field"><label>PAN Number</label><input type="text" id="don-pan"></div>
+        <div class="field"><label>NITI Aayog ID</label><input type="text" id="don-niti"></div>
       </div>
     </div></div>
   </div>
@@ -502,19 +427,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
 
 <!-- CONTACT -->
 <div class="page" id="page-contact">
-  <div class="card"><div class="card-hd"><h3>📞 Contact Page</h3><button class="btn btn-blue btn-sm" onclick="saveSection('contact')">💾 Save Contact</button></div>
+  <div class="card"><div class="card-hd"><h3>📞 Contact Page</h3><button class="btn btn-blue btn-sm" onclick="saveSection('contact')">💾 Save</button></div>
     <div class="card-body"><div class="grid-2">
       <div>
         <div class="field"><label>Office Address</label><textarea id="con-a" rows="3"></textarea></div>
-        <div class="field"><label>Phone 1</label><input type="text" id="con-p1" placeholder="06727-796700"></div>
-        <div class="field"><label>Phone 2</label><input type="text" id="con-p2" placeholder="+91 9337994358"></div>
+        <div class="field"><label>Phone 1</label><input type="text" id="con-p1"></div>
+        <div class="field"><label>Phone 2</label><input type="text" id="con-p2"></div>
         <div class="field"><label>Email</label><input type="email" id="con-em"></div>
-        <div class="field"><label>Website URL</label><input type="url" id="con-web"></div>
-        <div class="field"><label>WhatsApp Number</label><input type="text" id="con-w" placeholder="+91 8480141339"></div>
+        <div class="field"><label>WhatsApp</label><input type="text" id="con-w"></div>
       </div>
       <div>
-        <div class="field"><label>Google Maps Embed URL (src only)</label><textarea id="con-m" rows="4"></textarea></div>
-        <div class="info-box" style="margin-top:10px;">Maps → Share → Embed a map → Copy the src="" URL only</div>
+        <div class="field"><label>Google Maps Embed URL</label><textarea id="con-m" rows="4"></textarea></div>
       </div>
     </div></div>
   </div>
@@ -522,17 +445,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
 
 <!-- BRANDING -->
 <div class="page" id="page-branding">
-  <div class="card"><div class="card-hd"><h3>🎨 Logo &amp; Branding</h3><button class="btn btn-blue btn-sm" onclick="saveSection('logo')">💾 Save Branding</button></div>
+  <div class="card"><div class="card-hd"><h3>🎨 Logo & Branding</h3><button class="btn btn-blue btn-sm" onclick="saveSection('logo')">💾 Save</button></div>
     <div class="card-body"><div class="grid-2">
       <div>
-        <div class="field"><label>Logo Image</label></div>
-        <div class="upload-area" onclick="document.getElementById('logo-file').click()"><div class="ico">🏷️</div><p>Upload organization logo</p><p style="font-size:11px;">PNG with transparent background recommended</p><input type="file" id="logo-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'logo-preview','logo-url','branding/')"></div>
+        <div class="upload-area" onclick="document.getElementById('logo-file').click()"><div class="ico">🏷️</div><p>Upload logo</p><input type="file" id="logo-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'logo-preview','logo-url','branding/')"></div>
         <img id="logo-preview" style="width:120px;height:60px;object-fit:contain;border:1px solid var(--gray-lt);border-radius:8px;padding:8px;display:none;margin-top:10px;" src=""><input type="hidden" id="logo-url">
       </div>
       <div>
-        <div class="field"><label>Organization Name</label><input type="text" id="logo-n" placeholder="My Lifeline Foundation"></div>
-        <div class="field"><label>Tagline</label><input type="text" id="logo-t" placeholder="Empowering Rural Odisha"></div>
-        <div class="field"><label>Browser Tab Title</label><input type="text" id="logo-tt" placeholder="My Lifeline Foundation – Empowering Rural Odisha"></div>
+        <div class="field"><label>Organization Name</label><input type="text" id="logo-n"></div>
+        <div class="field"><label>Tagline</label><input type="text" id="logo-t"></div>
+        <div class="field"><label>Browser Tab Title</label><input type="text" id="logo-tt"></div>
       </div>
     </div></div>
   </div>
@@ -540,14 +462,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
 
 <!-- FOOTER -->
 <div class="page" id="page-footer">
-  <div class="card"><div class="card-hd"><h3>📌 Footer</h3><button class="btn btn-blue btn-sm" onclick="saveSection('footer')">💾 Save Footer</button></div>
+  <div class="card"><div class="card-hd"><h3>📌 Footer</h3><button class="btn btn-blue btn-sm" onclick="saveSection('footer')">💾 Save</button></div>
     <div class="card-body">
       <div class="field"><label>About Text</label><textarea id="ft-about" rows="3"></textarea></div>
-      <div class="field"><label>Registration Number</label><input type="text" id="ft-reg" placeholder="U85100OR2020NPL032868"></div>
-      <div class="field"><label>PAN Number</label><input type="text" id="ft-pan" placeholder="AANCM3910F"></div>
       <div class="field"><label>Copyright Text</label><input type="text" id="ft-copy"></div>
-      <div class="section-divider"></div>
-      <h4 style="font-size:13px;font-weight:700;color:var(--blue);margin-bottom:12px;">Social Media Links</h4>
       <div class="grid-2">
         <div class="field"><label>Facebook URL</label><input type="url" id="soc1"></div>
         <div class="field"><label>Instagram URL</label><input type="url" id="soc2"></div>
@@ -558,56 +476,27 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
   </div>
 </div>
 
-<!-- LEGAL -->
-<div class="page" id="page-legal">
-  <div class="card"><div class="card-hd"><h3>📜 Legal Documents</h3><button class="btn btn-blue btn-sm" onclick="saveSection('legal')">💾 Save Legal</button></div>
-    <div class="card-body"><div class="grid-2">
-      <div class="field"><label>Registration Number</label><input type="text" id="leg-r" placeholder="U85100OR2020NPL032868"></div>
-      <div class="field"><label>PAN Number</label><input type="text" id="leg-pan" placeholder="AANCM3910F"></div>
-      <div class="field"><label>NITI Aayog Unique ID</label><input type="text" id="leg-niti" placeholder="OR/2020/0255447"></div>
-      <div class="field"><label>NITI Aayog Description</label><textarea id="leg-desc" rows="3"></textarea></div>
-    </div></div>
-  </div>
-</div>
-
-<!-- FESTIVALS -->
-<div class="page" id="page-festivals">
-  <div class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab(event,'fest-list')">🎉 Festival Calendar</button>
-    <button class="tab-btn" onclick="switchTab(event,'ticker-list')">📢 Ticker Messages</button>
-  </div>
-  <div id="tab-fest-list" class="tab-pane active">
-    <div class="card"><div class="card-hd"><h3>🎉 Odia Festival Calendar</h3><button class="btn btn-green btn-sm" onclick="openAddFestival()">➕ Add Festival</button></div>
-      <div class="card-body">
-        <div class="info-box">Festivals display in Odia in the clock widget. Default festivals are pre-loaded — edit or add as needed.</div>
-        <div id="festivalList"><p style="color:var(--gray);font-size:13px;">Loading...</p></div>
-      </div>
-    </div>
-  </div>
-  <div id="tab-ticker-list" class="tab-pane">
-    <div class="card"><div class="card-hd"><h3>📢 Ticker / Notification Messages</h3><button class="btn btn-green btn-sm" onclick="openAddTicker()">➕ Add Message</button></div>
-      <div class="card-body">
-        <div class="field"><label>Birthday Wish Template (use {name} for volunteer name)</label><input type="text" id="bday-wish" placeholder="ଜନ୍ମଦିନ ଶୁଭେଚ୍ଛା {name}! MLF ପରିବାର ତଙ୍କୁ ଶୁଭେଚ୍ଛା ଜଣାଉଛି 🎉"></div>
-        <button class="btn btn-blue btn-sm" onclick="saveBdayWish()" style="margin-bottom:16px;">💾 Save Birthday Template</button>
-        <div id="tickerList"><p style="color:var(--gray);font-size:13px;">No custom messages. Default messages show.</p></div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- VOLUNTEERS -->
 <div class="page" id="page-volunteers">
   <div class="card">
-    <div class="card-hd"><h3>🙋 Registered Volunteers</h3>
+    <div class="card-hd"><h3>🙋 Volunteers</h3>
       <div style="display:flex;gap:8px;">
-        <input type="text" id="vol-search" placeholder="Search by name/ID..." style="padding:7px 12px;border:1.5px solid var(--gray-lt);border-radius:8px;font-size:13px;width:200px;" oninput="filterVolunteers()">
+        <input type="text" id="vol-search" placeholder="Search..." style="padding:7px 12px;border:1.5px solid var(--gray-lt);border-radius:8px;font-size:13px;width:200px;" oninput="filterVolunteers()">
         <button class="btn btn-outline btn-sm" onclick="exportVolunteers()">📥 Export CSV</button>
-        <button class="btn btn-green btn-sm" onclick="syncToSheets()">🔄 Sync to Sheets</button>
       </div>
     </div>
     <div class="card-body" style="padding:0;"><div style="overflow-x:auto;">
-      <table class="tbl"><thead><tr><th>Photo</th><th>Vol ID</th><th>Name</th><th>Mobile</th><th>District</th><th>Join Date</th><th>Status</th><th>Actions</th></tr></thead>
-      <tbody id="volTbody"><tr><td colspan="8" style="text-align:center;color:var(--gray);padding:30px;">No volunteers registered yet.</td></tr></tbody></table>
+      <table style="width:100%;border-collapse:collapse;">
+        <thead><tr style="background:var(--off);">
+          <th style="padding:10px 14px;font-size:11.5px;font-weight:700;color:var(--gray);text-align:left;border-bottom:1px solid var(--gray-lt);">Photo</th>
+          <th style="padding:10px 14px;font-size:11.5px;font-weight:700;color:var(--gray);text-align:left;border-bottom:1px solid var(--gray-lt);">Vol ID</th>
+          <th style="padding:10px 14px;font-size:11.5px;font-weight:700;color:var(--gray);text-align:left;border-bottom:1px solid var(--gray-lt);">Name</th>
+          <th style="padding:10px 14px;font-size:11.5px;font-weight:700;color:var(--gray);text-align:left;border-bottom:1px solid var(--gray-lt);">Mobile</th>
+          <th style="padding:10px 14px;font-size:11.5px;font-weight:700;color:var(--gray);text-align:left;border-bottom:1px solid var(--gray-lt);">District</th>
+          <th style="padding:10px 14px;font-size:11.5px;font-weight:700;color:var(--gray);text-align:left;border-bottom:1px solid var(--gray-lt);">Joined</th>
+        </tr></thead>
+        <tbody id="volTbody"><tr><td colspan="6" style="text-align:center;color:var(--gray);padding:30px;">No volunteers yet.</td></tr></tbody>
+      </table>
     </div></div>
   </div>
 </div>
@@ -617,46 +506,27 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
   <div class="card">
     <div class="card-hd"><h3>💝 Donors</h3><button class="btn btn-green btn-sm" onclick="openAddDonor()">➕ Add Donor</button></div>
     <div class="card-body" style="padding:0;"><div style="overflow-x:auto;">
-      <table class="tbl"><thead><tr><th>Name</th><th>Mobile</th><th>Amount</th><th>Type</th><th>Date</th><th>Message</th><th>Actions</th></tr></thead>
-      <tbody id="donorTbody"><tr><td colspan="7" style="text-align:center;color:var(--gray);padding:30px;">No donors recorded yet.</td></tr></tbody></table>
+      <table style="width:100%;border-collapse:collapse;">
+        <thead><tr style="background:var(--off);">
+          <th style="padding:10px 14px;font-size:11.5px;font-weight:700;color:var(--gray);text-align:left;border-bottom:1px solid var(--gray-lt);">Name</th>
+          <th style="padding:10px 14px;font-size:11.5px;font-weight:700;color:var(--gray);text-align:left;border-bottom:1px solid var(--gray-lt);">Amount</th>
+          <th style="padding:10px 14px;font-size:11.5px;font-weight:700;color:var(--gray);text-align:left;border-bottom:1px solid var(--gray-lt);">Date</th>
+          <th style="padding:10px 14px;font-size:11.5px;font-weight:700;color:var(--gray);text-align:left;border-bottom:1px solid var(--gray-lt);">Actions</th>
+        </tr></thead>
+        <tbody id="donorTbody"><tr><td colspan="4" style="text-align:center;color:var(--gray);padding:30px;">No donors yet.</td></tr></tbody>
+      </table>
     </div></div>
   </div>
 </div>
 
 <!-- PASSWORD -->
 <div class="page" id="page-password">
-  <div class="card" style="max-width:480px;"><div class="card-hd"><h3>🔑 Change Admin Password</h3></div>
+  <div class="card" style="max-width:480px;"><div class="card-hd"><h3>🔑 Change Password</h3></div>
     <div class="card-body">
       <div class="field"><label>Current Password</label><input type="password" id="pw-cur"></div>
-      <div class="field"><label>New Password</label><input type="password" id="pw-new" placeholder="Min 6 characters"></div>
+      <div class="field"><label>New Password</label><input type="password" id="pw-new"></div>
       <div class="field"><label>Confirm New Password</label><input type="password" id="pw-confirm"></div>
       <button class="btn btn-blue" onclick="changePassword()">🔒 Update Password</button>
-    </div>
-  </div>
-</div>
-
-<!-- FORGOT -->
-<div class="page" id="page-forgot">
-  <div class="card" style="max-width:560px;"><div class="card-hd"><h3>🔓 Volunteer Account Lookup</h3></div>
-    <div class="card-body">
-      <div class="info-box">Find a volunteer by mobile + last 4 digits of Aadhaar to recover their Volunteer ID.</div>
-      <div class="field"><label>Mobile Number</label><input type="tel" id="forg-mobile" placeholder="10-digit mobile" maxlength="10"></div>
-      <div class="field"><label>Last 4 Digits of Aadhaar</label><input type="text" id="forg-aadhaar" placeholder="e.g. 7832" maxlength="4"></div>
-      <button class="btn btn-blue" onclick="lookupVolunteer()">🔍 Find Volunteer</button>
-      <div id="forg-result" style="margin-top:16px;"></div>
-    </div>
-  </div>
-</div>
-
-<!-- SHEETS -->
-<div class="page" id="page-sheets">
-  <div class="card"><div class="card-hd"><h3>📊 Google Sheets Integration</h3></div>
-    <div class="card-body">
-      <div class="info-box">Paste a Google Apps Script Web App URL to auto-sync volunteer registrations and contact messages to Google Sheets.</div>
-      <div class="field"><label>Apps Script Web App URL</label><input type="url" id="sheets-url" placeholder="https://script.google.com/macros/s/...../exec"></div>
-      <p class="field-note">Deploy as Web App: Execute as Me, Who can access: Anyone. Then paste URL here.</p>
-      <button class="btn btn-blue" style="margin-top:12px;" onclick="saveSheets()">💾 Save Sheets URL</button>
-      <button class="btn btn-outline" style="margin-top:12px;margin-left:8px;" onclick="testSheets()">🔗 Test Connection</button>
     </div>
   </div>
 </div>
@@ -669,10 +539,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
     <div class="modal-body">
       <input type="hidden" id="member-edit-idx">
       <div class="field"><label>Full Name *</label><input type="text" id="m-name"></div>
-      <div class="field"><label>Designation *</label><input type="text" id="m-desig" placeholder="e.g., CEO / Founder, Director"></div>
-      <div class="field"><label>Photo</label></div>
-      <div class="upload-area" onclick="document.getElementById('m-photo-file').click()"><div class="ico">👤</div><p>Upload member photo</p><input type="file" id="m-photo-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'m-photo-preview','m-photo-url','board_members/')"></div>
-      <img id="m-photo-preview" style="width:70px;height:70px;border-radius:50%;object-fit:cover;border:2px solid var(--blue);display:none;margin-top:8px;" src=""><input type="hidden" id="m-photo-url">
+      <div class="field"><label>Designation *</label><input type="text" id="m-desig"></div>
+      <div class="upload-area" onclick="document.getElementById('m-photo-file').click()"><div class="ico">👤</div><p>Upload photo</p><input type="file" id="m-photo-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'m-photo-preview','m-photo-url','board_members/')"></div>
+      <img id="m-photo-preview" style="width:70px;height:70px;border-radius:50%;object-fit:cover;display:none;margin-top:8px;" src=""><input type="hidden" id="m-photo-url">
       <div style="display:flex;gap:10px;margin-top:20px;"><button class="btn btn-green btn-full" onclick="saveMember('board')">✅ Save Member</button><button class="btn btn-outline" onclick="closeModal('modal-member')">Cancel</button></div>
     </div>
   </div>
@@ -682,37 +551,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
   <div class="modal-box"><div class="modal-hd"><h3 id="coordModalTitle">➕ Add Coordinator</h3><button class="modal-close" onclick="closeModal('modal-coord')">✕</button></div>
     <div class="modal-body">
       <input type="hidden" id="coord-edit-idx">
-      <div class="grid-2"><div class="field"><label>Full Name *</label><input type="text" id="c-name"></div><div class="field"><label>Role *</label><input type="text" id="c-role"></div></div>
-      <div class="grid-2"><div class="field"><label>Volunteer ID</label><input type="text" id="c-id" placeholder="e.g., MLF124"></div><div class="field"><label>Phone Number</label><input type="tel" id="c-phone"></div></div>
-      <div class="field"><label>Area / Location</label><input type="text" id="c-area"></div>
-      <div class="field"><label>Photo</label></div>
-      <div class="upload-area" onclick="document.getElementById('c-photo-file').click()"><div class="ico">👤</div><p>Upload coordinator photo</p><input type="file" id="c-photo-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'c-photo-preview','c-photo-url','coordinators/')"></div>
-      <img id="c-photo-preview" style="width:70px;height:70px;border-radius:50%;object-fit:cover;border:2px solid var(--green);display:none;margin-top:8px;" src=""><input type="hidden" id="c-photo-url">
-      <div style="display:flex;gap:10px;margin-top:20px;"><button class="btn btn-green btn-full" onclick="saveMember('coord')">✅ Save Coordinator</button><button class="btn btn-outline" onclick="closeModal('modal-coord')">Cancel</button></div>
-    </div>
-  </div>
-</div>
-
-<div class="modal-ov" id="modal-festival">
-  <div class="modal-box"><div class="modal-hd"><h3 id="festModalTitle">➕ Add Festival</h3><button class="modal-close" onclick="closeModal('modal-festival')">✕</button></div>
-    <div class="modal-body">
-      <input type="hidden" id="fest-edit-idx">
-      <div class="grid-2"><div class="field"><label>Month (1-12)</label><input type="number" id="f-month" min="1" max="12"></div><div class="field"><label>Day (1-31)</label><input type="number" id="f-day" min="1" max="31"></div></div>
-      <div class="field"><label>Festival Name (Odia preferred)</label><input type="text" id="f-name" placeholder="ମକର ସଂକ୍ରାନ୍ତି"></div>
-      <div class="field"><label>Emoji(s)</label><input type="text" id="f-emoji" placeholder="🪁🌊"></div>
-      <div class="field"><label>Wish Message (Odia)</label><textarea id="f-wish" rows="3"></textarea></div>
-      <div style="display:flex;gap:10px;margin-top:16px;"><button class="btn btn-green btn-full" onclick="saveFestival()">✅ Save Festival</button><button class="btn btn-outline" onclick="closeModal('modal-festival')">Cancel</button></div>
-    </div>
-  </div>
-</div>
-
-<div class="modal-ov" id="modal-ticker">
-  <div class="modal-box"><div class="modal-hd"><h3>➕ Add Ticker Message</h3><button class="modal-close" onclick="closeModal('modal-ticker')">✕</button></div>
-    <div class="modal-body">
-      <div class="field"><label>Tag Type</label><select id="tick-tag"><option value="program">📋 Program</option><option value="event">📅 Event</option><option value="rating">⭐ Rating</option><option value="welcome">🤝 Welcome</option></select></div>
-      <div class="field"><label>Label Text</label><input type="text" id="tick-label" placeholder="📋 Program"></div>
-      <div class="field"><label>Message Text (Odia or English)</label><textarea id="tick-text" rows="3"></textarea></div>
-      <div style="display:flex;gap:10px;margin-top:16px;"><button class="btn btn-green btn-full" onclick="saveTicker()">✅ Save Message</button><button class="btn btn-outline" onclick="closeModal('modal-ticker')">Cancel</button></div>
+      <div class="grid-2"><div class="field"><label>Name *</label><input type="text" id="c-name"></div><div class="field"><label>Role *</label><input type="text" id="c-role"></div></div>
+      <div class="grid-2"><div class="field"><label>Vol ID</label><input type="text" id="c-id"></div><div class="field"><label>Phone</label><input type="tel" id="c-phone"></div></div>
+      <div class="field"><label>Area</label><input type="text" id="c-area"></div>
+      <div class="upload-area" onclick="document.getElementById('c-photo-file').click()"><div class="ico">👤</div><p>Upload photo</p><input type="file" id="c-photo-file" accept="image/*" style="display:none" onchange="handleImageUpload(this,'c-photo-preview','c-photo-url','coordinators/')"></div>
+      <img id="c-photo-preview" style="width:70px;height:70px;border-radius:50%;object-fit:cover;display:none;margin-top:8px;" src=""><input type="hidden" id="c-photo-url">
+      <div style="display:flex;gap:10px;margin-top:20px;"><button class="btn btn-green btn-full" onclick="saveMember('coord')">✅ Save</button><button class="btn btn-outline" onclick="closeModal('modal-coord')">Cancel</button></div>
     </div>
   </div>
 </div>
@@ -720,17 +564,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
 <div class="modal-ov" id="modal-donor">
   <div class="modal-box"><div class="modal-hd"><h3>💝 Add Donor</h3><button class="modal-close" onclick="closeModal('modal-donor')">✕</button></div>
     <div class="modal-body">
-      <div class="donor-type-btns">
-        <div class="dtype-btn active" onclick="selectDType(this,'cash')">💵 Cash</div>
-        <div class="dtype-btn" onclick="selectDType(this,'online')">📱 Online</div>
-        <div class="dtype-btn" onclick="selectDType(this,'kind')">🎁 In-Kind</div>
-        <div class="dtype-btn" onclick="selectDType(this,'anonymous')">🔒 Anonymous</div>
-      </div>
-      <input type="hidden" id="donor-type" value="cash">
-      <div class="grid-2"><div class="field"><label>Donor Name</label><input type="text" id="d-name"></div><div class="field"><label>Mobile</label><input type="tel" id="d-mobile"></div></div>
-      <div class="grid-2"><div class="field"><label>Amount (₹)</label><input type="number" id="d-amount" placeholder="0"></div><div class="field"><label>Date</label><input type="date" id="d-date"></div></div>
-      <div class="field"><label>Message / Notes</label><textarea id="d-msg" rows="2"></textarea></div>
-      <div style="display:flex;gap:10px;margin-top:16px;"><button class="btn btn-green btn-full" onclick="saveDonor()">💝 Save Donor</button><button class="btn btn-outline" onclick="closeModal('modal-donor')">Cancel</button></div>
+      <div class="grid-2"><div class="field"><label>Name</label><input type="text" id="d-name"></div><div class="field"><label>Mobile</label><input type="tel" id="d-mobile"></div></div>
+      <div class="grid-2"><div class="field"><label>Amount (₹)</label><input type="number" id="d-amount"></div><div class="field"><label>Date</label><input type="date" id="d-date"></div></div>
+      <div class="field"><label>Notes</label><textarea id="d-msg" rows="2"></textarea></div>
+      <button class="btn btn-green btn-full" onclick="saveDonor()">💝 Save Donor</button>
     </div>
   </div>
 </div>
@@ -738,549 +575,497 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
 <div class="toast" id="toast"></div>
 
 <script>
-/* MLF Admin Panel v3.0 — All Bugs Fixed */
-const SB_URL='https://mvkbczobozlbdigkecwr.supabase.co';
-const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12a2Jjem9ib3psYmRpZ2tlY3dyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyNDk0MzksImV4cCI6MjA4OTgyNTQzOX0.QzrmLBzKyA3NzQTKFnTSiGHiEnIeD0DwH5fCULhDUTM';
-const SB_BUCKET='mlf-images';
-let adminCreds=JSON.parse(localStorage.getItem('mlf_admin_creds')||'{"user":"admin","pass":"mlf@2024"}');
+// ═══════════════════════════════════
+// SUPABASE CONFIG
+// ═══════════════════════════════════
+const SB_URL = 'https://mvkbczobozlbdigkecwr.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12a2Jjem9ib3psYmRpZ2tlY3dyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyNDk0MzksImV4cCI6MjA4OTgyNTQzOX0.QzrmLBzKyA3NzQTKFnTSiGHiEnIeD0DwH5fCULhDUTM';
+const SB_BUCKET = 'mlf-images';
+const SB_HEADERS = {'apikey': SB_KEY, 'Authorization': `Bearer ${SB_KEY}`, 'Content-Type': 'application/json'};
 
-function doLogin(){
-  const u=document.getElementById('loginUser').value.trim(),p=document.getElementById('loginPass').value;
-  if(u===adminCreds.user&&p===adminCreds.pass){document.getElementById('loginScreen').classList.add('hidden');document.getElementById('loginErr').style.display='none';init();}
-  else document.getElementById('loginErr').style.display='block';
+let adminCreds = JSON.parse(localStorage.getItem('mlf_admin_creds') || '{"user":"admin","pass":"mlf@2024"}');
+let cachedContent = {};
+
+// ═══════════════════════════════════
+// AUTH
+// ═══════════════════════════════════
+function doLogin() {
+  const u = document.getElementById('loginUser').value.trim();
+  const p = document.getElementById('loginPass').value;
+  if (u === adminCreds.user && p === adminCreds.pass) {
+    document.getElementById('loginScreen').classList.add('hidden');
+    document.getElementById('loginErr').style.display = 'none';
+    init();
+  } else {
+    document.getElementById('loginErr').style.display = 'block';
+  }
 }
-document.getElementById('loginPass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
-function doLogout(){document.getElementById('loginScreen').classList.remove('hidden');document.getElementById('loginPass').value='';}
+document.getElementById('loginPass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+function doLogout() { document.getElementById('loginScreen').classList.remove('hidden'); document.getElementById('loginPass').value = ''; }
 
-const DB={
-  get:k=>{try{return JSON.parse(localStorage.getItem(k)||'null');}catch{return null;}},
-  set:(k,v)=>localStorage.setItem(k,JSON.stringify(v)),
-  getSt:()=>DB.get('mlf_st')||{},
-  setSt:d=>DB.set('mlf_st',d)
-};
-function getVols(){return JSON.parse(localStorage.getItem('mlf_volunteers')||'[]');}
-function getDonors(){return DB.get('mlf_donors')||[];}
-function setDonors(d){DB.set('mlf_donors',d);}
-function g(id){const el=document.getElementById(id);return el?el.value:'';}
-
-function init(){
-  checkSupabase();loadAllFields();
-  renderBoard();renderCoords();renderGallery();
-  renderFestivals();renderTicker();
-  renderVolunteers();renderDonors();updateDashboard();
-  const su=localStorage.getItem('mlf_url')||'';
-  const sel=document.getElementById('sheets-url');if(sel)sel.value=su;
-  const bday=DB.getSt()?.notifcal?.birthdayWish;
-  const bdEl=document.getElementById('bday-wish');if(bdEl&&bday)bdEl.value=bday;
-}
-
-const PAGE_TITLES={dashboard:'Dashboard',hero:'Hero Section',about:'About Section',programs:'Programs',stats:'Impact Stats',testimonials:'Testimonials',join:'Join Section',vision:'Vision & Mission',board:'Board Members',coordinators:'Coordinators',gallery:'Gallery',progpages:'Program Pages',donate:'Donate Page',contact:'Contact Page',branding:'Logo & Branding',footer:'Footer',legal:'Legal Documents',festivals:'Festivals & Ticker',volunteers:'Volunteers',donors:'Donors',password:'Change Password',forgot:'Forgot Password',sheets:'Google Sheets'};
-
-function showPage(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.sb-item').forEach(a=>a.classList.remove('active'));
-  const pg=document.getElementById('page-'+id);if(pg)pg.classList.add('active');
-  document.getElementById('pageTitle').textContent=PAGE_TITLES[id]||id;
-  document.querySelectorAll('.sb-item').forEach(a=>{if(a.getAttribute('onclick')&&a.getAttribute('onclick').includes("'"+id+"'"))a.classList.add('active');});
+// ═══════════════════════════════════
+// SUPABASE API
+// ═══════════════════════════════════
+async function sbFetch(path, method = 'GET', body = null) {
+  const opts = { method, headers: SB_HEADERS };
+  if (body) opts.body = JSON.stringify(body);
+  const r = await fetch(SB_URL + path, opts);
+  return r;
 }
 
-async function checkSupabase(){
-  const el=document.getElementById('sbStatus');
-  try{
-    const r=await fetch(`${SB_URL}/storage/v1/object/list/${SB_BUCKET}`,{method:'POST',headers:{'apikey':SB_KEY,'Authorization':`Bearer ${SB_KEY}`,'Content-Type':'application/json'},body:JSON.stringify({prefix:'',limit:1})});
-    if(r.ok||r.status===200){el.className='info-box';el.innerHTML='✅ Supabase connected! Bucket <strong>mlf-images</strong> ready. <strong>To enable image uploads:</strong> Go to Supabase → Storage → Policies → New Policy → INSERT → anon → Save.';}
-    else{el.className='warn-box';el.innerHTML=`⚠️ Supabase status ${r.status}. <strong>Fix:</strong> Supabase Dashboard → Storage → Files → MLF-IMAGES → New Policy → For full customization → Check INSERT → Target: anon → USING: true → Save. Then refresh this page.`;}
-  }catch{el.className='warn-box';el.innerHTML='⚠️ Cannot reach Supabase. Check internet connection.';}
+async function loadContentFromSupabase() {
+  try {
+    const r = await sbFetch('/rest/v1/mlf_content?id=eq.main&select=data');
+    if (!r.ok) throw new Error('Failed');
+    const rows = await r.json();
+    if (rows && rows.length > 0) {
+      cachedContent = rows[0].data || {};
+    }
+    updateSyncStatus(true);
+    return cachedContent;
+  } catch (e) {
+    updateSyncStatus(false);
+    // Fallback to localStorage
+    cachedContent = JSON.parse(localStorage.getItem('mlf_st') || '{}');
+    return cachedContent;
+  }
 }
 
-// REST API upload — NO window.supabase SDK needed
-async function uploadToSupabase(file,folder){
-  const ext=file.name.split('.').pop().toLowerCase();
-  if(!['jpg','jpeg','png','webp','gif','svg'].includes(ext))throw new Error('Invalid file type: '+ext);
-  const fname=folder+Date.now()+'_'+Math.random().toString(36).substr(2,6)+'.'+ext;
-  const resp=await fetch(`${SB_URL}/storage/v1/object/${SB_BUCKET}/${fname}`,{
-    method:'POST',
-    headers:{'apikey':SB_KEY,'Authorization':`Bearer ${SB_KEY}`,'Content-Type':file.type||'application/octet-stream','x-upsert':'true'},
-    body:file
+async function saveContentToSupabase(data) {
+  updateSyncStatus(null); // loading
+  try {
+    // Try update first
+    const r = await sbFetch('/rest/v1/mlf_content?id=eq.main', 'PATCH', { data });
+    if (!r.ok) {
+      // Try insert
+      await sbFetch('/rest/v1/mlf_content', 'POST', { id: 'main', data });
+    }
+    // Also save to localStorage as backup
+    localStorage.setItem('mlf_st', JSON.stringify(data));
+    updateSyncStatus(true);
+    return true;
+  } catch (e) {
+    // Fallback to localStorage only
+    localStorage.setItem('mlf_st', JSON.stringify(data));
+    updateSyncStatus(false);
+    showToast('⚠️ Saved locally only. Check Supabase connection.', 'error');
+    return false;
+  }
+}
+
+function updateSyncStatus(ok) {
+  const el = document.getElementById('syncStatusBadge');
+  if (!el) return;
+  if (ok === null) { el.className = 'sync-status sync-ing'; el.textContent = '⏳ Saving...'; }
+  else if (ok) { el.className = 'sync-status sync-ok'; el.textContent = '✅ Supabase Synced'; }
+  else { el.className = 'sync-status sync-err'; el.textContent = '⚠️ Using Local Storage'; }
+}
+
+async function checkSupabase() {
+  const el = document.getElementById('sbStatus');
+  try {
+    const r = await sbFetch('/rest/v1/mlf_content?id=eq.main&select=id');
+    if (r.ok) {
+      el.className = 'info-box';
+      el.innerHTML = '✅ <strong>Supabase Connected!</strong> All content saves to database — visible on ALL browsers & devices automatically.';
+      updateSyncStatus(true);
+    } else throw new Error();
+  } catch {
+    el.className = 'warn-box';
+    el.innerHTML = '⚠️ Cannot reach Supabase. Content will save locally only.';
+    updateSyncStatus(false);
+  }
+}
+
+// ═══════════════════════════════════
+// IMAGE UPLOAD
+// ═══════════════════════════════════
+async function uploadToSupabase(file, folder) {
+  const ext = file.name.split('.').pop().toLowerCase();
+  const fname = folder + Date.now() + '_' + Math.random().toString(36).substr(2, 6) + '.' + ext;
+  const r = await fetch(`${SB_URL}/storage/v1/object/${SB_BUCKET}/${fname}`, {
+    method: 'POST',
+    headers: { 'apikey': SB_KEY, 'Authorization': `Bearer ${SB_KEY}`, 'Content-Type': file.type || 'application/octet-stream', 'x-upsert': 'true' },
+    body: file
   });
-  if(!resp.ok){const e=await resp.text().catch(()=>'Unknown');throw new Error(`Upload failed (${resp.status}): ${e}`);}
+  if (!r.ok) throw new Error('Upload failed');
   return `${SB_URL}/storage/v1/object/public/${SB_BUCKET}/${fname}`;
 }
 
-// SINGLE handleImageUpload — tries Supabase, falls back to BASE64 (permanent)
-async function handleImageUpload(input,previewId,urlId,folder){
-  const file=input.files[0];if(!file)return;
-  if(file.size>10*1024*1024){showToast('File too large. Max 10MB.','error');return;}
-  
-  // First convert to base64 (always works, persists in localStorage)
-  const base64 = await fileToBase64(file);
-  
-  // Try Supabase upload first
-  showToast('Uploading image... ⏳','');
-  try{
-    const url=await uploadToSupabase(file,folder);
-    // Supabase worked - use permanent CDN URL
-    if(urlId)document.getElementById(urlId).value=url;
-    const prev=previewId?document.getElementById(previewId):null;
-    if(prev){prev.src=url;prev.style.display='';}
-    showToast('✅ Uploaded to Supabase! Image saved permanently.','success');
-  }catch(err){
-    // Supabase failed - use base64 (stored in localStorage, persists forever)
-    console.warn('Supabase upload failed, using base64 fallback:', err.message);
-    if(urlId)document.getElementById(urlId).value=base64;
-    const prev=previewId?document.getElementById(previewId):null;
-    if(prev){prev.src=base64;prev.style.display='';}
-    showToast('✅ Image ready! (Tip: Add Supabase policy for CDN hosting)','success');
+async function handleImageUpload(input, previewId, urlId, folder) {
+  const file = input.files[0]; if (!file) return;
+  if (file.size > 10 * 1024 * 1024) { showToast('File too large. Max 10MB.', 'error'); return; }
+  showToast('Uploading... ⏳', '');
+  try {
+    const url = await uploadToSupabase(file, folder);
+    if (urlId) document.getElementById(urlId).value = url;
+    const prev = previewId ? document.getElementById(previewId) : null;
+    if (prev) { prev.src = url; prev.style.display = ''; }
+    showToast('✅ Uploaded to Supabase!', 'success');
+  } catch (err) {
+    // Base64 fallback
+    const b64 = await fileToBase64(file);
+    if (urlId) document.getElementById(urlId).value = b64;
+    const prev = previewId ? document.getElementById(previewId) : null;
+    if (prev) { prev.src = b64; prev.style.display = ''; }
+    showToast('⚠️ Stored locally (Supabase upload failed)', '');
   }
-  input.value='';
+  input.value = '';
 }
 
-// Convert file to compressed base64 (max 800px, 0.8 quality — saves localStorage space)
-function fileToBase64(file, maxSize=800, quality=0.82){
-  return new Promise((resolve,reject)=>{
-    const reader=new FileReader();
-    reader.onload=e=>{
-      const img=new Image();
-      img.onload=()=>{
-        const canvas=document.createElement('canvas');
-        let w=img.width,h=img.height;
-        if(w>maxSize||h>maxSize){
-          if(w>h){h=Math.round(h*maxSize/w);w=maxSize;}
-          else{w=Math.round(w*maxSize/h);h=maxSize;}
-        }
-        canvas.width=w;canvas.height=h;
-        const ctx=canvas.getContext('2d');
-        ctx.drawImage(img,0,0,w,h);
-        resolve(canvas.toDataURL('image/jpeg',quality));
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = new Image(); img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let w = img.width, h = img.height, max = 1200;
+        if (w > max || h > max) { if (w > h) { h = Math.round(h * max / w); w = max; } else { w = Math.round(w * max / h); h = max; } }
+        canvas.width = w; canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        resolve(canvas.toDataURL('image/jpeg', 0.85));
       };
-      img.onerror=()=>reject(new Error('Image load failed'));
-      img.src=e.target.result;
+      img.onerror = () => reject(new Error('Failed')); img.src = e.target.result;
     };
-    reader.onerror=()=>reject(new Error('File read failed'));
-    reader.readAsDataURL(file);
+    reader.onerror = () => reject(new Error('Failed')); reader.readAsDataURL(file);
   });
 }
 
-// Check localStorage space
-function checkStorageSpace(){
-  try{
-    let total=0;
-    for(let k in localStorage)total+=localStorage[k].length+k.length;
-    const mb=(total*2/1024/1024).toFixed(1);
-    if(total*2>4*1024*1024)showToast(`⚠️ Storage ${mb}MB used. Images may not save. Add Supabase policy for CDN hosting.`,'error');
-    return total;
-  }catch{return 0;}
-}
-
-// Gallery
-function renderGallery(){
-  const photos=DB.getSt().gallery||[];
-  const grid=document.getElementById('galGrid');if(!grid)return;
-  document.getElementById('dash-photos').textContent=photos.length;
-  grid.innerHTML='';
-  photos.forEach((img,i)=>{
-    const div=document.createElement('div');div.className='gal-item';
-    div.innerHTML=`<img src="${img.url}" alt="${img.cap||''}" loading="lazy" onerror="this.style.display='none'"><button class="gal-item-del" onclick="deleteGalleryItem(${i})">🗑</button>`;
+// ═══════════════════════════════════
+// GALLERY
+// ═══════════════════════════════════
+function renderGallery() {
+  const photos = cachedContent.gallery || [];
+  const grid = document.getElementById('galGrid'); if (!grid) return;
+  document.getElementById('dash-photos').textContent = photos.length;
+  grid.innerHTML = '';
+  photos.forEach((img, i) => {
+    const div = document.createElement('div'); div.className = 'gal-item';
+    div.innerHTML = `<img src="${img.url}" loading="lazy" onerror="this.style.display='none'"><button class="gal-item-del" onclick="deleteGalleryItem(${i})">🗑</button>`;
     grid.appendChild(div);
   });
-  const add=document.createElement('div');add.className='gal-add';
-  add.innerHTML='<div style="font-size:28px;">📤</div><p style="font-size:12px;color:var(--gray);margin-top:4px;">Upload</p>';
-  add.onclick=()=>document.getElementById('gal-bulk-file').click();
+  const add = document.createElement('div'); add.className = 'gal-add';
+  add.innerHTML = '<div style="font-size:28px;">📤</div><p style="font-size:12px;color:var(--gray);margin-top:4px;">Upload</p>';
+  add.onclick = () => document.getElementById('gal-bulk-file').click();
   grid.appendChild(add);
 }
-async function handleGalleryUpload(input){
-  const files=Array.from(input.files);if(!files.length)return;
-  const st=DB.getSt();if(!st.gallery)st.gallery=[];
-  const prog=document.getElementById('gal-prog'),fill=document.getElementById('gal-prog-fill');
-  prog.style.display='block';let sbOk=0,b64Ok=0;
-  for(let i=0;i<files.length;i++){
-    fill.style.width=`${((i+1)/files.length)*100}%`;
-    const cap=prompt(`Caption for photo ${i+1}/${files.length}?\n${files[i].name}`,'MLF Activity')||'MLF Activity';
-    try{
-      const url=await uploadToSupabase(files[i],'gallery/');
-      st.gallery.push({url,cap});sbOk++;
-    }catch{
-      // Base64 fallback — persists in localStorage
-      try{
-        const b64=await fileToBase64(files[i]);
-        st.gallery.push({url:b64,cap});b64Ok++;
-      }catch{}
+
+async function handleGalleryUpload(input) {
+  const files = Array.from(input.files); if (!files.length) return;
+  if (!cachedContent.gallery) cachedContent.gallery = [];
+  for (let i = 0; i < files.length; i++) {
+    const cap = prompt(`Caption for photo ${i + 1}/${files.length}?`, 'MLF Activity') || 'MLF Activity';
+    try {
+      const url = await uploadToSupabase(files[i], 'gallery/');
+      cachedContent.gallery.push({ url, cap });
+    } catch {
+      const b64 = await fileToBase64(files[i]);
+      cachedContent.gallery.push({ url: b64, cap });
     }
   }
-  DB.setSt(st);renderGallery();prog.style.display='none';fill.style.width='0';
-  const msg=sbOk>0?`✅ ${sbOk} uploaded to Supabase, ${b64Ok} stored locally`:`✅ ${b64Ok} photos added (stored locally)`;
-  showToast(msg,'success');
-  input.value='';
-}
-function addGalleryByUrl(){
-  const url=document.getElementById('gal-url-input').value.trim();
-  const cap=document.getElementById('gal-url-cap').value.trim()||'MLF Activity';
-  if(!url){showToast('Enter a valid URL','error');return;}
-  const st=DB.getSt();if(!st.gallery)st.gallery=[];
-  st.gallery.push({url,cap});DB.setSt(st);
-  document.getElementById('gal-url-input').value='';document.getElementById('gal-url-cap').value='';
-  renderGallery();showToast('✅ Photo added to gallery!','success');
-}
-function deleteGalleryItem(idx){
-  if(!confirm('Delete this photo?'))return;
-  const st=DB.getSt();st.gallery.splice(idx,1);DB.setSt(st);renderGallery();
+  await saveContentToSupabase(cachedContent);
+  renderGallery();
+  showToast(`✅ ${files.length} photo(s) added!`, 'success');
+  input.value = '';
 }
 
-// Board
-function renderBoard(){
-  const members=DB.getSt().board||[];
-  const list=document.getElementById('boardList');if(!list)return;
-  document.getElementById('dash-board').textContent=members.length;
-  if(!members.length){list.innerHTML='<p style="color:var(--gray);font-size:13px;">No board members added yet.</p>';return;}
-  list.innerHTML=members.map((m,i)=>`<div class="member-card">
-    ${m.photo?`<img src="${m.photo}" class="member-card-photo" onerror="this.style.display='none'">`:'<div class="member-card-photo-def">👤</div>'}
+async function addGalleryByUrl() {
+  const url = document.getElementById('gal-url-input').value.trim();
+  const cap = document.getElementById('gal-url-cap').value.trim() || 'MLF Activity';
+  if (!url) { showToast('Enter a valid URL', 'error'); return; }
+  if (!cachedContent.gallery) cachedContent.gallery = [];
+  cachedContent.gallery.push({ url, cap });
+  await saveContentToSupabase(cachedContent);
+  document.getElementById('gal-url-input').value = '';
+  document.getElementById('gal-url-cap').value = '';
+  renderGallery();
+  showToast('✅ Photo added!', 'success');
+}
+
+async function deleteGalleryItem(idx) {
+  if (!confirm('Delete this photo?')) return;
+  cachedContent.gallery.splice(idx, 1);
+  await saveContentToSupabase(cachedContent);
+  renderGallery();
+}
+
+// ═══════════════════════════════════
+// BOARD & COORDINATORS
+// ═══════════════════════════════════
+function renderBoard() {
+  const members = cachedContent.board || [];
+  const list = document.getElementById('boardList'); if (!list) return;
+  document.getElementById('dash-board').textContent = members.length;
+  if (!members.length) { list.innerHTML = '<p style="color:var(--gray);font-size:13px;">No board members yet.</p>'; return; }
+  list.innerHTML = members.map((m, i) => `<div class="member-card">
+    ${m.photo ? `<img src="${m.photo}" class="member-card-photo" onerror="this.style.display='none'">` : '<div class="member-card-photo-def">👤</div>'}
     <div class="member-card-info"><div class="member-card-name">${m.name}</div><div class="member-card-role">${m.desig}</div></div>
-    <div class="member-card-btns"><button class="btn btn-outline btn-xs" onclick="editMember('board',${i})">✏️ Edit</button><button class="btn btn-red btn-xs" onclick="deleteMember('board',${i})">🗑</button></div>
+    <div class="member-card-btns"><button class="btn btn-outline btn-sm" onclick="editMember('board',${i})">✏️</button><button class="btn btn-red btn-sm" onclick="deleteMember('board',${i})">🗑</button></div>
   </div>`).join('');
 }
-function renderCoords(){
-  const coords=DB.getSt().coordinators||[];
-  const list=document.getElementById('coordList');if(!list)return;
-  if(!coords.length){list.innerHTML='<p style="color:var(--gray);font-size:13px;">No coordinators added yet.</p>';return;}
-  list.innerHTML=coords.map((c,i)=>`<div class="member-card">
-    ${c.photo?`<img src="${c.photo}" class="member-card-photo" onerror="this.style.display='none'">`:'<div class="member-card-photo-def">📍</div>'}
-    <div class="member-card-info"><div class="member-card-name">${c.name}${c.id?` <span style="font-size:11px;color:var(--orange);">(${c.id})</span>`:''}</div><div class="member-card-role">${c.role}${c.area?' · '+c.area:''}${c.phone?' · 📞 '+c.phone:''}</div></div>
-    <div class="member-card-btns"><button class="btn btn-outline btn-xs" onclick="editMember('coord',${i})">✏️ Edit</button><button class="btn btn-red btn-xs" onclick="deleteMember('coord',${i})">🗑</button></div>
+
+function renderCoords() {
+  const coords = cachedContent.coordinators || [];
+  const list = document.getElementById('coordList'); if (!list) return;
+  if (!coords.length) { list.innerHTML = '<p style="color:var(--gray);font-size:13px;">No coordinators yet.</p>'; return; }
+  list.innerHTML = coords.map((c, i) => `<div class="member-card">
+    ${c.photo ? `<img src="${c.photo}" class="member-card-photo">` : '<div class="member-card-photo-def">📍</div>'}
+    <div class="member-card-info"><div class="member-card-name">${c.name}</div><div class="member-card-role">${c.role}${c.area ? ' · ' + c.area : ''}</div></div>
+    <div class="member-card-btns"><button class="btn btn-outline btn-sm" onclick="editMember('coord',${i})">✏️</button><button class="btn btn-red btn-sm" onclick="deleteMember('coord',${i})">🗑</button></div>
   </div>`).join('');
 }
-function openAddMember(){
-  document.getElementById('memberModalTitle').textContent='➕ Add Board Member';
-  document.getElementById('member-edit-idx').value='';
-  ['m-name','m-desig','m-photo-url'].forEach(id=>document.getElementById(id).value='');
-  const p=document.getElementById('m-photo-preview');if(p){p.src='';p.style.display='none';}
+
+function openAddMember() {
+  document.getElementById('memberModalTitle').textContent = '➕ Add Board Member';
+  document.getElementById('member-edit-idx').value = '';
+  ['m-name', 'm-desig', 'm-photo-url'].forEach(id => document.getElementById(id).value = '');
+  const p = document.getElementById('m-photo-preview'); if (p) { p.src = ''; p.style.display = 'none'; }
   openModal('modal-member');
 }
-function openAddCoord(){
-  document.getElementById('coordModalTitle').textContent='➕ Add Coordinator';
-  document.getElementById('coord-edit-idx').value='';
-  ['c-name','c-role','c-id','c-phone','c-area','c-photo-url'].forEach(id=>document.getElementById(id).value='');
-  const p=document.getElementById('c-photo-preview');if(p){p.src='';p.style.display='none';}
+function openAddCoord() {
+  document.getElementById('coordModalTitle').textContent = '➕ Add Coordinator';
+  document.getElementById('coord-edit-idx').value = '';
+  ['c-name', 'c-role', 'c-id', 'c-phone', 'c-area', 'c-photo-url'].forEach(id => document.getElementById(id).value = '');
+  const p = document.getElementById('c-photo-preview'); if (p) { p.src = ''; p.style.display = 'none'; }
   openModal('modal-coord');
 }
-function editMember(type,idx){
-  const st=DB.getSt();
-  if(type==='board'){
-    const m=(st.board||[])[idx];if(!m)return;
-    document.getElementById('memberModalTitle').textContent='✏️ Edit Board Member';
-    document.getElementById('member-edit-idx').value=idx;
-    document.getElementById('m-name').value=m.name||'';
-    document.getElementById('m-desig').value=m.desig||'';
-    document.getElementById('m-photo-url').value=m.photo||'';
-    if(m.photo){const p=document.getElementById('m-photo-preview');if(p){p.src=m.photo;p.style.display='';}}
+function editMember(type, idx) {
+  if (type === 'board') {
+    const m = (cachedContent.board || [])[idx]; if (!m) return;
+    document.getElementById('memberModalTitle').textContent = '✏️ Edit Member';
+    document.getElementById('member-edit-idx').value = idx;
+    document.getElementById('m-name').value = m.name || '';
+    document.getElementById('m-desig').value = m.desig || '';
+    document.getElementById('m-photo-url').value = m.photo || '';
+    if (m.photo) { const p = document.getElementById('m-photo-preview'); if (p) { p.src = m.photo; p.style.display = ''; } }
     openModal('modal-member');
-  }else{
-    const c=(st.coordinators||[])[idx];if(!c)return;
-    document.getElementById('coordModalTitle').textContent='✏️ Edit Coordinator';
-    document.getElementById('coord-edit-idx').value=idx;
-    document.getElementById('c-name').value=c.name||'';
-    document.getElementById('c-role').value=c.role||'';
-    document.getElementById('c-id').value=c.id||'';
-    document.getElementById('c-phone').value=c.phone||'';
-    document.getElementById('c-area').value=c.area||'';
-    document.getElementById('c-photo-url').value=c.photo||'';
-    if(c.photo){const p=document.getElementById('c-photo-preview');if(p){p.src=c.photo;p.style.display='';}}
+  } else {
+    const c = (cachedContent.coordinators || [])[idx]; if (!c) return;
+    document.getElementById('coordModalTitle').textContent = '✏️ Edit Coordinator';
+    document.getElementById('coord-edit-idx').value = idx;
+    document.getElementById('c-name').value = c.name || '';
+    document.getElementById('c-role').value = c.role || '';
+    document.getElementById('c-id').value = c.id || '';
+    document.getElementById('c-phone').value = c.phone || '';
+    document.getElementById('c-area').value = c.area || '';
+    document.getElementById('c-photo-url').value = c.photo || '';
+    if (c.photo) { const p = document.getElementById('c-photo-preview'); if (p) { p.src = c.photo; p.style.display = ''; } }
     openModal('modal-coord');
   }
 }
-function saveMember(type){
-  const st=DB.getSt();
-  if(type==='board'){
-    const name=document.getElementById('m-name').value.trim(),desig=document.getElementById('m-desig').value.trim();
-    if(!name||!desig){showToast('Name and Designation required','error');return;}
-    if(!st.board)st.board=[];
-    const idx=document.getElementById('member-edit-idx').value;
-    const obj={name,desig,photo:document.getElementById('m-photo-url').value};
-    if(idx!=='')st.board[parseInt(idx)]=obj;else st.board.push(obj);
-    DB.setSt(st);renderBoard();closeModal('modal-member');showToast('✅ Board member saved!','success');
-  }else{
-    const name=document.getElementById('c-name').value.trim(),role=document.getElementById('c-role').value.trim();
-    if(!name||!role){showToast('Name and Role required','error');return;}
-    if(!st.coordinators)st.coordinators=[];
-    const idx=document.getElementById('coord-edit-idx').value;
-    const obj={name,role,id:document.getElementById('c-id').value.trim(),phone:document.getElementById('c-phone').value.trim(),area:document.getElementById('c-area').value.trim(),photo:document.getElementById('c-photo-url').value};
-    if(idx!=='')st.coordinators[parseInt(idx)]=obj;else st.coordinators.push(obj);
-    DB.setSt(st);renderCoords();closeModal('modal-coord');showToast('✅ Coordinator saved!','success');
+async function saveMember(type) {
+  if (type === 'board') {
+    const name = document.getElementById('m-name').value.trim();
+    const desig = document.getElementById('m-desig').value.trim();
+    if (!name || !desig) { showToast('Name and Designation required', 'error'); return; }
+    if (!cachedContent.board) cachedContent.board = [];
+    const idx = document.getElementById('member-edit-idx').value;
+    const obj = { name, desig, photo: document.getElementById('m-photo-url').value };
+    if (idx !== '') cachedContent.board[parseInt(idx)] = obj; else cachedContent.board.push(obj);
+  } else {
+    const name = document.getElementById('c-name').value.trim();
+    const role = document.getElementById('c-role').value.trim();
+    if (!name || !role) { showToast('Name and Role required', 'error'); return; }
+    if (!cachedContent.coordinators) cachedContent.coordinators = [];
+    const idx = document.getElementById('coord-edit-idx').value;
+    const obj = { name, role, id: document.getElementById('c-id').value.trim(), phone: document.getElementById('c-phone').value.trim(), area: document.getElementById('c-area').value.trim(), photo: document.getElementById('c-photo-url').value };
+    if (idx !== '') cachedContent.coordinators[parseInt(idx)] = obj; else cachedContent.coordinators.push(obj);
   }
+  await saveContentToSupabase(cachedContent);
+  renderBoard(); renderCoords();
+  closeModal(type === 'board' ? 'modal-member' : 'modal-coord');
+  showToast('✅ Saved!', 'success');
 }
-function deleteMember(type,idx){
-  if(!confirm('Delete this entry?'))return;
-  const st=DB.getSt();
-  if(type==='board'){st.board.splice(idx,1);DB.setSt(st);renderBoard();}
-  else{st.coordinators.splice(idx,1);DB.setSt(st);renderCoords();}
-  showToast('Deleted','');
-}
-
-// Festivals
-const DEFAULT_FESTIVALS=[
-  {month:1,day:14,name:"Makar Sankranti",emoji:"🪁🌊",wish:"ମକର ସଂକ୍ରାନ୍ତିର ହାର୍ଦ୍ଦିକ ଶୁଭେଚ୍ଛା!"},
-  {month:1,day:26,name:"Republic Day",emoji:"🇮🇳🎺",wish:"ଗଣତନ୍ତ୍ର ଦିବସର ହାର୍ଦ୍ଦିକ ଶୁଭେଚ୍ଛା! ଜୟ ହିନ୍ଦ!"},
-  {month:3,day:30,name:"Utkal Divas — Odisha Day",emoji:"🏵️🌺",wish:"ଉତ୍କଳ ଦିବସର ଶୁଭେଚ୍ଛା! ଜୟ ଓଡ଼ିଶା!"},
-  {month:4,day:14,name:"Odia New Year — Maha Bisuba",emoji:"🌅🎊",wish:"ଓଡ଼ିଆ ନବ ବର୍ଷର ଅଭିନନ୍ଦନ!"},
-  {month:6,day:27,name:"Rath Yatra — Puri",emoji:"🏆🎪",wish:"ଜୟ ଜଗନ୍ନାଥ! ଶୁଭ ରଥ ଯାତ୍ରା!"},
-  {month:8,day:15,name:"Independence Day",emoji:"🇮🇳🎆",wish:"ସ୍ୱାଧୀନତା ଦିବସର ଶୁଭେଚ୍ଛା! ଜୟ ହିନ୍ଦ!"},
-  {month:8,day:19,name:"Raksha Bandhan",emoji:"🧡🪢",wish:"ରକ୍ଷା ବନ୍ଧନର ଶୁଭେଚ୍ଛା!"},
-  {month:9,day:22,name:"Nuakhai Juhar",emoji:"🌾🎉",wish:"ନୁଆଖାଇ ଜୁହାର!"},
-  {month:10,day:2,name:"Gandhi Jayanti",emoji:"🕊️🇮🇳",wish:"ଗାନ୍ଧୀ ଜୟନ୍ତୀ ଅବସରରେ ଶ୍ରଦ୍ଧାଞ୍ଜଳି।"},
-  {month:11,day:5,name:"Diwali",emoji:"🪔✨",wish:"ଦୀପାବଳିର ଆଲୋକ ଭରା ଶୁଭେଚ୍ଛା!"},
-  {month:12,day:25,name:"Christmas Day",emoji:"🎄⭐",wish:"ବଡ଼ ଦିନର ଶୁଭେଚ୍ଛା!"},
-  {month:12,day:31,name:"New Year Eve",emoji:"🎆🥂",wish:"ନୂଆ ବର୍ଷ ଅଭ୍ୟର୍ଥନା!"}
-];
-const MONTHS_EN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-function getFestivals(){const st=DB.getSt();return(st.festivals&&st.festivals.length)?st.festivals:DEFAULT_FESTIVALS.map(f=>({...f}));}
-function saveFestivalsList(arr){const st=DB.getSt();st.festivals=arr;if(!st.notifcal)st.notifcal={};st.notifcal.festivals=arr;DB.setSt(st);}
-function renderFestivals(){
-  const fests=getFestivals();const list=document.getElementById('festivalList');if(!list)return;
-  if(!fests.length){list.innerHTML='<p style="color:var(--gray);font-size:13px;">No festivals.</p>';return;}
-  list.innerHTML=fests.sort((a,b)=>a.month-b.month||a.day-b.day).map((f,i)=>`<div class="festival-item">
-    <span class="emoji">${f.emoji||'🎉'}</span>
-    <div class="info"><div class="name">${f.name}</div><div class="date">${MONTHS_EN[(f.month||1)-1]} ${f.day}</div></div>
-    <div style="display:flex;gap:6px;"><button class="btn btn-outline btn-xs" onclick="editFestival(${i})">✏️</button><button class="btn btn-red btn-xs" onclick="deleteFestival(${i})">🗑</button></div>
-  </div>`).join('');
-}
-function openAddFestival(){
-  document.getElementById('festModalTitle').textContent='➕ Add Festival';
-  document.getElementById('fest-edit-idx').value='';
-  ['f-month','f-day','f-name','f-emoji','f-wish'].forEach(id=>document.getElementById(id).value='');
-  openModal('modal-festival');
-}
-function editFestival(idx){
-  const f=getFestivals()[idx];
-  document.getElementById('festModalTitle').textContent='✏️ Edit Festival';
-  document.getElementById('fest-edit-idx').value=idx;
-  document.getElementById('f-month').value=f.month;
-  document.getElementById('f-day').value=f.day;
-  document.getElementById('f-name').value=f.name;
-  document.getElementById('f-emoji').value=f.emoji;
-  document.getElementById('f-wish').value=f.wish;
-  openModal('modal-festival');
-}
-function saveFestival(){
-  const month=parseInt(document.getElementById('f-month').value);
-  const day=parseInt(document.getElementById('f-day').value);
-  const name=document.getElementById('f-name').value.trim();
-  if(!month||!day||!name){showToast('Month, Day and Name required','error');return;}
-  const fests=getFestivals();
-  const idx=document.getElementById('fest-edit-idx').value;
-  const obj={month,day,name,emoji:document.getElementById('f-emoji').value||'🎉',wish:document.getElementById('f-wish').value};
-  if(idx!=='')fests[parseInt(idx)]=obj;else fests.push(obj);
-  saveFestivalsList(fests);renderFestivals();closeModal('modal-festival');showToast('✅ Festival saved!','success');
-}
-function deleteFestival(idx){
-  if(!confirm('Delete this festival?'))return;
-  const fests=getFestivals();fests.splice(idx,1);saveFestivalsList(fests);renderFestivals();
+async function deleteMember(type, idx) {
+  if (!confirm('Delete?')) return;
+  if (type === 'board') cachedContent.board.splice(idx, 1);
+  else cachedContent.coordinators.splice(idx, 1);
+  await saveContentToSupabase(cachedContent);
+  renderBoard(); renderCoords();
 }
 
-// Ticker
-function getTicker(){return DB.getSt()?.notifcal?.ticker||[];}
-function saveTickers(arr){const st=DB.getSt();if(!st.notifcal)st.notifcal={};st.notifcal.ticker=arr;DB.setSt(st);}
-function renderTicker(){
-  const tickers=getTicker();const list=document.getElementById('tickerList');if(!list)return;
-  if(!tickers.length){list.innerHTML='<p style="color:var(--gray);font-size:13px;">No custom ticker messages. Default messages will show.</p>';return;}
-  list.innerHTML=tickers.map((t,i)=>`<div class="festival-item">
-    <div class="info"><div class="name">${t.label||''} — ${t.text}</div><div class="date">Tag: ${t.tag}</div></div>
-    <button class="btn btn-red btn-xs" onclick="deleteTicker(${i})">🗑</button>
-  </div>`).join('');
-  const bday=DB.getSt()?.notifcal?.birthdayWish;
-  const bdEl=document.getElementById('bday-wish');if(bdEl&&bday)bdEl.value=bday;
-}
-function openAddTicker(){openModal('modal-ticker');}
-function saveTicker(){
-  const tag=document.getElementById('tick-tag').value,label=document.getElementById('tick-label').value.trim(),text=document.getElementById('tick-text').value.trim();
-  if(!text){showToast('Message text required','error');return;}
-  const tickers=getTicker();tickers.push({tag,label,text});
-  saveTickers(tickers);renderTicker();closeModal('modal-ticker');showToast('✅ Ticker message saved!','success');
-}
-function deleteTicker(idx){const t=getTicker();t.splice(idx,1);saveTickers(t);renderTicker();}
-function saveBdayWish(){
-  const val=document.getElementById('bday-wish').value.trim();
-  const st=DB.getSt();if(!st.notifcal)st.notifcal={};st.notifcal.birthdayWish=val;DB.setSt(st);
-  showToast('✅ Birthday template saved!','success');
+// ═══════════════════════════════════
+// SAVE SECTIONS
+// ═══════════════════════════════════
+function g(id) { const el = document.getElementById(id); return el ? el.value : ''; }
+
+async function saveSection(sec) {
+  if (sec === 'hero') {
+    cachedContent.hero = { b: g('hero-b'), h1: g('hero-h1'), em: g('hero-em'), p: g('hero-p'), b1: g('hero-b1'), b2: g('hero-b2'), q: g('hero-q'), c: g('hero-c'), hs1n: g('hero-hs1n'), hs1l: g('hero-hs1l'), hs2n: g('hero-hs2n'), hs2l: g('hero-hs2l'), bg: g('hero-bg-url') || undefined };
+    const cur = document.getElementById('hero-bg-current'); if (cur && cachedContent.hero.bg) cur.textContent = 'Custom image set ✅';
+  } else if (sec === 'about') {
+    cachedContent.about = { p1: g('about-p1'), p2: g('about-p2'), bn: g('about-bn'), bl: g('about-bl'), mt: g('about-mt'), mp: g('about-mp'), vt: g('about-vt'), vp: g('about-vp'), i: g('about-main-url'), fi: g('about-float-url') };
+  } else if (sec === 'programs') {
+    cachedContent.programs = { c1: { img: g('prg1-url'), t: g('prg1-t'), p: g('prg1-p') }, c2: { img: g('prg2-url'), t: g('prg2-t'), p: g('prg2-p') }, c3: { img: g('prg3-url'), t: g('prg3-t'), p: g('prg3-p') } };
+  } else if (sec === 'stats') {
+    cachedContent.stats = [{ n: g('stat1-n'), l: g('stat1-l') }, { n: g('stat2-n'), l: g('stat2-l') }, { n: g('stat3-n'), l: g('stat3-l') }];
+  } else if (sec === 'stories') {
+    cachedContent.stories = { s1: { img: g('st1-img'), q: g('st1-q'), n: g('st1-n'), l: g('st1-l') }, s2: { img: g('st2-img'), q: g('st2-q'), n: g('st2-n'), l: g('st2-l') } };
+  } else if (sec === 'join') {
+    cachedContent.join = { h: g('join-h'), p: g('join-p'), d1t: g('join-d1t'), d1p: g('join-d1p'), d1b: g('join-d1b'), d2t: g('join-d2t'), d2p: g('join-d2p'), d2b: g('join-d2b') };
+  } else if (sec === 'vision') {
+    cachedContent.vision = { v1: g('vis-v1'), v2: g('vis-v2'), v3: g('vis-v3') };
+  } else if (sec === 'donate') {
+    cachedContent.donate = { h: g('don-h'), p1: g('don-p1'), wa: g('don-wa'), org: g('don-org'), reg: g('don-reg'), pan: g('don-pan'), niti: g('don-niti') };
+  } else if (sec === 'contact') {
+    cachedContent.contact = { a: g('con-a'), p1: g('con-p1'), p2: g('con-p2'), em: g('con-em'), w: g('con-w'), m: g('con-m') };
+  } else if (sec === 'logo') {
+    cachedContent.logo = { n: g('logo-n'), t: g('logo-t'), tt: g('logo-tt'), i: g('logo-url') };
+  } else if (sec === 'footer') {
+    cachedContent.footer = { about: g('ft-about'), copy: g('ft-copy'), soc1: g('soc1'), soc2: g('soc2'), soc3: g('soc3'), soc4: g('soc4') };
+  }
+  const ok = await saveContentToSupabase(cachedContent);
+  showToast(ok ? '✅ Saved to Supabase! All browsers will update.' : '⚠️ Saved locally only.', ok ? 'success' : '');
 }
 
-// Volunteers
-function renderVolunteers(filter=''){
-  const all=getVols();
-  const vols=all.filter(v=>!filter||v.name?.toLowerCase().includes(filter)||v.id?.toLowerCase().includes(filter));
-  const tbody=document.getElementById('volTbody');if(!tbody)return;
-  document.getElementById('volBadge').textContent=all.length;
-  document.getElementById('dash-vols').textContent=all.length;
-  if(!vols.length){tbody.innerHTML='<tr><td colspan="8" style="text-align:center;color:var(--gray);padding:30px;">No volunteers found.</td></tr>';return;}
-  tbody.innerHTML=vols.map(v=>`<tr>
-    <td>${v.photo?`<img src="${v.photo}" class="tbl-photo">`:'<div class="tbl-photo-def">👤</div>'}</td>
+async function saveAllData() {
+  ['hero', 'about', 'programs', 'stats', 'stories', 'join', 'vision', 'donate', 'contact', 'logo', 'footer'].forEach(s => {
+    // collect fields without saving individually
+    if (s === 'hero') cachedContent.hero = { b: g('hero-b'), h1: g('hero-h1'), em: g('hero-em'), p: g('hero-p'), b1: g('hero-b1'), b2: g('hero-b2'), q: g('hero-q'), c: g('hero-c'), hs1n: g('hero-hs1n'), hs1l: g('hero-hs1l'), hs2n: g('hero-hs2n'), hs2l: g('hero-hs2l'), bg: g('hero-bg-url') || cachedContent.hero?.bg };
+    else if (s === 'about') cachedContent.about = { p1: g('about-p1'), p2: g('about-p2'), bn: g('about-bn'), bl: g('about-bl'), mt: g('about-mt'), mp: g('about-mp'), vt: g('about-vt'), vp: g('about-vp'), i: g('about-main-url') || cachedContent.about?.i, fi: g('about-float-url') || cachedContent.about?.fi };
+    else if (s === 'programs') cachedContent.programs = { c1: { img: g('prg1-url') || cachedContent.programs?.c1?.img, t: g('prg1-t'), p: g('prg1-p') }, c2: { img: g('prg2-url') || cachedContent.programs?.c2?.img, t: g('prg2-t'), p: g('prg2-p') }, c3: { img: g('prg3-url') || cachedContent.programs?.c3?.img, t: g('prg3-t'), p: g('prg3-p') } };
+    else if (s === 'stats') cachedContent.stats = [{ n: g('stat1-n'), l: g('stat1-l') }, { n: g('stat2-n'), l: g('stat2-l') }, { n: g('stat3-n'), l: g('stat3-l') }];
+    else if (s === 'stories') cachedContent.stories = { s1: { img: g('st1-img') || cachedContent.stories?.s1?.img, q: g('st1-q'), n: g('st1-n'), l: g('st1-l') }, s2: { img: g('st2-img') || cachedContent.stories?.s2?.img, q: g('st2-q'), n: g('st2-n'), l: g('st2-l') } };
+    else if (s === 'join') cachedContent.join = { h: g('join-h'), p: g('join-p'), d1t: g('join-d1t'), d1p: g('join-d1p'), d1b: g('join-d1b'), d2t: g('join-d2t'), d2p: g('join-d2p'), d2b: g('join-d2b') };
+    else if (s === 'vision') cachedContent.vision = { v1: g('vis-v1'), v2: g('vis-v2'), v3: g('vis-v3') };
+    else if (s === 'donate') cachedContent.donate = { h: g('don-h'), p1: g('don-p1'), wa: g('don-wa'), org: g('don-org'), reg: g('don-reg'), pan: g('don-pan'), niti: g('don-niti') };
+    else if (s === 'contact') cachedContent.contact = { a: g('con-a'), p1: g('con-p1'), p2: g('con-p2'), em: g('con-em'), w: g('con-w'), m: g('con-m') };
+    else if (s === 'logo') cachedContent.logo = { n: g('logo-n'), t: g('logo-t'), tt: g('logo-tt'), i: g('logo-url') || cachedContent.logo?.i };
+    else if (s === 'footer') cachedContent.footer = { about: g('ft-about'), copy: g('ft-copy'), soc1: g('soc1'), soc2: g('soc2'), soc3: g('soc3'), soc4: g('soc4') };
+  });
+  const ok = await saveContentToSupabase(cachedContent);
+  showToast(ok ? '✅ All saved to Supabase! Changes live on all browsers.' : '⚠️ Saved locally only.', ok ? 'success' : '');
+}
+
+// ═══════════════════════════════════
+// LOAD FIELDS
+// ═══════════════════════════════════
+function loadAllFields() {
+  const D = cachedContent;
+  function sv(id, val) { const el = document.getElementById(id); if (el && val != null) el.value = val; }
+  function si(id, src) { const el = document.getElementById(id); if (el && src) { el.src = src; el.style.display = ''; } }
+  if (D.hero) { sv('hero-b', D.hero.b); sv('hero-h1', D.hero.h1); sv('hero-em', D.hero.em); sv('hero-p', D.hero.p); sv('hero-b1', D.hero.b1); sv('hero-b2', D.hero.b2); sv('hero-q', D.hero.q); sv('hero-c', D.hero.c); sv('hero-hs1n', D.hero.hs1n); sv('hero-hs1l', D.hero.hs1l); sv('hero-hs2n', D.hero.hs2n); sv('hero-hs2l', D.hero.hs2l); if (D.hero.bg) { sv('hero-bg-url', D.hero.bg); si('hero-bg-preview', D.hero.bg); const c = document.getElementById('hero-bg-current'); if (c) c.textContent = 'Custom image set ✅'; } }
+  if (D.about) { sv('about-p1', D.about.p1); sv('about-p2', D.about.p2); sv('about-bn', D.about.bn); sv('about-bl', D.about.bl); sv('about-mt', D.about.mt); sv('about-mp', D.about.mp); sv('about-vt', D.about.vt); sv('about-vp', D.about.vp); sv('about-main-url', D.about.i); si('about-main-preview', D.about.i); sv('about-float-url', D.about.fi); si('about-float-preview', D.about.fi); }
+  if (D.programs) { ['1', '2', '3'].forEach(n => { const c = D.programs['c' + n]; if (!c) return; sv(`prg${n}-url`, c.img); si(`prg${n}-preview`, c.img); sv(`prg${n}-t`, c.t); sv(`prg${n}-p`, c.p); }); }
+  if (D.stats) { D.stats.forEach((s, i) => { sv(`stat${i + 1}-n`, s.n); sv(`stat${i + 1}-l`, s.l); }); }
+  if (D.stories) { ['1', '2'].forEach(n => { const s = D.stories['s' + n]; if (!s) return; sv(`st${n}-img`, s.img); si(`st${n}-preview`, s.img); sv(`st${n}-q`, s.q); sv(`st${n}-n`, s.n); sv(`st${n}-l`, s.l); }); }
+  if (D.join) { sv('join-h', D.join.h); sv('join-p', D.join.p); sv('join-d1t', D.join.d1t); sv('join-d1p', D.join.d1p); sv('join-d1b', D.join.d1b); sv('join-d2t', D.join.d2t); sv('join-d2p', D.join.d2p); sv('join-d2b', D.join.d2b); }
+  if (D.vision) { sv('vis-v1', D.vision.v1); sv('vis-v2', D.vision.v2); sv('vis-v3', D.vision.v3); }
+  if (D.donate) { sv('don-h', D.donate.h); sv('don-p1', D.donate.p1); sv('don-wa', D.donate.wa); sv('don-org', D.donate.org); sv('don-reg', D.donate.reg); sv('don-pan', D.donate.pan); sv('don-niti', D.donate.niti); }
+  if (D.contact) { sv('con-a', D.contact.a); sv('con-p1', D.contact.p1); sv('con-p2', D.contact.p2); sv('con-em', D.contact.em); sv('con-w', D.contact.w); sv('con-m', D.contact.m); }
+  if (D.logo) { sv('logo-n', D.logo.n); sv('logo-t', D.logo.t); sv('logo-tt', D.logo.tt); sv('logo-url', D.logo.i); si('logo-preview', D.logo.i); }
+  if (D.footer) { sv('ft-about', D.footer.about); sv('ft-copy', D.footer.copy); ['1', '2', '3', '4'].forEach(n => sv('soc' + n, D.footer['soc' + n])); }
+}
+
+// ═══════════════════════════════════
+// VOLUNTEERS & DONORS (localStorage — device specific data)
+// ═══════════════════════════════════
+function getVols() { return JSON.parse(localStorage.getItem('mlf_volunteers') || '[]'); }
+function getDonors() { return JSON.parse(localStorage.getItem('mlf_donors') || '[]'); }
+function setDonors(d) { localStorage.setItem('mlf_donors', JSON.stringify(d)); }
+
+function renderVolunteers(filter = '') {
+  const all = getVols();
+  const vols = all.filter(v => !filter || v.name?.toLowerCase().includes(filter) || v.id?.toLowerCase().includes(filter));
+  const tbody = document.getElementById('volTbody'); if (!tbody) return;
+  document.getElementById('dash-vols').textContent = all.length;
+  if (!vols.length) { tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--gray);padding:30px;">No volunteers found.</td></tr>'; return; }
+  tbody.innerHTML = vols.map(v => `<tr>
+    <td>${v.photo ? `<img src="${v.photo}" style="width:36px;height:36px;border-radius:50%;object-fit:cover;">` : '<div style="width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;display:inline-flex;align-items:center;justify-content:center;">👤</div>'}</td>
     <td><code style="font-size:11px;background:var(--off);padding:3px 7px;border-radius:5px;">${v.id}</code></td>
-    <td><strong>${v.name}</strong><br><span style="font-size:11px;color:var(--gray);">${v.district||''}</span></td>
+    <td><strong>${v.name}</strong></td>
     <td>${v.mobile}</td>
-    <td>${v.district||'-'}, ${v.state||'-'}</td>
-    <td>${v.joinDate||'-'}</td>
-    <td><span class="badge-active">Active ✅</span></td>
-    <td><button class="btn btn-outline btn-xs" onclick="viewVolDetails('${v.id}')">👁 View</button></td>
+    <td>${v.district || '-'}</td>
+    <td>${v.joinDate || '-'}</td>
   </tr>`).join('');
-  const recent=document.getElementById('dash-recent-vols');
-  if(recent){
-    const last5=all.slice(-5).reverse();
-    if(!last5.length){recent.innerHTML='<p style="color:var(--gray);font-size:13px;">No volunteers yet.</p>';return;}
-    recent.innerHTML=last5.map(v=>`<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--gray-lt);">
-      <div style="width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">${(v.name||'V')[0].toUpperCase()}</div>
-      <div><strong style="font-size:13px;">${v.name}</strong><br><span style="font-size:11px;color:var(--gray);">${v.id} · ${v.joinDate||''}</span></div>
+  const recent = document.getElementById('dash-recent-vols');
+  if (recent) {
+    const last5 = all.slice(-5).reverse();
+    if (!last5.length) { recent.innerHTML = '<p style="color:var(--gray);font-size:13px;">No volunteers yet.</p>'; return; }
+    recent.innerHTML = last5.map(v => `<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--gray-lt);">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;">${(v.name || 'V')[0].toUpperCase()}</div>
+      <div><strong style="font-size:13px;">${v.name}</strong><br><span style="font-size:11px;color:var(--gray);">${v.id} · ${v.joinDate || ''}</span></div>
     </div>`).join('');
   }
 }
-function filterVolunteers(){renderVolunteers(document.getElementById('vol-search').value.toLowerCase());}
-function viewVolDetails(id){
-  const v=getVols().find(x=>x.id===id);if(!v)return;
-  alert(`Volunteer Details\n\nID: ${v.id}\nName: ${v.name}\nFather: ${v.fatherName||'-'}\nMother: ${v.motherName||'-'}\nMobile: ${v.mobile}\nOccupation: ${v.occupation||'-'}\nDistrict: ${v.district||'-'}, ${v.state||'-'}\nJoined: ${v.joinDate||'-'}\nAadhaar: ${v.aadhaarDisplay||'-'}`);
-}
-function exportVolunteers(){
-  const vols=getVols();
-  if(!vols.length){showToast('No volunteers to export','error');return;}
-  const hdr=['ID','Name','DOB','Father','Mother','Occupation','Mobile','Aadhaar','Village','Post','PS','District','State','PIN','Joined'];
-  const rows=vols.map(v=>[v.id,v.name,v.dob,v.fatherName,v.motherName,v.occupation,v.mobile,v.aadhaarDisplay,v.at,v.post,v.ps,v.district,v.state,v.pin,v.joinDate]);
-  const csv=[hdr,...rows].map(r=>r.map(c=>`"${c||''}"`).join(',')).join('\n');
-  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
-  a.download='MLF_Volunteers_'+new Date().toISOString().split('T')[0]+'.csv';a.click();
-  showToast('📥 CSV exported!','success');
-}
-function syncToSheets(){
-  const url=localStorage.getItem('mlf_url');
-  if(!url){showToast('Set Google Sheets URL first','error');return;}
-  showToast('Syncing...','');
-  const rows=getVols().map(v=>[v.id,v.name,v.dob,v.fatherName,v.motherName,v.occupation,v.mobile,v.aadhaarDisplay,v.at,v.post,v.ps,v.district,v.state,v.pin,v.joinDate,v.status||'Active']);
-  fetch(url,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({tab:'Volunteers',action:'write',rows:[['ID','Name','DOB','Father','Mother','Occ','Mobile','Aadhaar','Village','Post','PS','District','State','PIN','Joined','Status'],...rows]})})
-    .then(()=>showToast('✅ Sync sent to Google Sheets!','success'))
-    .catch(()=>showToast('Sync may have failed. Check URL.','error'));
+function filterVolunteers() { renderVolunteers(document.getElementById('vol-search').value.toLowerCase()); }
+function exportVolunteers() {
+  const vols = getVols();
+  if (!vols.length) { showToast('No volunteers to export', 'error'); return; }
+  const hdr = ['ID', 'Name', 'DOB', 'Father', 'Mother', 'Occupation', 'Mobile', 'Aadhaar', 'Village', 'Post', 'PS', 'District', 'State', 'PIN', 'Joined'];
+  const rows = vols.map(v => [v.id, v.name, v.dob, v.fatherName, v.motherName, v.occupation, v.mobile, v.aadhaarDisplay, v.at, v.post, v.ps, v.district, v.state, v.pin, v.joinDate]);
+  const csv = [hdr, ...rows].map(r => r.map(c => `"${c || ''}"`).join(',')).join('\n');
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+  a.download = 'MLF_Volunteers_' + new Date().toISOString().split('T')[0] + '.csv'; a.click();
+  showToast('📥 CSV exported!', 'success');
 }
 
-// Donors
-function renderDonors(){
-  const donors=getDonors();document.getElementById('dash-donors').textContent=donors.length;
-  const tbody=document.getElementById('donorTbody');if(!tbody)return;
-  if(!donors.length){tbody.innerHTML='<tr><td colspan="7" style="text-align:center;color:var(--gray);padding:30px;">No donors recorded yet.</td></tr>';return;}
-  tbody.innerHTML=donors.map((d,i)=>`<tr>
-    <td><strong>${d.name||'Anonymous'}</strong></td><td>${d.mobile||'-'}</td>
-    <td>₹${(d.amount||0).toLocaleString('en-IN')}</td>
-    <td><span class="badge-active" style="background:#FFF3E0;color:var(--orange);">${d.type||'Cash'}</span></td>
-    <td>${d.date||'-'}</td>
-    <td style="max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${d.msg||'-'}</td>
-    <td><button class="btn btn-red btn-xs" onclick="deleteDonor(${i})">🗑</button></td>
+function renderDonors() {
+  const donors = getDonors();
+  document.getElementById('dash-donors').textContent = donors.length;
+  const tbody = document.getElementById('donorTbody'); if (!tbody) return;
+  if (!donors.length) { tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:var(--gray);padding:30px;">No donors yet.</td></tr>'; return; }
+  tbody.innerHTML = donors.map((d, i) => `<tr>
+    <td><strong>${d.name || 'Anonymous'}</strong></td>
+    <td>₹${(d.amount || 0).toLocaleString('en-IN')}</td>
+    <td>${d.date || '-'}</td>
+    <td><button class="btn btn-red btn-sm" onclick="deleteDonor(${i})">🗑</button></td>
   </tr>`).join('');
 }
-function openAddDonor(){document.getElementById('d-date').value=new Date().toISOString().split('T')[0];openModal('modal-donor');}
-function saveDonor(){
-  const donors=getDonors();
-  donors.push({name:g('d-name'),mobile:g('d-mobile'),amount:parseFloat(g('d-amount'))||0,type:g('donor-type'),date:g('d-date'),msg:g('d-msg')});
-  setDonors(donors);renderDonors();closeModal('modal-donor');showToast('💝 Donor saved!','success');
+function openAddDonor() { document.getElementById('d-date').value = new Date().toISOString().split('T')[0]; openModal('modal-donor'); }
+function saveDonor() {
+  const donors = getDonors();
+  donors.push({ name: g('d-name'), mobile: g('d-mobile'), amount: parseFloat(g('d-amount')) || 0, date: g('d-date'), msg: g('d-msg') });
+  setDonors(donors); renderDonors(); closeModal('modal-donor'); showToast('💝 Donor saved!', 'success');
 }
-function deleteDonor(idx){if(!confirm('Delete this donor?'))return;const d=getDonors();d.splice(idx,1);setDonors(d);renderDonors();}
-function selectDType(el,type){document.querySelectorAll('.dtype-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');document.getElementById('donor-type').value=type;}
+function deleteDonor(idx) { if (!confirm('Delete?')) return; const d = getDonors(); d.splice(idx, 1); setDonors(d); renderDonors(); }
 
-// Save Sections
-function saveSection(sec){
-  const st=DB.getSt();
-  if(sec==='hero'){st.hero={b:g('hero-b'),h1:g('hero-h1'),em:g('hero-em'),p:g('hero-p'),b1:g('hero-b1'),b2:g('hero-b2'),q:g('hero-q'),c:g('hero-c'),hs1n:g('hero-hs1n'),hs1l:g('hero-hs1l'),hs2n:g('hero-hs2n'),hs2l:g('hero-hs2l'),bg:g('hero-bg-url')||undefined};const c=document.getElementById('hero-bg-current');if(c&&st.hero.bg)c.textContent='Custom image set ✅';}
-  else if(sec==='about'){st.about={p1:g('about-p1'),p2:g('about-p2'),bn:g('about-bn'),bl:g('about-bl'),mt:g('about-mt'),mp:g('about-mp'),vt:g('about-vt'),vp:g('about-vp'),i:g('about-main-url'),fi:g('about-float-url')};}
-  else if(sec==='programs'){st.programs={c1:{img:g('prg1-url'),t:g('prg1-t'),p:g('prg1-p'),l:g('prg1-l')},c2:{img:g('prg2-url'),t:g('prg2-t'),p:g('prg2-p'),l:g('prg2-l')},c3:{img:g('prg3-url'),t:g('prg3-t'),p:g('prg3-p'),l:g('prg3-l')}};}
-  else if(sec==='stats'){st.stats=[{n:g('stat1-n'),l:g('stat1-l')},{n:g('stat2-n'),l:g('stat2-l')},{n:g('stat3-n'),l:g('stat3-l')}];}
-  else if(sec==='stories'){st.stories={s1:{img:g('st1-img'),q:g('st1-q'),n:g('st1-n'),l:g('st1-l')},s2:{img:g('st2-img'),q:g('st2-q'),n:g('st2-n'),l:g('st2-l')}};}
-  else if(sec==='join'){st.join={h:g('join-h'),p:g('join-p'),d1t:g('join-d1t'),d1p:g('join-d1p'),d1b:g('join-d1b'),d2t:g('join-d2t'),d2p:g('join-d2p'),d2b:g('join-d2b')};}
-  else if(sec==='vision'){st.vision={v1:g('vis-v1'),v2:g('vis-v2'),v3:g('vis-v3')};}
-  else if(sec==='donate'){st.donate={h:g('don-h'),p1:g('don-p1'),p2:g('don-p2'),wa:g('don-wa'),upil:g('don-upil'),org:g('don-org'),reg:g('don-reg'),pan:g('don-pan'),niti:g('don-niti')};}
-  else if(sec==='contact'){st.contact={a:g('con-a'),p1:g('con-p1'),p2:g('con-p2'),em:g('con-em'),web:g('con-web'),w:g('con-w'),m:g('con-m')};}
-  else if(sec==='logo'){st.logo={n:g('logo-n'),t:g('logo-t'),tt:g('logo-tt'),i:g('logo-url')};}
-  else if(sec==='footer'){st.footer={about:g('ft-about'),reg:g('ft-reg'),pan:g('ft-pan'),copy:g('ft-copy'),soc1:g('soc1'),soc2:g('soc2'),soc3:g('soc3'),soc4:g('soc4')};}
-  else if(sec==='legal'){st.legal={r:g('leg-r'),pan:g('leg-pan'),niti:g('leg-niti'),desc:g('leg-desc')};}
-  else if(sec==='progpages'){st.progpages={edu:{img:g('edu-img'),t:g('edu-t'),p1:g('edu-p1'),p2:g('edu-p2'),ft:g('edu-ft'),fp:g('edu-fp')},health:{img:g('health-img'),t:g('health-t'),p1:g('health-p1'),p2:g('health-p2'),ft:g('health-ft'),fp:g('health-fp')},rural:{img:g('rural-img'),t:g('rural-t'),p1:g('rural-p1'),p2:g('rural-p2'),ft:g('rural-ft'),fp:g('rural-fp')},env:{img:g('env-img'),t:g('env-t'),p1:g('env-p1'),ft:g('env-ft'),fp:g('env-fp')}};}
-  DB.setSt(st);
-  // Force storage event for website tab auto-update
-  const _d=DB.getSt();localStorage.setItem('mlf_st',JSON.stringify(_d));
-  showToast('✅ Saved! Website will auto-update.','success');
-}
-function saveAllData(){
-  ['hero','about','programs','stats','stories','join','vision','donate','contact','logo','footer','legal','progpages'].forEach(saveSection);
-  saveBdayWish();
-  checkStorageSpace();
-  // Force storage event broadcast
-  localStorage.setItem('mlf_st',JSON.stringify(DB.getSt()));
-  showToast('✅ All changes saved! Open website to see changes.','success');
+// ═══════════════════════════════════
+// PASSWORD
+// ═══════════════════════════════════
+function changePassword() {
+  const cur = document.getElementById('pw-cur').value, nw = document.getElementById('pw-new').value, conf = document.getElementById('pw-confirm').value;
+  if (cur !== adminCreds.pass) { showToast('Wrong current password', 'error'); return; }
+  if (nw.length < 6) { showToast('Min 6 characters', 'error'); return; }
+  if (nw !== conf) { showToast('Passwords do not match', 'error'); return; }
+  adminCreds.pass = nw; localStorage.setItem('mlf_admin_creds', JSON.stringify(adminCreds));
+  ['pw-cur', 'pw-new', 'pw-confirm'].forEach(id => document.getElementById(id).value = '');
+  showToast('🔒 Password updated!', 'success');
 }
 
-function loadAllFields(){
-  const st=DB.getSt();
-  function sv(id,val){const el=document.getElementById(id);if(el&&val!=null)el.value=val;}
-  function si(id,src){const el=document.getElementById(id);if(el&&src){el.src=src;el.style.display='';}}
-  if(st.hero){sv('hero-b',st.hero.b);sv('hero-h1',st.hero.h1);sv('hero-em',st.hero.em);sv('hero-p',st.hero.p);sv('hero-b1',st.hero.b1);sv('hero-b2',st.hero.b2);sv('hero-q',st.hero.q);sv('hero-c',st.hero.c);sv('hero-hs1n',st.hero.hs1n);sv('hero-hs1l',st.hero.hs1l);sv('hero-hs2n',st.hero.hs2n);sv('hero-hs2l',st.hero.hs2l);if(st.hero.bg){sv('hero-bg-url',st.hero.bg);si('hero-bg-preview',st.hero.bg);const c=document.getElementById('hero-bg-current');if(c)c.textContent='Custom image set ✅';}}
-  if(st.about){sv('about-p1',st.about.p1);sv('about-p2',st.about.p2);sv('about-bn',st.about.bn);sv('about-bl',st.about.bl);sv('about-mt',st.about.mt);sv('about-mp',st.about.mp);sv('about-vt',st.about.vt);sv('about-vp',st.about.vp);sv('about-main-url',st.about.i);si('about-main-preview',st.about.i);sv('about-float-url',st.about.fi);si('about-float-preview',st.about.fi);}
-  if(st.programs){['1','2','3'].forEach(n=>{const c=st.programs['c'+n];if(!c)return;sv(`prg${n}-url`,c.img);si(`prg${n}-preview`,c.img);sv(`prg${n}-t`,c.t);sv(`prg${n}-p`,c.p);sv(`prg${n}-l`,c.l);});}
-  if(st.stats){st.stats.forEach((s,i)=>{sv(`stat${i+1}-n`,s.n);sv(`stat${i+1}-l`,s.l);});}
-  if(st.stories){['1','2'].forEach(n=>{const s=st.stories['s'+n];if(!s)return;sv(`st${n}-img`,s.img);si(`st${n}-preview`,s.img);sv(`st${n}-q`,s.q);sv(`st${n}-n`,s.n);sv(`st${n}-l`,s.l);});}
-  if(st.join){sv('join-h',st.join.h);sv('join-p',st.join.p);sv('join-d1t',st.join.d1t);sv('join-d1p',st.join.d1p);sv('join-d1b',st.join.d1b);sv('join-d2t',st.join.d2t);sv('join-d2p',st.join.d2p);sv('join-d2b',st.join.d2b);}
-  if(st.vision){sv('vis-v1',st.vision.v1);sv('vis-v2',st.vision.v2);sv('vis-v3',st.vision.v3);}
-  if(st.donate){sv('don-h',st.donate.h);sv('don-p1',st.donate.p1);sv('don-p2',st.donate.p2);sv('don-wa',st.donate.wa);sv('don-upil',st.donate.upil);sv('don-org',st.donate.org);sv('don-reg',st.donate.reg);sv('don-pan',st.donate.pan);sv('don-niti',st.donate.niti);}
-  if(st.contact){sv('con-a',st.contact.a);sv('con-p1',st.contact.p1);sv('con-p2',st.contact.p2);sv('con-em',st.contact.em);sv('con-web',st.contact.web);sv('con-w',st.contact.w);sv('con-m',st.contact.m);}
-  if(st.logo){sv('logo-n',st.logo.n);sv('logo-t',st.logo.t);sv('logo-tt',st.logo.tt);sv('logo-url',st.logo.i);si('logo-preview',st.logo.i);}
-  if(st.footer){sv('ft-about',st.footer.about);sv('ft-reg',st.footer.reg);sv('ft-pan',st.footer.pan);sv('ft-copy',st.footer.copy);['1','2','3','4'].forEach(n=>sv('soc'+n,st.footer['soc'+n]));}
-  if(st.legal){sv('leg-r',st.legal.r);sv('leg-pan',st.legal.pan);sv('leg-niti',st.legal.niti);sv('leg-desc',st.legal.desc);}
-  if(st.progpages){['edu','health','rural','env'].forEach(k=>{const p=st.progpages[k];if(!p)return;sv(`${k}-img`,p.img);si(`${k}-preview`,p.img);sv(`${k}-t`,p.t);if(document.getElementById(`${k}-p1`))sv(`${k}-p1`,p.p1);if(document.getElementById(`${k}-p2`))sv(`${k}-p2`,p.p2);sv(`${k}-ft`,p.ft);sv(`${k}-fp`,p.fp);});}
-  if(st.notifcal?.birthdayWish){sv('bday-wish',st.notifcal.birthdayWish);}
-}
-function updateDashboard(){renderVolunteers();renderDonors();}
-
-// Password
-function changePassword(){
-  const cur=document.getElementById('pw-cur').value,nw=document.getElementById('pw-new').value,conf=document.getElementById('pw-confirm').value;
-  if(cur!==adminCreds.pass){showToast('Current password is wrong','error');return;}
-  if(nw.length<6){showToast('New password min 6 characters','error');return;}
-  if(nw!==conf){showToast('Passwords do not match','error');return;}
-  adminCreds.pass=nw;localStorage.setItem('mlf_admin_creds',JSON.stringify(adminCreds));
-  ['pw-cur','pw-new','pw-confirm'].forEach(id=>document.getElementById(id).value='');
-  showToast('🔒 Password updated successfully!','success');
+// ═══════════════════════════════════
+// PAGE NAV
+// ═══════════════════════════════════
+const PAGE_TITLES = { dashboard: '📊 Dashboard', hero: '🏠 Hero Section', about: 'ℹ️ About Section', programs: '📋 Programs', stats: '📈 Impact Stats', testimonials: '💬 Testimonials', join: '🤝 Join Section', vision: '🎯 Vision & Mission', board: '👥 Board Members', coordinators: '📍 Coordinators', gallery: '🖼️ Gallery', donate: '❤️ Donate Page', contact: '📞 Contact Page', branding: '🎨 Branding', footer: '📌 Footer', volunteers: '🙋 Volunteers', donors: '💝 Donors', password: '🔑 Change Password' };
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sb-item').forEach(a => a.classList.remove('active'));
+  const pg = document.getElementById('page-' + id); if (pg) pg.classList.add('active');
+  document.getElementById('pageTitle').textContent = PAGE_TITLES[id] || id;
+  document.querySelectorAll('.sb-item').forEach(a => { if (a.getAttribute('onclick') && a.getAttribute('onclick').includes("'" + id + "'")) a.classList.add('active'); });
 }
 
-// Forgot
-function lookupVolunteer(){
-  const mobile=document.getElementById('forg-mobile').value.trim(),last4=document.getElementById('forg-aadhaar').value.trim(),res=document.getElementById('forg-result');
-  if(!mobile||!last4){showToast('Enter mobile and last 4 digits of Aadhaar','error');return;}
-  const vol=getVols().find(v=>v.mobile===mobile&&v.aadhaarDisplay&&v.aadhaarDisplay.endsWith(last4));
-  if(!vol){res.innerHTML='<div class="warn-box">❌ No volunteer found. Check mobile number and Aadhaar digits.</div>';return;}
-  res.innerHTML=`<div class="info-box"><strong>✅ Volunteer Found!</strong><br><strong>Name:</strong> ${vol.name}<br><strong>Volunteer ID:</strong> <strong style="color:var(--blue);font-size:16px;letter-spacing:1px;">${vol.id}</strong><br><strong>District:</strong> ${vol.district||'-'}<br><strong>Joined:</strong> ${vol.joinDate||'-'}<br><br><em>Share this Volunteer ID with the person to login on the website.</em></div>`;
-}
-
-// Sheets
-function saveSheets(){localStorage.setItem('mlf_url',document.getElementById('sheets-url').value.trim());showToast('📊 Google Sheets URL saved!','success');}
-function testSheets(){
-  const url=localStorage.getItem('mlf_url');if(!url){showToast('No URL saved','error');return;}
-  showToast('Sending test ping...','');
-  fetch(url,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({test:true,time:new Date().toISOString()})})
-    .then(()=>showToast('✅ Ping sent! Check your Google Sheet.','success'))
-    .catch(()=>showToast('Could not reach Sheets URL','error'));
-}
-
-// Tab Switch — FIXED: uses event parameter to avoid global 'event'
-function switchTab(event, id) {
-  const btn = event.currentTarget || event.target;
-  const container = btn.closest('.page') || document;
-  container.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
-  container.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  const pane = document.getElementById('tab-'+id);
-  if(pane) pane.classList.add('active');
-  btn.classList.add('active');
-}
-
-// Modals
-function openModal(id){document.getElementById(id).classList.add('open');}
-function closeModal(id){document.getElementById(id).classList.remove('open');}
-document.querySelectorAll('.modal-ov').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('open');}));
-
-// Toast
+// ═══════════════════════════════════
+// MODALS & TOAST
+// ═══════════════════════════════════
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+document.querySelectorAll('.modal-ov').forEach(o => o.addEventListener('click', e => { if (e.target === o) o.classList.remove('open'); }));
 let _toastT;
-function showToast(msg,type){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.className=`toast ${type}`;t.classList.add('show');
-  clearTimeout(_toastT);_toastT=setTimeout(()=>t.classList.remove('show'),3500);
+function showToast(msg, type) {
+  const t = document.getElementById('toast'); t.textContent = msg; t.className = `toast ${type}`; t.classList.add('show');
+  clearTimeout(_toastT); _toastT = setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// ═══════════════════════════════════
+// INIT
+// ═══════════════════════════════════
+async function init() {
+  checkSupabase();
+  await loadContentFromSupabase();
+  loadAllFields();
+  renderBoard(); renderCoords(); renderGallery();
+  renderVolunteers(); renderDonors();
 }
 </script>
 </body>
