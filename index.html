@@ -21,11 +21,12 @@
   --r:20px;--r-sm:12px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
+button,a,[onclick]{cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,0);touch-action:manipulation;}
 html{scroll-behavior:smooth;}
 body{font-family:'Open Sans',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;}
 
 /* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 24px 0 16px;height:70px;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(10,77,140,.09);transition:box-shadow .3s;}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 16px 0 12px;height:70px;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(10,77,140,.09);transition:box-shadow .3s;}
 .nav.scrolled{box-shadow:var(--sh-md);}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
 .logo-ico{width:70px;height:70px;border-radius:15px;background:transparent;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;overflow:hidden;}
@@ -35,18 +36,20 @@ body{font-family:'Open Sans',sans-serif;color:var(--text);background:var(--white
 .nav-links{display:flex;gap:4px;align-items:center;margin-left:auto;}
 .nav-links a{text-decoration:none;color:var(--text);font-size:13px;font-weight:500;padding:8px 12px;border-radius:8px;transition:all .2s;cursor:pointer;display:inline-block;}
 .nav-links a:hover{background:var(--gray-lt);color:var(--blue);}
-.nav-btn-login{border:1.5px solid var(--blue)!important;color:var(--blue)!important;border-radius:9px!important;}
+.nav-btn-login{border:1.5px solid var(--blue)!important;color:var(--blue)!important;border-radius:9px!important;padding:7px 14px!important;font-size:12.5px!important;white-space:nowrap!important;}
 .nav-btn-login:hover{background:var(--blue)!important;color:var(--white)!important;}
-.nav-btn-volunteer{background:var(--green)!important;color:var(--white)!important;border-radius:9px!important;font-weight:600!important;}
+.nav-btn-volunteer{background:var(--green)!important;color:var(--white)!important;border-radius:9px!important;font-weight:600!important;padding:7px 14px!important;font-size:12.5px!important;white-space:nowrap!important;}
 .nav-btn-volunteer:hover{background:var(--green-lt)!important;}
-.nav-btn-donate{background:var(--orange)!important;color:var(--white)!important;border-radius:9px!important;font-weight:700!important;}
+.nav-btn-donate{background:var(--orange)!important;color:var(--white)!important;border-radius:9px!important;font-weight:700!important;padding:7px 14px!important;font-size:12.5px!important;white-space:nowrap!important;}
 .nav-btn-donate:hover{background:#d96d00!important;}
-.nav-btn-profile{background:var(--blue)!important;color:var(--white)!important;border-radius:9px!important;font-weight:600!important;}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;}
+.nav-btn-profile{background:var(--blue)!important;color:var(--white)!important;border-radius:9px!important;font-weight:600!important;padding:7px 14px!important;font-size:12.5px!important;white-space:nowrap!important;}
+#navAuthButtons{display:flex;align-items:center;gap:6px;margin-left:8px;flex-shrink:0;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;z-index:1002;position:relative;}
 .hamburger span{width:24px;height:2px;background:var(--blue);border-radius:2px;}
-.mob-menu{display:none;position:fixed;top:70px;left:0;right:0;z-index:999;background:var(--white);border-bottom:1px solid var(--gray-lt);padding:16px 4%;flex-direction:column;gap:6px;box-shadow:var(--sh-md);}
+.mob-menu{display:none;position:fixed;top:60px;left:0;right:0;z-index:1001;background:var(--white);border-bottom:1px solid var(--gray-lt);padding:16px 4% 20px;flex-direction:column;gap:4px;box-shadow:0 8px 24px rgba(10,77,140,.15);max-height:80vh;overflow-y:auto;}
 .mob-menu.open{display:flex;}
-.mob-menu a{text-decoration:none;color:var(--text);font-weight:500;padding:12px 16px;border-radius:10px;font-size:15px;cursor:pointer;display:block;}
+.mob-menu a{text-decoration:none;color:var(--text);font-weight:500;padding:12px 16px;border-radius:10px;font-size:15px;cursor:pointer;display:block;-webkit-tap-highlight-color:rgba(10,77,140,.1);touch-action:manipulation;user-select:none;}
+.mob-menu a:hover,.mob-menu a:active{background:var(--off);}
 .mob-menu a:hover{background:var(--gray-lt);}
 
 /* HERO */
@@ -54,8 +57,8 @@ body{font-family:'Open Sans',sans-serif;color:var(--text);background:var(--white
 .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,77,140,.92) 0%,rgba(10,77,140,.65) 45%,rgba(46,139,87,.70) 100%),center/cover no-repeat;transition:background .5s;}
 .hero-g1{position:absolute;bottom:-80px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(245,124,0,.2) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
 .hero-g2{position:absolute;top:80px;left:-80px;width:340px;height:340px;background:radial-gradient(circle,rgba(46,139,87,.22) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
-.hero-wrap{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 4%;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
-.hero-txt{color:var(--white);}
+.hero-wrap{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:0 4%;display:grid;grid-template-columns:1fr;gap:50px;align-items:center;}
+.hero-txt{color:var(--white);max-width:680px;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,124,0,.18);border:1px solid rgba(245,124,0,.35);padding:8px 18px;border-radius:50px;font-size:12px;font-weight:600;color:#FFCC80;margin-bottom:26px;letter-spacing:.5px;text-transform:uppercase;animation:fadeUp .8s ease both;text-decoration:none;}
 .hero-badge::before{content:'●';color:var(--orange);font-size:8px;animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
@@ -83,8 +86,14 @@ body{font-family:'Open Sans',sans-serif;color:var(--text);background:var(--white
 /* CLOCK */
 .clock-widget{width:230px;background:rgba(10,40,80,0.55);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.22);border-radius:18px;padding:14px;box-shadow:0 8px 32px rgba(0,0,0,0.35);color:var(--white);}
 #hero-clock-slot{position:fixed;top:80px;right:16px;z-index:990;}
-#navClockSlot{display:flex;align-items:center;padding-right:8px;}
-#navClockSlot .clock-widget{width:200px;padding:10px 12px;}
+#navClockSlot{display:flex;align-items:center;padding:0 10px 0 6px;flex-shrink:0;}
+#navClockSlot .clock-widget{width:190px;padding:8px 12px;background:rgba(7,58,107,0.92);border:1.5px solid rgba(10,77,140,.4);border-radius:14px;box-shadow:0 2px 12px rgba(10,77,140,.25);}
+#navClockSlot .cw-time{font-size:22px;letter-spacing:1px;}
+#navClockSlot .cw-date{font-size:10px;}
+#navClockSlot .cw-odia-month{font-size:9px;}
+#navClockSlot .cw-notice-box{max-height:28px;}
+#navClockSlot .cw-label-upcoming,#navClockSlot .cw-label-today{font-size:9px;padding:1px 7px;}
+#navClockSlot .cw-dots{margin-top:3px;}
 .cw-time{font-family:'Poppins',sans-serif;font-size:30px;font-weight:800;letter-spacing:2px;color:#FFDD80;text-align:center;line-height:1;text-shadow:0 0 20px rgba(255,200,80,.5);}
 .cw-date{font-size:11px;text-align:center;color:rgba(255,255,255,.7);margin-top:3px;letter-spacing:1px;font-weight:600;}
 .cw-odia-month{font-size:10px;text-align:center;color:rgba(255,200,100,.75);margin-top:2px;letter-spacing:.5px;}
@@ -454,8 +463,50 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
 .conf-p{position:absolute;top:-10px;animation:confFall linear forwards;}
 @keyframes confFall{to{transform:translateY(110vh) rotate(720deg);opacity:0;}}
 @media(max-width:1024px){.imp-grid{grid-template-columns:repeat(2,1fr);}.ft-top{grid-template-columns:1fr 1fr;}.bm-grid{grid-template-columns:repeat(3,1fr);}.coord-grid{grid-template-columns:repeat(2,1fr);}.profile-grid{grid-template-columns:1fr;}}
-@media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.hero-wrap{grid-template-columns:1fr;}.hero-card{display:none;}.about-grid,.prg-cards,.stories,.join-cards,.donate-grid,.contact-grid,.prog-detail-grid{grid-template-columns:1fr;}.gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}.g1,.g2,.g3,.g4,.g5{grid-column:span 1;height:180px;}.g1{grid-column:span 2;}.ft-top{grid-template-columns:1fr;}.mv-grid,.vmv-grid,.bm-grid,.full-gal-grid{grid-template-columns:1fr 1fr;}.img-float{display:none;}.form-row,.form-row.three{grid-template-columns:1fr;}.profile-field-row{grid-template-columns:1fr;}#hero-clock-slot{display:none;}}
-@media(max-width:480px){.clock-widget{display:none;}.bm-grid,.full-gal-grid{grid-template-columns:1fr;}.imp-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero-wrap{grid-template-columns:1fr;}
+  .hero-card{display:none;}
+  .about-grid,.prg-cards,.stories,.join-cards,.donate-grid,.contact-grid,.prog-detail-grid{grid-template-columns:1fr;}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .g1,.g2,.g3,.g4,.g5{grid-column:span 1;height:180px;}
+  .g1{grid-column:span 2;}
+  .ft-top{grid-template-columns:1fr;}
+  .mv-grid,.vmv-grid,.bm-grid,.full-gal-grid{grid-template-columns:1fr 1fr;}
+  .img-float{display:none;}
+  .form-row,.form-row.three{grid-template-columns:1fr;}
+  .profile-field-row{grid-template-columns:1fr;}
+  #hero-clock-slot{display:none;}
+  /* Mobile navbar: logo + clockslot + hamburger */
+  .nav{padding:0 14px;height:60px;}
+  #navClockSlot{display:none;}
+  #navClockSlot.clock-in-nav-mobile{display:flex;}
+  .logo-ico{width:44px!important;height:44px!important;}
+  .logo-txt strong{font-size:12px!important;}
+  .logo-txt span{font-size:9px!important;}
+  /* Mobile menu buttons */
+  .mob-menu a{padding:11px 14px;font-size:14px;border-radius:9px;}
+  .mob-menu a:active{background:var(--gray-lt);}
+  #mobAuthButtons{gap:8px!important;margin-top:12px!important;padding-top:12px;border-top:1px solid var(--gray-lt);}
+  .mob-menu .nav-btn-login,.mob-menu .nav-btn-volunteer,.mob-menu .nav-btn-donate,.mob-menu .nav-btn-profile{
+    display:block;width:100%;text-align:center;padding:12px 16px!important;font-size:14px!important;border-radius:10px!important;
+  }
+}
+@media(max-width:480px){
+  .clock-widget{display:none;}
+  .bm-grid,.full-gal-grid{grid-template-columns:1fr;}
+  .imp-grid{grid-template-columns:1fr 1fr;}
+  .hero-sec{min-height:88vh;}
+  .hero-h{font-size:clamp(26px,7vw,42px);}
+  .hero-p{font-size:14px;}
+  .hero-btns{flex-direction:column;gap:10px;}
+  .hero-btns .btn-primary,.hero-btns .btn-wh{width:100%;justify-content:center;}
+  .sec-title{font-size:clamp(22px,5vw,32px);}
+  .prg-card,.imp-card{padding:18px 14px;}
+  .coord-grid{grid-template-columns:1fr!important;}
+  .page-hero h2{font-size:clamp(22px,6vw,32px);}
+}
 </style>
 </head>
 <body>
@@ -541,13 +592,7 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
         <button class="btn-wh" onclick="handleVolunteerBtn()" id="heroBtn2">🤝 Join as Volunteer</button>
       </div>
     </div>
-    <div class="hero-card">
-      <div class="hero-stats">
-        <div class="h-stat"><div class="h-stat-n" id="heroS1n">500+</div><div class="h-stat-l" id="heroS1l">Families Helped</div></div>
-        <div class="h-stat"><div class="h-stat-n" id="heroS2n">50+</div><div class="h-stat-l" id="heroS2l">Programs Done</div></div>
-      </div>
-      <div class="hero-q"><p id="heroQ">"Because of My Lifeline Foundation, my child is going to school again."</p><cite id="heroC">— Beneficiary Family, Kendrapara</cite></div>
-    </div>
+    
   </div>
   <div class="scroll-hint"><div class="scroll-line"></div><span>Scroll</span></div>
 </section>
@@ -701,7 +746,7 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
   <div class="page-hero"><div class="breadcrumb"><a onclick="showPage('home')">Home</a> / Programs / Environment</div><h2>🌿 Environment Program</h2></div>
   <div class="sec"><div class="prog-detail-grid reveal">
     <div><img src="" class="prog-detail-img" alt="Environment" id="envImg"></div>
-    <div class="prog-detail-body"><div class="lbl">Planet &amp; People</div><h3 id="envTitle">Environmental Awareness &amp; Action</h3><p id="envP1">India faces millions of deaths each year due to the adverse effects of our day-to-day activities on the environment. My Lifeline Foundation works to raise awareness and bring ownership within people to save the environment.</p><div class="featured-prg"><h4 id="envFT">🌱 NIRA — Nature Is Requesting Action</h4><p id="envFP">Through NIRA, we work to combat environment degradation, promote sustainability, and help communities with greener, safer, healthier environments across India.</p></div></div>
+    <div class="prog-detail-body"><div class="lbl">Planet &amp; People</div><h3 id="envTitle">Environmental Awareness &amp; Action</h3><p id="envP1">India faces millions of deaths each year due to the adverse effects of our day-to-day activities on the environment. My Lifeline Foundation works to raise awareness and bring ownership within people to save the environment.</p><p id="envP2"></p><div class="featured-prg"><h4 id="envFT">🌱 NIRA — Nature Is Requesting Action</h4><p id="envFP">Through NIRA, we work to combat environment degradation, promote sustainability, and help communities with greener, safer, healthier environments across India.</p></div></div>
   </div></div>
 </div>
 
@@ -922,11 +967,7 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
 const ODIA_MONTHS=['ବୈଶାଖ','ଜ୍ୟେଷ୍ଠ','ଆଷାଢ଼','ଶ୍ରାବଣ','ଭାଦ୍ରବ','ଆଶ୍ୱିନ','କାର୍ତ୍ତିକ','ମାର୍ଗଶିର','ପୌଷ','ମାଘ','ଫାଲ୍ଗୁନ','ଚୈତ୍ର'];
 
 // ── DATA ACCESS ──
-const _SB_URL='https://mvkbczobozlbdigkecwr.supabase.co';
-const _SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12a2Jjem9ib3psYmRpZ2tlY3dyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyNDk0MzksImV4cCI6MjA4OTgyNTQzOX0.QzrmLBzKyA3NzQTKFnTSiGHiEnIeD0DwH5fCULhDUTM';
-let _sbCache=null;
-async function _loadSb(){try{const r=await fetch(`${_SB_URL}/rest/v1/mlf_content?id=eq.main&select=data`,{headers:{'apikey':_SB_KEY,'Authorization':`Bearer ${_SB_KEY}`}});if(r.ok){const rows=await r.json();if(rows&&rows.length>0&&rows[0].data){_sbCache=rows[0].data;try{localStorage.setItem('mlf_st',JSON.stringify(_sbCache));}catch(e){}}}}catch(e){}if(!_sbCache){try{_sbCache=JSON.parse(localStorage.getItem('mlf_st')||'{}');}catch{_sbCache={};}}return _sbCache;}
-function getSt(){if(_sbCache)return _sbCache;try{return JSON.parse(localStorage.getItem('mlf_st')||'{}');}catch{return{};}}
+function getSt(){try{return JSON.parse(localStorage.getItem('mlf_st')||'{}');}catch{return{};}}
 function getVols(){return JSON.parse(localStorage.getItem('mlf_volunteers')||'[]');}
 function saveVols(a){localStorage.setItem('mlf_volunteers',JSON.stringify(a));}
 function getSession(){return localStorage.getItem('mlf_session');}
@@ -1032,7 +1073,7 @@ function loadAdminContent(){
     loadPP('edu','eduImg','eduTitle','eduP1','eduP2','eduFT','eduFP');
     loadPP('health','healthImg','healthTitle','healthP1','healthP2','healthFT','healthFP');
     loadPP('rural','ruralImg','ruralTitle','ruralP1','ruralP2','ruralFT','ruralFP');
-    loadPP('env','envImg','envTitle','envP1',null,'envFT','envFP');
+    loadPP('env','envImg','envTitle','envP1','envP2','envFT','envFP');
   }
   if(D.board&&D.board.length){
     const g=document.getElementById('bmGridDynamic');
@@ -1072,7 +1113,8 @@ function showPage(page){
   }
   window.scrollTo({top:0,behavior:'smooth'});
   document.body.style.overflow='';
-  document.getElementById('mobMenu').classList.remove('open');
+  const mm=document.getElementById('mobMenu');
+  if(mm){mm.classList.remove('open');}
 }
 function loadGallery(){
   const g=document.getElementById('dynamicGalleryGrid');
@@ -1102,7 +1144,7 @@ function startClock(){
 const DEFAULT_FESTIVALS=[
   {month:1,day:14,name:"ମକର ସଂକ୍ରାନ୍ତି / ମକର ମେଳା",emoji:"🪁🌊",wish:"ମକର ସଂକ୍ରାନ୍ତିର ହାର୍ଦ୍ଦିକ ଶୁଭେଚ୍ଛା! ମହାପ୍ରଭୁ ଶ୍ରୀଜଗନ୍ନାଥଙ୍କ ଆଶୀର୍ବାଦ ଆପଣଙ୍କ ଉପରେ ବର୍ଷୁ।"},
   {month:1,day:26,name:"ଗଣତନ୍ତ୍ର ଦିବସ",emoji:"🇮🇳🎺",wish:"ଗଣତନ୍ତ୍ର ଦିବସର ହାର୍ଦ୍ଦିକ ଶୁଭେଚ୍ଛା! ଜୟ ହିନ୍ଦ!"},
-  {month:4,day:1,name:"ଉତ୍କଳ ଦିବସ — ଓଡ଼ିଶା ଦିବସ",emoji:"🏵️🌺",wish:"ଉତ୍କଳ ଦିବସର ଶୁଭେଚ୍ଛା! ଜୟ ଓଡ଼ିଶା!"},
+  {month:3,day:30,name:"ଉତ୍କଳ ଦିବସ — ଓଡ଼ିଶା ଦିବସ",emoji:"🏵️🌺",wish:"ଉତ୍କଳ ଦିବସର ଶୁଭେଚ୍ଛା! ଜୟ ଓଡ଼ିଶା!"},
   {month:4,day:14,name:"ମହା ବିଷୁବ ସଂକ୍ରାନ୍ତି — ଓଡ଼ିଆ ନବ ବର୍ଷ",emoji:"🌅🎊",wish:"ଓଡ଼ିଆ ନବ ବର୍ଷର ଅଭିନନ୍ଦନ!"},
   {month:6,day:27,name:"ରଥ ଯାତ୍ରା — ପୁରୀ",emoji:"🏆🎪",wish:"ଜୟ ଜଗନ୍ନାଥ! ଶୁଭ ରଥ ଯାତ୍ରା!"},
   {month:8,day:15,name:"ସ୍ୱାଧୀନତା ଦିବସ",emoji:"🇮🇳🎆",wish:"ସ୍ୱାଧୀନତା ଦିବସର ହାର୍ଦ୍ଦିକ ଶୁଭେଚ୍ଛା! ଜୟ ହିନ୍ଦ!"},
@@ -1175,6 +1217,14 @@ function handleClockVisibility(){
   const navSlot=document.getElementById('navClockSlot');
   const heroSlot=document.getElementById('hero-clock-slot');
   if(!widget||!navSlot||!heroSlot)return;
+  // On mobile (<=768px), keep clock in hero fixed slot only, don't move to nav
+  if(window.innerWidth<=768){
+    if(clockInNav){
+      clockInNav=false;heroSlot.style.display='';
+      heroSlot.appendChild(widget);
+    }
+    return;
+  }
   const moveToNav=window.scrollY>window.innerHeight*0.7;
   if(moveToNav&&!clockInNav){
     clockInNav=true;widget.classList.add('clock-moving');
@@ -1389,20 +1439,23 @@ let toastTimer;
 function showToast(msg,type){const t=document.getElementById('toast');t.textContent=msg;t.className=`toast ${type}`;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),3200);}
 
 // ── MISC ──
-function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open');}
+function toggleMenu(){
+  const m=document.getElementById('mobMenu');
+  m.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
 function formatDate(d){if(!d)return'';const dt=new Date(d);return`${String(dt.getDate()).padStart(2,'0')}/${String(dt.getMonth()+1).padStart(2,'0')}/${dt.getFullYear()}`;}
 window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);handleClockVisibility();});
+window.addEventListener('resize',()=>{handleClockVisibility();});
 document.addEventListener('click',e=>{const menu=document.getElementById('mobMenu');if(menu.classList.contains('open')&&!menu.contains(e.target)&&!document.querySelector('.hamburger').contains(e.target))menu.classList.remove('open');});
 
 // ── INIT ──
-_loadSb().then(()=>{
-  loadAdminContent();
-  startClock();
-  updateNav();
-  buildNotices();
-  checkQRParam();
-  (function(){const tf=getTodayFestivals();if(tf.length>0)setTimeout(()=>showFestivalPopup(tf[0]),2000);})();
-});
+loadAdminContent();
+startClock();
+updateNav();
+buildNotices();
+checkQRParam();
+(function(){const tf=getTodayFestivals();if(tf.length>0)setTimeout(()=>showFestivalPopup(tf[0]),2000);})();
 
 // ── AUTO-UPDATE FROM ADMIN (storage event) ──
 // When admin saves in another tab, website auto-refreshes content
