@@ -161,6 +161,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
     <div class="sb-item" onclick="showPage('festivals')"><span class="ico">🎉</span> Festivals &amp; Ticker</div>
     <div class="sb-section">Data</div>
     <div class="sb-item" onclick="showPage('volunteers')"><span class="ico">🙋</span> Volunteers <span class="badge" id="volBadge">0</span></div>
+    <div class="sb-item" onclick="showPage('desig')"><span class="ico">🏷️</span> ID & Designations</div>
     <div class="sb-item" onclick="showPage('donors')"><span class="ico">💝</span> Donors</div>
     <div class="sb-section">Settings</div>
     <div class="sb-item" onclick="showPage('password')"><span class="ico">🔑</span> Change Password</div>
@@ -623,6 +624,62 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
   </div>
 </div>
 
+<!-- DESIGNATIONS & ID CONFIG -->
+<div class="page" id="page-desig">
+  <div class="card">
+    <div class="card-hd"><h3>🏷️ ID & Designation Settings</h3></div>
+    <div class="card-body">
+      <div class="info-box">
+        <strong>Auto ID Format:</strong> MLF-{TYPE}-{EmpNo}{Month}{Year}<br>
+        Example: <strong>MLF-V-01426</strong> = Volunteer, Employee#01, April, 2026<br>
+        Example: <strong>MLF-C-01426</strong> = Coordinator, Employee#01, April, 2026
+      </div>
+      <div class="grid-2" style="margin-bottom:20px;">
+        <div class="card" style="text-align:center;"><div class="card-body">
+          <div style="font-size:36px;">🤝</div>
+          <div style="font-family:Poppins;font-weight:800;font-size:18px;color:var(--blue);margin:8px 0;">MLF-V-XXXX</div>
+          <div style="font-size:12px;color:var(--gray);">Volunteer ID</div>
+        </div></div>
+        <div class="card" style="text-align:center;"><div class="card-body">
+          <div style="font-size:36px;">📍</div>
+          <div style="font-family:Poppins;font-weight:800;font-size:18px;color:var(--green);margin:8px 0;">MLF-C-XXXX</div>
+          <div style="font-size:12px;color:var(--gray);">Coordinator ID</div>
+        </div></div>
+        <div class="card" style="text-align:center;"><div class="card-body">
+          <div style="font-size:36px;">👔</div>
+          <div style="font-family:Poppins;font-weight:800;font-size:18px;color:var(--orange);margin:8px 0;">MLF-E-XXXX</div>
+          <div style="font-size:12px;color:var(--gray);">Employee ID</div>
+        </div></div>
+        <div class="card" style="text-align:center;"><div class="card-body">
+          <div style="font-size:36px;">⭐</div>
+          <div style="font-family:Poppins;font-weight:800;font-size:18px;color:var(--blue);margin:8px 0;">MLF-S-XXXX</div>
+          <div style="font-size:12px;color:var(--gray);">Supporter ID</div>
+        </div></div>
+      </div>
+      <div class="card"><div class="card-hd"><h3>🔍 QR Code Preview</h3></div>
+        <div class="card-body" style="text-align:center;">
+          <div class="info-box">Enter a Volunteer ID below to generate and preview its QR Code</div>
+          <div class="field"><label>Volunteer/Member ID</label><input type="text" id="qrPreviewId" placeholder="e.g. MLF-V-01426" style="text-transform:uppercase;letter-spacing:1px;font-weight:600;"></div>
+          <div class="field"><label>Website URL (base URL for QR)</label><input type="url" id="qrBaseUrl" placeholder="https://mylifelinefoundation.org/index.html"></div>
+          <button class="btn btn-blue" onclick="generateAdminQR()">🔲 Generate QR Code</button>
+          <div id="adminQRDisplay" style="margin-top:16px;display:inline-block;padding:12px;background:white;border-radius:8px;border:1px solid var(--gray-lt);"></div>
+          <div style="margin-top:10px;"><button class="btn btn-green btn-sm" onclick="downloadAdminQR()">⬇️ Download QR Image</button></div>
+        </div>
+      </div>
+      <div class="card"><div class="card-hd"><h3>📊 ID Statistics</h3></div>
+        <div class="card-body">
+          <div class="grid-2">
+            <div><strong>Counter Reset:</strong><br><span style="font-size:12px;color:var(--gray);">Current counter value: <span id="currentCounter">-</span></span></div>
+            <div><button class="btn btn-red btn-sm" onclick="resetCounter()">⚠️ Reset Counter</button></div>
+          </div>
+          <div class="info-box" style="margin-top:12px;">⚠️ Resetting counter will restart ID numbering from 01. Existing IDs are NOT affected.</div>
+          <div style="margin-top:16px;" id="idStatsList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- PASSWORD -->
 <div class="page" id="page-password">
   <div class="card" style="max-width:480px;"><div class="card-hd"><h3>🔑 Change Admin Password</h3></div>
@@ -774,7 +831,7 @@ function init(){
   const bdEl=document.getElementById('bday-wish');if(bdEl&&bday)bdEl.value=bday;
 }
 
-const PAGE_TITLES={dashboard:'Dashboard',hero:'Hero Section',about:'About Section',programs:'Programs',stats:'Impact Stats',testimonials:'Testimonials',join:'Join Section',vision:'Vision & Mission',board:'Board Members',coordinators:'Coordinators',gallery:'Gallery',progpages:'Program Pages',donate:'Donate Page',contact:'Contact Page',branding:'Logo & Branding',footer:'Footer',legal:'Legal Documents',festivals:'Festivals & Ticker',volunteers:'Volunteers',donors:'Donors',password:'Change Password',forgot:'Forgot Password',sheets:'Google Sheets'};
+const PAGE_TITLES={dashboard:'Dashboard',hero:'Hero Section',about:'About Section',programs:'Programs',stats:'Impact Stats',testimonials:'Testimonials',join:'Join Section',vision:'Vision & Mission',board:'Board Members',coordinators:'Coordinators',gallery:'Gallery',progpages:'Program Pages',donate:'Donate Page',contact:'Contact Page',branding:'Logo & Branding',footer:'Footer',legal:'Legal Documents',festivals:'Festivals & Ticker',volunteers:'Volunteers',donors:'Donors',password:'Change Password',forgot:'Forgot Password',sheets:'Google Sheets',desig:'🏷️ ID & Designations'};
 
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -782,6 +839,9 @@ function showPage(id){
   const pg=document.getElementById('page-'+id);if(pg)pg.classList.add('active');
   document.getElementById('pageTitle').textContent=PAGE_TITLES[id]||id;
   document.querySelectorAll('.sb-item').forEach(a=>{if(a.getAttribute('onclick')&&a.getAttribute('onclick').includes("'"+id+"'"))a.classList.add('active');});
+  if(id==='desig')loadDesigPage();
+  if(id==='volunteers')renderVolunteers();
+  if(id==='donors')renderDonors();
 }
 
 async function checkSupabase(){
@@ -1274,6 +1334,73 @@ function switchTab(event, id) {
 function openModal(id){document.getElementById(id).classList.add('open');}
 function closeModal(id){document.getElementById(id).classList.remove('open');}
 document.querySelectorAll('.modal-ov').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('open');}));
+
+// ─── DESIGNATION / QR FUNCTIONS ───
+function generateAdminQR(){
+  const idVal=document.getElementById('qrPreviewId').value.trim().toUpperCase();
+  const baseUrl=document.getElementById('qrBaseUrl').value.trim()||window.location.href.split('admin')[0]+'index.html';
+  if(!idVal){showToast('Enter a member ID first','error');return;}
+  const display=document.getElementById('adminQRDisplay');
+  display.innerHTML='';
+  try{
+    new QRCode(display,{
+      text:baseUrl+'?volunteer='+idVal,
+      width:200,height:200,
+      colorDark:'#073A6B',colorLight:'#ffffff',
+      correctLevel:QRCode.CorrectLevel.H
+    });
+    showToast('✅ QR generated for: '+idVal,'success');
+  }catch(e){display.innerHTML='<p style="color:red;">QR generation failed. Make sure QRCode library is loaded.</p>';}
+}
+function downloadAdminQR(){
+  const display=document.getElementById('adminQRDisplay');
+  const canvas=display.querySelector('canvas');
+  const img=display.querySelector('img');
+  let src='';
+  if(canvas){src=canvas.toDataURL('image/png',1.0);}
+  else if(img){src=img.src;}
+  else{showToast('Generate QR first','error');return;}
+  const idVal=document.getElementById('qrPreviewId').value.trim().toUpperCase()||'QR';
+  const a=document.createElement('a');
+  a.href=src;a.download='MLF-QR-'+idVal+'.png';a.click();
+  showToast('✅ QR downloaded!','success');
+}
+function resetCounter(){
+  if(!confirm('Reset ID counter to 0?\nExisting IDs are NOT changed.'))return;
+  localStorage.setItem('mlf_counter','0');
+  showToast('Counter reset to 0. Next ID will be 01.','success');
+  loadDesigPage();
+}
+function loadDesigPage(){
+  const ctr=localStorage.getItem('mlf_counter')||'0';
+  const el=document.getElementById('currentCounter');
+  if(el)el.textContent=ctr+' (next: '+String(parseInt(ctr)+1).padStart(2,'0')+')';
+  // Show all volunteer IDs by type
+  const vols=getVols();
+  const byType={};
+  vols.forEach(v=>{const t=v.type||'V';if(!byType[t])byType[t]=[];byType[t].push(v);});
+  const typeNames={'V':'🤝 Volunteers','C':'📍 Coordinators','E':'👔 Employees','S':'⭐ Supporters'};
+  const list=document.getElementById('idStatsList');
+  if(!list)return;
+  if(!vols.length){list.innerHTML='<p style="color:var(--gray);">No members registered yet.</p>';return;}
+  list.innerHTML=Object.entries(byType).map(([t,arr])=>`
+    <div style="margin-bottom:16px;">
+      <div style="font-weight:700;color:var(--blue);margin-bottom:8px;">${typeNames[t]||t}: ${arr.length}</div>
+      ${arr.map(v=>`<div style="display:flex;align-items:center;gap:12px;padding:8px 12px;background:var(--off);border-radius:8px;margin-bottom:4px;">
+        <code style="font-weight:700;color:var(--blue);font-size:13px;">${v.id}</code>
+        <span style="font-size:13px;">${v.name}</span>
+        <button class="btn btn-outline btn-xs" style="margin-left:auto;" onclick="previewMemberQR('${v.id}')">🔲 QR</button>
+      </div>`).join('')}
+    </div>
+  `).join('');
+}
+function previewMemberQR(id){
+  document.getElementById('qrPreviewId').value=id;
+  const baseInput=document.getElementById('qrBaseUrl');
+  if(!baseInput.value)baseInput.value=window.location.href.replace('admin.html','index.html');
+  generateAdminQR();
+  document.getElementById('qrPreviewId').scrollIntoView({behavior:'smooth',block:'center'});
+}
 
 // Toast
 let _toastT;
