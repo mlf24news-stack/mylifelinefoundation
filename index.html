@@ -47,13 +47,12 @@ body{font-family:'Open Sans',sans-serif;color:var(--text);background:var(--white
 .hamburger span{width:24px;height:2px;background:var(--blue);border-radius:2px;}
 .mob-menu{display:none;position:fixed;top:70px;left:0;right:0;z-index:1001;background:var(--white);border-bottom:1px solid var(--gray-lt);padding:16px 4% 20px;flex-direction:column;gap:4px;box-shadow:0 8px 24px rgba(10,77,140,.15);max-height:80vh;overflow-y:auto;}
 .mob-menu.open{display:flex;}
-.mob-menu a{text-decoration:none;color:var(--text);font-weight:500;padding:12px 16px;border-radius:10px;font-size:15px;cursor:pointer;display:block;-webkit-tap-highlight-color:rgba(10,77,140,.1);touch-action:manipulation;user-select:none;}
-.mob-menu a:hover,.mob-menu a:active{background:var(--off);}
+.mob-menu a{text-decoration:none;color:var(--text);font-weight:500;padding:12px 16px;border-radius:10px;font-size:15px;cursor:pointer;display:block;}
 .mob-menu a:hover{background:var(--gray-lt);}
 
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:70px;}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,77,140,.92) 0%,rgba(10,77,140,.65) 45%,rgba(46,139,87,.70) 100%),center/cover no-repeat;transition:background .5s;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,77,140,.92) 0%,rgba(10,77,140,.65) 45%,rgba(46,139,87,.70) 100%);transition:background .5s;}
 .hero-g1{position:absolute;bottom:-80px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(245,124,0,.2) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
 .hero-g2{position:absolute;top:80px;left:-80px;width:340px;height:340px;background:radial-gradient(circle,rgba(46,139,87,.22) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
 .hero-wrap{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:0 4%;display:grid;grid-template-columns:1fr;gap:50px;align-items:center;}
@@ -69,14 +68,6 @@ body{font-family:'Open Sans',sans-serif;color:var(--text);background:var(--white
 .btn-org:hover{background:#d96d00;transform:translateY(-3px);}
 .btn-wh{background:rgba(255,255,255,.13);color:var(--white);padding:13px 28px;border-radius:12px;border:1.5px solid rgba(255,255,255,.45);font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:all .3s;backdrop-filter:blur(8px);font-family:'Poppins',sans-serif;cursor:pointer;}
 .btn-wh:hover{background:rgba(255,255,255,.22);transform:translateY(-3px);}
-.hero-card{background:rgba(255,255,255,.1);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.2);border-radius:24px;padding:28px;color:var(--white);animation:fadeUp .8s .4s ease both;}
-.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.h-stat{text-align:center;padding:18px 10px;background:rgba(255,255,255,.09);border-radius:13px;}
-.h-stat-n{font-family:'Poppins',sans-serif;font-size:32px;font-weight:800;color:var(--orange);line-height:1;}
-.h-stat-l{font-size:11px;color:rgba(255,255,255,.7);margin-top:5px;text-transform:uppercase;letter-spacing:.4px;line-height:1.3;}
-.hero-q{margin-top:18px;padding:16px;background:rgba(46,139,87,.2);border-radius:13px;border-left:3px solid #3AA368;}
-.hero-q p{font-size:13px;line-height:1.65;color:rgba(255,255,255,.85);font-style:italic;}
-.hero-q cite{display:block;margin-top:8px;font-size:12px;color:var(--orange);font-weight:700;font-style:normal;}
 .scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.5);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;animation:bob 2s infinite;}
 .scroll-line{width:1px;height:34px;background:rgba(255,255,255,.3);}
 @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
@@ -161,7 +152,7 @@ body{font-family:'Open Sans',sans-serif;color:var(--text);background:var(--white
 .success-overlay p{font-size:15px;color:rgba(255,255,255,.8);max-width:460px;line-height:1.7;margin-bottom:30px;}
 .success-id-badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:16px 32px;margin-bottom:28px;font-family:'Poppins',sans-serif;font-size:22px;font-weight:800;color:#FFDD80;letter-spacing:2px;}
 .btn-goto-profile{background:var(--orange);color:var(--white);padding:15px 36px;border-radius:14px;border:none;font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;cursor:pointer;}
-.btn-goto-profile:hover{background:#d96d00;transform:translateY(-3px);}
+.btn-goto-profile:hover{background:#d96d00;}
 
 /* PROFILE */
 .profile-overlay{position:fixed;inset:0;z-index:2500;background:linear-gradient(135deg,#EFF6FF 0%,#F0FDF4 100%);display:none;overflow-y:auto;}
@@ -441,10 +432,6 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
 .qr-info-row{display:flex;justify-content:center;gap:20px;font-size:13px;color:var(--gray);margin-bottom:12px;}
 .qr-info-row strong{color:var(--text);}
 .qr-org-badge{background:var(--off);border:1px solid var(--gray-lt);border-radius:10px;padding:10px;font-size:12px;color:var(--gray);margin-top:8px;}
-.login-icon{text-align:center;font-size:48px;margin-bottom:10px;}
-.login-divider{text-align:center;font-size:12px;color:var(--gray);margin:12px 0;position:relative;}
-.login-divider::before,.login-divider::after{content:'';position:absolute;top:50%;width:38%;height:1px;background:var(--gray-lt);}
-.login-divider::before{left:0;}.login-divider::after{right:0;}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);z-index:4000;background:var(--blue-dk);color:var(--white);padding:12px 24px;border-radius:12px;font-size:14px;font-weight:600;box-shadow:var(--sh-lg);transition:transform .3s ease;white-space:nowrap;}
 .toast.show{transform:translateX(-50%) translateY(0);}
 .toast.success{background:var(--green);}
@@ -466,7 +453,6 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
   .nav-links{display:none;}
   .hamburger{display:flex;}
   .hero-wrap{grid-template-columns:1fr;}
-  .hero-card{display:none;}
   .about-grid,.prg-cards,.stories,.join-cards,.donate-grid,.contact-grid,.prog-detail-grid{grid-template-columns:1fr;}
   .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
   .g1,.g2,.g3,.g4,.g5{grid-column:span 1;height:180px;}
@@ -477,35 +463,17 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
   .form-row,.form-row.three{grid-template-columns:1fr;}
   .profile-field-row{grid-template-columns:1fr;}
   #hero-clock-slot{display:none;}
-  /* Mobile navbar: logo + clockslot + hamburger */
   .nav{padding:0 14px;height:60px;}
   #navClockSlot{display:none;}
-  #navClockSlot.clock-in-nav-mobile{display:flex;}
   .logo-ico{width:44px!important;height:44px!important;}
-  .logo-txt strong{font-size:12px!important;}
-  .logo-txt span{font-size:9px!important;}
-  /* Mobile menu buttons */
-  .mob-menu a{padding:11px 14px;font-size:14px;border-radius:9px;}
-  .mob-menu a:active{background:var(--gray-lt);}
-  #mobAuthButtons{gap:8px!important;margin-top:12px!important;padding-top:12px;border-top:1px solid var(--gray-lt);}
-  .mob-menu .nav-btn-login,.mob-menu .nav-btn-volunteer,.mob-menu .nav-btn-donate,.mob-menu .nav-btn-profile{
-    display:block;width:100%;text-align:center;padding:12px 16px!important;font-size:14px!important;border-radius:10px!important;
-  }
   .mob-menu{top:60px;}
 }
 @media(max-width:480px){
   .clock-widget{display:none;}
   .bm-grid,.full-gal-grid{grid-template-columns:1fr;}
   .imp-grid{grid-template-columns:1fr 1fr;}
-  .hero-sec{min-height:88vh;}
-  .hero-h{font-size:clamp(26px,7vw,42px);}
-  .hero-p{font-size:14px;}
   .hero-btns{flex-direction:column;gap:10px;}
-  .hero-btns .btn-primary,.hero-btns .btn-wh{width:100%;justify-content:center;}
-  .sec-title{font-size:clamp(22px,5vw,32px);}
-  .prg-card,.imp-card{padding:18px 14px;}
   .coord-grid{grid-template-columns:1fr!important;}
-  .page-hero h2{font-size:clamp(22px,6vw,32px);}
 }
 </style>
 </head>
@@ -513,7 +481,7 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
 
 <nav class="nav" id="navbar">
   <a href="#" class="logo" onclick="showPage('home')">
-    <div class="logo-ico"><img src="Lifeline.png" alt="MLF Logo" id="navLogoImg" onerror="this.style.opacity='.5'"></div>
+    <div class="logo-ico"><img src="Lifeline.png" alt="MLF Logo" id="navLogoImg" onerror="this.style.display='none'"></div>
     <div class="logo-txt"><strong id="navOrgName">My Lifeline Foundation</strong><span id="navOrgTag">Empowering Rural Odisha</span></div>
   </a>
   <div class="nav-links" id="navLinks">
@@ -565,8 +533,8 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
 
 <div id="hero-clock-slot">
 <div class="clock-widget" id="clockWidget">
-  <div class="cw-time" id="cwTime">--:--:--</div>
-  <div class="cw-date" id="cwDate">Loading...</div>
+  <div class="cw-time" id="cwTime">00:00:00</div>
+  <div class="cw-date" id="cwDate">--/--/----</div>
   <div class="cw-odia-month" id="cwOdiaMonth"></div>
   <div class="cw-divider"></div>
   <span class="cw-notice-label cw-label-upcoming"><span id="cwLabelText">ଆସନ୍ତା ଉତ୍ସବ</span></span>
@@ -592,7 +560,6 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
         <button class="btn-wh" onclick="handleVolunteerBtn()" id="heroBtn2">🤝 Join as Volunteer</button>
       </div>
     </div>
-    
   </div>
   <div class="scroll-hint"><div class="scroll-line"></div><span>Scroll</span></div>
 </section>
@@ -629,9 +596,9 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
       <p class="sec-desc">Three core areas driving lasting change in rural communities across Odisha.</p>
     </div>
     <div class="prg-cards">
-      <div class="prg-card reveal"><img src="" alt="Education" class="prg-img" id="prg1Img"><div class="prg-bar"></div><div class="prg-body"><div class="prg-ico">🎓</div><h3 id="prg1T">Education Support</h3><p id="prg1P">We help children from rural areas access quality education, learning materials, and academic guidance.</p><a href="#" id="prg1L">Learn More →</a></div></div>
-      <div class="prg-card reveal d2"><img src="" alt="Health" class="prg-img" id="prg2Img"><div class="prg-bar"></div><div class="prg-body"><div class="prg-ico">🩺</div><h3 id="prg2T">Health Awareness</h3><p id="prg2P">We organise health camps and awareness programs to promote better health practices in villages.</p><a href="#" id="prg2L">Learn More →</a></div></div>
-      <div class="prg-card reveal d3"><img src="" alt="Youth" class="prg-img" id="prg3Img"><div class="prg-bar"></div><div class="prg-body"><div class="prg-ico">👨‍🌾</div><h3 id="prg3T">Rural Youth Development</h3><p id="prg3P">We guide rural youth with skills, training, and career direction for a better future.</p><a href="#" id="prg3L">Learn More →</a></div></div>
+      <div class="prg-card reveal"><img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=600&q=80" alt="Education" class="prg-img" id="prg1Img"><div class="prg-bar"></div><div class="prg-body"><div class="prg-ico">🎓</div><h3 id="prg1T">Education Support</h3><p id="prg1P">We help children from rural areas access quality education, learning materials, and academic guidance.</p><a href="#" onclick="showPage('education')" id="prg1L">Learn More →</a></div></div>
+      <div class="prg-card reveal d2"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80" alt="Health" class="prg-img" id="prg2Img"><div class="prg-bar"></div><div class="prg-body"><div class="prg-ico">🩺</div><h3 id="prg2T">Health Awareness</h3><p id="prg2P">We organise health camps and awareness programs to promote better health practices in villages.</p><a href="#" onclick="showPage('health')" id="prg2L">Learn More →</a></div></div>
+      <div class="prg-card reveal d3"><img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=600&q=80" alt="Youth" class="prg-img" id="prg3Img"><div class="prg-bar"></div><div class="prg-body"><div class="prg-ico">👨‍🌾</div><h3 id="prg3T">Rural Youth Development</h3><p id="prg3P">We guide rural youth with skills, training, and career direction for a better future.</p><a href="#" onclick="showPage('rural')" id="prg3L">Learn More →</a></div></div>
     </div>
   </div>
 </section>
@@ -714,14 +681,14 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
         <tr><td>4</td><td>80G Tax Exemption</td><td>Donations eligible for 80G deduction under Income Tax Act</td><td><span class="legal-badge">Active ✅</span></td></tr>
       </tbody>
     </table>
-    <div class="niti-sec reveal"><h3>🏛️ NITI Aayog Registration</h3><div class="niti-uid" id="nitiUid">UNIQUE ID: OR/2020/0255447</div><p id="nitiDesc">My Lifeline Foundation is registered with NITI Aayog — the National Institution for Transforming India, established in 2015 to replace the Planning Commission.</p></div>
+    <div class="niti-sec reveal"><h3>🏛️ NITI Aayog Registration</h3><div class="niti-uid" id="nitiUid">UNIQUE ID: OR/2020/0255447</div><p id="nitiDesc">My Lifeline Foundation is registered with NITI Aayog — the National Institution for Transforming India.</p></div>
   </div>
 </div>
 
 <div id="page-education" class="page-section" style="display:none;">
   <div class="page-hero"><div class="breadcrumb"><a onclick="showPage('home')">Home</a> / Programs / Education</div><h2>🎓 Education Program</h2></div>
   <div class="sec"><div class="prog-detail-grid reveal">
-    <div><img src="" class="prog-detail-img" alt="Education" id="eduImg"></div>
+    <div><img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=800&q=80" class="prog-detail-img" alt="Education" id="eduImg"></div>
     <div class="prog-detail-body"><div class="lbl">Our Programs</div><h3 id="eduTitle">Education Support Initiative</h3><p id="eduP1">MY LIFELINE FOUNDATION is determined to fulfill the dreams of rural students of Odisha and providing them with right career guidance and study materials for higher education.</p><p id="eduP2">Education is both the means as well as the end to a better life — it empowers an individual to earn his/her livelihood and increases one's awareness on healthcare, social behavior, rights, and becoming a better citizen.</p><div class="featured-prg"><h4 id="eduFT">🏫 MLF School Initiative</h4><p id="eduFP">MY LIFELINE FOUNDATION School — Beti Bachao Beti Padhao Centre running for underprivileged children.</p></div></div>
   </div></div>
 </div>
@@ -729,15 +696,15 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
 <div id="page-health" class="page-section" style="display:none;">
   <div class="page-hero"><div class="breadcrumb"><a onclick="showPage('home')">Home</a> / Programs / Health</div><h2>🩺 Health Awareness Program</h2></div>
   <div class="sec"><div class="prog-detail-grid reveal">
-    <div><img src="" class="prog-detail-img" alt="Health" id="healthImg"></div>
-    <div class="prog-detail-body"><div class="lbl">Health &amp; Wellness</div><h3 id="healthTitle">Health Awareness &amp; Care</h3><p id="healthP1">My Lifeline Foundation seeks to ensure the survival, protection and healthy development of children and the reproductive health of adolescents and adults, especially women of child bearing age.</p><p id="healthP2">Two-pronged approach — bring quality healthcare services to doorsteps of the needy, and promote healthcare awareness and contemporary healthcare seeking behavior among the underprivileged.</p><div class="featured-prg"><h4 id="healthFT">🧘 Featured Activities</h4><p id="healthFP">MLF Yoga Centre · Blood Donation Camp · SHG Formation and Women Empowerment</p></div></div>
+    <div><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80" class="prog-detail-img" alt="Health" id="healthImg"></div>
+    <div class="prog-detail-body"><div class="lbl">Health &amp; Wellness</div><h3 id="healthTitle">Health Awareness &amp; Care</h3><p id="healthP1">My Lifeline Foundation seeks to ensure the survival, protection and healthy development of children and the reproductive health of adolescents and adults, especially women of child bearing age.</p><p id="healthP2">Two-pronged approach — bring quality healthcare services to doorsteps of the needy, and promote healthcare awareness among the underprivileged.</p><div class="featured-prg"><h4 id="healthFT">🧘 Featured Activities</h4><p id="healthFP">MLF Yoga Centre · Blood Donation Camp · SHG Formation and Women Empowerment</p></div></div>
   </div></div>
 </div>
 
 <div id="page-rural" class="page-section" style="display:none;">
   <div class="page-hero"><div class="breadcrumb"><a onclick="showPage('home')">Home</a> / Programs / Rural Youth Development</div><h2>🌾 Rural Youth Development</h2></div>
   <div class="sec"><div class="prog-detail-grid reveal">
-    <div><img src="" class="prog-detail-img" alt="Rural" id="ruralImg"></div>
+    <div><img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=800&q=80" class="prog-detail-img" alt="Rural" id="ruralImg"></div>
     <div class="prog-detail-body"><div class="lbl">Livelihood &amp; Skills</div><h3 id="ruralTitle">Rural Youth Development Program</h3><p id="ruralP1">My Lifeline Foundation seeks to increase food security and family disposable income which will enable families to improve their children's welfare.</p><p id="ruralP2">This national level programme trains the poor and underprivileged youth in English Proficiency, Basic Computer Education and Soft Skills for employment in the fast expanding retail, hospitality and BPO sectors.</p><div class="featured-prg"><h4 id="ruralFT">🌱 Featured Activities</h4><p id="ruralFP">SHG Formation · Demo Farm · Kitchen Garden · Women Empowerment Programs</p></div></div>
   </div></div>
 </div>
@@ -745,8 +712,8 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
 <div id="page-environment" class="page-section" style="display:none;">
   <div class="page-hero"><div class="breadcrumb"><a onclick="showPage('home')">Home</a> / Programs / Environment</div><h2>🌿 Environment Program</h2></div>
   <div class="sec"><div class="prog-detail-grid reveal">
-    <div><img src="" class="prog-detail-img" alt="Environment" id="envImg"></div>
-    <div class="prog-detail-body"><div class="lbl">Planet &amp; People</div><h3 id="envTitle">Environmental Awareness &amp; Action</h3><p id="envP1">India faces millions of deaths each year due to the adverse effects of our day-to-day activities on the environment. My Lifeline Foundation works to raise awareness and bring ownership within people to save the environment.</p><p id="envP2"></p><div class="featured-prg"><h4 id="envFT">🌱 NIRA — Nature Is Requesting Action</h4><p id="envFP">Through NIRA, we work to combat environment degradation, promote sustainability, and help communities with greener, safer, healthier environments across India.</p></div></div>
+    <div><img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=800&q=80" class="prog-detail-img" alt="Environment" id="envImg"></div>
+    <div class="prog-detail-body"><div class="lbl">Planet &amp; People</div><h3 id="envTitle">Environmental Awareness &amp; Action</h3><p id="envP1">India faces millions of deaths each year due to the adverse effects of our day-to-day activities on the environment. My Lifeline Foundation works to raise awareness and bring ownership within people to save the environment.</p><p id="envP2">We promote sustainable living, green practices, and community-led environmental protection across Odisha.</p><div class="featured-prg"><h4 id="envFT">🌱 NIRA — Nature Is Requesting Action</h4><p id="envFP">Through NIRA, we work to combat environment degradation, promote sustainability, and help communities with greener, safer, healthier environments across India.</p></div></div>
   </div></div>
 </div>
 
@@ -788,9 +755,9 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
     <div class="contact-info-card"><h3>Get In Touch</h3>
       <div class="ci-row"><div class="ci-ico">📍</div><div class="ci-body"><strong>Office Address</strong><span id="conAddr">Plot No-635, Garapur, In front of Collector Residence, Kendrapara – 754211, Odisha, India</span></div></div>
       <div class="ci-row"><div class="ci-ico">📞</div><div class="ci-body"><strong>Phone</strong><a href="tel:06727796700" id="conP1Link">06727-796700</a><br><a href="tel:+919337994358" id="conP2Link">+91 9337994358</a></div></div>
-      <div class="ci-row"><div class="ci-ico">✉️</div><div class="ci-body"><strong>Email</strong><a href="/cdn-cgi/l/email-protection#e28b8c848da28f9b8e8b84878e8b8c87848d978c8683968b8d8ccc8d9085" id="conEmailLink"><span class="__cf_email__" data-cfemail="b7ded9d1d8f7dacedbded1d2dbded9d2d1d8c2d9d3d6c3ded8d999d8c5d0">[email&#160;protected]</span></a></div></div>
+      <div class="ci-row"><div class="ci-ico">✉️</div><div class="ci-body"><strong>Email</strong><a href="mailto:info@mylifelinefoundation.org" id="conEmailLink">info@mylifelinefoundation.org</a></div></div>
       <div class="ci-row"><div class="ci-ico">🌐</div><div class="ci-body"><strong>Website</strong><a href="http://www.mylifelinefoundation.org" target="_blank">www.mylifelinefoundation.org</a></div></div>
-      <div class="ci-row"><div class="ci-ico">💬</div><div class="ci-body"><strong>WhatsApp</strong><a href="https://api.whatsapp.com/send?phone=918480141339&text=I+am+interested+in+joining+MLF" target="_blank" id="conWaLink">+91 8480141339 — Join as Volunteer</a></div></div>
+      <div class="ci-row"><div class="ci-ico">💬</div><div class="ci-body"><strong>WhatsApp</strong><a href="https://api.whatsapp.com/send?phone=918480141339" target="_blank" id="conWaLink">+91 8480141339</a></div></div>
       <div class="niti-badge"><strong>Reg. No:</strong> U85100OR2020NPL032868<br><strong>PAN:</strong> AANCM3910F<br><strong>NITI Aayog ID:</strong> OR/2020/0255447<br>Section 8, Companies Act 2013</div>
     </div>
     <div class="contact-form-card"><h3>Send Us a Message</h3>
@@ -809,7 +776,7 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
 <footer id="contact">
   <div class="ft-top">
     <div class="ft-brand">
-      <div class="ft-logo"><div class="ft-logo-ico"><img src="Lifeline.png" alt="MLF Logo" id="ftLogoImg" onerror="this.style.opacity='.5'"></div><div class="ft-logo-txt"><strong id="ftOrgName">My Lifeline Foundation</strong><span id="ftOrgTag">Empowering Rural Odisha</span></div></div>
+      <div class="ft-logo"><div class="ft-logo-ico"><img src="Lifeline.png" alt="MLF Logo" id="ftLogoImg" onerror="this.style.display='none'"></div><div class="ft-logo-txt"><strong id="ftOrgName">My Lifeline Foundation</strong><span id="ftOrgTag">Empowering Rural Odisha</span></div></div>
       <p id="ftAbout">A nonprofit dedicated to education, health awareness, and youth development for underprivileged rural communities in Odisha, India.</p>
       <div class="ft-reg" id="ftReg">Incorporated under Section 8, Companies Act 2013<br>Reg. No: <strong>U85100OR2020NPL032868</strong><br>PAN: <strong>AANCM3910F</strong></div>
       <div class="socials"><a href="#" class="soc" id="soc1">𝗙</a><a href="#" class="soc" id="soc2">📷</a><a href="#" class="soc" id="soc3">𝕏</a><a href="#" class="soc" id="soc4">▶</a></div>
@@ -817,9 +784,9 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
     <div class="ft-col"><h4>Quick Links</h4><ul><li><a onclick="showPage('home')">Home</a></li><li><a onclick="showPage('about')">About Us</a></li><li><a onclick="showPage('programs')">Programs</a></li><li><a onclick="showPage('gallery-full')">Gallery</a></li><li><a onclick="showPage('donate')">Donate</a></li></ul></div>
     <div class="ft-col"><h4>Programs</h4><ul><li><a onclick="showPage('education')">🎓 Education Support</a></li><li><a onclick="showPage('health')">🩺 Health Awareness</a></li><li><a onclick="showPage('rural')">👨‍🌾 Youth Development</a></li><li><a onclick="showPage('environment')">🌿 Environment</a></li></ul></div>
     <div class="ft-col"><h4>Contact Us</h4>
-      <div class="ft-ci"><div class="ft-ci-ico">📍</div><div class="ft-ci-txt" id="ftAddr">Plot No-635, Garapur, In front of Collector Residence, Kendrapara – 754211, Odisha, India</div></div>
+      <div class="ft-ci"><div class="ft-ci-ico">📍</div><div class="ft-ci-txt" id="ftAddr">Plot No-635, Garapur, Kendrapara – 754211, Odisha</div></div>
       <div class="ft-ci"><div class="ft-ci-ico">📞</div><div class="ft-ci-txt"><a href="tel:06727796700" id="ftPhone">06727-796700</a></div></div>
-      <div class="ft-ci"><div class="ft-ci-ico">✉️</div><div class="ft-ci-txt"><a href="/cdn-cgi/l/email-protection#3d54535b527d504451545b58515453585b524853595c4954525313524f5a" id="ftEmail"><span class="__cf_email__" data-cfemail="31585f575e715c485d5857545d585f54575e445f555045585e5f1f5e4356">[email&#160;protected]</span></a></div></div>
+      <div class="ft-ci"><div class="ft-ci-ico">✉️</div><div class="ft-ci-txt"><a href="mailto:info@mylifelinefoundation.org" id="ftEmail">info@mylifelinefoundation.org</a></div></div>
     </div>
   </div>
   <div class="ft-bot-wrap"><div class="ft-bot-in"><span id="ftCopy">© 2025 My Lifeline Foundation. All Rights Reserved. | Reg: U85100OR2020NPL032868 | PAN: AANCM3910F | Section 8, Companies Act 2013</span><span>Made with ❤️ for Rural Odisha</span></div></div>
@@ -828,7 +795,7 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
 <!-- ════ VOLUNTEER REGISTER MODAL ════ -->
 <div class="modal-overlay" id="modalRegister">
   <div class="modal-box wide">
-    <div class="modal-hd"><div><h2>🤝 Volunteer Registration</h2><span>Join My Lifeline Foundation — All fields are mandatory</span></div><button class="modal-close" onclick="closeModal('modalRegister')">✕</button></div>
+    <div class="modal-hd"><div><h2>🤝 Volunteer Registration</h2><span>Join My Lifeline Foundation</span></div><button class="modal-close" onclick="closeModal('modalRegister')">✕</button></div>
     <div class="modal-body">
       <form id="regForm" onsubmit="submitRegistration(event)">
         <div class="form-row"><div class="field"><label>Registration Type *</label>
@@ -838,13 +805,13 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
             <option value="S">⭐ Supporter</option>
           </select>
         </div><div class="field" style="display:flex;align-items:flex-end;padding-bottom:4px;">
-          <p style="font-size:12px;color:var(--gray);line-height:1.5;">Your ID will be auto-generated.<br>Example: <strong>MLF-V-01426</strong> (V=Type, 01=Serial, 4=Month, 26=Year)</p>
+          <p style="font-size:12px;color:var(--gray);line-height:1.5;">ID auto-generated.<br>Example: <strong>MLF-V-01426</strong></p>
         </div></div>
         <div class="form-section-title">👤 Personal Information</div>
         <div class="form-row"><div class="field"><label>Full Name *</label><input type="text" id="regName" placeholder="Enter your full name" required></div><div class="field"><label>Date of Birth *</label><input type="date" id="regDob" required></div></div>
         <div class="form-row"><div class="field"><label>Father's Name *</label><input type="text" id="regFather" placeholder="Father's full name" required></div><div class="field"><label>Mother's Name *</label><input type="text" id="regMother" placeholder="Mother's full name" required></div></div>
         <div class="form-row"><div class="field"><label>Occupation *</label><input type="text" id="regOccupation" placeholder="e.g., Student, Farmer, Teacher" required></div><div class="field"><label>Mobile Number *</label><input type="tel" id="regMobile" placeholder="10-digit mobile number" maxlength="10" required></div></div>
-        <div class="form-row single"><div class="field"><label>Aadhaar Number * <span style="font-size:10px;color:var(--gray);font-weight:400;">(stored securely, never shown publicly)</span></label><input type="text" id="regAadhaar" placeholder="12-digit Aadhaar number" maxlength="12" required><span class="field-note">🔒 Only last 4 digits will be visible. One Aadhaar = One account.</span></div></div>
+        <div class="form-row single"><div class="field"><label>Aadhaar Number * <span style="font-size:10px;color:var(--gray);font-weight:400;">(stored securely)</span></label><input type="text" id="regAadhaar" placeholder="12-digit Aadhaar number" maxlength="12" required><span class="field-note">🔒 Only last 4 digits shown. One Aadhaar = One account.</span></div></div>
         <div class="form-section-title">🏠 Address Details</div>
         <div class="form-row"><div class="field"><label>AT (Village) *</label><input type="text" id="regAt" placeholder="Village / Area name" required></div><div class="field"><label>Post *</label><input type="text" id="regPost" placeholder="Post office name" required></div></div>
         <div class="form-row"><div class="field"><label>Police Station *</label><input type="text" id="regPs" placeholder="Police Station name" required></div><div class="field"><label>District *</label><input type="text" id="regDistrict" placeholder="District name" required></div></div>
@@ -857,7 +824,7 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
           <p>The Foundation may verify, approve, suspend or deactivate my volunteer account at any time without prior notice.</p>
           <p>My personal data will be used only for organizational, social, and program-related purposes of My Lifeline Foundation.</p>
         </div>
-        <label class="tc-check"><input type="checkbox" id="tcCheckbox" onchange="toggleSubmit()"><span>I have read and agree to the <strong>Terms &amp; Conditions</strong> of My Lifeline Foundation. I confirm all information is accurate.</span></label>
+        <label class="tc-check" id="tcCheckLabel"><input type="checkbox" id="tcCheckbox" onchange="toggleSubmit()"><span>I have read and agree to the <strong>Terms &amp; Conditions</strong>. I confirm all information is accurate.</span></label>
         <button type="submit" class="btn-submit" id="submitBtn" disabled>🤝 Complete Registration</button>
       </form>
     </div>
@@ -867,31 +834,24 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
 <!-- LOGIN MODAL -->
 <div class="modal-ov" id="modalLogin">
   <div class="modal-box" style="max-width:460px;">
-    <div class="modal-hd">
-      <div><h2>🔐 Member Login</h2><span>My Lifeline Foundation Portal</span></div>
-      <button class="modal-close" onclick="closeModal('modalLogin')">✕</button>
-    </div>
+    <div class="modal-hd"><div><h2>🔐 Member Login</h2><span>My Lifeline Foundation Portal</span></div><button class="modal-close" onclick="closeModal('modalLogin')">✕</button></div>
     <div class="modal-body" style="padding-top:12px;">
-      <!-- Type Tabs -->
       <div style="display:flex;border:1.5px solid var(--gray-lt);border-radius:10px;overflow:hidden;margin-bottom:20px;">
-        <button id="loginTabV" onclick="switchLoginTab('V')" style="flex:1;padding:11px;border:none;background:var(--blue);color:white;font-weight:700;font-size:13px;cursor:pointer;touch-action:manipulation;">🤝 Volunteer</button>
-        <button id="loginTabC" onclick="switchLoginTab('C')" style="flex:1;padding:11px;border:none;background:var(--off);color:var(--gray);font-weight:600;font-size:13px;cursor:pointer;touch-action:manipulation;">📍 Coordinator</button>
+        <button id="loginTabV" onclick="switchLoginTab('V')" style="flex:1;padding:11px;border:none;background:var(--blue);color:white;font-weight:700;font-size:13px;cursor:pointer;">🤝 Volunteer</button>
+        <button id="loginTabC" onclick="switchLoginTab('C')" style="flex:1;padding:11px;border:none;background:var(--off);color:var(--gray);font-weight:600;font-size:13px;cursor:pointer;">📍 Coordinator</button>
       </div>
-      <div id="loginTypeLabel" style="text-align:center;font-size:30px;margin-bottom:6px;">🤝</div>
-      <p id="loginTypeDesc" style="text-align:center;font-size:12px;color:var(--gray);margin-bottom:16px;">Login with your Volunteer ID and registered mobile number</p>
       <div class="field" style="margin-bottom:14px;">
         <label id="loginIdLabel">Volunteer ID *</label>
         <input type="text" id="loginId" placeholder="e.g. MLF-V-01426" style="text-transform:uppercase;letter-spacing:1px;font-weight:600;padding:11px 14px;border:1.5px solid var(--gray-lt);border-radius:9px;font-size:14px;width:100%;outline:none;font-family:inherit;" onkeydown="if(event.key==='Enter')submitLogin()">
-        <span style="font-size:11px;color:var(--gray);margin-top:4px;display:block;">Your unique ID received after registration (e.g. MLF-V-01426)</span>
       </div>
       <div class="field" style="margin-bottom:22px;">
         <label>Registered Mobile Number *</label>
         <input type="tel" id="loginMobile" placeholder="10-digit mobile number" maxlength="10" style="padding:11px 14px;border:1.5px solid var(--gray-lt);border-radius:9px;font-size:14px;width:100%;outline:none;font-family:inherit;" onkeydown="if(event.key==='Enter')submitLogin()">
       </div>
-      <button style="width:100%;padding:13px;background:var(--blue);color:white;border:none;border-radius:9px;font-size:15px;font-weight:700;cursor:pointer;touch-action:manipulation;" onclick="submitLogin()">🔐 Login</button>
+      <button style="width:100%;padding:13px;background:var(--blue);color:white;border:none;border-radius:9px;font-size:15px;font-weight:700;cursor:pointer;" onclick="submitLogin()">🔐 Login</button>
       <p style="text-align:center;margin-top:16px;font-size:13px;color:var(--gray);">Not registered yet?</p>
-      <button style="width:100%;margin-top:8px;padding:12px;background:var(--green);color:white;border:none;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;touch-action:manipulation;" onclick="closeModal('modalLogin');openModal('modalRegister')">🤝 Register as Volunteer</button>
-      <button style="width:100%;margin-top:8px;padding:10px;background:var(--off);color:var(--gray);border:1px solid var(--gray-lt);border-radius:9px;font-size:13px;font-weight:600;cursor:pointer;touch-action:manipulation;" onclick="showForgotId()">🔍 Forgot your ID?</button>
+      <button style="width:100%;margin-top:8px;padding:12px;background:var(--green);color:white;border:none;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;" onclick="closeModal('modalLogin');openModal('modalRegister')">🤝 Register as Volunteer</button>
+      <button style="width:100%;margin-top:8px;padding:10px;background:var(--off);color:var(--gray);border:1px solid var(--gray-lt);border-radius:9px;font-size:13px;font-weight:600;cursor:pointer;" onclick="showForgotId()">🔍 Forgot your ID?</button>
     </div>
   </div>
 </div>
@@ -901,7 +861,7 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
   <div class="qr-profile-card">
     <div class="qr-profile-header"><div id="qrPublicPhoto"></div><h2 id="qrPublicName">Volunteer Name</h2></div>
     <div class="qr-profile-body">
-      <div class="qr-vol-id" id="qrPublicId">MLF-OD-000001</div>
+      <div class="qr-vol-id" id="qrPublicId">MLF-V-01426</div>
       <div class="qr-vol-status">Verified Volunteer</div>
       <div class="qr-info-row"><span>📍 <strong id="qrPublicDistrict">District</strong></span><span>🗺️ <strong id="qrPublicState">State</strong></span></div>
       <div class="qr-org-badge">🌱 My Lifeline Foundation<br><span style="font-size:10px;">Reg. No: U85100OR2020NPL032868 | Section 8 NGO</span></div>
@@ -915,7 +875,7 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
   <div class="success-circle">✅</div>
   <h1>Thank you for joining My Lifeline Foundation as a Volunteer!</h1>
   <p>Your registration is successful. Your unique Volunteer ID has been generated. Welcome to the family! 🌱</p>
-  <div class="success-id-badge" id="successIdBadge">MLF-OD-000001</div>
+  <div class="success-id-badge" id="successIdBadge">MLF-V-01426</div>
   <p style="font-size:13px;color:rgba(255,255,255,.6);margin-bottom:24px;">Save your Volunteer ID — you'll need it to log in to your profile.</p>
   <button class="btn-goto-profile" onclick="gotoProfile()">👤 Go to My Profile</button>
 </div>
@@ -923,7 +883,7 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
 <!-- PROFILE DASHBOARD -->
 <div class="profile-overlay" id="profileDashboard">
   <div class="profile-header-bar">
-    <div class="logo-w"><div class="logo-ico" style="width:36px;height:36px;overflow:hidden;border-radius:8px;"><img src="Lifeline.png" alt="MLF" id="profileBarLogoImg" onerror="this.style.opacity='.5'" style="width:100%;height:100%;object-fit:contain;"></div><span id="profileBarOrgName">My Lifeline Foundation — Volunteer Portal</span></div>
+    <div class="logo-w"><div class="logo-ico" style="width:36px;height:36px;overflow:hidden;border-radius:8px;"><img src="Lifeline.png" alt="MLF" id="profileBarLogoImg" onerror="this.style.display='none'" style="width:100%;height:100%;object-fit:contain;"></div><span id="profileBarOrgName">My Lifeline Foundation — Volunteer Portal</span></div>
     <div class="profile-header-btns">
       <button class="btn-sm btn-sm-save" onclick="saveProfileChanges()">💾 Save Changes</button>
       <button class="btn-sm btn-sm-outline" onclick="closeProfile()">🏠 Home</button>
@@ -939,25 +899,24 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
           <input type="file" id="photoInput" accept="image/*" style="display:none" onchange="handlePhotoUpload(event)">
         </div>
         <div class="profile-name" id="displayName">Volunteer Name</div>
-        <div class="profile-id-tag" id="displayVolId">MLF-OD-000001</div>
+        <div class="profile-id-tag" id="displayVolId">MLF-V-01426</div>
         <div class="profile-status">Active Volunteer</div>
         <div class="qr-wrapper"><div id="profileQrCode" style="display:flex;justify-content:center;"></div><p>Scan to view public profile</p></div>
-        <button class="btn-download-id" onclick="downloadIDCard('png')" style="margin-bottom:8px;">🖼️ Download PNG (Print Quality)</button>
-        <button class="btn-download-id" style="background:var(--green);" onclick="downloadIDCard('pdf')">📄 Download PDF</button>
+        <button class="btn-download-id" onclick="downloadIDCard('png')" style="margin-bottom:8px;">🖼️ Download PNG</button>
+        <button class="btn-download-id" style="background:var(--green);margin-top:4px;" onclick="downloadIDCard('pdf')">📄 Download PDF</button>
       </div>
       <div class="profile-card-right">
         <div class="profile-section-title">👤 Personal Information</div>
         <div class="profile-field-row"><div class="pfield"><label>Full Name</label><input type="text" id="pName"></div><div class="pfield"><label>Date of Birth</label><input type="date" id="pDob"></div></div>
         <div class="profile-field-row"><div class="pfield"><label>Father's Name</label><input type="text" id="pFather"></div><div class="pfield"><label>Mother's Name</label><input type="text" id="pMother"></div></div>
         <div class="profile-field-row"><div class="pfield"><label>Occupation</label><input type="text" id="pOccupation"></div><div class="pfield"><label>Mobile Number</label><input type="tel" id="pMobile" maxlength="10"></div></div>
-        <div class="profile-field-row single"><div class="pfield"><label>Aadhaar Number</label><input type="text" id="pAadhaar" readonly><span class="locked-tag">🔒 Aadhaar is masked for security. Not editable.</span></div></div>
+        <div class="profile-field-row single"><div class="pfield"><label>Aadhaar Number</label><input type="text" id="pAadhaar" readonly><span class="locked-tag">🔒 Aadhaar is masked for security.</span></div></div>
         <div class="profile-section-title">🏠 Address Information</div>
         <div class="profile-field-row"><div class="pfield"><label>AT (Village)</label><input type="text" id="pAt"></div><div class="pfield"><label>Post</label><input type="text" id="pPost"></div></div>
         <div class="profile-field-row"><div class="pfield"><label>Police Station</label><input type="text" id="pPs"></div><div class="pfield"><label>District</label><input type="text" id="pDistrict"></div></div>
-        <div class="profile-field-row"><div class="pfield"><label>State</label><select id="pState"><option value="Odisha">Odisha</option><option value="West Bengal">West Bengal</option><option value="Jharkhand">Jharkhand</option><option value="Chhattisgarh">Chhattisgarh</option><option value="Andhra Pradesh">Andhra Pradesh</option><option value="Other">Other</option></select></div><div class="pfield"><label>PIN Code</label><input type="text" id="pPin" maxlength="6"></div></div>
+        <div class="profile-field-row"><div class="pfield"><label>State</label><select id="pState"><option>Odisha</option><option>West Bengal</option><option>Jharkhand</option><option>Chhattisgarh</option><option>Andhra Pradesh</option><option>Other</option></select></div><div class="pfield"><label>PIN Code</label><input type="text" id="pPin" maxlength="6"></div></div>
         <div class="profile-section-title">📋 Account Information</div>
         <div class="profile-field-row"><div class="pfield"><label>Volunteer ID</label><input type="text" id="pVolid" readonly></div><div class="pfield"><label>Joined On</label><input type="text" id="pJoined" readonly></div></div>
-        <div class="profile-field-row single"><div class="pfield"><label>Account Status</label><input type="text" id="pStatus" readonly value="Active Volunteer ✅"></div></div>
         <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
           <button class="btn-sm btn-sm-save" style="padding:12px 28px;font-size:14px;" onclick="saveProfileChanges()">💾 Save Changes</button>
           <button class="btn-sm btn-sm-danger" style="padding:12px 28px;font-size:14px;" onclick="logoutVolunteer()">🚪 Logout</button>
@@ -967,11 +926,11 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
   </div>
 </div>
 
-<!-- ID CARD TEMPLATE -->
+<!-- ID CARD TEMPLATE (hidden, used for PDF/PNG download) -->
 <div id="id-card-template">
   <div class="id-card-inner">
     <div class="id-card-top"><div class="id-card-logo"><img src="Lifeline.png" alt="MLF Logo" id="idCardLogoImg" style="width:100%;height:100%;object-fit:contain;"></div><div class="id-card-org"><strong id="idCardOrgName">My Lifeline Foundation</strong><span>Empowering Rural Odisha</span></div></div>
-    <div class="id-card-vol-type">VOLUNTEER ID CARD</div>
+    <div class="id-card-vol-type" id="idCardTypeBadge">VOLUNTEER ID CARD</div>
     <div class="id-card-main">
       <div id="idCardPhoto" class="id-card-photo-def">👤</div>
       <div>
@@ -979,408 +938,689 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
         <div class="id-card-detail"><strong>Occupation:</strong> <span id="idCardOcc">-</span><br><strong>District:</strong> <span id="idCardDist">-</span><br><strong>State:</strong> <span id="idCardState">-</span><br><strong>Mobile:</strong> <span id="idCardMob">-</span><br><strong>Status:</strong> <span style="color:#86EFAC;">Active Volunteer</span></div>
       </div>
     </div>
-    <div class="id-card-footer"><div><div class="id-card-id" id="idCardVolId">MLF-OD-000001</div><div style="font-size:8px;color:rgba(255,255,255,.5);margin-top:2px;">Reg: U85100OR2020NPL032868</div></div><div id="idCardQR" class="id-card-qr" style="background:white;padding:3px;border-radius:4px;"></div></div>
+    <div class="id-card-footer"><div><div class="id-card-id" id="idCardVolId">MLF-V-01426</div><div style="font-size:8px;color:rgba(255,255,255,.5);margin-top:2px;">Reg: U85100OR2020NPL032868</div></div><div id="idCardQR" class="id-card-qr" style="background:white;padding:3px;border-radius:4px;"></div></div>
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
-<div id="festivalPopup"><button class="popup-close-btn" id="popupCloseBtn">✕</button><div class="popup-emoji-row" id="popupEmojiRow">🎉</div><div class="popup-title" id="popupTitle"></div><div class="popup-wish-text" id="popupWishText"></div><div class="popup-progress"><div class="popup-progress-fill" id="popupProgressFill"></div></div></div>
+<div id="festivalPopup">
+  <button class="popup-close-btn" id="popupCloseBtn">✕</button>
+  <div class="popup-emoji-row" id="popupEmojiRow">🎉</div>
+  <div class="popup-title" id="popupTitle"></div>
+  <div class="popup-wish-text" id="popupWishText"></div>
+  <div class="popup-progress"><div class="popup-progress-fill" id="popupProgressFill"></div></div>
+</div>
 <div id="mlfConfetti"></div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* ═══════════════════════════════════════
-   MLF WEBSITE SCRIPT v2.0 — Supabase + Admin Panel Driven
+   MLF WEBSITE SCRIPT v3.0 — FIXED
+   Key fixes:
+   1. Removed duplicate 'async' keyword on downloadIDCard
+   2. localStorage key consistent: 'mlf_st'
+   3. All element IDs verified against HTML
+   4. Clock starts immediately
+   5. Admin content loads on every page load
 ═══════════════════════════════════════ */
+
 const ODIA_MONTHS=['ବୈଶାଖ','ଜ୍ୟେଷ୍ଠ','ଆଷାଢ଼','ଶ୍ରାବଣ','ଭାଦ୍ରବ','ଆଶ୍ୱିନ','କାର୍ତ୍ତିକ','ମାର୍ଗଶିର','ପୌଷ','ମାଘ','ଫାଲ୍ଗୁନ','ଚୈତ୍ର'];
 
 // ── DATA ACCESS ──
-function getSt(){try{return JSON.parse(localStorage.getItem('mlf_st')||'{}');}catch{return{};}}
-function getVols(){return JSON.parse(localStorage.getItem('mlf_volunteers')||'[]');}
+function getSt(){
+  try{
+    var d=localStorage.getItem('mlf_st');
+    return d?JSON.parse(d):{};
+  }catch(e){return{};}
+}
+function getVols(){
+  try{return JSON.parse(localStorage.getItem('mlf_volunteers')||'[]');}catch{return[];}
+}
 function saveVols(a){localStorage.setItem('mlf_volunteers',JSON.stringify(a));}
 function getSession(){return localStorage.getItem('mlf_session');}
 function setSession(id){localStorage.setItem('mlf_session',id);}
 function clearSession(){localStorage.removeItem('mlf_session');}
 function getCounter(){return parseInt(localStorage.getItem('mlf_counter')||'0');}
-function incCounter(){const n=getCounter()+1;localStorage.setItem('mlf_counter',n);return n;}
-function getCurrentVol(){const sid=getSession();if(!sid)return null;return getVols().find(v=>v.id===sid)||null;}
+function incCounter(){var n=getCounter()+1;localStorage.setItem('mlf_counter',n);return n;}
+function getCurrentVol(){
+  var sid=getSession();
+  if(!sid)return null;
+  return getVols().find(function(v){return v.id===sid;})||null;
+}
 function generateId(desigCode){
-  const n=incCounter();
-  const now=new Date();
-  const month=now.getMonth()+1;        // 1-12 (no padding)
-  const year=String(now.getFullYear()).slice(-2); // 26
-  const emp=String(n).padStart(2,'0'); // 01, 02...
-  const dc=(desigCode||'V').toUpperCase();
-  // MLF-V-01426 → Volunteer emp#01, April, 2026
-  return `MLF-${dc}-${emp}${month}${year}`;
+  var n=incCounter();
+  var now=new Date();
+  var month=now.getMonth()+1;
+  var year=String(now.getFullYear()).slice(-2);
+  var emp=String(n).padStart(2,'0');
+  var dc=(desigCode||'V').toUpperCase();
+  return 'MLF-'+dc+'-'+emp+month+year;
 }
 
 // ── ADMIN CONTENT LOADER ──
+// Called on init and whenever admin saves (storage event)
 function loadAdminContent(){
-  const D=getSt();
-  function s(id,v){const e=document.getElementById(id);if(e&&v!=null&&v!==undefined)e.textContent=v;}
-  function si(id,src){const e=document.getElementById(id);if(e&&src){e.src=src;}}
-  function sh(id,v){const e=document.getElementById(id);if(e&&v!=null)e.innerHTML=v;}
+  var D=getSt();
+  
+  function st(id,v){
+    var e=document.getElementById(id);
+    if(e&&v!=null&&v!==undefined&&v!=='')e.textContent=v;
+  }
+  function si(id,src){
+    var e=document.getElementById(id);
+    if(e&&src&&src.length>10)e.src=src;
+  }
+  function sh(id,v){
+    var e=document.getElementById(id);
+    if(e&&v!=null&&v!=='')e.innerHTML=v;
+  }
 
+  // Logo & Branding
   if(D.logo){
-    s('navOrgName',D.logo.n); s('navOrgTag',D.logo.t); s('ftOrgName',D.logo.n); s('ftOrgTag',D.logo.t);
-    if(D.logo.n){const pbn=document.getElementById('profileBarOrgName');if(pbn)pbn.textContent=D.logo.n+' — Volunteer Portal';}
-    s('idCardOrgName',D.logo.n);
+    if(D.logo.n){
+      st('navOrgName',D.logo.n);
+      st('ftOrgName',D.logo.n);
+      st('idCardOrgName',D.logo.n);
+      var pbn=document.getElementById('profileBarOrgName');
+      if(pbn)pbn.textContent=D.logo.n+' — Volunteer Portal';
+    }
+    if(D.logo.t){st('navOrgTag',D.logo.t);st('ftOrgTag',D.logo.t);}
+    if(D.logo.tt&&D.logo.tt.trim()!=='')document.title=D.logo.tt;
     if(D.logo.i){si('navLogoImg',D.logo.i);si('ftLogoImg',D.logo.i);si('profileBarLogoImg',D.logo.i);si('idCardLogoImg',D.logo.i);}
-    if(D.logo.tt)document.getElementById('pageTitle').textContent=D.logo.tt;
   }
+
+  // Hero
   if(D.hero){
-    const h=D.hero;
-    const badge=document.getElementById('heroBadge');if(badge&&h.b)badge.childNodes[badge.childNodes.length-1].textContent=' '+h.b;
-    if(h.h1){const el=document.getElementById('heroH1');if(el){const em=h.em||'Education';el.innerHTML=h.h1.replace(new RegExp('('+em+')','g'),'<em>$1</em>');}}
-    s('heroP',h.p); s('heroS1n',h.hs1n); s('heroS1l',h.hs1l); s('heroS2n',h.hs2n); s('heroS2l',h.hs2l);
-    s('heroQ','"'+h.q+'"'); s('heroC',h.c);
-    if(h.b1){const b=document.getElementById('heroBtn1');if(b)b.textContent='❤️ '+(h.b1);}
-    if(h.b2){const b=document.getElementById('heroBtn2');if(b)b.textContent='🤝 '+(h.b2);}
-    if(h.bg){const bg=document.getElementById('heroBg');if(bg)bg.style.background=`linear-gradient(135deg,rgba(10,77,140,.90) 0%,rgba(10,77,140,.65) 45%,rgba(46,139,87,.70) 100%),url('${h.bg}') center/cover no-repeat`;}
+    var h=D.hero;
+    // Badge text
+    if(h.b){
+      var badge=document.getElementById('heroBadge');
+      if(badge){
+        // Keep the 📍 emoji, update text
+        badge.textContent='📍 '+h.b;
+      }
+    }
+    // Heading with highlighted em word
+    if(h.h1){
+      var h1el=document.getElementById('heroH1');
+      if(h1el){
+        var em=h.em||'Education';
+        h1el.innerHTML=h.h1.replace(new RegExp('('+em.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<em>$1</em>');
+      }
+    }
+    if(h.p)st('heroP',h.p);
+    if(h.b1){var b1=document.getElementById('heroBtn1');if(b1)b1.textContent='❤️ '+h.b1;}
+    if(h.b2){var b2=document.getElementById('heroBtn2');if(b2)b2.textContent='🤝 '+h.b2;}
+    // Background image
+    if(h.bg){
+      var bg=document.getElementById('heroBg');
+      if(bg)bg.style.background="linear-gradient(135deg,rgba(10,77,140,.90) 0%,rgba(10,77,140,.65) 45%,rgba(46,139,87,.70) 100%),url('"+h.bg+"') center/cover no-repeat";
+    }
   }
+
+  // About
   if(D.about){
-    s('aboutP1',D.about.p1); s('aboutP2',D.about.p2); s('aboutBadgeN',D.about.bn); s('aboutBadgeL',D.about.bl);
-    s('aboutMT','🎯 '+(D.about.mt||'Our Mission')); s('aboutMP',D.about.mp);
-    s('aboutVT','🌅 '+(D.about.vt||'Our Vision')); s('aboutVP',D.about.vp);
+    if(D.about.p1)st('aboutP1',D.about.p1);
+    if(D.about.p2)st('aboutP2',D.about.p2);
+    if(D.about.bn)st('aboutBadgeN',D.about.bn);
+    if(D.about.bl)st('aboutBadgeL',D.about.bl);
+    if(D.about.mt)st('aboutMT','🎯 '+D.about.mt);
+    if(D.about.mp)st('aboutMP',D.about.mp);
+    if(D.about.vt)st('aboutVT','🌅 '+D.about.vt);
+    if(D.about.vp)st('aboutVP',D.about.vp);
     if(D.about.i)si('aboutMainImg',D.about.i);
     if(D.about.fi)si('aboutFloatImg',D.about.fi);
   }
+
+  // Programs
   if(D.programs){
-    ['1','2','3'].forEach(n=>{
-      const c=D.programs['c'+n];if(!c)return;
-      const img=document.getElementById('prg'+n+'Img');if(img&&c.img)img.src=c.img;
-      s('prg'+n+'T',c.t); s('prg'+n+'P',c.p); s('prg'+n+'L',c.l);
+    ['1','2','3'].forEach(function(n){
+      var c=D.programs['c'+n];
+      if(!c)return;
+      if(c.img){var img=document.getElementById('prg'+n+'Img');if(img&&c.img.length>10)img.src=c.img;}
+      if(c.t)st('prg'+n+'T',c.t);
+      if(c.p)st('prg'+n+'P',c.p);
+      if(c.l)st('prg'+n+'L',c.l);
     });
   }
-  if(D.stats){
-    D.stats.forEach((st,i)=>{
-      const num=parseInt(st.n);
-      const el=document.getElementById('stat'+(i+1)+'el');
-      if(el&&!isNaN(num)){el.dataset.target=num;el.innerHTML='0<span style="font-size:.55em">+</span>';}
-      s('stat'+(i+1)+'lbl',st.l);
+
+  // Stats
+  if(D.stats&&D.stats.length){
+    D.stats.forEach(function(s,i){
+      var num=parseInt(s.n);
+      var el=document.getElementById('stat'+(i+1)+'el');
+      if(el&&!isNaN(num)){
+        el.dataset.target=num;
+        el.innerHTML='0<span style="font-size:.55em">+</span>';
+      }
+      if(s.l)st('stat'+(i+1)+'lbl',s.l);
     });
+    // Re-observe counters
+    document.querySelectorAll('.imp-num[data-target]').forEach(function(el){cntObs.observe(el);});
   }
+
+  // Testimonials/Stories
   if(D.stories){
-    if(D.stories.s1){const s1=D.stories.s1;if(s1.img)si('st1Av',s1.img);s('st1Q','"'+s1.q+'"');s('st1N',s1.n);s('st1L',s1.l);}
-    if(D.stories.s2){const s2=D.stories.s2;if(s2.img)si('st2Av',s2.img);s('st2Q','"'+s2.q+'"');s('st2N',s2.n);s('st2L',s2.l);}
+    if(D.stories.s1){
+      var s1=D.stories.s1;
+      if(s1.img)si('st1Av',s1.img);
+      if(s1.q)st('st1Q','"'+s1.q+'"');
+      if(s1.n)st('st1N',s1.n);
+      if(s1.l)st('st1L',s1.l);
+    }
+    if(D.stories.s2){
+      var s2=D.stories.s2;
+      if(s2.img)si('st2Av',s2.img);
+      if(s2.q)st('st2Q','"'+s2.q+'"');
+      if(s2.n)st('st2N',s2.n);
+      if(s2.l)st('st2L',s2.l);
+    }
   }
+
+  // Join section
   if(D.join){
-    s('joinD1T',D.join.d1t); s('joinD1P',D.join.d1p);
-    if(D.join.d1b){const b=document.getElementById('joinD1Btn');if(b)b.textContent=D.join.d1b;}
-    s('joinD2T',D.join.d2t); s('joinD2P',D.join.d2p);
-    if(D.join.d2b){const b=document.getElementById('joinD2Btn');if(b)b.textContent=D.join.d2b;}
+    if(D.join.d1t)st('joinD1T',D.join.d1t);
+    if(D.join.d1p)st('joinD1P',D.join.d1p);
+    if(D.join.d1b){var jb1=document.getElementById('joinD1Btn');if(jb1)jb1.textContent=D.join.d1b;}
+    if(D.join.d2t)st('joinD2T',D.join.d2t);
+    if(D.join.d2p)st('joinD2P',D.join.d2p);
+    if(D.join.d2b){var jb2=document.getElementById('joinD2Btn');if(jb2)jb2.textContent=D.join.d2b;}
   }
-  if(D.vision){sh('vis1',D.vision.v1);sh('vis2',D.vision.v2);sh('vis3',D.vision.v3);}
+
+  // Vision
+  if(D.vision){
+    if(D.vision.v1)sh('vis1',D.vision.v1);
+    if(D.vision.v2)sh('vis2',D.vision.v2);
+    if(D.vision.v3)sh('vis3',D.vision.v3);
+  }
+
+  // Legal
   if(D.legal){
     if(D.legal.r)document.getElementById('legRow1').textContent='Section 8, Companies Act 2013 — Reg: '+D.legal.r;
     if(D.legal.pan)document.getElementById('legRow2').textContent='PAN: '+D.legal.pan;
-    if(D.legal.niti){document.getElementById('legRow3').textContent='Unique ID: '+D.legal.niti;document.getElementById('nitiUid').textContent='UNIQUE ID: '+D.legal.niti;}
-    s('nitiDesc',D.legal.desc);
+    if(D.legal.niti){
+      document.getElementById('legRow3').textContent='Unique ID: '+D.legal.niti;
+      var nu=document.getElementById('nitiUid');if(nu)nu.textContent='UNIQUE ID: '+D.legal.niti;
+    }
+    if(D.legal.desc)st('nitiDesc',D.legal.desc);
   }
+
+  // Donate page
   if(D.donate){
-    s('donH',D.donate.h); s('donP1',D.donate.p1); sh('donP2',D.donate.p2);
-    s('donOrg',D.donate.org); s('donReg',D.donate.reg); s('donPan',D.donate.pan); s('donNiti',D.donate.niti);
-    s('donPanT',D.donate.pan); s('donNitiT',D.donate.niti);
-    s('donWa',D.donate.wa); s('donUpil',D.donate.upil?'💬 '+D.donate.upil:'💬 Donate / Join via WhatsApp');
+    if(D.donate.h)st('donH',D.donate.h);
+    if(D.donate.p1)st('donP1',D.donate.p1);
+    if(D.donate.p2)sh('donP2',D.donate.p2);
+    if(D.donate.org)st('donOrg',D.donate.org);
+    if(D.donate.reg)st('donReg',D.donate.reg);
+    if(D.donate.pan){st('donPan',D.donate.pan);st('donPanT',D.donate.pan);}
+    if(D.donate.niti){st('donNiti',D.donate.niti);st('donNitiT',D.donate.niti);}
+    if(D.donate.wa)st('donWa',D.donate.wa);
+    if(D.donate.upil)st('donUpil','💬 '+D.donate.upil);
   }
+
+  // Contact page
   if(D.contact){
-    s('conAddr',D.contact.a);
-    if(D.contact.p1){const el=document.getElementById('conP1Link');if(el){el.textContent=D.contact.p1;el.href='tel:'+D.contact.p1;}}
-    if(D.contact.p2){const el=document.getElementById('conP2Link');if(el){el.textContent=D.contact.p2;el.href='tel:'+D.contact.p2;}}
-    if(D.contact.em){const el=document.getElementById('conEmailLink');if(el){el.textContent=D.contact.em;el.href='mailto:'+D.contact.em;}}
-    if(D.contact.w){const el=document.getElementById('conWaLink');if(el){el.textContent=D.contact.w+' — Join as Volunteer';el.href='https://api.whatsapp.com/send?phone='+D.contact.w.replace(/[^0-9]/g,'');}}
-    if(D.contact.m){const el=document.getElementById('conMap');if(el)el.src=D.contact.m;}
-    s('ftAddr',D.contact.a);
-    if(D.contact.p1){const el=document.getElementById('ftPhone');if(el){el.textContent=D.contact.p1;el.href='tel:'+D.contact.p1;}}
-    if(D.contact.em){const el=document.getElementById('ftEmail');if(el){el.textContent=D.contact.em;el.href='mailto:'+D.contact.em;}}
+    if(D.contact.a){
+      st('conAddr',D.contact.a);
+      st('ftAddr',D.contact.a);
+    }
+    if(D.contact.p1){
+      var cp1=document.getElementById('conP1Link');if(cp1){cp1.textContent=D.contact.p1;cp1.href='tel:'+D.contact.p1;}
+      var fp=document.getElementById('ftPhone');if(fp){fp.textContent=D.contact.p1;fp.href='tel:'+D.contact.p1;}
+    }
+    if(D.contact.p2){var cp2=document.getElementById('conP2Link');if(cp2){cp2.textContent=D.contact.p2;cp2.href='tel:'+D.contact.p2;}}
+    if(D.contact.em){
+      var cem=document.getElementById('conEmailLink');if(cem){cem.textContent=D.contact.em;cem.href='mailto:'+D.contact.em;}
+      var fem=document.getElementById('ftEmail');if(fem){fem.textContent=D.contact.em;fem.href='mailto:'+D.contact.em;}
+    }
+    if(D.contact.w){
+      var cwa=document.getElementById('conWaLink');
+      if(cwa){cwa.textContent=D.contact.w;cwa.href='https://api.whatsapp.com/send?phone='+D.contact.w.replace(/[^0-9]/g,'');}
+    }
+    if(D.contact.m){var cm=document.getElementById('conMap');if(cm)cm.src=D.contact.m;}
   }
+
+  // Footer
   if(D.footer){
-    s('ftAbout',D.footer.about);
-    if(D.footer.reg&&D.footer.pan)document.getElementById('ftReg').innerHTML=`Incorporated under Section 8, Companies Act 2013<br>Reg. No: <strong>${D.footer.reg}</strong><br>PAN: <strong>${D.footer.pan}</strong>`;
-    s('ftCopy',D.footer.copy);
-    ['1','2','3','4'].forEach(n=>{const el=document.getElementById('soc'+n);if(el&&D.footer['soc'+n]&&D.footer['soc'+n]!=='#')el.href=D.footer['soc'+n];});
+    if(D.footer.about)st('ftAbout',D.footer.about);
+    if(D.footer.reg&&D.footer.pan){
+      var ftreg=document.getElementById('ftReg');
+      if(ftreg)ftreg.innerHTML='Incorporated under Section 8, Companies Act 2013<br>Reg. No: <strong>'+D.footer.reg+'</strong><br>PAN: <strong>'+D.footer.pan+'</strong>';
+    }
+    if(D.footer.copy)st('ftCopy',D.footer.copy);
+    ['1','2','3','4'].forEach(function(n){
+      var el=document.getElementById('soc'+n);
+      if(el&&D.footer['soc'+n]&&D.footer['soc'+n]!=='#')el.href=D.footer['soc'+n];
+    });
   }
+
+  // Program pages
   if(D.progpages){
     function loadPP(key,imgId,titleId,p1Id,p2Id,ftId,fpId){
-      const p=D.progpages[key];if(!p)return;
-      if(p.img){const e=document.getElementById(imgId);if(e)e.src=p.img;}
-      s(titleId,p.t); s(p1Id,p.p1); if(p2Id)s(p2Id,p.p2); s(ftId,p.ft); s(fpId,p.fp);
+      var p=D.progpages[key];if(!p)return;
+      if(p.img)si(imgId,p.img);
+      if(p.t)st(titleId,p.t);
+      if(p.p1)st(p1Id,p.p1);
+      if(p.p2&&p2Id)st(p2Id,p.p2);
+      if(p.ft)st(ftId,p.ft);
+      if(p.fp)st(fpId,p.fp);
     }
     loadPP('edu','eduImg','eduTitle','eduP1','eduP2','eduFT','eduFP');
     loadPP('health','healthImg','healthTitle','healthP1','healthP2','healthFT','healthFP');
     loadPP('rural','ruralImg','ruralTitle','ruralP1','ruralP2','ruralFT','ruralFP');
     loadPP('env','envImg','envTitle','envP1','envP2','envFT','envFP');
   }
+
+  // Board members
   if(D.board&&D.board.length){
-    const g=document.getElementById('bmGridDynamic');
-    if(g)g.innerHTML=D.board.map(m=>{const ph=m.photo?`<img src="${m.photo}" class="bm-photo" alt="${m.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:'';return`<div class="bm-card">${ph}<div class="bm-photo-def" style="${m.photo?'display:none':''}">👤</div><div class="bm-info"><div class="bm-name">${m.name}</div><div class="bm-desig">${m.desig}</div></div></div>`;}).join('');
+    var g=document.getElementById('bmGridDynamic');
+    if(g){
+      g.innerHTML=D.board.map(function(m){
+        return '<div class="bm-card">'+(m.photo?'<img src="'+m.photo+'" class="bm-photo" alt="'+m.name+'" onerror="this.style.display=\'none\'">':'')+'<div class="bm-photo-def" style="'+(m.photo?'display:none':'')+'">👤</div><div class="bm-info"><div class="bm-name">'+m.name+'</div><div class="bm-desig">'+m.desig+'</div></div></div>';
+      }).join('');
+    }
   }
+
+  // Coordinators
   if(D.coordinators&&D.coordinators.length){
-    const g=document.getElementById('coordGridDynamic');
-    if(g)g.innerHTML=D.coordinators.map(c=>{const ph=c.photo?`<img src="${c.photo}" class="coord-photo" alt="${c.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:'';return`<div class="coord-card">${ph}<div class="coord-photo-def" style="${c.photo?'display:none':''}">📍</div><div class="coord-info">${c.id?`<div class="coord-id">${c.id}</div>`:''}<div class="coord-name">${c.name}</div><div class="coord-role">${c.role}</div>${c.phone?`<div class="coord-phone">📞 <a href="tel:${c.phone}" style="color:var(--gray);text-decoration:none;">${c.phone}</a></div>`:''}<div class="coord-area">${c.area?'📍 '+c.area:''}</div></div></div>`;}).join('');
+    var cg=document.getElementById('coordGridDynamic');
+    if(cg){
+      cg.innerHTML=D.coordinators.map(function(c){
+        return '<div class="coord-card">'+(c.photo?'<img src="'+c.photo+'" class="coord-photo" alt="'+c.name+'" onerror="this.style.display=\'none\'">':'')+'<div class="coord-photo-def" style="'+(c.photo?'display:none':'')+'">📍</div><div class="coord-info">'+(c.id?'<div class="coord-id">'+c.id+'</div>':'')+'<div class="coord-name">'+c.name+'</div><div class="coord-role">'+c.role+'</div>'+(c.phone?'<div class="coord-phone">📞 <a href="tel:'+c.phone+'" style="color:var(--gray);text-decoration:none;">'+c.phone+'</a></div>':'')+(c.area?'<div class="coord-area">📍 '+c.area+'</div>':'')+'</div></div>';
+      }).join('');
+    }
   }
+
+  // Gallery
   if(D.gallery&&D.gallery.length){
-    const g=document.getElementById('dynamicGalleryGrid');
-    if(g)g.innerHTML=D.gallery.map(img=>`<div class="fgi"><img src="${img.url}" alt="${img.cap||'MLF Activity'}" loading="lazy" onerror="this.parentElement.style.display='none'"><div class="fgi-ov"><span class="fgi-cap">${img.cap||'MLF Activity'}</span></div></div>`).join('');
-    // Update home gallery with admin photos
-    const gi=document.querySelectorAll('#homeGalGrid .gi img'),gc=document.querySelectorAll('#homeGalGrid .gi-cap');
-    D.gallery.slice(0,5).forEach((img,i)=>{if(gi[i])gi[i].src=img.url;if(gc[i])gc[i].textContent=img.cap||'MLF Activity';});
+    var gg=document.getElementById('dynamicGalleryGrid');
+    if(gg){
+      gg.innerHTML=D.gallery.map(function(img){
+        return '<div class="fgi"><img src="'+img.url+'" alt="'+(img.cap||'MLF Activity')+'" loading="lazy" onerror="this.parentElement.style.display=\'none\'"><div class="fgi-ov"><span class="fgi-cap">'+(img.cap||'MLF Activity')+'</span></div></div>';
+      }).join('');
+    }
+    // Update home gallery with first 5 admin photos
+    var homeImgs=document.querySelectorAll('#homeGalGrid .gi img');
+    var homeCaps=document.querySelectorAll('#homeGalGrid .gi-cap');
+    D.gallery.slice(0,5).forEach(function(img,i){
+      if(homeImgs[i])homeImgs[i].src=img.url;
+      if(homeCaps[i])homeCaps[i].textContent=img.cap||'MLF Activity';
+    });
   }
 }
 
 // ── PAGE NAVIGATION ──
-const PAGES={vision:'page-vision',board:'page-board',legal:'page-legal',education:'page-education',health:'page-health',rural:'page-rural',environment:'page-environment',coordinator:'page-coordinator','gallery-full':'page-gallery-full',donate:'page-donate','contact-page':'page-contact-page'};
+var PAGES={
+  vision:'page-vision',board:'page-board',legal:'page-legal',
+  education:'page-education',health:'page-health',rural:'page-rural',
+  environment:'page-environment',coordinator:'page-coordinator',
+  'gallery-full':'page-gallery-full',donate:'page-donate',
+  'contact-page':'page-contact-page'
+};
+
 function showPage(page){
-  // Close mobile menu FIRST - always
-  const mm=document.getElementById('mobMenu');
-  if(mm){mm.classList.remove('open');}
+  // Close mobile menu
+  var mm=document.getElementById('mobMenu');
+  if(mm)mm.classList.remove('open');
   document.body.style.overflow='';
 
-  document.querySelectorAll('.page-section').forEach(el=>el.style.display='none');
-  const mainSecs=['#home','#about','#programs','.imp-sec','#gallery','#volunteer'];
+  // Hide all sub-pages
+  document.querySelectorAll('.page-section').forEach(function(el){el.style.display='none';});
+
+  var mainSecs=['#home','#about','#programs','.imp-sec','#gallery','#volunteer'];
+
   if(PAGES[page]){
-    mainSecs.forEach(sel=>{const el=document.querySelector(sel);if(el)el.style.display='none';});
-    const pg=document.getElementById(PAGES[page]);
-    if(pg){pg.style.display='block';setTimeout(()=>pg.querySelectorAll('.reveal').forEach(e=>e.classList.add('visible')),120);}
-    const ft=document.querySelector('footer');if(ft)ft.style.display='';
-  }else{
-    mainSecs.forEach(sel=>{const el=document.querySelector(sel);if(el)el.style.display='';});
-    const ft=document.querySelector('footer');if(ft)ft.style.display='';
-    if(page==='gallery-full'){loadGallery();}
-    if(page==='programs'){setTimeout(()=>{const el=document.getElementById('programs');if(el)el.scrollIntoView({behavior:'smooth'});},100);}
-    else if(page==='about'){setTimeout(()=>{const el=document.getElementById('about');if(el)el.scrollIntoView({behavior:'smooth'});},100);}
-    else if(page==='gallery'){setTimeout(()=>{const el=document.getElementById('gallery');if(el)el.scrollIntoView({behavior:'smooth'});},100);}
-    else if(page==='contact'){setTimeout(()=>{const ft2=document.querySelector('footer');if(ft2)ft2.scrollIntoView({behavior:'smooth'});},100);}
+    // Show sub-page, hide main sections
+    mainSecs.forEach(function(sel){
+      var el=document.querySelector(sel);if(el)el.style.display='none';
+    });
+    var pg=document.getElementById(PAGES[page]);
+    if(pg){
+      pg.style.display='block';
+      setTimeout(function(){
+        pg.querySelectorAll('.reveal').forEach(function(e){e.classList.add('visible');});
+      },120);
+    }
+    var ft=document.querySelector('footer');if(ft)ft.style.display='';
+  } else {
+    // Show main sections
+    mainSecs.forEach(function(sel){
+      var el=document.querySelector(sel);if(el)el.style.display='';
+    });
+    var ft2=document.querySelector('footer');if(ft2)ft2.style.display='';
+    // Scroll to section
+    if(page==='programs'){
+      setTimeout(function(){var el=document.getElementById('programs');if(el)el.scrollIntoView({behavior:'smooth'});},100);
+    } else if(page==='about'){
+      setTimeout(function(){var el=document.getElementById('about');if(el)el.scrollIntoView({behavior:'smooth'});},100);
+    } else if(page==='gallery'){
+      setTimeout(function(){var el=document.getElementById('gallery');if(el)el.scrollIntoView({behavior:'smooth'});},100);
+    } else if(page==='contact'){
+      setTimeout(function(){var el=document.querySelector('footer');if(el)el.scrollIntoView({behavior:'smooth'});},100);
+    } else {
+      // Load gallery dynamically when visiting gallery page
+      if(page==='gallery-full')loadGallery();
+    }
   }
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
 function loadGallery(){
-  const g=document.getElementById('dynamicGalleryGrid');
-  if(!g)return;
-  const D=getSt();
-  const photos=D.gallery||[];
-  if(!photos.length){g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--gray);"><div style="font-size:48px;margin-bottom:16px;">📸</div><p>Photos will appear here once added from the Admin Panel.</p></div>';return;}
-  g.innerHTML=photos.map(img=>`<div class="fgi"><img src="${img.url}" alt="${img.cap||'MLF Activity'}" loading="lazy" onerror="this.parentElement.style.display='none'"><div class="fgi-ov"><span class="fgi-cap">${img.cap||'MLF Activity'}</span></div></div>`).join('');
+  var gg=document.getElementById('dynamicGalleryGrid');
+  if(!gg)return;
+  var D=getSt();
+  var photos=D.gallery||[];
+  if(!photos.length){
+    gg.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--gray);"><div style="font-size:48px;margin-bottom:16px;">📸</div><p>Photos will appear here once added from the Admin Panel.</p></div>';
+    return;
+  }
+  gg.innerHTML=photos.map(function(img){
+    return '<div class="fgi"><img src="'+img.url+'" alt="'+(img.cap||'MLF Activity')+'" loading="lazy" onerror="this.parentElement.style.display=\'none\'"><div class="fgi-ov"><span class="fgi-cap">'+(img.cap||'MLF Activity')+'</span></div></div>';
+  }).join('');
 }
 
 // ── CLOCK ──
 function startClock(){
   function tick(){
-    const n=new Date();
-    const H=String(n.getHours()).padStart(2,'0');
-    const M=String(n.getMinutes()).padStart(2,'0');
-    const S=String(n.getSeconds()).padStart(2,'0');
-    const D=String(n.getDate()).padStart(2,'0');
-    const Mo=String(n.getMonth()+1).padStart(2,'0');
-    const Y=n.getFullYear();
-    const cwTime=document.getElementById('cwTime');
-    const cwDate=document.getElementById('cwDate');
-    const cwOM=document.getElementById('cwOdiaMonth');
+    var n=new Date();
+    var H=String(n.getHours()).padStart(2,'0');
+    var M=String(n.getMinutes()).padStart(2,'0');
+    var S=String(n.getSeconds()).padStart(2,'0');
+    var D=String(n.getDate()).padStart(2,'0');
+    var Mo=String(n.getMonth()+1).padStart(2,'0');
+    var Y=n.getFullYear();
+    var cwTime=document.getElementById('cwTime');
+    var cwDate=document.getElementById('cwDate');
+    var cwOM=document.getElementById('cwOdiaMonth');
     if(cwTime)cwTime.textContent=H+':'+M+':'+S;
     if(cwDate)cwDate.textContent=D+'/'+Mo+'/'+Y;
     if(cwOM){
-      const odiaM=ODIA_MONTHS[(n.getMonth()+9)%12]||'';
+      var odiaM=ODIA_MONTHS[(n.getMonth()+9)%12]||'';
       cwOM.textContent='🪄 '+odiaM+' ମାସ';
     }
   }
-  tick(); // run immediately
+  tick();
   setInterval(tick,1000);
 }
 
 // ── FESTIVALS ──
-const DEFAULT_FESTIVALS=[
-  {month:1,day:14,name:"ମକର ସଂକ୍ରାନ୍ତି / ମକର ମେଳା",emoji:"🪁🌊",wish:"ମକର ସଂକ୍ରାନ୍ତିର ହାର୍ଦ୍ଦିକ ଶୁଭେଚ୍ଛା! ମହାପ୍ରଭୁ ଶ୍ରୀଜଗନ୍ନାଥଙ୍କ ଆଶୀର୍ବାଦ ଆପଣଙ୍କ ଉପରେ ବର୍ଷୁ।"},
+var DEFAULT_FESTIVALS=[
+  {month:1,day:14,name:"ମକର ସଂକ୍ରାନ୍ତି / ମକର ମେଳା",emoji:"🪁🌊",wish:"ମକର ସଂକ୍ରାନ୍ତିର ହାର୍ଦ୍ଦିକ ଶୁଭେଚ୍ଛା!"},
   {month:1,day:26,name:"ଗଣତନ୍ତ୍ର ଦିବସ",emoji:"🇮🇳🎺",wish:"ଗଣତନ୍ତ୍ର ଦିବସର ହାର୍ଦ୍ଦିକ ଶୁଭେଚ୍ଛା! ଜୟ ହିନ୍ଦ!"},
   {month:3,day:30,name:"ଉତ୍କଳ ଦିବସ — ଓଡ଼ିଶା ଦିବସ",emoji:"🏵️🌺",wish:"ଉତ୍କଳ ଦିବସର ଶୁଭେଚ୍ଛା! ଜୟ ଓଡ଼ିଶା!"},
   {month:4,day:14,name:"ମହା ବିଷୁବ ସଂକ୍ରାନ୍ତି — ଓଡ଼ିଆ ନବ ବର୍ଷ",emoji:"🌅🎊",wish:"ଓଡ଼ିଆ ନବ ବର୍ଷର ଅଭିନନ୍ଦନ!"},
   {month:6,day:27,name:"ରଥ ଯାତ୍ରା — ପୁରୀ",emoji:"🏆🎪",wish:"ଜୟ ଜଗନ୍ନାଥ! ଶୁଭ ରଥ ଯାତ୍ରା!"},
   {month:8,day:15,name:"ସ୍ୱାଧୀନତା ଦିବସ",emoji:"🇮🇳🎆",wish:"ସ୍ୱାଧୀନତା ଦିବସର ହାର୍ଦ୍ଦିକ ଶୁଭେଚ୍ଛା! ଜୟ ହିନ୍ଦ!"},
   {month:9,day:22,name:"ନୁଆଖାଇ ଜୁହାର",emoji:"🌾🎉",wish:"ନୁଆଖାଇ ଜୁହାର!"},
-  {month:10,day:2,name:"ଗାନ୍ଧୀ ଜୟନ୍ତୀ",emoji:"🕊️🇮🇳",wish:"ଗାନ୍ଧୀ ଜୟନ୍ତୀ ଅବସରରେ ରାଷ୍ଟ୍ରପିତାଙ୍କୁ ଶ୍ରଦ୍ଧାଞ୍ଜଳି।"},
+  {month:10,day:2,name:"ଗାନ୍ଧୀ ଜୟନ୍ତୀ",emoji:"🕊️🇮🇳",wish:"ଗାନ୍ଧୀ ଜୟନ୍ତୀ ଅବସରରେ ଶ୍ରଦ୍ଧାଞ୍ଜଳି।"},
   {month:11,day:5,name:"ଦୀପାବଳି",emoji:"🪔✨",wish:"ଦୀପାବଳିର ଆଲୋକ ଭରା ଶୁଭେଚ୍ଛା!"},
   {month:12,day:25,name:"ବଡ଼ ଦିନ — ଖ୍ରୀଷ୍ଟ ଜୟନ୍ତୀ",emoji:"🎄⭐",wish:"ଖ୍ରୀଷ୍ଟ ଜୟନ୍ତୀ ଅର୍ଥାତ ବଡ଼ ଦିନର ଶୁଭେଚ୍ଛା!"}
 ];
 
-function getAllFestivals(){const D=getSt();return(D.notifcal&&D.notifcal.festivals&&D.notifcal.festivals.length)?D.notifcal.festivals:DEFAULT_FESTIVALS;}
-function getTodayFestivals(){const n=new Date();return getAllFestivals().filter(f=>f.month===n.getMonth()+1&&f.day===n.getDate());}
+function getAllFestivals(){
+  var D=getSt();
+  var nc=D.notifcal;
+  return(nc&&nc.festivals&&nc.festivals.length)?nc.festivals:DEFAULT_FESTIVALS;
+}
+function getTodayFestivals(){
+  var n=new Date();
+  return getAllFestivals().filter(function(f){return f.month===n.getMonth()+1&&f.day===n.getDate();});
+}
 function getUpcomingFestivals(cnt){
-  const now=new Date(),yr=now.getFullYear();
-  return getAllFestivals().map(f=>{let d=new Date(yr,f.month-1,f.day);if(d<=now)d=new Date(yr+1,f.month-1,f.day);return{...f,daysLeft:Math.ceil((d-now)/864e5)};}).sort((a,b)=>a.daysLeft-b.daysLeft).slice(0,cnt||6);
+  var now=new Date(),yr=now.getFullYear();
+  return getAllFestivals().map(function(f){
+    var d=new Date(yr,f.month-1,f.day);
+    if(d<=now)d=new Date(yr+1,f.month-1,f.day);
+    return Object.assign({},f,{daysLeft:Math.ceil((d-now)/864e5)});
+  }).sort(function(a,b){return a.daysLeft-b.daysLeft;}).slice(0,cnt||6);
 }
 
-let tickerIdx=0,tickerTimer=null,tickerItems=[];
+var tickerIdx=0,tickerTimer=null,tickerItems=[];
+
 function buildNotices(){
-  const todayF=getTodayFestivals(),upF=getUpcomingFestivals(7);
-  const vols=getVols(),now=new Date(),todayStr=now.toDateString(),yestStr=new Date(Date.now()-864e5).toDateString();
+  var todayF=getTodayFestivals();
+  var upF=getUpcomingFestivals(7);
+  var vols=getVols();
+  var now=new Date();
+  var todayStr=now.toDateString();
   tickerItems=[];
-  todayF.forEach(f=>tickerItems.push({type:'festival',isToday:true,...f}));
-  upF.forEach(f=>tickerItems.push({type:'festival',isToday:false,...f}));
-  const D=getSt(),bdWish=(D.notifcal&&D.notifcal.birthdayWish)||null;
-  vols.forEach(v=>{
-    if(v.dob){const dp=v.dob.split('-');if(parseInt(dp[1])===now.getMonth()+1&&parseInt(dp[2])===now.getDate()){const txt=bdWish?bdWish.replace('{name}',v.name):`ଜନ୍ମଦିନ ଶୁଭେଚ୍ଛା ${v.name}! MLF ପରିବାର ତଙ୍କୁ ଶୁଭେଚ୍ଛା ଜଣାଉଛି 🎉`;tickerItems.unshift({type:'other',tag:'birthday',label:'🎂 Birthday',text:txt});}}
-    if(new Date(v.joinDate).toDateString()===todayStr||new Date(v.joinDate).toDateString()===yestStr)tickerItems.push({type:'other',tag:'welcome',label:'🤝 Welcome',text:`ସ୍ୱାଗତ ${v.name} (${v.district||'ଓଡ଼ିଶା'}) — MLF ପରିବାରରେ ଯୋଗ ଦେଇଛନ୍ତି 🌱`});
+
+  todayF.forEach(function(f){tickerItems.push(Object.assign({},f,{type:'festival',isToday:true}));});
+  upF.forEach(function(f){tickerItems.push(Object.assign({},f,{type:'festival',isToday:false}));});
+
+  var D=getSt();
+  var bdWish=(D.notifcal&&D.notifcal.birthdayWish)||null;
+
+  vols.forEach(function(v){
+    if(v.dob){
+      var dp=v.dob.split('-');
+      if(parseInt(dp[1])===now.getMonth()+1&&parseInt(dp[2])===now.getDate()){
+        var txt=bdWish?bdWish.replace('{name}',v.name):'ଜନ୍ମଦିନ ଶୁଭେଚ୍ଛା '+v.name+'! MLF ପରିବାର ତଙ୍କୁ ଶୁଭେଚ୍ଛା ଜଣାଉଛି 🎉';
+        tickerItems.unshift({type:'other',tag:'birthday',label:'🎂 Birthday',text:txt});
+      }
+    }
+    if(v.joinDate&&new Date(v.joinDate).toDateString()===todayStr){
+      tickerItems.push({type:'other',tag:'welcome',label:'🤝 Welcome',text:'ସ୍ୱାଗତ '+v.name+' ('+( v.district||'ଓଡ଼ିଶା')+') — MLF ପରିବାରରେ ଯୋଗ ଦେଇଛନ୍ତି 🌱'});
+    }
   });
-  if(D.notifcal&&D.notifcal.ticker&&D.notifcal.ticker.length)D.notifcal.ticker.forEach(t=>tickerItems.push({type:'other',tag:t.tag||'program',label:t.label||'📋',text:t.text}));
-  else{
+
+  if(D.notifcal&&D.notifcal.ticker&&D.notifcal.ticker.length){
+    D.notifcal.ticker.forEach(function(t){tickerItems.push({type:'other',tag:t.tag||'program',label:t.label||'📋',text:t.text});});
+  } else {
     tickerItems.push({type:'other',tag:'program',label:'📋 Program',text:'ମାଗଣା ସ୍ୱାସ୍ଥ୍ୟ ଶିବିର — ଶୀଘ୍ର ହେବ, କେନ୍ଦ୍ରାପଡ଼ା'});
-    tickerItems.push({type:'other',tag:'rating',label:'⭐ Rating',text:'ଫାଉଣ୍ଡେସନ୍ ੯੧ ଉପଭୋକ୍ତାଙ୍କ ଦ୍ୱାରା ★★★★★ ରେଟିଙ୍ଗ ପ୍ରାପ୍ତ'});
+    tickerItems.push({type:'other',tag:'rating',label:'⭐ Rating',text:'ଫାଉଣ୍ଡେସନ୍ ★★★★★ ରେଟିଙ୍ଗ ପ୍ରାପ୍ତ'});
   }
   renderNotices();
   setupTodayBanner(todayF);
 }
 
 function renderNotices(){
-  const scroll=document.getElementById('cwScroll'),dots=document.getElementById('cwDots');
+  var scroll=document.getElementById('cwScroll');
+  var dots=document.getElementById('cwDots');
   if(!scroll||!dots)return;
-  scroll.innerHTML=tickerItems.map(item=>{
-    if(item.type==='festival'){const cls=item.isToday?'tag-festival':'tag-event';const lbl=item.isToday?'🎉 ଆଜିର ଉତ୍ସବ':`🗓️ ${item.daysLeft} ଦିନ ବାକି`;return`<div class="cw-notice-item"><span class="cw-notice-tag ${cls}">${lbl}</span><div class="cw-notice-text">${item.emoji} ${item.name}</div></div>`;}
-    return`<div class="cw-notice-item"><span class="cw-notice-tag tag-${item.tag}">${item.label}</span><div class="cw-notice-text">${item.text}</div></div>`;
+  scroll.innerHTML=tickerItems.map(function(item){
+    if(item.type==='festival'){
+      var cls=item.isToday?'tag-festival':'tag-event';
+      var lbl=item.isToday?'🎉 ଆଜିର ଉତ୍ସବ':'🗓️ '+item.daysLeft+' ଦିନ ବାକି';
+      return '<div class="cw-notice-item"><span class="cw-notice-tag '+cls+'">'+lbl+'</span><div class="cw-notice-text">'+item.emoji+' '+item.name+'</div></div>';
+    }
+    return '<div class="cw-notice-item"><span class="cw-notice-tag tag-'+item.tag+'">'+item.label+'</span><div class="cw-notice-text">'+item.text+'</div></div>';
   }).join('');
-  dots.innerHTML=tickerItems.map((_,i)=>`<div class="cw-dot${i===0?' active':''}" onclick="goNotice(${i})"></div>`).join('');
+  dots.innerHTML=tickerItems.map(function(_,i){
+    return '<div class="cw-dot'+(i===0?' active':'')+'" onclick="goNotice('+i+')"></div>';
+  }).join('');
   tickerIdx=0;
   if(tickerTimer)clearInterval(tickerTimer);
   tickerTimer=setInterval(nextNotice,3500);
 }
-function nextNotice(){if(!tickerItems.length)return;tickerIdx=(tickerIdx+1)%tickerItems.length;updateNoticeScroll();}
+
+function nextNotice(){
+  if(!tickerItems.length)return;
+  tickerIdx=(tickerIdx+1)%tickerItems.length;
+  updateNoticeScroll();
+}
 function goNotice(i){tickerIdx=i;updateNoticeScroll();}
 function updateNoticeScroll(){
-  const scroll=document.getElementById('cwScroll');
-  if(scroll)scroll.style.transform=`translateY(-${tickerIdx*72}px)`;
-  document.querySelectorAll('.cw-dot').forEach((d,i)=>d.classList.toggle('active',i===tickerIdx));
-  const item=tickerItems[tickerIdx];
-  const lbl=document.getElementById('cwLabelText');
-  if(lbl)lbl.textContent=item&&item.type==='festival'&&item.isToday?'ଆଜିର ଉତ୍ସବ':'ଆସନ୍ତା ଉତ୍ସବ';
+  var scroll=document.getElementById('cwScroll');
+  if(scroll)scroll.style.transform='translateY(-'+(tickerIdx*72)+'px)';
+  document.querySelectorAll('.cw-dot').forEach(function(d,i){d.classList.toggle('active',i===tickerIdx);});
+  var item=tickerItems[tickerIdx];
+  var lbl=document.getElementById('cwLabelText');
+  if(lbl)lbl.textContent=(item&&item.type==='festival'&&item.isToday)?'ଆଜିର ଉତ୍ସବ':'ଆସନ୍ତା ଉତ୍ସବ';
 }
 function setupTodayBanner(todayF){
-  const b=document.getElementById('cwTodayBanner');if(!b)return;
-  if(todayF.length>0){const f=todayF[0];const emoji=document.getElementById('cwTodayEmoji');const wish=document.getElementById('cwTodayWish');if(emoji)emoji.textContent=f.emoji;if(wish)wish.textContent=(f.wish||'').substring(0,80)+'...';b.classList.add('show');}
-  else b.classList.remove('show');
+  var b=document.getElementById('cwTodayBanner');if(!b)return;
+  if(todayF.length>0){
+    var f=todayF[0];
+    var emoji=document.getElementById('cwTodayEmoji');
+    var wish=document.getElementById('cwTodayWish');
+    if(emoji)emoji.textContent=f.emoji;
+    if(wish)wish.textContent=(f.wish||'').substring(0,80)+'...';
+    b.classList.add('show');
+  } else {
+    b.classList.remove('show');
+  }
 }
 
-// ── CLOCK MOVE ──
-let clockInNav=false;
+// ── CLOCK MOVE ON SCROLL ──
+var clockInNav=false;
 function handleClockVisibility(){
-  const widget=document.getElementById('clockWidget');
-  const navSlot=document.getElementById('navClockSlot');
-  const heroSlot=document.getElementById('hero-clock-slot');
+  var widget=document.getElementById('clockWidget');
+  var navSlot=document.getElementById('navClockSlot');
+  var heroSlot=document.getElementById('hero-clock-slot');
   if(!widget||!navSlot||!heroSlot)return;
-  // On mobile (<=768px), keep clock in hero fixed slot only, don't move to nav
   if(window.innerWidth<=768){
-    if(clockInNav){
-      clockInNav=false;heroSlot.style.display='';
-      heroSlot.appendChild(widget);
-    }
+    if(clockInNav){clockInNav=false;heroSlot.style.display='';heroSlot.appendChild(widget);}
     return;
   }
-  const moveToNav=window.scrollY>window.innerHeight*0.7;
+  var moveToNav=window.scrollY>window.innerHeight*0.7;
   if(moveToNav&&!clockInNav){
-    clockInNav=true;widget.classList.add('clock-moving');
-    setTimeout(()=>{navSlot.appendChild(widget);widget.classList.remove('clock-moving');heroSlot.style.display='none';},250);
+    clockInNav=true;
+    widget.style.opacity='0';
+    setTimeout(function(){navSlot.appendChild(widget);widget.style.opacity='1';heroSlot.style.display='none';},250);
   }
   if(!moveToNav&&clockInNav){
-    clockInNav=false;widget.classList.add('clock-moving');heroSlot.style.display='';
-    setTimeout(()=>{heroSlot.appendChild(widget);widget.classList.remove('clock-moving');},250);
+    clockInNav=false;
+    widget.style.opacity='0';
+    heroSlot.style.display='';
+    setTimeout(function(){heroSlot.appendChild(widget);widget.style.opacity='1';},250);
   }
 }
 
 // ── COUNTER ANIMATION ──
+var cntObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      startCounter(e.target,parseInt(e.target.dataset.target));
+      cntObs.unobserve(e.target);
+    }
+  });
+},{threshold:.5});
+
 function startCounter(el,target){
-  let cur=0;const step=target/80;
-  const tick=()=>{cur=Math.min(cur+step,target);el.childNodes[0].textContent=Math.floor(cur).toLocaleString('en-IN');if(cur<target)requestAnimationFrame(tick);};
+  if(!target||isNaN(target))return;
+  var cur=0;
+  var step=target/80;
+  var tick=function(){
+    cur=Math.min(cur+step,target);
+    var node=el.childNodes[0];
+    if(node)node.textContent=Math.floor(cur).toLocaleString('en-IN');
+    if(cur<target)requestAnimationFrame(tick);
+  };
   requestAnimationFrame(tick);
 }
-const cntObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){startCounter(e.target,parseInt(e.target.dataset.target));cntObs.unobserve(e.target);}});},{threshold:.5});
-document.querySelectorAll('.imp-num[data-target]').forEach(el=>cntObs.observe(el));
-const revObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+
+document.querySelectorAll('.imp-num[data-target]').forEach(function(el){cntObs.observe(el);});
+
+var revObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(function(el){revObs.observe(el);});
 
 // ── FESTIVAL POPUP ──
-let popupShown=false;
+var popupShown=false;
 function showFestivalPopup(f){
-  if(popupShown)return;popupShown=true;
-  const popup=document.getElementById('festivalPopup');if(!popup)return;
+  if(popupShown)return;
+  popupShown=true;
+  var popup=document.getElementById('festivalPopup');if(!popup)return;
   document.getElementById('popupEmojiRow').textContent=f.emoji;
   document.getElementById('popupTitle').textContent=f.name;
   document.getElementById('popupWishText').textContent=f.wish;
-  const bar=document.getElementById('popupProgressFill');bar.style.animation='none';bar.offsetHeight;bar.style.animation='ppShrink 9s linear forwards';
-  setTimeout(()=>popup.classList.add('popup-show'),600);
+  var bar=document.getElementById('popupProgressFill');
+  bar.style.animation='none';
+  bar.offsetHeight; // reflow
+  bar.style.animation='ppShrink 9s linear forwards';
+  setTimeout(function(){popup.classList.add('popup-show');},600);
   setTimeout(hideFestivalPopup,9800);
   launchConfetti();
 }
-function hideFestivalPopup(){const popup=document.getElementById('festivalPopup');if(popup)popup.classList.remove('popup-show');}
+function hideFestivalPopup(){
+  var popup=document.getElementById('festivalPopup');
+  if(popup)popup.classList.remove('popup-show');
+}
 document.getElementById('popupCloseBtn').addEventListener('click',hideFestivalPopup);
+
 function launchConfetti(){
-  const c=document.getElementById('mlfConfetti');if(!c)return;
+  var c=document.getElementById('mlfConfetti');if(!c)return;
   c.style.display='block';c.innerHTML='';
-  const cols=['#FF6B1A','#F5C842','#2ECC71','#E74C3C','#9B59B6','#FF69B4'];
-  for(let i=0;i<55;i++){const p=document.createElement('div');p.className='conf-p';p.style.cssText=`left:${Math.random()*100}vw;background:${cols[i%cols.length]};width:${Math.random()*6+5}px;height:${Math.random()*6+5}px;border-radius:${Math.random()>.5?'50%':'2px'};animation-delay:${Math.random()*1.5}s;animation-duration:${Math.random()*2+2.5}s`;c.appendChild(p);}
-  setTimeout(()=>{c.style.display='none';c.innerHTML='';},5000);
+  var cols=['#FF6B1A','#F5C842','#2ECC71','#E74C3C','#9B59B6','#FF69B4'];
+  for(var i=0;i<55;i++){
+    var p=document.createElement('div');
+    p.className='conf-p';
+    p.style.cssText='left:'+Math.random()*100+'vw;background:'+cols[i%cols.length]+';width:'+(Math.random()*6+5)+'px;height:'+(Math.random()*6+5)+'px;border-radius:'+(Math.random()>.5?'50%':'2px')+';animation-delay:'+Math.random()*1.5+'s;animation-duration:'+(Math.random()*2+2.5)+'s';
+    c.appendChild(p);
+  }
+  setTimeout(function(){c.style.display='none';c.innerHTML='';},5000);
 }
 
 // ── VOLUNTEER SYSTEM ──
 function updateNav(){
-  const vol=getCurrentVol();
-  const navAuth=document.getElementById('navAuthButtons');
-  const mobAuth=document.getElementById('mobAuthButtons');
+  var vol=getCurrentVol();
+  var navAuth=document.getElementById('navAuthButtons');
+  var mobAuth=document.getElementById('mobAuthButtons');
+  if(!navAuth||!mobAuth)return;
+
   if(vol){
-    // Logged in: show Profile + Logout only in navbar
-    navAuth.innerHTML=`<a class="nav-btn-profile" onclick="openProfile()">👤 My Profile</a><a class="nav-btn-login" style="background:#fee2e2;color:#dc2626;border:none;" onclick="logoutVolunteer()">Logout</a>`;
-    // Mobile: Profile, Donate, Logout
-    mobAuth.innerHTML=`
-      <a onclick="closeMobMenu();setTimeout(()=>openProfile(),150)" style="background:var(--blue);color:white;font-weight:700;border-radius:10px;padding:13px 16px;text-align:center;touch-action:manipulation;">👤 My Profile</a>
-      <a onclick="closeMobMenu();setTimeout(()=>handleDonate(),150)" style="background:var(--orange);color:white;font-weight:700;border-radius:10px;padding:13px 16px;text-align:center;touch-action:manipulation;">❤️ Donate</a>
-      <a onclick="closeMobMenu();setTimeout(()=>logoutVolunteer(),150)" style="background:#fee2e2;color:#dc2626;font-weight:700;border-radius:10px;padding:13px 16px;text-align:center;touch-action:manipulation;">🚪 Logout</a>`;
-  }else{
-    // NOT logged in: ONLY Login button in navbar (no Donate, no Join)
-    navAuth.innerHTML=`<a class="nav-btn-login" onclick="openModal('modalLogin')">🔐 Login</a>`;
-    // Mobile: Login + Join + Donate
-    mobAuth.innerHTML=`
-      <a onclick="closeMobMenu();setTimeout(()=>openModal('modalLogin'),150)" style="border:2px solid var(--blue);color:var(--blue);font-weight:700;border-radius:10px;padding:13px 16px;text-align:center;background:white;touch-action:manipulation;">🔐 Login</a>
-      <a onclick="closeMobMenu();setTimeout(()=>handleVolunteerBtn(),150)" style="background:var(--green);color:white;font-weight:700;border-radius:10px;padding:13px 16px;text-align:center;touch-action:manipulation;">🤝 Join as Volunteer</a>
-      <a onclick="closeMobMenu();setTimeout(()=>handleDonate(),150)" style="background:var(--orange);color:white;font-weight:700;border-radius:10px;padding:13px 16px;text-align:center;touch-action:manipulation;">❤️ Donate Now</a>`;
+    navAuth.innerHTML='<a class="nav-btn-profile" onclick="openProfile()">👤 My Profile</a><a class="nav-btn-login" style="background:#fee2e2;color:#dc2626;border:none;" onclick="logoutVolunteer()">Logout</a>';
+    mobAuth.innerHTML='<a onclick="closeMobMenu();setTimeout(function(){openProfile();},150)" style="background:var(--blue);color:white;font-weight:700;border-radius:10px;padding:13px 16px;text-align:center;">👤 My Profile</a><a onclick="closeMobMenu();setTimeout(function(){handleDonate();},150)" style="background:var(--orange);color:white;font-weight:700;border-radius:10px;padding:13px 16px;text-align:center;">❤️ Donate</a><a onclick="closeMobMenu();setTimeout(function(){logoutVolunteer();},150)" style="background:#fee2e2;color:#dc2626;font-weight:700;border-radius:10px;padding:13px 16px;text-align:center;">🚪 Logout</a>';
+  } else {
+    navAuth.innerHTML='<a class="nav-btn-login" onclick="openModal(\'modalLogin\')">🔐 Login</a>';
+    mobAuth.innerHTML='<a onclick="closeMobMenu();setTimeout(function(){openModal(\'modalLogin\');},150)" style="border:2px solid var(--blue);color:var(--blue);font-weight:700;border-radius:10px;padding:13px 16px;text-align:center;background:white;">🔐 Login</a><a onclick="closeMobMenu();setTimeout(function(){handleVolunteerBtn();},150)" style="background:var(--green);color:white;font-weight:700;border-radius:10px;padding:13px 16px;text-align:center;">🤝 Join as Volunteer</a><a onclick="closeMobMenu();setTimeout(function(){handleDonate();},150)" style="background:var(--orange);color:white;font-weight:700;border-radius:10px;padding:13px 16px;text-align:center;">❤️ Donate Now</a>';
   }
 }
 
 function handleVolunteerBtn(){getCurrentVol()?openProfile():openModal('modalRegister');}
 function handleDonate(){showPage('donate');}
 function toggleSubmit(){
-  const checked=document.getElementById('tcCheckbox').checked;
-  document.getElementById('submitBtn').disabled=!checked;
-  if(checked){
-    document.getElementById('submitBtn').style.background='var(--green)';
-  }
+  var checked=document.getElementById('tcCheckbox').checked;
+  var btn=document.getElementById('submitBtn');
+  if(btn){btn.disabled=!checked;btn.style.background=checked?'var(--green)':'#9CA3AF';}
 }
 
-async function submitRegistration(e){
+function submitRegistration(e){
   e.preventDefault();
-  // Double-check T&C
-  if(!document.getElementById('tcCheckbox').checked){
-    document.getElementById('tcCheckLabel').style.border='2px solid red';
-    document.getElementById('tcCheckLabel').style.borderRadius='8px';
-    document.getElementById('tcCheckLabel').style.padding='8px';
-    document.getElementById('tcCheckLabel').scrollIntoView({behavior:'smooth',block:'center'});
-    showToast('Please agree to Terms & Conditions first','error');
-    return;
-  }
-  const aadhaar=document.getElementById('regAadhaar').value.trim();
-  const mobile=document.getElementById('regMobile').value.trim();
-  const pin=document.getElementById('regPin').value.trim();
+  if(!document.getElementById('tcCheckbox').checked){showToast('Please agree to Terms & Conditions first','error');return;}
+  var aadhaar=document.getElementById('regAadhaar').value.trim();
+  var mobile=document.getElementById('regMobile').value.trim();
+  var pin=document.getElementById('regPin').value.trim();
   if(aadhaar.length!==12||!/^\d+$/.test(aadhaar)){showToast('Please enter a valid 12-digit Aadhaar number','error');return;}
   if(mobile.length!==10||!/^\d+$/.test(mobile)){showToast('Please enter a valid 10-digit mobile number','error');return;}
   if(pin.length!==6||!/^\d+$/.test(pin)){showToast('Please enter a valid 6-digit PIN code','error');return;}
-  const vols=getVols();
-  if(vols.some(v=>v.aadhaarKey===aadhaar.substring(0,8)+aadhaar.slice(-4))){showToast('An account with this Aadhaar already exists!','error');return;}
-  const regType=document.getElementById('regType')?document.getElementById('regType').value:'V';
-  const volId=generateId(regType);
-  const vol={id:volId,type:regType,name:document.getElementById('regName').value.trim(),dob:document.getElementById('regDob').value,fatherName:document.getElementById('regFather').value.trim(),motherName:document.getElementById('regMother').value.trim(),occupation:document.getElementById('regOccupation').value.trim(),mobile,aadhaarDisplay:'**** **** '+aadhaar.slice(-4),aadhaarKey:aadhaar.substring(0,8)+aadhaar.slice(-4),at:document.getElementById('regAt').value.trim(),post:document.getElementById('regPost').value.trim(),ps:document.getElementById('regPs').value.trim(),district:document.getElementById('regDistrict').value.trim(),state:document.getElementById('regState').value,pin,joinDate:new Date().toISOString().split('T')[0],status:'Active',photo:''};
+  var vols=getVols();
+  var aadhaarKey=aadhaar.substring(0,8)+aadhaar.slice(-4);
+  if(vols.some(function(v){return v.aadhaarKey===aadhaarKey;})){showToast('An account with this Aadhaar already exists!','error');return;}
+  var regType=document.getElementById('regType').value||'V';
+  var volId=generateId(regType);
+  var vol={
+    id:volId,type:regType,
+    name:document.getElementById('regName').value.trim(),
+    dob:document.getElementById('regDob').value,
+    fatherName:document.getElementById('regFather').value.trim(),
+    motherName:document.getElementById('regMother').value.trim(),
+    occupation:document.getElementById('regOccupation').value.trim(),
+    mobile:mobile,
+    aadhaarDisplay:'**** **** '+aadhaar.slice(-4),
+    aadhaarKey:aadhaarKey,
+    at:document.getElementById('regAt').value.trim(),
+    post:document.getElementById('regPost').value.trim(),
+    ps:document.getElementById('regPs').value.trim(),
+    district:document.getElementById('regDistrict').value.trim(),
+    state:document.getElementById('regState').value,
+    pin:pin,
+    joinDate:new Date().toISOString().split('T')[0],
+    status:'Active',photo:''
+  };
   vols.push(vol);
   saveVols(vols);
   setSession(volId);
-  // Sync to sheets
-  const sheetsUrl=localStorage.getItem('mlf_url');
-  if(sheetsUrl&&sheetsUrl!=='APNA_APPS_SCRIPT_URL_YAHAN'){
-    try{await fetch(sheetsUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({tab:'Volunteers',action:'append',row:[vol.id,vol.name,vol.dob,vol.fatherName,vol.motherName,vol.occupation,vol.mobile,vol.aadhaarDisplay,vol.at,vol.post,vol.ps,vol.district,vol.state,vol.pin,vol.joinDate,vol.status]})});}catch(err){}
+
+  // Sync to sheets if configured
+  var sheetsUrl=localStorage.getItem('mlf_url');
+  if(sheetsUrl&&sheetsUrl.indexOf('script.google')>-1){
+    try{
+      fetch(sheetsUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({tab:'Volunteers',action:'append',row:[vol.id,vol.name,vol.dob,vol.fatherName,vol.motherName,vol.occupation,vol.mobile,vol.aadhaarDisplay,vol.at,vol.post,vol.ps,vol.district,vol.state,vol.pin,vol.joinDate,vol.status]})});
+    }catch(err){}
   }
+
   closeModal('modalRegister');
   document.getElementById('regForm').reset();
   document.getElementById('tcCheckbox').checked=false;
@@ -1388,47 +1628,43 @@ async function submitRegistration(e){
   document.getElementById('successIdBadge').textContent=volId;
   document.getElementById('successScreen').classList.add('open');
   document.body.style.overflow='hidden';
-  updateNav();buildNotices();
+  updateNav();
+  buildNotices();
 }
 
 function switchLoginTab(type){
-  const tabV=document.getElementById('loginTabV');
-  const tabC=document.getElementById('loginTabC');
-  const label=document.getElementById('loginIdLabel');
-  const desc=document.getElementById('loginTypeDesc');
-  const icon=document.getElementById('loginTypeLabel');
-  const input=document.getElementById('loginId');
+  var tabV=document.getElementById('loginTabV');
+  var tabC=document.getElementById('loginTabC');
+  var label=document.getElementById('loginIdLabel');
+  var input=document.getElementById('loginId');
   if(type==='V'){
     if(tabV){tabV.style.background='var(--blue)';tabV.style.color='white';}
     if(tabC){tabC.style.background='var(--off)';tabC.style.color='var(--gray)';}
     if(label)label.textContent='Volunteer ID *';
-    if(desc)desc.textContent='Login with your Volunteer ID and registered mobile number';
-    if(icon)icon.textContent='🤝';
     if(input)input.placeholder='e.g. MLF-V-01426';
   } else {
     if(tabC){tabC.style.background='var(--blue)';tabC.style.color='white';}
     if(tabV){tabV.style.background='var(--off)';tabV.style.color='var(--gray)';}
     if(label)label.textContent='Coordinator ID *';
-    if(desc)desc.textContent='Login with your Coordinator ID and registered mobile number';
-    if(icon)icon.textContent='📍';
     if(input)input.placeholder='e.g. MLF-C-01426';
   }
 }
+
 function showForgotId(){
   closeModal('modalLogin');
-  // Show forgot ID UI - search by mobile+aadhaar
-  const name=prompt('Enter your registered mobile number to find your ID:');
-  if(!name)return;
-  const vol=getVols().find(v=>v.mobile===name.trim());
-  if(vol){alert('✅ Your ID is: '+vol.id+'\n\nName: '+vol.name+'\nType: '+(vol.type||'V'));
-  }else{alert('❌ No account found for this mobile number.\n\nPlease contact admin: +91 9337994358');}
+  var mob=prompt('Enter your registered mobile number to find your ID:');
+  if(!mob)return;
+  var vol=getVols().find(function(v){return v.mobile===mob.trim();});
+  if(vol){alert('✅ Your ID is: '+vol.id+'\n\nName: '+vol.name);}
+  else{alert('❌ No account found for this mobile number.\n\nPlease contact admin: +91 9337994358');}
 }
+
 function submitLogin(){
-  const inputId=document.getElementById('loginId').value.trim().toUpperCase();
-  const inputMobile=document.getElementById('loginMobile').value.trim();
+  var inputId=document.getElementById('loginId').value.trim().toUpperCase();
+  var inputMobile=document.getElementById('loginMobile').value.trim();
   if(!inputId){showToast('Please enter your ID (e.g. MLF-V-01426)','error');return;}
   if(!inputMobile||inputMobile.length!==10){showToast('Enter valid 10-digit mobile number','error');return;}
-  const vol=getVols().find(v=>v.id===inputId&&v.mobile===inputMobile);
+  var vol=getVols().find(function(v){return v.id===inputId&&v.mobile===inputMobile;});
   if(!vol){
     showToast('❌ ID or mobile not found. Check and try again.','error');
     document.getElementById('loginId').style.borderColor='#ef4444';
@@ -1441,189 +1677,310 @@ function submitLogin(){
   closeModal('modalLogin');
   document.getElementById('loginId').value='';
   document.getElementById('loginMobile').value='';
-  const typeGreet={'V':'Volunteer','C':'Coordinator','E':'Employee','S':'Supporter'};
   updateNav();
-  showToast('Welcome back '+vol.name+'! ('+( typeGreet[vol.type||'V']||'Member')+') 👋','success');
-  setTimeout(()=>openProfile(),600);
+  showToast('Welcome back '+vol.name+'! 👋','success');
+  setTimeout(function(){openProfile();},600);
 }
 
-function logoutVolunteer(){clearSession();document.getElementById('profileDashboard').classList.remove('open');document.body.style.overflow='';updateNav();showToast('You have been logged out 👋','');}
-function closeProfile(){document.getElementById('profileDashboard').classList.remove('open');document.body.style.overflow='';}
-function gotoProfile(){document.getElementById('successScreen').classList.remove('open');document.body.style.overflow='';openProfile();}
+function logoutVolunteer(){
+  clearSession();
+  var pd=document.getElementById('profileDashboard');
+  if(pd)pd.classList.remove('open');
+  document.body.style.overflow='';
+  updateNav();
+  showToast('You have been logged out 👋','');
+}
+function closeProfile(){
+  var pd=document.getElementById('profileDashboard');
+  if(pd)pd.classList.remove('open');
+  document.body.style.overflow='';
+}
+function gotoProfile(){
+  var ss=document.getElementById('successScreen');
+  if(ss)ss.classList.remove('open');
+  document.body.style.overflow='';
+  openProfile();
+}
 
 function openProfile(){
-  const vol=getCurrentVol();if(!vol){openModal('modalLogin');return;}
-  function sv(id,val){const el=document.getElementById(id);if(el&&val!=null)el.value=val;}
-  sv('pName',vol.name);sv('pDob',vol.dob);sv('pFather',vol.fatherName);sv('pMother',vol.motherName);sv('pOccupation',vol.occupation);sv('pMobile',vol.mobile);sv('pAadhaar',vol.aadhaarDisplay);sv('pAt',vol.at);sv('pPost',vol.post);sv('pPs',vol.ps);sv('pDistrict',vol.district);sv('pState',vol.state);sv('pPin',vol.pin);sv('pVolid',vol.id);sv('pJoined',formatDate(vol.joinDate));
-  document.getElementById('displayName').textContent=vol.name;
-  document.getElementById('displayVolId').textContent=vol.id;
-  const photoEl=document.getElementById('profilePhotoDisplay');
-  if(vol.photo){const newImg=document.createElement('img');newImg.src=vol.photo;newImg.className='profile-photo';newImg.id='profilePhotoDisplay';newImg.alt='Profile';photoEl.replaceWith(newImg);}
-  else{if(photoEl.tagName==='IMG'){const div=document.createElement('div');div.className='profile-photo-default';div.id='profilePhotoDisplay';div.textContent='👤';photoEl.replaceWith(div);}}
-  const qrDiv=document.getElementById('profileQrCode');qrDiv.innerHTML='';
-  try{new QRCode(qrDiv,{text:`${window.location.href.split('?')[0]}?volunteer=${vol.id}`,width:160,height:160,colorDark:'#073A6B',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});}catch(ex){}
-  document.getElementById('profileDashboard').classList.add('open');document.body.style.overflow='hidden';
+  var vol=getCurrentVol();
+  if(!vol){openModal('modalLogin');return;}
+  function sv(id,val){var el=document.getElementById(id);if(el&&val!=null)el.value=val;}
+  sv('pName',vol.name);sv('pDob',vol.dob);sv('pFather',vol.fatherName);sv('pMother',vol.motherName);
+  sv('pOccupation',vol.occupation);sv('pMobile',vol.mobile);sv('pAadhaar',vol.aadhaarDisplay);
+  sv('pAt',vol.at);sv('pPost',vol.post);sv('pPs',vol.ps);sv('pDistrict',vol.district);
+  sv('pState',vol.state);sv('pPin',vol.pin);sv('pVolid',vol.id);
+  sv('pJoined',formatDate(vol.joinDate));
+  var dn=document.getElementById('displayName');if(dn)dn.textContent=vol.name;
+  var di=document.getElementById('displayVolId');if(di)di.textContent=vol.id;
+
+  // Photo
+  var photoEl=document.getElementById('profilePhotoDisplay');
+  if(photoEl){
+    if(vol.photo){
+      var newImg=document.createElement('img');
+      newImg.src=vol.photo;newImg.className='profile-photo';newImg.id='profilePhotoDisplay';newImg.alt='Profile';
+      photoEl.replaceWith(newImg);
+    } else {
+      if(photoEl.tagName==='IMG'){
+        var div=document.createElement('div');
+        div.className='profile-photo-default';div.id='profilePhotoDisplay';div.textContent='👤';
+        photoEl.replaceWith(div);
+      }
+    }
+  }
+
+  // QR
+  var qrDiv=document.getElementById('profileQrCode');
+  if(qrDiv){
+    qrDiv.innerHTML='';
+    try{
+      new QRCode(qrDiv,{text:window.location.href.split('?')[0]+'?volunteer='+vol.id,width:160,height:160,colorDark:'#073A6B',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+    }catch(ex){}
+  }
+
+  var pd=document.getElementById('profileDashboard');
+  if(pd){pd.classList.add('open');document.body.style.overflow='hidden';}
 }
 
 function saveProfileChanges(){
-  const vol=getCurrentVol();if(!vol)return;
-  const vols=getVols();const idx=vols.findIndex(v=>v.id===vol.id);if(idx===-1)return;
-  const g=id=>document.getElementById(id)?.value?.trim()||'';
-  vols[idx]={...vols[idx],name:g('pName'),dob:g('pDob'),fatherName:g('pFather'),motherName:g('pMother'),occupation:g('pOccupation'),mobile:g('pMobile'),at:g('pAt'),post:g('pPost'),ps:g('pPs'),district:g('pDistrict'),state:g('pState'),pin:g('pPin')};
-  saveVols(vols);document.getElementById('displayName').textContent=vols[idx].name;showToast('Profile updated successfully! ✅','success');buildNotices();
+  var vol=getCurrentVol();if(!vol)return;
+  var vols=getVols();
+  var idx=vols.findIndex(function(v){return v.id===vol.id;});
+  if(idx===-1)return;
+  function g(id){var el=document.getElementById(id);return el?el.value.trim():'';}
+  vols[idx]=Object.assign({},vols[idx],{
+    name:g('pName'),dob:g('pDob'),fatherName:g('pFather'),motherName:g('pMother'),
+    occupation:g('pOccupation'),mobile:g('pMobile'),at:g('pAt'),post:g('pPost'),
+    ps:g('pPs'),district:g('pDistrict'),state:g('pState'),pin:g('pPin')
+  });
+  saveVols(vols);
+  var dn=document.getElementById('displayName');if(dn)dn.textContent=vols[idx].name;
+  showToast('Profile updated successfully! ✅','success');
+  buildNotices();
 }
 
 function handlePhotoUpload(event){
-  const file=event.target.files[0];if(!file)return;
+  var file=event.target.files[0];if(!file)return;
   if(file.size>2*1024*1024){showToast('Image must be under 2MB','error');return;}
-  const reader=new FileReader();
-  reader.onload=(e)=>{
-    const base64=e.target.result;
-    const vol=getCurrentVol();if(!vol)return;
-    const vols=getVols();const idx=vols.findIndex(v=>v.id===vol.id);if(idx>-1){vols[idx].photo=base64;saveVols(vols);}
-    const oldEl=document.getElementById('profilePhotoDisplay');const newImg=document.createElement('img');newImg.src=base64;newImg.className='profile-photo';newImg.id='profilePhotoDisplay';newImg.alt='Profile';oldEl.replaceWith(newImg);showToast('Profile photo updated! 📷','success');
-  };reader.readAsDataURL(file);
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var base64=e.target.result;
+    var vol=getCurrentVol();if(!vol)return;
+    var vols=getVols();
+    var idx=vols.findIndex(function(v){return v.id===vol.id;});
+    if(idx>-1){vols[idx].photo=base64;saveVols(vols);}
+    var oldEl=document.getElementById('profilePhotoDisplay');
+    var newImg=document.createElement('img');
+    newImg.src=base64;newImg.className='profile-photo';newImg.id='profilePhotoDisplay';newImg.alt='Profile';
+    oldEl.replaceWith(newImg);
+    showToast('Profile photo updated! 📷','success');
+  };
+  reader.readAsDataURL(file);
 }
 
-async async function downloadIDCard(fmt='png'){
-  const vol=getCurrentVol();if(!vol)return;
+// FIXED: removed duplicate 'async' keyword - was 'async async function'
+async function downloadIDCard(fmt){
+  fmt=fmt||'png';
+  var vol=getCurrentVol();if(!vol)return;
   showToast('Preparing ID Card... ⏳','');
-  // Fill card data
-  const setT=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v||'';};
-  setT('idCardName',vol.name);setT('idCardOcc',vol.occupation);
-  setT('idCardDist',vol.district);setT('idCardState',vol.state);
-  setT('idCardMob',vol.mobile);setT('idCardVolId',vol.id);
-  // Type badge
-  const typeMap={'V':'Volunteer','C':'Coordinator','E':'Employee','S':'Supporter'};
-  const typeBadge=document.getElementById('idCardTypeBadge');
-  if(typeBadge)typeBadge.textContent=typeMap[vol.type||'V']||'Volunteer';
+
+  var typeMap={'V':'VOLUNTEER','C':'COORDINATOR','E':'EMPLOYEE','S':'SUPPORTER'};
+  function setT(id,v){var e=document.getElementById(id);if(e)e.textContent=v||'';}
+  setT('idCardName',vol.name);
+  setT('idCardOcc',vol.occupation);
+  setT('idCardDist',vol.district);
+  setT('idCardState',vol.state);
+  setT('idCardMob',vol.mobile);
+  setT('idCardVolId',vol.id);
+  setT('idCardTypeBadge',(typeMap[vol.type||'V']||'VOLUNTEER')+' ID CARD');
+
   // Photo
-  const photoEl=document.getElementById('idCardPhoto');
+  var photoEl=document.getElementById('idCardPhoto');
   if(photoEl){
-    if(vol.photo){photoEl.outerHTML=`<img src="${vol.photo}" class="id-card-photo" id="idCardPhoto" alt="Photo">`;}
-    else if(photoEl.tagName==='IMG'){photoEl.outerHTML=`<div class="id-card-photo-def" id="idCardPhoto">👤</div>`;}
+    if(vol.photo){
+      var newP=document.createElement('img');
+      newP.src=vol.photo;newP.className='id-card-photo';newP.id='idCardPhoto';newP.alt='Photo';
+      photoEl.replaceWith(newP);
+    } else {
+      if(photoEl.tagName==='IMG'){
+        var defDiv=document.createElement('div');
+        defDiv.className='id-card-photo-def';defDiv.id='idCardPhoto';defDiv.textContent='👤';
+        photoEl.replaceWith(defDiv);
+      }
+    }
   }
-  // QR - high quality, clear, scannable
-  const idQR=document.getElementById('idCardQR');idQR.innerHTML='';
-  try{new QRCode(idQR,{text:window.location.href.split('?')[0]+'?volunteer='+vol.id,width:128,height:128,colorDark:'#000000',colorLight:'#FFFFFF',correctLevel:QRCode.CorrectLevel.H});}catch(ex){}
-  await new Promise(r=>setTimeout(r,800));
-  // Render card
-  const card=document.getElementById('id-card-template');
-  const prev={left:card.style.left,top:card.style.top,pos:card.style.position,z:card.style.zIndex};
+
+  // QR
+  var idQR=document.getElementById('idCardQR');
+  if(idQR){
+    idQR.innerHTML='';
+    try{
+      new QRCode(idQR,{text:window.location.href.split('?')[0]+'?volunteer='+vol.id,width:128,height:128,colorDark:'#000000',colorLight:'#FFFFFF',correctLevel:QRCode.CorrectLevel.H});
+    }catch(ex){}
+  }
+
+  await new Promise(function(r){setTimeout(r,800);});
+
+  var card=document.getElementById('id-card-template');
+  var origStyle=card.style.cssText;
   card.style.cssText='position:fixed;left:0;top:0;z-index:-1;';
+
   try{
-    const canvas=await html2canvas(card,{scale:4,backgroundColor:null,useCORS:true,allowTaint:true,logging:false});
+    var canvas=await html2canvas(card,{scale:4,backgroundColor:null,useCORS:true,allowTaint:true,logging:false});
     if(fmt==='pdf'){
-      const imgData=canvas.toDataURL('image/png',1.0);
-      const{jsPDF}=window.jspdf;
-      const pdf=new jsPDF({orientation:'landscape',unit:'mm',format:[90,55]});
+      var imgData=canvas.toDataURL('image/png',1.0);
+      var jsPDF=window.jspdf.jsPDF;
+      var pdf=new jsPDF({orientation:'landscape',unit:'mm',format:[90,55]});
       pdf.addImage(imgData,'PNG',0,0,90,55);
       pdf.save('MLF-ID-'+vol.id+'.pdf');
-      showToast('✅ PDF downloaded! Print-ready.','success');
+      showToast('✅ PDF downloaded!','success');
     } else {
-      // PNG - high quality for printing
-      const imgData=canvas.toDataURL('image/png',1.0);
-      const a=document.createElement('a');
-      a.href=imgData;a.download='MLF-ID-'+vol.id+'.png';a.click();
-      showToast('✅ PNG downloaded! High quality for printing.','success');
+      var pngData=canvas.toDataURL('image/png',1.0);
+      var a=document.createElement('a');
+      a.href=pngData;a.download='MLF-ID-'+vol.id+'.png';a.click();
+      showToast('✅ PNG downloaded!','success');
     }
-  }catch(err){console.error(err);showToast('Download failed. Try again.','error');}
-  card.style.left=prev.left;card.style.top=prev.top;card.style.position=prev.pos;card.style.zIndex=prev.z;
+  }catch(err){
+    console.error('ID card download error:',err);
+    showToast('Download failed. Try again.','error');
+  }
+  card.style.cssText=origStyle;
 }
 
 function showQRProfile(volId){
-  const vol=getVols().find(v=>v.id===volId);if(!vol)return;
-  document.getElementById('qrPublicName').textContent=vol.name;document.getElementById('qrPublicId').textContent=vol.id;document.getElementById('qrPublicDistrict').textContent=vol.district;document.getElementById('qrPublicState').textContent=vol.state;
-  const photoDiv=document.getElementById('qrPublicPhoto');
-  photoDiv.innerHTML=vol.photo?`<img src="${vol.photo}" class="qr-profile-photo" alt="${vol.name}">`:'<div class="qr-profile-photo-def">👤</div>';
+  var vol=getVols().find(function(v){return v.id===volId;});
+  if(!vol)return;
+  var nn=document.getElementById('qrPublicName');if(nn)nn.textContent=vol.name;
+  var ii=document.getElementById('qrPublicId');if(ii)ii.textContent=vol.id;
+  var dd=document.getElementById('qrPublicDistrict');if(dd)dd.textContent=vol.district||'-';
+  var ss=document.getElementById('qrPublicState');if(ss)ss.textContent=vol.state||'-';
+  var photoDiv=document.getElementById('qrPublicPhoto');
+  if(photoDiv){
+    photoDiv.innerHTML=vol.photo?'<img src="'+vol.photo+'" class="qr-profile-photo" alt="'+vol.name+'">' :'<div class="qr-profile-photo-def">👤</div>';
+  }
   openModal('modalQRProfile');
 }
 
 function checkQRParam(){
-  const params=new URLSearchParams(window.location.search);
-  const volParam=params.get('volunteer');
-  if(volParam)setTimeout(()=>showQRProfile(volParam.toUpperCase()),600);
+  var params=new URLSearchParams(window.location.search);
+  var volParam=params.get('volunteer');
+  if(volParam){setTimeout(function(){showQRProfile(volParam.toUpperCase());},600);}
 }
 
 function submitContactForm(){
-  const name=document.getElementById('msgName').value.trim();
-  const phone=document.getElementById('msgPhone').value.trim();
-  const subject=document.getElementById('msgSubject').value.trim();
-  const body=document.getElementById('msgBody').value.trim();
+  var name=document.getElementById('msgName').value.trim();
+  var phone=document.getElementById('msgPhone').value.trim();
+  var subject=document.getElementById('msgSubject').value.trim();
+  var body=document.getElementById('msgBody').value.trim();
   if(!name||!phone||!subject||!body){showToast('Please fill all required fields','error');return;}
-  const sheetsUrl=localStorage.getItem('mlf_url');
-  if(sheetsUrl){try{fetch(sheetsUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({tab:'Contact_Messages',action:'append',row:[name,phone,document.getElementById('msgEmail').value,subject,body,new Date().toISOString().split('T')[0]]})});}catch(ex){}}
+  var sheetsUrl=localStorage.getItem('mlf_url');
+  if(sheetsUrl){
+    try{
+      fetch(sheetsUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({tab:'Contact_Messages',action:'append',row:[name,phone,document.getElementById('msgEmail').value,subject,body,new Date().toISOString().split('T')[0]]})});
+    }catch(ex){}
+  }
   showToast('Message sent successfully! 📨','success');
-  document.getElementById('msgName').value='';document.getElementById('msgPhone').value='';document.getElementById('msgEmail').value='';document.getElementById('msgSubject').value='';document.getElementById('msgBody').value='';
+  ['msgName','msgPhone','msgEmail','msgSubject','msgBody'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
 }
 
 // ── MODALS ──
-function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden';}
-function openQRProfile(volId){
-  const vol=getVols().find(v=>v.id===volId)||getCurrentVol();
-  if(!vol)return;
-  const m=document.getElementById('modalQRProfile');if(!m)return;
-  const nameEl=document.getElementById('qrPublicName');if(nameEl)nameEl.textContent=vol.name;
-  const idEl=document.getElementById('qrPublicId');if(idEl)idEl.textContent=vol.id;
-  const photoEl=document.getElementById('qrPublicPhoto');
-  if(photoEl){if(vol.photo)photoEl.innerHTML=`<img src="${vol.photo}" style="width:70px;height:70px;border-radius:50%;object-fit:cover;">`;else photoEl.innerHTML='<div style="width:70px;height:70px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:32px;">👤</div>';}
-  const qrDiv=document.getElementById('qrPublicCode');if(qrDiv){qrDiv.innerHTML='';
-  try{new QRCode(qrDiv,{text:window.location.href.split('?')[0]+'?volunteer='+vol.id,width:200,height:200,colorDark:'#073A6B',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});}catch(ex){}}
-  openModal('modalQRProfile');
+function openModal(id){
+  var m=document.getElementById(id);
+  if(m){m.classList.add('open');document.body.style.overflow='hidden';}
 }
-function closeModal(id){const m=document.getElementById(id);if(m){m.classList.remove('open');document.body.style.overflow='';}}
-document.querySelectorAll('.modal-overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)closeModal(o.id);}));
+function closeModal(id){
+  var m=document.getElementById(id);
+  if(m){m.classList.remove('open');document.body.style.overflow='';}
+}
+document.querySelectorAll('.modal-overlay,.modal-ov').forEach(function(o){
+  o.addEventListener('click',function(e){if(e.target===o)closeModal(o.id);});
+});
 
 // ── TOAST ──
-let toastTimer;
-function showToast(msg,type){const t=document.getElementById('toast');t.textContent=msg;t.className=`toast ${type}`;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),3200);}
+var toastTimer;
+function showToast(msg,type){
+  var t=document.getElementById('toast');
+  if(!t)return;
+  t.textContent=msg;
+  t.className='toast '+(type||'');
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(function(){t.classList.remove('show');},3200);
+}
 
 // ── MISC ──
 function toggleMenu(){
-  const m=document.getElementById('mobMenu');
+  var m=document.getElementById('mobMenu');
+  if(!m)return;
   m.classList.toggle('open');
   document.body.style.overflow=m.classList.contains('open')?'hidden':'';
 }
 function closeMobMenu(){
-  const m=document.getElementById('mobMenu');
-  if(m){m.classList.remove('open');}
+  var m=document.getElementById('mobMenu');
+  if(m)m.classList.remove('open');
   document.body.style.overflow='';
 }
-function formatDate(d){if(!d)return'';const dt=new Date(d);return`${String(dt.getDate()).padStart(2,'0')}/${String(dt.getMonth()+1).padStart(2,'0')}/${dt.getFullYear()}`;}
-window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);handleClockVisibility();});
-window.addEventListener('resize',()=>{handleClockVisibility();});
-document.addEventListener('click',e=>{const menu=document.getElementById('mobMenu');if(menu.classList.contains('open')&&!menu.contains(e.target)&&!document.querySelector('.hamburger').contains(e.target))menu.classList.remove('open');});
+function formatDate(d){
+  if(!d)return'';
+  var dt=new Date(d);
+  return String(dt.getDate()).padStart(2,'0')+'/'+String(dt.getMonth()+1).padStart(2,'0')+'/'+dt.getFullYear();
+}
+
+// Scroll listeners
+window.addEventListener('scroll',function(){
+  var nb=document.getElementById('navbar');
+  if(nb)nb.classList.toggle('scrolled',window.scrollY>20);
+  handleClockVisibility();
+});
+window.addEventListener('resize',function(){handleClockVisibility();});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click',function(e){
+  var menu=document.getElementById('mobMenu');
+  var hamburger=document.querySelector('.hamburger');
+  if(menu&&menu.classList.contains('open')&&!menu.contains(e.target)&&hamburger&&!hamburger.contains(e.target)){
+    menu.classList.remove('open');
+    document.body.style.overflow='';
+  }
+});
 
 // ── INIT ──
 function initApp(){
-  loadAdminContent();
-  startClock();
-  updateNav();
-  buildNotices();
-  checkQRParam();
-  (function(){const tf=getTodayFestivals();if(tf.length>0)setTimeout(()=>showFestivalPopup(tf[0]),2000);})();
+  try{loadAdminContent();}catch(e){console.error('Admin content load error:',e);}
+  try{startClock();}catch(e){console.error('Clock error:',e);}
+  try{updateNav();}catch(e){console.error('Nav error:',e);}
+  try{buildNotices();}catch(e){console.error('Notices error:',e);}
+  try{checkQRParam();}catch(e){}
+  // Show festival popup if today is a festival
+  try{
+    var tf=getTodayFestivals();
+    if(tf.length>0){setTimeout(function(){showFestivalPopup(tf[0]);},2000);}
+  }catch(e){}
 }
+
+// Run init
 if(document.readyState==='loading'){
-  document.addEventListener('DOMContentLoaded', initApp);
+  document.addEventListener('DOMContentLoaded',initApp);
 } else {
   initApp();
 }
 
-// ── AUTO-UPDATE FROM ADMIN (storage event) ──
-// When admin saves in another tab, website auto-refreshes content
-window.addEventListener('storage', function(e) {
-  if(e.key === 'mlf_st') {
-    loadAdminContent();
-    buildNotices();
-    // Re-observe counters for animation reset
-    document.querySelectorAll('.imp-num[data-target]').forEach(el => {
-      el.innerHTML = '0<span style="font-size:.55em">+</span>';
+// ── AUTO-UPDATE WHEN ADMIN SAVES (storage event) ──
+// When admin panel saves data in another browser tab, website updates automatically
+window.addEventListener('storage',function(e){
+  if(e.key==='mlf_st'){
+    try{loadAdminContent();}catch(err){}
+    try{buildNotices();}catch(err){}
+    // Reset and re-observe counters
+    document.querySelectorAll('.imp-num[data-target]').forEach(function(el){
+      el.innerHTML='0<span style="font-size:.55em">+</span>';
       cntObs.observe(el);
     });
   }
-  if(e.key === 'mlf_volunteers') {
-    buildNotices();
-    updateNav();
+  if(e.key==='mlf_volunteers'){
+    try{buildNotices();}catch(err){}
+    try{updateNav();}catch(err){}
   }
 });
 </script>
