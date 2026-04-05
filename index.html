@@ -755,7 +755,7 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
     <div class="contact-info-card"><h3>Get In Touch</h3>
       <div class="ci-row"><div class="ci-ico">📍</div><div class="ci-body"><strong>Office Address</strong><span id="conAddr">Plot No-635, Garapur, In front of Collector Residence, Kendrapara – 754211, Odisha, India</span></div></div>
       <div class="ci-row"><div class="ci-ico">📞</div><div class="ci-body"><strong>Phone</strong><a href="tel:06727796700" id="conP1Link">06727-796700</a><br><a href="tel:+919337994358" id="conP2Link">+91 9337994358</a></div></div>
-      <div class="ci-row"><div class="ci-ico">✉️</div><div class="ci-body"><strong>Email</strong><a href="mailto:info@mylifelinefoundation.org" id="conEmailLink">info@mylifelinefoundation.org</a></div></div>
+      <div class="ci-row"><div class="ci-ico">✉️</div><div class="ci-body"><strong>Email</strong><a href="/cdn-cgi/l/email-protection#523b3c343d123f2b3e3b34373e3b3c37343d273c3633263b3d3c7c3d2035" id="conEmailLink"><span class="__cf_email__" data-cfemail="026b6c646d426f7b6e6b64676e6b6c67646d776c6663766b6d6c2c6d7065">[email&#160;protected]</span></a></div></div>
       <div class="ci-row"><div class="ci-ico">🌐</div><div class="ci-body"><strong>Website</strong><a href="http://www.mylifelinefoundation.org" target="_blank">www.mylifelinefoundation.org</a></div></div>
       <div class="ci-row"><div class="ci-ico">💬</div><div class="ci-body"><strong>WhatsApp</strong><a href="https://api.whatsapp.com/send?phone=918480141339" target="_blank" id="conWaLink">+91 8480141339</a></div></div>
       <div class="niti-badge"><strong>Reg. No:</strong> U85100OR2020NPL032868<br><strong>PAN:</strong> AANCM3910F<br><strong>NITI Aayog ID:</strong> OR/2020/0255447<br>Section 8, Companies Act 2013</div>
@@ -786,7 +786,7 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
     <div class="ft-col"><h4>Contact Us</h4>
       <div class="ft-ci"><div class="ft-ci-ico">📍</div><div class="ft-ci-txt" id="ftAddr">Plot No-635, Garapur, Kendrapara – 754211, Odisha</div></div>
       <div class="ft-ci"><div class="ft-ci-ico">📞</div><div class="ft-ci-txt"><a href="tel:06727796700" id="ftPhone">06727-796700</a></div></div>
-      <div class="ft-ci"><div class="ft-ci-ico">✉️</div><div class="ft-ci-txt"><a href="mailto:info@mylifelinefoundation.org" id="ftEmail">info@mylifelinefoundation.org</a></div></div>
+      <div class="ft-ci"><div class="ft-ci-ico">✉️</div><div class="ft-ci-txt"><a href="/cdn-cgi/l/email-protection#6900070f0629041005000f0c0500070c0f061c070d081d00060747061b0e" id="ftEmail"><span class="__cf_email__" data-cfemail="fd94939b92bd908491949b98919493989b928893999c89949293d3928f9a">[email&#160;protected]</span></a></div></div>
     </div>
   </div>
   <div class="ft-bot-wrap"><div class="ft-bot-in"><span id="ftCopy">© 2025 My Lifeline Foundation. All Rights Reserved. | Reg: U85100OR2020NPL032868 | PAN: AANCM3910F | Section 8, Companies Act 2013</span><span>Made with ❤️ for Rural Odisha</span></div></div>
@@ -952,7 +952,7 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.8);}
 </div>
 <div id="mlfConfetti"></div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ═══════════════════════════════════════
    MLF WEBSITE SCRIPT v3.0 — FIXED
    Key fixes:
@@ -1664,9 +1664,42 @@ function submitLogin(){
   var inputMobile=document.getElementById('loginMobile').value.trim();
   if(!inputId){showToast('Please enter your ID (e.g. MLF-V-01426)','error');return;}
   if(!inputMobile||inputMobile.length!==10){showToast('Enter valid 10-digit mobile number','error');return;}
+
+  // Search registered volunteers/coordinators/supporters (self-registered)
   var vol=getVols().find(function(v){return v.id===inputId&&v.mobile===inputMobile;});
+
+  // Also search coordinators added from admin panel (stored in mlf_st.coordinators)
   if(!vol){
-    showToast('❌ ID or mobile not found. Check and try again.','error');
+    var adminCoords=(getSt().coordinators)||[];
+    var adminMatch=adminCoords.find(function(c){
+      var cid=(c.id||'').toUpperCase();
+      var cphone=(c.phone||'').replace(/\D/g,'').slice(-10);
+      return cid===inputId&&cphone===inputMobile;
+    });
+    if(adminMatch){
+      // Auto-create a volunteer record for this coordinator so they can use the profile
+      var vols=getVols();
+      vol={
+        id:adminMatch.id.toUpperCase(),type:'C',
+        name:adminMatch.name,dob:'',fatherName:'',motherName:'',
+        occupation:adminMatch.role||'Coordinator',
+        mobile:inputMobile,
+        aadhaarDisplay:'**** **** (admin)',aadhaarKey:'admin_'+adminMatch.id,
+        at:adminMatch.area||'',post:'',ps:'',
+        district:adminMatch.area||'',state:'Odisha',pin:'',
+        joinDate:new Date().toISOString().split('T')[0],
+        status:'Active',photo:adminMatch.photo||''
+      };
+      // Only add if not already exists
+      if(!vols.find(function(v){return v.id===vol.id;})){
+        vols.push(vol);
+        saveVols(vols);
+      }
+    }
+  }
+
+  if(!vol){
+    showToast('ID or mobile not found. Check and try again.','error');
     document.getElementById('loginId').style.borderColor='#ef4444';
     document.getElementById('loginMobile').style.borderColor='#ef4444';
     return;
@@ -1678,7 +1711,8 @@ function submitLogin(){
   document.getElementById('loginId').value='';
   document.getElementById('loginMobile').value='';
   updateNav();
-  showToast('Welcome back '+vol.name+'! 👋','success');
+  var typeGreet={'V':'Volunteer','C':'Coordinator','E':'Employee','S':'Supporter'};
+  showToast('Welcome back '+vol.name+'! ('+( typeGreet[vol.type||'V']||'Member')+') 👋','success');
   setTimeout(function(){openProfile();},600);
 }
 
@@ -1966,13 +2000,12 @@ if(document.readyState==='loading'){
   initApp();
 }
 
-// ── AUTO-UPDATE WHEN ADMIN SAVES (storage event) ──
-// When admin panel saves data in another browser tab, website updates automatically
+// ── AUTO-UPDATE WHEN ADMIN SAVES ──
+// Method 1: storage event (works on same-origin HTTP server)
 window.addEventListener('storage',function(e){
   if(e.key==='mlf_st'){
     try{loadAdminContent();}catch(err){}
     try{buildNotices();}catch(err){}
-    // Reset and re-observe counters
     document.querySelectorAll('.imp-num[data-target]').forEach(function(el){
       el.innerHTML='0<span style="font-size:.55em">+</span>';
       cntObs.observe(el);
@@ -1983,6 +2016,38 @@ window.addEventListener('storage',function(e){
     try{updateNav();}catch(err){}
   }
 });
+
+// Method 2: BroadcastChannel (works on file:// where storage event doesn't)
+try{
+  var _bc=new BroadcastChannel('mlf_admin_update');
+  _bc.onmessage=function(e){
+    if(e.data&&e.data.key==='mlf_st'){
+      try{loadAdminContent();}catch(err){}
+      try{buildNotices();}catch(err){}
+    }
+  };
+}catch(e){}
+
+// Method 3: Polling fallback (works for local file:// usage too)
+// Checks every 3 seconds if admin has saved new data
+(function(){
+  var _lastSt=localStorage.getItem('mlf_st')||'';
+  var _lastVols=localStorage.getItem('mlf_volunteers')||'';
+  setInterval(function(){
+    var curSt=localStorage.getItem('mlf_st')||'';
+    var curVols=localStorage.getItem('mlf_volunteers')||'';
+    if(curSt!==_lastSt){
+      _lastSt=curSt;
+      try{loadAdminContent();}catch(err){}
+      try{buildNotices();}catch(err){}
+    }
+    if(curVols!==_lastVols){
+      _lastVols=curVols;
+      try{buildNotices();}catch(err){}
+      try{updateNav();}catch(err){}
+    }
+  },3000);
+})();
 </script>
 </body>
 </html>
