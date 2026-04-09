@@ -2019,12 +2019,18 @@ window.addEventListener('storage',function(e){
 
 // Method 2: BroadcastChannel (works on file:// where storage event doesn't)
 try{
-  var _bc=new BroadcastChannel('mlf_admin_update');
-  _bc.onmessage=function(e){
-    if(e.data&&e.data.key==='mlf_st'){
-      try{loadAdminContent();}catch(err){}
-      try{buildNotices();}catch(err){}
-    }
+  var _bc=new BroadcastChannel('mlf_sync');
+  _bc.onmessage=function(){
+    try{loadAdminContent();}catch(err){}
+    try{buildNotices();}catch(err){}
+    try{updateNav();}catch(err){}
+  };
+}catch(e){}
+try{
+  var _bc2=new BroadcastChannel('mlf_admin_update');
+  _bc2.onmessage=function(){
+    try{loadAdminContent();}catch(err){}
+    try{buildNotices();}catch(err){}
   };
 }catch(e){}
 
