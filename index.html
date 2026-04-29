@@ -2063,5 +2063,28 @@ document.addEventListener('visibilitychange',function(){
   },1500);
 })();
 </script>
+  
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const supabaseUrl = "https://mvkbczobozlbdigkecwr.supabase.co";
+const supabaseKey = "YOUR_ANON_KEY"; // abhi next step me fill karenge
+
+const client = supabase.createClient(supabaseUrl, supabaseKey);
+
+async function loadData() {
+  const { data, error } = await client
+    .from("hero_section")
+    .select("*")
+    .single();
+
+  if (data) {
+    document.querySelector("h1").innerText = data.title;
+    document.querySelector("p").innerText = data.subtitle;
+  }
+}
+
+loadData();
+</script>
 </body>
 </html>
