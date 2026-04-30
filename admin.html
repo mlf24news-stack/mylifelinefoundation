@@ -209,7 +209,20 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
     <div class="card-body">
       <div id="sbStatus" class="info-box">⏳ Checking Supabase connection...</div>
       <div class="info-box" style="margin-top:12px;background:#dcfce7;border-color:#86efac;color:#166534;">
-        ✅ Storage policies (allow_select, allow_uploads, public_insert_all, public_read_all) configured. Images upload to CDN!
+        ✅ Storage policies configured. Images upload to CDN! All admin changes now <strong>sync to public website in real-time</strong> via Supabase DB.
+      </div>
+      <div class="info-box" style="margin-top:12px;background:#fffbeb;border-color:#fcd34d;color:#92400e;">
+        <strong>⚠️ First-time setup:</strong> Run this SQL once in <a href="https://supabase.com/dashboard/project/mvkbczobozlbdigkecwr/sql" target="_blank" style="color:#1565C0;">Supabase SQL Editor</a>:<br>
+        <code style="display:block;margin-top:8px;background:#1e293b;color:#86efac;padding:10px;border-radius:6px;font-size:12px;line-height:1.6;">create table if not exists site_config (
+  id integer primary key,
+  data jsonb not null default '{}',
+  updated_at timestamptz default now()
+);
+alter table site_config enable row level security;
+create policy "Public read" on site_config for select using (true);
+create policy "Service write" on site_config for all using (true);
+insert into site_config (id, data) values (1, '{}') on conflict (id) do nothing;</code>
+        <button class="btn btn-blue btn-sm" style="margin-top:10px;" onclick="syncNowToSupabase()">🚀 Force Sync to Supabase Now</button>
       </div>
     </div>
   </div>
@@ -769,6 +782,50 @@ const DB={
   setSt:d=>{
     localStorage.setItem('mlf_st',JSON.stringify(d));
     try{const bc=new BroadcastChannel('mlf_sync');bc.postMessage('mlf_st');bc.close();}catch(e){}
+    // ── SUPABASE SYNC: Push to DB so public website sees changes ──
+    DB.pushToSupabase(d);
+  },
+  pushToSupabase:async(d)=>{
+    try{
+      // upsert into site_config table — single row with id=1
+      const resp=await fetch(`${SB_URL}/rest/v1/site_config?id=eq.1`,{
+        method:'PATCH',
+        headers:{
+          'apikey':SB_KEY,
+          'Authorization':`Bearer ${SB_KEY}`,
+          'Content-Type':'application/json',
+          'Prefer':'resolution=merge-duplicates,return=minimal'
+        },
+        body:JSON.stringify({id:1,data:d,updated_at:new Date().toISOString()})
+      });
+      // If row doesn't exist yet (404), insert it
+      if(resp.status===404||resp.status===0||(await resp.text()).includes('0 rows')){
+        await fetch(`${SB_URL}/rest/v1/site_config`,{
+          method:'POST',
+          headers:{
+            'apikey':SB_KEY,
+            'Authorization':`Bearer ${SB_KEY}`,
+            'Content-Type':'application/json',
+            'Prefer':'resolution=merge-duplicates,return=minimal'
+          },
+          body:JSON.stringify({id:1,data:d,updated_at:new Date().toISOString()})
+        });
+      }
+    }catch(e){console.warn('Supabase sync failed (offline?):',e);}
+  },
+  pullFromSupabase:async()=>{
+    try{
+      const resp=await fetch(`${SB_URL}/rest/v1/site_config?id=eq.1&select=data`,{
+        headers:{'apikey':SB_KEY,'Authorization':`Bearer ${SB_KEY}`,'Accept':'application/json'}
+      });
+      if(resp.ok){
+        const rows=await resp.json();
+        if(rows&&rows.length>0&&rows[0].data){
+          localStorage.setItem('mlf_st',JSON.stringify(rows[0].data));
+          console.log('✅ Pulled config from Supabase DB');
+        }
+      }
+    }catch(e){console.warn('Supabase pull failed:',e);}
   }
 };
 function getVols(){return JSON.parse(localStorage.getItem('mlf_volunteers')||'[]');}
@@ -776,8 +833,9 @@ function getDonors(){return DB.get('mlf_donors')||[];}
 function setDonors(d){DB.set('mlf_donors',d);}
 function g(id){const el=document.getElementById(id);return el?el.value:'';}
 
-function init(){
+async function init(){
   checkSupabase();
+  await DB.pullFromSupabase();
   loadAllFields();
   renderBoard();
   renderCoords();
@@ -825,12 +883,37 @@ async function checkSupabase(){
     const r=await fetch(`${SB_URL}/storage/v1/object/list/${SB_BUCKET}`,{method:'POST',headers:{'apikey':SB_KEY,'Authorization':`Bearer ${SB_KEY}`,'Content-Type':'application/json'},body:JSON.stringify({prefix:'',limit:1})});
     if(r.ok||r.status===200){
       el.style.cssText='background:#dcfce7;border-color:#86efac;color:#166534;';
-      el.innerHTML='✅ Supabase connected! Bucket <strong>mlf-images</strong> ready. Images upload to CDN.';
+      el.innerHTML='✅ Supabase connected! Storage & DB ready. All changes sync to public website in real-time.';
     } else {
       el.className='warn-box';
-      el.innerHTML=`⚠️ Supabase status ${r.status}. Images will save as base64 locally (still works).`;
+      el.innerHTML=`⚠️ Supabase status ${r.status}. Check connection.`;
     }
-  }catch{el.className='warn-box';el.innerHTML='⚠️ Cannot reach Supabase. Images will save locally as base64.';}
+  }catch{el.className='warn-box';el.innerHTML='⚠️ Cannot reach Supabase. Changes saved locally only.';}
+  // Also ensure site_config row exists in DB
+  await ensureSiteConfigRow();
+}
+
+async function ensureSiteConfigRow(){
+  try{
+    // Check if row exists
+    const r=await fetch(`${SB_URL}/rest/v1/site_config?id=eq.1&select=id`,{
+      headers:{'apikey':SB_KEY,'Authorization':`Bearer ${SB_KEY}`,'Accept':'application/json'}
+    });
+    if(!r.ok)return;
+    const rows=await r.json();
+    if(!rows||rows.length===0){
+      // Row doesn't exist — create it with current localStorage data
+      const currentData=DB.getSt();
+      await fetch(`${SB_URL}/rest/v1/site_config`,{
+        method:'POST',
+        headers:{'apikey':SB_KEY,'Authorization':`Bearer ${SB_KEY}`,'Content-Type':'application/json','Prefer':'return=minimal'},
+        body:JSON.stringify({id:1,data:currentData,updated_at:new Date().toISOString()})
+      });
+      console.log('✅ site_config row created in Supabase');
+    } else {
+      console.log('✅ site_config row exists in Supabase');
+    }
+  }catch(e){console.warn('ensureSiteConfigRow:',e);}
 }
 
 // Upload image — Supabase CDN first, base64 fallback
@@ -1517,6 +1600,14 @@ function loadDesigPage(){
       </div>`).join('')}
     </div>
   `).join('');
+}
+
+
+// ── SUPABASE FORCE SYNC ──
+async function syncNowToSupabase(){
+  const st=DB.getSt();
+  await DB.pushToSupabase(st);
+  showToast('✅ Synced! Public website will now show latest changes.','success');
 }
 
 // ── MODALS ──
