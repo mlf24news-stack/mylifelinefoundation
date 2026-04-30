@@ -787,6 +787,8 @@ const DB={
   },
   pushToSupabase:async(d)=>{
     try{
+      // ✅ Don't push if data is empty
+      if(!d||Object.keys(d).length===0){console.warn('Skipping empty push to Supabase');return;}
       // upsert into site_config table — single row with id=1
       const resp=await fetch(`${SB_URL}/rest/v1/site_config?id=eq.1`,{
         method:'PATCH',
