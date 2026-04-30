@@ -1017,7 +1017,33 @@ const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZ
 const ODIA_MONTHS=['ବୈଶାଖ','ଜ୍ୟେଷ୍ଠ','ଆଷାଢ଼','ଶ୍ରାବଣ','ଭାଦ୍ରବ','ଆଶ୍ୱିନ','କାର୍ତ୍ତିକ','ମାର୍ଗଶିର','ପୌଷ','ମାଘ','ଫାଲ୍ଗୁନ','ଚୈତ୍ର'];
 
 // ── DATA LAYER ──
-function getSt(){try{return JSON.parse(localStorage.getItem('mlf_st')||'{}');}catch{return{};}}
+// getSt: reads from localStorage (always fast, always available)
+function getSt(){try{return JSON.parse(localStorage.getItem('mlf_st')||'{}');}catch{return{};}
+}
+// fetchConfigFromSupabase: pulls admin-saved config and updates localStorage
+async function fetchConfigFromSupabase(){
+  try{
+    const resp=await fetch(SB_URL+'/rest/v1/site_config?id=eq.1&select=data',{
+      headers:{
+        'apikey':SB_KEY,
+        'Authorization':'Bearer '+SB_KEY,
+        'Accept':'application/json'
+      }
+    });
+    if(!resp.ok)return;
+    const rows=await resp.json();
+    if(rows&&rows.length>0&&rows[0].data){
+      const newData=JSON.stringify(rows[0].data);
+      const oldData=localStorage.getItem('mlf_st')||'{}';
+      if(newData!==oldData){
+        localStorage.setItem('mlf_st',newData);
+        console.log('✅ Config loaded from Supabase');
+      }
+      return rows[0].data;
+    }
+  }catch(e){console.warn('Supabase fetch failed, using localStorage:',e);}
+  return null;
+}}
 function getVols(){try{return JSON.parse(localStorage.getItem('mlf_volunteers')||'[]');}catch{return[];}}
 function saveVols(a){localStorage.setItem('mlf_volunteers',JSON.stringify(a));}
 function getSession(){return localStorage.getItem('mlf_session');}
@@ -1327,13 +1353,40 @@ window.addEventListener('resize',function(){handleClockVisibility();});
 document.addEventListener('click',function(e){var menu=document.getElementById('mobMenu');var hb=document.querySelector('.hamburger');if(menu&&menu.classList.contains('open')&&!menu.contains(e.target)&&hb&&!hb.contains(e.target)){menu.classList.remove('open');document.body.style.overflow='';}});
 
 // ── INIT ──
-function initApp(){
+async function initApp(){
+  // 1. Show page immediately with localStorage (instant, no flash)
   try{loadAdminContent();}catch(e){console.warn('Admin content load:',e);}
   try{startClock();}catch(e){}
   try{updateNav();}catch(e){}
   try{buildNotices();}catch(e){}
   try{checkQRParam();}catch(e){}
   try{var tf=getTodayFestivals();if(tf.length>0)setTimeout(function(){showFestivalPopup(tf[0]);},2000);}catch(e){}
+
+  // 2. Then fetch LIVE data from Supabase and re-apply if changed
+  try{
+    var fresh=await fetchConfigFromSupabase();
+    if(fresh){
+      // Re-apply fresh data to the page
+      try{loadAdminContent();}catch(e){}
+      try{buildNotices();}catch(e){}
+      // Re-trigger counters
+      document.querySelectorAll('.impact-num[data-target]').forEach(function(el){
+        el.innerHTML='0<span style="font-size:.55em">+</span>';
+        cntObs.observe(el);
+      });
+    }
+  }catch(e){console.warn('Supabase init fetch failed:',e);}
+
+  // 3. Poll Supabase every 30s for live updates (when admin saves)
+  setInterval(async function(){
+    try{
+      var fresh=await fetchConfigFromSupabase();
+      if(fresh){
+        try{loadAdminContent();}catch(e){}
+        try{buildNotices();}catch(e){}
+      }
+    }catch(e){}
+  },30000);
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initApp);
 else initApp();
