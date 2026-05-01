@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title id="pageTitle">My Lifeline Foundation – Empowering Rural Odisha</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -1731,17 +1734,25 @@ document.addEventListener('click',e=>{const menu=document.getElementById('mobMen
 })();
 
 async function initApp(){
-  // Load fresh content from Supabase (so any device gets latest content)
-  try{await loadContentFromSupabase();}catch(e){}
-  try{loadAdminContent();}catch(e){console.error('loadAdminContent:',e);}
-  try{startClock();}catch(e){console.error('startClock:',e);}
-  try{updateNav();}catch(e){console.error('updateNav:',e);}
-  try{buildNotices();}catch(e){console.error('buildNotices:',e);}
-  try{checkQRParam();}catch(e){console.error('checkQRParam:',e);}
-  try{
-    const tf=getTodayFestivals();
-    if(tf&&tf.length>0)setTimeout(()=>showFestivalPopup(tf[0]),2000);
-  }catch(e){}
+  // Step 1: Run critical UI immediately (clock + nav) - no waiting
+  try{startClock();}catch(e){}
+  try{updateNav();}catch(e){}
+  try{loadAdminContent();}catch(e){} // Load from localStorage first
+  try{buildNotices();}catch(e){}
+  try{checkQRParam();}catch(e){}
+  try{const tf=getTodayFestivals();if(tf&&tf.length>0)setTimeout(()=>showFestivalPopup(tf[0]),2000);}catch(e){}
+
+  // Step 2: Then load from Supabase in background (non-blocking)
+  setTimeout(async()=>{
+    try{
+      const fresh=await loadContentFromSupabase();
+      if(fresh&&Object.keys(fresh).length>0){
+        // Refresh UI with Supabase data
+        try{loadAdminContent();}catch(e){}
+        try{buildNotices();}catch(e){}
+      }
+    }catch(e){}
+  },100);
 }
 if(document.readyState==='loading'){
   document.addEventListener('DOMContentLoaded', initApp);
