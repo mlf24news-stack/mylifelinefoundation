@@ -804,6 +804,7 @@ const SB_URL='https://mvkbczobozlbdigkecwr.supabase.co';
 const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12a2Jjem9ib3psYmRpZ2tlY3dyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyNDk0MzksImV4cCI6MjA4OTgyNTQzOX0.QzrmLBzKyA3NzQTKFnTSiGHiEnIeD0DwH5fCULhDUTM';
 const SB_BUCKET='mlf-images';
 let adminCreds=JSON.parse(localStorage.getItem('mlf_admin_creds')||'{"user":"admin","pass":"mlf@2024"}');
+let cachedContent=DB.getSt();
 
 function doLogin(){
   const u=document.getElementById('loginUser').value.trim(),p=document.getElementById('loginPass').value;
@@ -1351,7 +1352,7 @@ async function saveSection(sec){
   DB.setSt(cachedContent);
   localStorage.setItem('mlf_st',JSON.stringify(cachedContent));
   const ok=await saveContentToSupabase(cachedContent);
-  showToast(ok?'✅ Saved to Supabase! All devices updated.':'⚠️ Saved locally only.',ok?'success':'');
+  showToast(ok?'✅ Saved! All devices updated.':'⚠️ Saved locally only. Check Supabase.',ok?'success':'error');
 }
 async function saveAllData(){
   ['hero','about','programs','stats','stories','join','vision','donate','contact','logo','footer','legal','progpages'].forEach(s=>{
@@ -1523,13 +1524,19 @@ async function saveContentToSupabase(data){
       },
       body:JSON.stringify({id:'main',data:data,updated_at:new Date().toISOString()})
     });
+    const badge=document.getElementById('syncStatusBadge');
     if(r.ok){
-      const badge=document.getElementById('syncStatusBadge');
-      if(badge){badge.className='sync-status sync-ok';badge.textContent='✅ Supabase Synced';}
+      updateSyncStatus(true);
+      return true;
+    } else {
+      console.warn('Supabase save failed:',r.status,await r.text());
+      updateSyncStatus(false);
+      return false;
     }
   }catch(e){
-    const badge=document.getElementById('syncStatusBadge');
-    if(badge){badge.className='sync-status sync-err';badge.textContent='⚠️ Sync Failed';}
+    console.warn('Supabase save error:',e.message);
+    updateSyncStatus(false);
+    return false;
   }
 }
 
