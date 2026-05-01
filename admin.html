@@ -213,7 +213,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
       </div>
       <div class="info-box" style="margin-top:12px;background:#fffbeb;border-color:#fcd34d;color:#92400e;">
         <strong>⚠️ First-time setup:</strong> Run this SQL once in <a href="https://supabase.com/dashboard/project/mvkbczobozlbdigkecwr/sql" target="_blank" style="color:#1565C0;">Supabase SQL Editor</a>:<br>
-        <code style="display:block;margin-top:8px;background:#1e293b;color:#86efac;padding:10px;border-radius:6px;font-size:12px;line-height:1.6;">create table if not exists site_config (
+        <code style="display:block;margin-top:8px;background:#1e293b;color:#86efac;padding:10px;border-radius:6px;font-size:12px;line-height:1.6;">-- Table 1: Website content
+create table if not exists site_config (
   id integer primary key,
   data jsonb not null default '{}',
   updated_at timestamptz default now()
@@ -221,8 +222,22 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);di
 alter table site_config enable row level security;
 create policy "Public read" on site_config for select using (true);
 create policy "Service write" on site_config for all using (true);
-insert into site_config (id, data) values (1, '{}') on conflict (id) do nothing;</code>
-        <button class="btn btn-blue btn-sm" style="margin-top:10px;" onclick="syncNowToSupabase()">🚀 Force Sync to Supabase Now</button>
+insert into site_config (id, data) values (1, '{}') on conflict (id) do nothing;
+
+-- Table 2: Volunteers cross-device sync
+create table if not exists mlf_volunteers (
+  id integer primary key,
+  data jsonb not null default '[]',
+  updated_at timestamptz default now()
+);
+alter table mlf_volunteers enable row level security;
+create policy "Public read vols" on mlf_volunteers for select using (true);
+create policy "Service write vols" on mlf_volunteers for all using (true);
+insert into mlf_volunteers (id, data) values (1, '[]') on conflict (id) do nothing;</code>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;">
+          <button class="btn btn-blue btn-sm" onclick="syncNowToSupabase()">🚀 Sync Content</button>
+          <button class="btn btn-green btn-sm" onclick="syncVolunteersNow()">👥 Sync Volunteers Now</button>
+        </div>
       </div>
     </div>
   </div>
@@ -886,7 +901,58 @@ const DB={
     }catch(e){console.warn('Supabase pull failed:',e);}
   }
 };
+// ── VOLUNTEER STORAGE (Supabase mlf_volunteers table) ──
 function getVols(){return JSON.parse(localStorage.getItem('mlf_volunteers')||'[]');}
+
+function saveVols(arr){
+  // Always save to localStorage first (instant)
+  localStorage.setItem('mlf_volunteers',JSON.stringify(arr));
+  // Then push to Supabase mlf_volunteers table
+  pushVolsToSupabase(arr);
+}
+
+async function pushVolsToSupabase(arr){
+  try{
+    // Upsert all volunteers as a single JSON row (id=1)
+    const resp=await fetch(`${SB_URL}/rest/v1/mlf_volunteers?id=eq.1`,{
+      method:'PATCH',
+      headers:{'apikey':SB_KEY,'Authorization':`Bearer ${SB_KEY}`,'Content-Type':'application/json','Prefer':'return=minimal'},
+      body:JSON.stringify({id:1,data:arr,updated_at:new Date().toISOString()})
+    });
+    // If row doesn't exist yet, insert it
+    if(resp.status===404||resp.status===0){
+      await fetch(`${SB_URL}/rest/v1/mlf_volunteers`,{
+        method:'POST',
+        headers:{'apikey':SB_KEY,'Authorization':`Bearer ${SB_KEY}`,'Content-Type':'application/json','Prefer':'return=minimal'},
+        body:JSON.stringify({id:1,data:arr,updated_at:new Date().toISOString()})
+      });
+    }
+    console.log('✅ Volunteers pushed to Supabase');
+  }catch(e){console.warn('Volunteer Supabase push failed (saved locally):',e);}
+}
+
+async function pullVolsFromSupabase(){
+  try{
+    const resp=await fetch(`${SB_URL}/rest/v1/mlf_volunteers?id=eq.1&select=data`,{
+      headers:{'apikey':SB_KEY,'Authorization':`Bearer ${SB_KEY}`,'Accept':'application/json'}
+    });
+    if(resp.ok){
+      const rows=await resp.json();
+      if(rows&&rows.length>0&&rows[0].data&&rows[0].data.length>0){
+        const sbVols=rows[0].data;
+        // Only update if Supabase has MORE or NEWER data
+        const localVols=JSON.parse(localStorage.getItem('mlf_volunteers')||'[]');
+        if(sbVols.length>=localVols.length){
+          localStorage.setItem('mlf_volunteers',JSON.stringify(sbVols));
+          console.log(`✅ Pulled ${sbVols.length} volunteers from Supabase`);
+          return true;
+        }
+      }
+    }
+  }catch(e){console.warn('Volunteer Supabase pull failed:',e);}
+  return false;
+}
+
 function getDonors(){return DB.get('mlf_donors')||[];}
 function setDonors(d){DB.set('mlf_donors',d);}
 function g(id){const el=document.getElementById(id);return el?el.value:'';}
@@ -894,6 +960,8 @@ function g(id){const el=document.getElementById(id);return el?el.value:'';}
 async function init(){
   checkSupabase();
   await DB.pullFromSupabase();
+  // ✅ Pull volunteers from Supabase (so any computer shows all volunteers)
+  await pullVolsFromSupabase();
   loadAllFields();
   renderBoard();
   renderCoords();
@@ -1190,11 +1258,11 @@ function saveMember(type){
     if(idx!=='')st.coordinators[parseInt(idx)]=obj;else st.coordinators.push(obj);
     DB.setSt(st);renderCoords();closeModal('modal-coord');
     if(cid&&mobile.length===10){
-      const vols=JSON.parse(localStorage.getItem('mlf_volunteers')||'[]');
+      const vols=getVols();
       const existIdx=vols.findIndex(v=>v.id===cid.toUpperCase());
       const coordVol={id:cid.toUpperCase(),type:'C',name,dob:'',fatherName:'',motherName:'',occupation:role,mobile,aadhaarDisplay:'Admin registered',aadhaarKey:'admin_'+cid.toUpperCase(),at:document.getElementById('c-area').value.trim(),post:'',ps:'',district:document.getElementById('c-area').value.trim(),state:'Odisha',pin:'',joinDate:new Date().toISOString().split('T')[0],status:'Active',photo:document.getElementById('c-photo-url').value};
       if(existIdx>-1)vols[existIdx]=coordVol;else vols.push(coordVol);
-      localStorage.setItem('mlf_volunteers',JSON.stringify(vols));
+      saveVols(vols);// ✅ saves to localStorage + Supabase
       showToast(`✅ Coordinator saved! Login: ID ${cid.toUpperCase()} + phone ${mobile}`,'success');
     } else {showToast('✅ Coordinator saved!','success');}
   }
@@ -1430,7 +1498,16 @@ function resetCounter(){if(!confirm('Reset ID counter to 0?\n\nIMPORTANT: Existi
 function loadDesigPage(){const ctr=localStorage.getItem('mlf_counter')||'0';const el=document.getElementById('currentCounter');if(el)el.textContent=ctr+' (next: '+String(parseInt(ctr)+1).padStart(2,'0')+')';const vols=getVols();const byType={};vols.forEach(v=>{const t=v.type||'V';if(!byType[t])byType[t]=[];byType[t].push(v);});const typeNames={'V':'🤝 Volunteers','C':'📍 Coordinators','E':'👔 Employees','S':'⭐ Supporters'};const list=document.getElementById('idStatsList');if(!list)return;if(!vols.length){list.innerHTML='<p style="color:var(--gray);">No members registered yet.</p>';return;}list.innerHTML=Object.entries(byType).map(([t,arr])=>`<div style="margin-bottom:16px;"><div style="font-weight:700;color:var(--blue);margin-bottom:8px;font-family:Poppins;">${typeNames[t]||t}: ${arr.length}</div>${arr.map(v=>`<div style="display:flex;align-items:center;gap:12px;padding:8px 12px;background:var(--off);border-radius:8px;margin-bottom:4px;"><code style="font-weight:700;color:var(--blue);font-size:13px;">${v.id}</code><span>${v.name}</span><button class="btn btn-outline btn-xs" style="margin-left:auto;" onclick="document.getElementById('qrPreviewId').value='${v.id}';showPage('desig');generateAdminQR();">🔲 QR</button></div>`).join('')}</div>`).join('');}
 
 // ── SUPABASE FORCE SYNC ──
-async function syncNowToSupabase(){const st=DB.getSt();await DB.pushToSupabase(st);showToast('✅ Synced! Public website will now show latest changes.','success');}
+async function syncNowToSupabase(){const st=DB.getSt();await DB.pushToSupabase(st);showToast('✅ Content synced to Supabase!','success');}
+
+// ✅ NEW: Manually push all volunteers to Supabase
+async function syncVolunteersNow(){
+  const vols=getVols();
+  if(!vols.length){showToast('No volunteers to sync','error');return;}
+  showToast('Syncing volunteers... ⏳','');
+  await pushVolsToSupabase(vols);
+  showToast(`✅ ${vols.length} volunteer(s) synced to Supabase! All devices will now show them.`,'success');
+}
 
 // ── MODALS ──
 function openModal(id){document.getElementById(id).classList.add('open');}
