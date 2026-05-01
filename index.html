@@ -1749,26 +1749,13 @@ document.addEventListener('click',e=>{const menu=document.getElementById('mobMen
   setInterval(tick,1000);
 })();
 
-async function initApp(){
-  // Step 1: Run critical UI immediately (clock + nav) - no waiting
+function initApp(){
   try{startClock();}catch(e){}
   try{updateNav();}catch(e){}
-  try{loadAdminContent();}catch(e){} // Load from localStorage first
+  try{loadAdminContent();}catch(e){}
   try{buildNotices();}catch(e){}
   try{checkQRParam();}catch(e){}
   try{const tf=getTodayFestivals();if(tf&&tf.length>0)setTimeout(()=>showFestivalPopup(tf[0]),2000);}catch(e){}
-
-  // Step 2: Then load from Supabase in background (non-blocking)
-  setTimeout(async()=>{
-    try{
-      const fresh=await loadContentFromSupabase();
-      if(fresh&&Object.keys(fresh).length>0){
-        // Refresh UI with Supabase data
-        try{loadAdminContent();}catch(e){}
-        try{buildNotices();}catch(e){}
-      }
-    }catch(e){}
-  },100);
 }
 if(document.readyState==='loading'){
   document.addEventListener('DOMContentLoaded', initApp);
