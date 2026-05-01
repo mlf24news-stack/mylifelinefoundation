@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>MLF Admin Panel</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -821,8 +824,14 @@ const DB={
 async function loadContentFromSupabase(){
   try{
     const r=await fetch(SB_URL+'/rest/v1/mlf_content?id=eq.main&select=data',{
-      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}
+      method:'GET',
+      headers:{
+        'apikey':SB_KEY,
+        'Authorization':'Bearer '+SB_KEY,
+        'Content-Type':'application/json'
+      }
     });
+    console.log('Supabase content fetch status:',r.status);
     if(!r.ok)throw new Error('HTTP '+r.status);
     const rows=await r.json();
     if(rows&&rows.length>0&&rows[0].data&&Object.keys(rows[0].data).length>0){
@@ -835,7 +844,8 @@ async function loadContentFromSupabase(){
     updateSyncStatus(true);
     return DB.getSt();
   }catch(e){
-    console.warn('Load from Supabase failed:',e);
+    console.warn('Supabase load error:',e.message);
+    // Still use localStorage as fallback
     updateSyncStatus(false);
     return DB.getSt();
   }
@@ -878,13 +888,7 @@ function setDonors(d){DB.set('mlf_donors',d);}
 function g(id){const el=document.getElementById(id);return el?el.value:'';}
 
 async function init(){
-  checkSupabase();
-  // Load content from Supabase first (so admin sees latest data from any device)
-  showToast('Loading data from Supabase... ⏳','');
-  await loadContentFromSupabase();
-  // Also load latest volunteers from Supabase
-  await loadVolunteersFromSupabase();
-  // Now populate all fields
+  // Step 1: Show UI immediately from localStorage
   loadAllFields();
   renderBoard();renderCoords();renderGallery();
   renderFestivals();renderTicker();
@@ -894,7 +898,33 @@ async function init(){
   const sel=document.getElementById('sheets-url');if(sel)sel.value=su;
   const bday=DB.getSt()?.notifcal?.birthdayWish;
   const bdEl=document.getElementById('bday-wish');if(bdEl&&bday)bdEl.value=bday;
-  showToast('✅ Ready! Data loaded from Supabase.','success');
+  showToast('Loading latest data... ⏳','');
+
+  // Step 2: Check Supabase connection
+  checkSupabase();
+
+  // Step 3: Load fresh data from Supabase in background
+  try{
+    const fresh=await loadContentFromSupabase();
+    if(fresh&&Object.keys(fresh).length>0){
+      cachedContent=fresh;
+      loadAllFields();
+      renderBoard();renderCoords();renderGallery();
+      renderFestivals();renderTicker();
+      updateDashboard();
+      showToast('✅ Latest data loaded from Supabase!','success');
+    } else {
+      showToast('✅ Ready (using local data)','success');
+    }
+  }catch(e){
+    showToast('⚠️ Supabase load failed. Using local data.','');
+  }
+
+  // Step 4: Load volunteers from Supabase
+  try{
+    await loadVolunteersFromSupabase();
+    renderVolunteers();
+  }catch(e){}
 }
 
 const PAGE_TITLES={dashboard:'Dashboard',hero:'Hero Section',about:'About Section',programs:'Programs',stats:'Impact Stats',testimonials:'Testimonials',join:'Join Section',vision:'Vision & Mission',board:'Board Members',coordinators:'Coordinators',gallery:'Gallery',progpages:'Program Pages',donate:'Donate Page',contact:'Contact Page',branding:'Logo & Branding',footer:'Footer',legal:'Legal Documents',festivals:'Festivals & Ticker',volunteers:'Volunteers',donors:'Donors',password:'Change Password',forgot:'Forgot Password',sheets:'Google Sheets',desig:'🏷️ ID & Designations'};
@@ -928,7 +958,7 @@ async function checkSupabase(){
     }
   }catch(e){
     el.className='warn-box';
-    el.innerHTML='⚠️ Cannot reach Supabase. Check internet connection. Content saving locally only.';
+    el.innerHTML='⚠️ Cannot reach Supabase ('+e.message+'). Tables may not be set up yet. Run <strong>supabase_fix.sql</strong> in Supabase SQL Editor. Data saving locally for now.';
     updateSyncStatus(false);
   }
 }
