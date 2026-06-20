@@ -62,7 +62,7 @@ h1,h2,h3,h4,h5{font-family:'Poppins',sans-serif;}
 .btn-nav-donate{padding:8px 18px;border-radius:10px;border:none;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;white-space:nowrap;font-family:'Poppins',sans-serif;}
 .btn-nav-donate:hover{background:#d96d00;}
 .btn-nav-profile{padding:8px 18px;border-radius:10px;border:none;background:var(--blue);color:var(--white);font-size:13px;font-weight:600;white-space:nowrap;font-family:'Poppins',sans-serif;}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;margin-left:8px;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;margin-left:auto;}
 .hamburger span{width:22px;height:2px;background:var(--blue);border-radius:2px;transition:.3s;}
 .mob-menu{display:none;position:fixed;top:68px;left:0;right:0;z-index:999;background:var(--white);border-bottom:1px solid var(--gray-lt);padding:14px 5%;flex-direction:column;gap:3px;box-shadow:var(--sh-lg);max-height:80vh;overflow-y:auto;}
 .mob-menu.open{display:flex;}
@@ -495,9 +495,9 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.78);}
   .prog-detail-grid{grid-template-columns:1fr;}
 }
 @media(max-width:768px){
-  .nav{padding:0 4%;height:60px;}
+  .nav{padding:0 4%;height:60px;justify-content:space-between;}
   .nav-links{display:none;}
-  .hamburger{display:flex;}
+  .hamburger{display:flex;margin-left:0;}
   .nav-actions{display:none;}
   .nav-logo-text strong{font-size:12px;}
   .nav-logo-text span{display:none;}
