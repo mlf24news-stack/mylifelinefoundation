@@ -1397,6 +1397,7 @@ function switchLoginTab(type){
 }
 function showForgotId(){closeModal('modalLogin');var mob=prompt('Enter your registered mobile number:');if(!mob)return;var vol=getVols().find(function(v){return v.mobile===mob.trim();});if(vol)alert('✅ Your ID is: '+vol.id+'\n\nName: '+vol.name);else alert('❌ No account found. Contact admin: +91 9337994358');}
 async function submitLogin(){
+  await pullVolsFromSupabase();
   var inputId=document.getElementById('loginId').value.trim().toUpperCase();
   var inputMobile=document.getElementById('loginMobile').value.trim();
   if(!inputId){showToast('Please enter your ID','error');return;}
