@@ -419,24 +419,21 @@ h1,h2,h3,h4,h5{font-family:'Poppins',sans-serif;}
 .qr-org-badge{background:var(--off);border:1px solid var(--gray-lt);border-radius:10px;padding:10px;font-size:12px;color:var(--gray);}
 
 /* ── ID CARD ── */
-#id-card-template{position:fixed;left:-9999px;top:-9999px;width:340px;background:linear-gradient(135deg,var(--blue-dk) 0%,var(--blue) 60%,#1B5E20 100%);border-radius:16px;overflow:hidden;font-family:'DM Sans',sans-serif;}
-.id-card-inner{padding:20px;}
-.id-card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:14px;}
-.id-card-logo{width:36px;height:36px;border-radius:8px;overflow:hidden;background:rgba(255,255,255,.1);}
+#id-card-template{position:fixed;left:-9999px;top:-9999px;width:380px;background:#fff;border-radius:14px;overflow:hidden;font-family:'DM Sans',sans-serif;border:1px solid var(--gray-lt);display:flex;}
+.id-card-side{width:110px;background:linear-gradient(180deg,var(--blue) 0%,var(--green) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 10px;flex-shrink:0;}
+.id-card-photo{width:60px;height:60px;border-radius:50%;object-fit:cover;border:2px solid #fff;flex-shrink:0;margin-bottom:10px;}
+.id-card-photo-def{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:26px;border:2px solid #fff;flex-shrink:0;color:#fff;margin-bottom:10px;}
+.id-card-logo{width:36px;height:36px;border-radius:8px;overflow:hidden;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;}
 .id-card-logo img{width:100%;height:100%;object-fit:contain;}
-.id-card-org-name{color:#fff;}
-.id-card-org-name strong{display:block;font-size:11px;font-weight:700;font-family:'Poppins',sans-serif;line-height:1.2;}
-.id-card-org-name span{font-size:8px;color:rgba(255,255,255,.58);}
-.id-card-vol-type{background:var(--orange);color:#fff;font-size:8px;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:4px;margin-bottom:12px;}
-.id-card-main{display:flex;gap:14px;align-items:flex-start;}
-.id-card-photo{width:64px;height:64px;border-radius:10px;object-fit:cover;border:2px solid rgba(255,255,255,.28);flex-shrink:0;}
-.id-card-photo-def{width:64px;height:64px;border-radius:10px;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:28px;border:2px solid rgba(255,255,255,.28);flex-shrink:0;}
-.id-card-name{font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;font-family:'Poppins',sans-serif;}
-.id-card-detail{font-size:10px;color:rgba(255,255,255,.7);line-height:1.62;}
-.id-card-detail strong{color:#fff;}
-.id-card-footer{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;align-items:center;}
-.id-card-vol-id{font-size:11px;font-weight:700;color:#FFDD80;letter-spacing:1.5px;font-family:'Poppins',sans-serif;}
-.id-card-qr{width:72px;height:72px;}
+.id-card-inner{flex:1;padding:16px 18px;display:flex;flex-direction:column;}
+.id-card-vol-type{font-size:9px;font-weight:700;color:var(--green);letter-spacing:1px;margin-bottom:2px;}
+.id-card-name{font-size:15px;font-weight:700;color:var(--blue);margin-bottom:2px;font-family:'Poppins',sans-serif;}
+.id-card-role{font-size:11px;color:var(--orange);margin-bottom:12px;}
+.id-card-detail{font-size:10px;color:var(--text-lt);line-height:1.9;flex:1;}
+.id-card-detail strong{color:var(--blue);font-weight:600;}
+.id-card-footer{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--gray-lt);padding-top:8px;}
+.id-card-org-name{font-size:8px;color:var(--gray);line-height:1.5;}
+.id-card-qr{width:44px;height:44px;background:#fff;border:1px solid var(--gray-lt);border-radius:4px;}
 
 /* ── FOOTER ── */
 footer{background:var(--blue-dk);color:rgba(255,255,255,.78);}
@@ -1050,14 +1047,23 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.78);}
 
 <!-- ID CARD TEMPLATE (hidden, for PDF/PNG) -->
 <div id="id-card-template">
+  <div class="id-card-side">
+    <div id="idCardPhoto" class="id-card-photo-def">👤</div>
+    <div class="id-card-logo"><img src="Lifeline.png" alt="MLF Logo" id="idCardLogoImg" style="width:100%;height:100%;object-fit:contain;"></div>
+  </div>
   <div class="id-card-inner">
-    <div class="id-card-top"><div class="id-card-logo"><img src="Lifeline.png" alt="MLF Logo" id="idCardLogoImg" style="width:100%;height:100%;object-fit:contain;"></div><div class="id-card-org-name"><strong id="idCardOrgName">My Lifeline Foundation</strong><span>Empowering Rural Odisha</span></div></div>
-    <div class="id-card-vol-type" id="idCardTypeBadge">VOLUNTEER ID CARD</div>
-    <div class="id-card-main">
-      <div id="idCardPhoto" class="id-card-photo-def">👤</div>
-      <div><div class="id-card-name" id="idCardName">Volunteer Name</div><div class="id-card-detail"><strong>Occupation:</strong> <span id="idCardOcc">-</span><br><strong>District:</strong> <span id="idCardDist">-</span><br><strong>State:</strong> <span id="idCardState">-</span><br><strong>Mobile:</strong> <span id="idCardMob">-</span><br><strong>Status:</strong> <span style="color:#86EFAC;">Active</span></div></div>
+    <div class="id-card-vol-type" id="idCardTypeBadge">VOLUNTEER</div>
+    <div class="id-card-name" id="idCardName">Volunteer Name</div>
+    <div class="id-card-role" id="idCardOcc">-</div>
+    <div class="id-card-detail">
+      <div><strong>ID No:</strong> <span id="idCardVolId">MLF-V-01426</span></div>
+      <div><strong>Phone:</strong> <span id="idCardMob">-</span></div>
+      <div><strong>District:</strong> <span id="idCardDist">-</span>, <span id="idCardState">-</span></div>
     </div>
-    <div class="id-card-footer"><div><div class="id-card-vol-id" id="idCardVolId">MLF-V-01426</div><div style="font-size:8px;color:rgba(255,255,255,.48);margin-top:2px;">Reg: U85100OR2020NPL032868</div></div><div id="idCardQR" class="id-card-qr" style="background:white;padding:3px;border-radius:4px;"></div></div>
+    <div class="id-card-footer">
+      <div class="id-card-org-name" id="idCardOrgName">My Lifeline Foundation<br>Reg: U85100OR2020NPL032868</div>
+      <div id="idCardQR" class="id-card-qr"></div>
+    </div>
   </div>
 </div>
 
@@ -1389,7 +1395,7 @@ async function downloadIDCard(fmt){
   fmt=fmt||'png';var vol=getCurrentVol();if(!vol)return;showToast('Preparing ID Card... ⏳','');
   var typeMap={'V':'VOLUNTEER','C':'COORDINATOR','S':'SUPPORTER'};
   function setT(id,v){var e=document.getElementById(id);if(e)e.textContent=v||'';}
-  setT('idCardName',vol.name);setT('idCardOcc',vol.occupation);setT('idCardDist',vol.district);setT('idCardState',vol.state);setT('idCardMob',vol.mobile);setT('idCardVolId',vol.id);setT('idCardTypeBadge',(typeMap[vol.type||'V']||'VOLUNTEER')+' ID CARD');
+  setT('idCardName',vol.name);setT('idCardOcc',vol.occupation);setT('idCardDist',vol.district);setT('idCardState',vol.state);setT('idCardMob',vol.mobile);setT('idCardVolId',vol.id);setT('idCardTypeBadge',typeMap[vol.type||'V']||'VOLUNTEER');
   var photoEl=document.getElementById('idCardPhoto');
   if(photoEl){if(vol.photo){var np=document.createElement('img');np.src=vol.photo;np.className='id-card-photo';np.id='idCardPhoto';np.alt='Photo';photoEl.replaceWith(np);}else{if(photoEl.tagName==='IMG'){var dpd=document.createElement('div');dpd.className='id-card-photo-def';dpd.id='idCardPhoto';dpd.textContent='👤';photoEl.replaceWith(dpd);}}}
   var idQR=document.getElementById('idCardQR');if(idQR){idQR.innerHTML='';try{new QRCode(idQR,{text:window.location.href.split('?')[0]+'?volunteer='+vol.id,width:128,height:128,colorDark:'#000000',colorLight:'#FFFFFF',correctLevel:QRCode.CorrectLevel.H});}catch(ex){}}
