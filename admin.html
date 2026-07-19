@@ -657,9 +657,8 @@ insert into mlf_volunteers (id, data) values (1, '[]') on conflict (id) do nothi
 <div class="page" id="page-forgot">
   <div class="card" style="max-width:560px;"><div class="card-hd"><h3>🔓 Volunteer Account Lookup</h3></div>
     <div class="card-body">
-      <div class="info-box">Find a volunteer by mobile number + last 4 digits of Aadhaar to recover their ID.</div>
+      <div class="info-box">Find a volunteer by mobile number to recover their ID.</div>
       <div class="field"><label>Mobile Number</label><input type="tel" id="forg-mobile" placeholder="10-digit mobile number" maxlength="10"></div>
-      <div class="field"><label>Last 4 Digits of Aadhaar</label><input type="text" id="forg-aadhaar" placeholder="e.g. 7832" maxlength="4"></div>
       <button class="btn btn-blue" onclick="lookupVolunteer()">🔍 Find Volunteer</button>
       <div id="forg-result" style="margin-top:16px;"></div>
     </div>
@@ -1363,15 +1362,15 @@ function filterVolunteers(){renderVolunteers(document.getElementById('vol-search
 function viewVolDetails(id){
   const v=getVols().find(x=>x.id===id);if(!v)return;
   const body=document.getElementById('volDetailBody');if(!body)return;
-  const rows=[['Vol ID',v.id],['Name',v.name],['Date of Birth',v.dob||'-'],['Father',v.fatherName||'-'],['Mother',v.motherName||'-'],['Occupation',v.occupation||'-'],['Mobile',v.mobile],['Aadhaar',v.aadhaarDisplay||'-'],['Village',v.at||'-'],['Post',v.post||'-'],['Police Station',v.ps||'-'],['District',v.district||'-'],['State',v.state||'-'],['PIN',v.pin||'-'],['Joined',v.joinDate||'-'],['Status','Active ✅']];
+  const rows=[['Vol ID',v.id],['Name',v.name],['Date of Birth',v.dob||'-'],['Father',v.fatherName||'-'],['Mother',v.motherName||'-'],['Occupation',v.occupation||'-'],['Mobile',v.mobile],['Email',v.email||'-'],['Village',v.at||'-'],['Post',v.post||'-'],['District',v.district||'-'],['State',v.state||'-'],['PIN',v.pin||'-'],['Joined',v.joinDate||'-'],['Status','Active ✅']];
   body.innerHTML=`<div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">${v.photo&&v.photo.length>10?`<img src="${v.photo}" style="width:70px;height:70px;border-radius:50%;object-fit:cover;border:3px solid var(--blue);">`:'<div style="width:70px;height:70px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;">👤</div>'}<div><div style="font-family:Poppins;font-size:18px;font-weight:700;color:var(--blue);">${v.name}</div><div style="font-size:12px;color:var(--orange);font-weight:700;letter-spacing:1px;">${v.id}</div></div></div><table style="width:100%;font-size:13px;border-collapse:collapse;">${rows.map(r=>`<tr><td style="padding:7px 10px;color:var(--gray);font-weight:600;width:120px;border-bottom:1px solid var(--gray-lt);">${r[0]}</td><td style="padding:7px 10px;border-bottom:1px solid var(--gray-lt);font-weight:${r[0]==='Vol ID'?'700':'400'};color:${r[0]==='Vol ID'?'var(--blue)':'var(--text)'};">${r[1]}</td></tr>`).join('')}</table>`;
   openModal('modal-vol-detail');
 }
 
 function exportVolunteers(){
   const vols=getVols();if(!vols.length){showToast('No volunteers to export','error');return;}
-  const hdr=['ID','Name','DOB','Father','Mother','Occupation','Mobile','Aadhaar','Village','Post','PS','District','State','PIN','Joined'];
-  const rows=vols.map(v=>[v.id,v.name,v.dob,v.fatherName,v.motherName,v.occupation,v.mobile,v.aadhaarDisplay,v.at,v.post,v.ps,v.district,v.state,v.pin,v.joinDate]);
+  const hdr=['ID','Name','DOB','Father','Mother','Occupation','Mobile','Email','Village','Post','District','State','PIN','Joined'];
+  const rows=vols.map(v=>[v.id,v.name,v.dob,v.fatherName,v.motherName,v.occupation,v.mobile,v.email,v.at,v.post,v.district,v.state,v.pin,v.joinDate]);
   const csv=[hdr,...rows].map(r=>r.map(c=>`"${(c||'').toString().replace(/"/g,'""')}"`).join(',')).join('\n');
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'}));a.download='MLF_Volunteers_'+new Date().toISOString().split('T')[0]+'.csv';a.click();
   showToast('📥 CSV exported!','success');
@@ -1380,8 +1379,8 @@ function exportVolunteers(){
 function syncToSheets(){
   const url=localStorage.getItem('mlf_url');
   if(!url){showToast('Set Google Sheets URL first in Settings','error');return;}
-  const rows=getVols().map(v=>[v.id,v.name,v.dob,v.fatherName,v.motherName,v.occupation,v.mobile,v.aadhaarDisplay,v.at,v.post,v.ps,v.district,v.state,v.pin,v.joinDate,v.status||'Active']);
-  fetch(url,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({tab:'Volunteers',action:'write',rows:[['ID','Name','DOB','Father','Mother','Occ','Mobile','Aadhaar','Village','Post','PS','District','State','PIN','Joined','Status'],...rows]})}).then(()=>showToast('✅ Sync sent! Check Google Sheet.','success')).catch(()=>showToast('Sync may have failed. Check URL.','error'));
+  const rows=getVols().map(v=>[v.id,v.name,v.dob,v.fatherName,v.motherName,v.occupation,v.mobile,v.email,v.at,v.post,v.district,v.state,v.pin,v.joinDate,v.status||'Active']);
+  fetch(url,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({tab:'Volunteers',action:'write',rows:[['ID','Name','DOB','Father','Mother','Occ','Mobile','Email','Village','Post','District','State','PIN','Joined','Status'],...rows]})}).then(()=>showToast('✅ Sync sent! Check Google Sheet.','success')).catch(()=>showToast('Sync may have failed. Check URL.','error'));
 }
 
 // ── DONORS ──
@@ -1475,12 +1474,11 @@ async function changePassword(){
 
 // ── VOLUNTEER LOOKUP ──
 function lookupVolunteer(){
-  const mobile=g('forg-mobile').trim(),last4=g('forg-aadhaar').trim();
+  const mobile=g('forg-mobile').trim();
   const res=document.getElementById('forg-result');
   if(!mobile||mobile.length!==10){showToast('Enter a valid 10-digit mobile number','error');return;}
-  if(!last4||last4.length!==4){showToast('Enter the last 4 digits of Aadhaar','error');return;}
-  const vol=getVols().find(v=>v.mobile===mobile&&v.aadhaarDisplay&&v.aadhaarDisplay.endsWith(last4));
-  if(!vol){res.innerHTML='<div class="warn-box">❌ No volunteer found with this mobile + Aadhaar combination.</div>';return;}
+  const vol=getVols().find(v=>v.mobile===mobile);
+  if(!vol){res.innerHTML='<div class="warn-box">❌ No volunteer found with this mobile number.</div>';return;}
   res.innerHTML=`<div class="info-box" style="background:#dcfce7;border-color:#86efac;color:#166534;">✅ Volunteer found!<br><strong style="font-size:16px;letter-spacing:1px;">${vol.name}</strong><br>ID: <strong style="font-size:18px;color:var(--blue);letter-spacing:2px;">${vol.id}</strong><br>District: ${vol.district||'-'} · Joined: ${vol.joinDate||'-'}</div>`;
 }
 
