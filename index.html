@@ -1127,7 +1127,23 @@ async function fetchConfigFromSupabase(){
   return null;
 }
 function getVols(){try{return JSON.parse(localStorage.getItem('mlf_volunteers')||'[]');}catch{return[];}}
-function saveVols(a){localStorage.setItem('mlf_volunteers',JSON.stringify(a));}
+function saveVols(a){localStorage.setItem('mlf_volunteers',JSON.stringify(a));pushVolsToSupabase(a);}
+async function pushVolsToSupabase(arr){
+  try{
+    var resp=await fetch(SB_URL+'/rest/v1/mlf_volunteers?id=eq.1',{
+      method:'PATCH',
+      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},
+      body:JSON.stringify({id:1,data:arr,updated_at:new Date().toISOString()})
+    });
+    if(resp.status===404){
+      await fetch(SB_URL+'/rest/v1/mlf_volunteers',{
+        method:'POST',
+        headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},
+        body:JSON.stringify({id:1,data:arr,updated_at:new Date().toISOString()})
+      });
+    }
+  }catch(e){console.warn('Volunteer Supabase push failed:',e);}
+}
 function getSession(){return localStorage.getItem('mlf_session');}
 function setSession(id){localStorage.setItem('mlf_session',id);}
 function clearSession(){localStorage.removeItem('mlf_session');}
