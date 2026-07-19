@@ -419,22 +419,24 @@ h1,h2,h3,h4,h5{font-family:'Poppins',sans-serif;}
 .qr-org-badge{background:var(--off);border:1px solid var(--gray-lt);border-radius:10px;padding:10px;font-size:12px;color:var(--gray);}
 
 /* ── ID CARD ── */
-#id-card-template{position:fixed;left:-9999px;top:-9999px;width:420px;background:#fff;border-radius:20px;overflow:hidden;font-family:'DM Sans',sans-serif;box-shadow:0 10px 40px rgba(10,77,140,.18);display:flex;}
-.id-card-side{width:135px;background:linear-gradient(160deg,var(--blue) 0%,var(--blue-dk) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px 14px;flex-shrink:0;position:relative;}
-.id-card-photo{width:82px;height:82px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.28);flex-shrink:0;margin-bottom:16px;display:block;}
-.id-card-photo-def{width:82px;height:82px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:34px;border:3px solid #fff;flex-shrink:0;color:#fff;margin-bottom:16px;}
-.id-card-logo{width:48px;height:48px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:50%;padding:6px;box-shadow:0 2px 10px rgba(0,0,0,.22);}
+#id-card-template{position:fixed;left:-9999px;top:-9999px;width:440px;background:#fff;border-radius:20px;overflow:hidden;font-family:'DM Sans',sans-serif;box-shadow:0 10px 40px rgba(10,77,140,.18);display:flex;}
+.id-card-side{width:130px;background:linear-gradient(160deg,var(--blue) 0%,var(--blue-dk) 100%);display:flex;align-items:center;justify-content:center;padding:24px 14px;flex-shrink:0;}
+.id-card-photo{width:92px;height:92px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.28);display:block;}
+.id-card-photo-def{width:92px;height:92px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:38px;border:3px solid #fff;color:#fff;}
+.id-card-logo{width:30px;height:30px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:50%;padding:4px;box-shadow:0 1px 4px rgba(0,0,0,.18);}
 .id-card-logo img{width:100%;height:100%;object-fit:contain;display:block;}
-.id-card-inner{flex:1;padding:22px 24px;display:flex;flex-direction:column;}
+.id-card-inner{flex:1;padding:22px 24px 20px;display:flex;flex-direction:column;}
 .id-card-accent{height:4px;width:44px;background:linear-gradient(90deg,var(--blue),var(--green));border-radius:3px;margin-bottom:12px;}
 .id-card-vol-type{font-size:10px;font-weight:800;color:var(--green);letter-spacing:1.5px;text-transform:uppercase;background:var(--green-xs);padding:4px 12px;border-radius:20px;display:inline-block;margin-bottom:10px;align-self:flex-start;}
 .id-card-name{font-size:19px;font-weight:800;color:var(--blue);margin-bottom:3px;font-family:'Poppins',sans-serif;line-height:1.25;}
-.id-card-role{font-size:12.5px;color:var(--orange);font-weight:600;margin-bottom:16px;}
-.id-card-detail{font-size:11.5px;color:var(--text-lt);line-height:2.15;flex:1;}
+.id-card-role{font-size:12.5px;color:var(--orange);font-weight:600;margin-bottom:14px;}
+.id-card-detail{font-size:11.5px;color:var(--text-lt);line-height:2.05;}
 .id-card-detail strong{color:var(--blue);font-weight:700;display:inline-block;width:62px;}
-.id-card-footer{display:flex;justify-content:space-between;align-items:flex-end;border-top:1.5px solid var(--gray-lt);padding-top:12px;margin-top:8px;}
-.id-card-org-name{font-size:9px;color:var(--gray);line-height:1.7;font-weight:600;}
-.id-card-qr{width:56px;height:56px;background:#fff;border:1px solid var(--gray-lt);border-radius:8px;padding:3px;}
+.id-card-footer{display:flex;justify-content:space-between;align-items:center;border-top:1.5px solid var(--gray-lt);padding-top:12px;margin-top:16px;}
+.id-card-org{display:flex;align-items:center;gap:8px;}
+.id-card-org-name{font-size:9px;color:var(--gray);line-height:1.6;font-weight:600;}
+.id-card-qr{width:52px;height:52px;background:#fff;border:1px solid var(--gray-lt);border-radius:8px;padding:3px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.id-card-qr img,.id-card-qr canvas{width:100%!important;height:100%!important;display:block;}
 
 /* ── FOOTER ── */
 footer{background:var(--blue-dk);color:rgba(255,255,255,.78);}
@@ -1050,7 +1052,6 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.78);}
 <div id="id-card-template">
   <div class="id-card-side">
     <div id="idCardPhoto" class="id-card-photo-def">👤</div>
-    <div class="id-card-logo"><img src="Lifeline.png" alt="MLF Logo" id="idCardLogoImg" style="width:100%;height:100%;object-fit:contain;"></div>
   </div>
   <div class="id-card-inner">
     <div class="id-card-accent"></div>
@@ -1063,7 +1064,10 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.78);}
       <div><strong>District:</strong> <span id="idCardDist">-</span>, <span id="idCardState">-</span></div>
     </div>
     <div class="id-card-footer">
-      <div class="id-card-org-name" id="idCardOrgName">My Lifeline Foundation<br>Reg: U85100OR2020NPL032868</div>
+      <div class="id-card-org">
+        <div class="id-card-logo"><img src="Lifeline.png" alt="MLF Logo" id="idCardLogoImg" style="width:100%;height:100%;object-fit:contain;"></div>
+        <div class="id-card-org-name" id="idCardOrgName">My Lifeline Foundation<br>Reg: U85100OR2020NPL032868</div>
+      </div>
       <div id="idCardQR" class="id-card-qr"></div>
     </div>
   </div>
