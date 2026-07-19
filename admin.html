@@ -997,7 +997,8 @@ function showPage(id){
     if(a.getAttribute('onclick')&&a.getAttribute('onclick').includes("'"+id+"'"))a.classList.add('active');
   });
   if(id==='desig')loadDesigPage();
-  if(id==='volunteers')renderVolunteers();
+  if(id==='volunteers'){pullVolsFromSupabase().then(renderVolunteers);}
+  if(id==='forgot'){pullVolsFromSupabase();}
   if(id==='donors')renderDonors();
   if(id==='gallery')renderGallery();
 }
@@ -1473,10 +1474,12 @@ async function changePassword(){
 }
 
 // ── VOLUNTEER LOOKUP ──
-function lookupVolunteer(){
+async function lookupVolunteer(){
   const mobile=g('forg-mobile').trim();
   const res=document.getElementById('forg-result');
   if(!mobile||mobile.length!==10){showToast('Enter a valid 10-digit mobile number','error');return;}
+  showToast('Searching... ⏳','');
+  await pullVolsFromSupabase();
   const vol=getVols().find(v=>v.mobile===mobile);
   if(!vol){res.innerHTML='<div class="warn-box">❌ No volunteer found with this mobile number.</div>';return;}
   res.innerHTML=`<div class="info-box" style="background:#dcfce7;border-color:#86efac;color:#166534;">✅ Volunteer found!<br><strong style="font-size:16px;letter-spacing:1px;">${vol.name}</strong><br>ID: <strong style="font-size:18px;color:var(--blue);letter-spacing:2px;">${vol.id}</strong><br>District: ${vol.district||'-'} · Joined: ${vol.joinDate||'-'}</div>`;
