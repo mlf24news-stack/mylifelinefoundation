@@ -1127,7 +1127,34 @@ async function fetchConfigFromSupabase(){
   return null;
 }
 function getVols(){try{return JSON.parse(localStorage.getItem('mlf_volunteers')||'[]');}catch{return[];}}
-function saveVols(a){localStorage.setItem('mlf_volunteers',JSON.stringify(a));pushVolsToSupabase(a);}
+async function pullVolsFromSupabase(){
+  try{
+    var resp=await fetch(SB_URL+'/rest/v1/mlf_volunteers?id=eq.1&select=data',{
+      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Accept':'application/json'}
+    });
+    if(resp.ok){
+      var rows=await resp.json();
+      if(rows&&rows.length>0&&rows[0].data){
+        localStorage.setItem('mlf_volunteers',JSON.stringify(rows[0].data));
+        return rows[0].data;
+      }
+    }
+  }catch(e){console.warn('Volunteer pull failed:',e);}
+  return null;
+}
+async function saveVols(a){
+  try{
+    var remote=await pullVolsFromSupabase();
+    if(remote&&Array.isArray(remote)){
+      var map={};
+      remote.forEach(function(v){map[v.id]=v;});
+      a.forEach(function(v){map[v.id]=v;});
+      a=Object.values(map);
+    }
+  }catch(e){}
+  localStorage.setItem('mlf_volunteers',JSON.stringify(a));
+  pushVolsToSupabase(a);
+}
 async function pushVolsToSupabase(arr){
   try{
     var resp=await fetch(SB_URL+'/rest/v1/mlf_volunteers?id=eq.1',{
@@ -1341,7 +1368,7 @@ function updateNav(){
 function handleVolunteerBtn(){getCurrentVol()?openProfile():openModal('modalRegister');}
 function toggleSubmit(){var checked=document.getElementById('tcCheckbox').checked;var btn=document.getElementById('submitBtn');if(btn){btn.disabled=!checked;btn.style.background=checked?'var(--green)':'#9CA3AF';}}
 
-function submitRegistration(e){
+async function submitRegistration(e){
   e.preventDefault();
   if(!document.getElementById('tcCheckbox').checked){showToast('Please agree to Terms & Conditions','error');return;}
   var mobile=document.getElementById('regMobile').value.trim();
@@ -1354,7 +1381,7 @@ function submitRegistration(e){
   var regType=document.getElementById('regType').value||'V';
   var volId=generateId(regType);
   var vol={id:volId,type:regType,name:document.getElementById('regName').value.trim(),dob:document.getElementById('regDob').value,fatherName:document.getElementById('regFather').value.trim(),motherName:document.getElementById('regMother').value.trim(),occupation:document.getElementById('regOccupation').value.trim(),mobile:mobile,email:email,at:document.getElementById('regAt').value.trim(),post:document.getElementById('regPost').value.trim(),district:document.getElementById('regDistrict').value.trim(),state:document.getElementById('regState').value,pin:pin,joinDate:new Date().toISOString().split('T')[0],status:'Active',photo:''};
-  vols.push(vol);saveVols(vols);setSession(volId);
+  vols.push(vol);await saveVols(vols);setSession(volId);
   closeModal('modalRegister');document.getElementById('regForm').reset();
   document.getElementById('tcCheckbox').checked=false;document.getElementById('submitBtn').disabled=true;
   document.getElementById('successIdBadge').textContent=volId;
@@ -1369,13 +1396,13 @@ function switchLoginTab(type){
   else{if(tabC){tabC.style.background='var(--blue)';tabC.style.color='white';}if(tabV){tabV.style.background='var(--off)';tabV.style.color='var(--gray)';}if(lbl)lbl.textContent='Coordinator ID *';if(inp)inp.placeholder='e.g. MLF-C-01426';}
 }
 function showForgotId(){closeModal('modalLogin');var mob=prompt('Enter your registered mobile number:');if(!mob)return;var vol=getVols().find(function(v){return v.mobile===mob.trim();});if(vol)alert('✅ Your ID is: '+vol.id+'\n\nName: '+vol.name);else alert('❌ No account found. Contact admin: +91 9337994358');}
-function submitLogin(){
+async function submitLogin(){
   var inputId=document.getElementById('loginId').value.trim().toUpperCase();
   var inputMobile=document.getElementById('loginMobile').value.trim();
   if(!inputId){showToast('Please enter your ID','error');return;}
   if(!inputMobile||inputMobile.length!==10){showToast('Enter valid 10-digit mobile','error');return;}
   var vol=getVols().find(function(v){return v.id===inputId&&v.mobile===inputMobile;});
-  if(!vol){var adminCoords=(getSt().coordinators)||[];var adminMatch=adminCoords.find(function(c){return(c.id||'').toUpperCase()===inputId&&(c.phone||'').replace(/\D/g,'').slice(-10)===inputMobile;});if(adminMatch){var vols=getVols();vol={id:adminMatch.id.toUpperCase(),type:'C',name:adminMatch.name,dob:'',fatherName:'',motherName:'',occupation:adminMatch.role||'Coordinator',mobile:inputMobile,aadhaarDisplay:'**** **** (admin)',aadhaarKey:'admin_'+adminMatch.id,at:adminMatch.area||'',post:'',ps:'',district:adminMatch.area||'',state:'Odisha',pin:'',joinDate:new Date().toISOString().split('T')[0],status:'Active',photo:adminMatch.photo||''};if(!vols.find(function(v){return v.id===vol.id;})){vols.push(vol);saveVols(vols);}}}
+  if(!vol){var adminCoords=(getSt().coordinators)||[];var adminMatch=adminCoords.find(function(c){return(c.id||'').toUpperCase()===inputId&&(c.phone||'').replace(/\D/g,'').slice(-10)===inputMobile;});if(adminMatch){var vols=getVols();vol={id:adminMatch.id.toUpperCase(),type:'C',name:adminMatch.name,dob:'',fatherName:'',motherName:'',occupation:adminMatch.role||'Coordinator',mobile:inputMobile,aadhaarDisplay:'**** **** (admin)',aadhaarKey:'admin_'+adminMatch.id,at:adminMatch.area||'',post:'',ps:'',district:adminMatch.area||'',state:'Odisha',pin:'',joinDate:new Date().toISOString().split('T')[0],status:'Active',photo:adminMatch.photo||''};if(!vols.find(function(v){return v.id===vol.id;})){vols.push(vol);await saveVols(vols);}
   if(!vol){showToast('ID or mobile not found','error');document.getElementById('loginId').style.borderColor='#ef4444';document.getElementById('loginMobile').style.borderColor='#ef4444';return;}
   document.getElementById('loginId').style.borderColor='';document.getElementById('loginMobile').style.borderColor='';
   setSession(vol.id);closeModal('modalLogin');document.getElementById('loginId').value='';document.getElementById('loginMobile').value='';
@@ -1398,13 +1425,13 @@ function openProfile(){
   var qrDiv=document.getElementById('profileQrCode');if(qrDiv){qrDiv.innerHTML='';try{new QRCode(qrDiv,{text:window.location.href.split('?')[0]+'?volunteer='+vol.id,width:160,height:160,colorDark:'#073A6B',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});}catch(ex){}}
   var pd=document.getElementById('profileDashboard');if(pd){pd.classList.add('open');document.body.style.overflow='hidden';}
 }
-function saveProfileChanges(){
+async function saveProfileChanges(){
   var vol=getCurrentVol();if(!vol)return;var vols=getVols();var idx=vols.findIndex(function(v){return v.id===vol.id;});if(idx===-1)return;
   function g(id){var el=document.getElementById(id);return el?el.value.trim():'';}
   vols[idx]=Object.assign({},vols[idx],{name:g('pName'),dob:g('pDob'),fatherName:g('pFather'),motherName:g('pMother'),occupation:g('pOccupation'),mobile:g('pMobile'),email:g('pEmail'),at:g('pAt'),post:g('pPost'),district:g('pDistrict'),state:g('pState'),pin:g('pPin')});
-  saveVols(vols);var dn=document.getElementById('displayName');if(dn)dn.textContent=vols[idx].name;showToast('Profile updated! ✅','success');buildNotices();
+  await saveVols(vols);var dn=document.getElementById('displayName');if(dn)dn.textContent=vols[idx].name;showToast('Profile updated! ✅','success');buildNotices();
 }
-function handlePhotoUpload(event){var file=event.target.files[0];if(!file)return;if(file.size>2*1024*1024){showToast('Image must be under 2MB','error');return;}var reader=new FileReader();reader.onload=function(e){var base64=e.target.result;var vol=getCurrentVol();if(!vol)return;var vols=getVols();var idx=vols.findIndex(function(v){return v.id===vol.id;});if(idx>-1){vols[idx].photo=base64;saveVols(vols);}var oldEl=document.getElementById('profilePhotoDisplay');var newImg=document.createElement('img');newImg.src=base64;newImg.className='profile-photo';newImg.id='profilePhotoDisplay';newImg.alt='Profile';oldEl.replaceWith(newImg);showToast('Photo updated! 📷','success');};reader.readAsDataURL(file);}
+function handlePhotoUpload(event){var file=event.target.files[0];if(!file)return;if(file.size>2*1024*1024){showToast('Image must be under 2MB','error');return;}var reader=new FileReader();reader.onload=async function(e){var base64=e.target.result;var vol=getCurrentVol();if(!vol)return;var vols=getVols();var idx=vols.findIndex(function(v){return v.id===vol.id;});if(idx>-1){vols[idx].photo=base64;await saveVols(vols);}}var oldEl=document.getElementById('profilePhotoDisplay');var newImg=document.createElement('img');newImg.src=base64;newImg.className='profile-photo';newImg.id='profilePhotoDisplay';newImg.alt='Profile';oldEl.replaceWith(newImg);showToast('Photo updated! 📷','success');};reader.readAsDataURL(file);}
 
 // ── ID CARD DOWNLOAD ──
 async function downloadIDCard(fmt){
@@ -1454,6 +1481,7 @@ async function initApp(){
   // 1. ALWAYS render from localStorage first (instant load, no blank page)
   try{loadAdminContent();}catch(e){console.warn('Admin content load:',e);}
   try{startClock();}catch(e){}
+  try{await pullVolsFromSupabase();}catch(e){}
   try{updateNav();}catch(e){}
   try{buildNotices();}catch(e){}
   try{checkQRParam();}catch(e){}
