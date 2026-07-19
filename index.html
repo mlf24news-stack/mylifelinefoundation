@@ -1402,7 +1402,18 @@ async function submitLogin(){
   if(!inputId){showToast('Please enter your ID','error');return;}
   if(!inputMobile||inputMobile.length!==10){showToast('Enter valid 10-digit mobile','error');return;}
   var vol=getVols().find(function(v){return v.id===inputId&&v.mobile===inputMobile;});
-  if(!vol){var adminCoords=(getSt().coordinators)||[];var adminMatch=adminCoords.find(function(c){return(c.id||'').toUpperCase()===inputId&&(c.phone||'').replace(/\D/g,'').slice(-10)===inputMobile;});if(adminMatch){var vols=getVols();vol={id:adminMatch.id.toUpperCase(),type:'C',name:adminMatch.name,dob:'',fatherName:'',motherName:'',occupation:adminMatch.role||'Coordinator',mobile:inputMobile,aadhaarDisplay:'**** **** (admin)',aadhaarKey:'admin_'+adminMatch.id,at:adminMatch.area||'',post:'',ps:'',district:adminMatch.area||'',state:'Odisha',pin:'',joinDate:new Date().toISOString().split('T')[0],status:'Active',photo:adminMatch.photo||''};if(!vols.find(function(v){return v.id===vol.id;})){vols.push(vol);await saveVols(vols);}
+  if(!vol){
+    var adminCoords=(getSt().coordinators)||[];
+    var adminMatch=adminCoords.find(function(c){return(c.id||'').toUpperCase()===inputId&&(c.phone||'').replace(/\D/g,'').slice(-10)===inputMobile;});
+    if(adminMatch){
+      var vols=getVols();
+      vol={id:adminMatch.id.toUpperCase(),type:'C',name:adminMatch.name,dob:'',fatherName:'',motherName:'',occupation:adminMatch.role||'Coordinator',mobile:inputMobile,aadhaarDisplay:'**** **** (admin)',aadhaarKey:'admin_'+adminMatch.id,at:adminMatch.area||'',post:'',ps:'',district:adminMatch.area||'',state:'Odisha',pin:'',joinDate:new Date().toISOString().split('T')[0],status:'Active',photo:adminMatch.photo||''};
+      if(!vols.find(function(v){return v.id===vol.id;})){
+        vols.push(vol);
+        await saveVols(vols);
+      }
+    }
+  }
   if(!vol){showToast('ID or mobile not found','error');document.getElementById('loginId').style.borderColor='#ef4444';document.getElementById('loginMobile').style.borderColor='#ef4444';return;}
   document.getElementById('loginId').style.borderColor='';document.getElementById('loginMobile').style.borderColor='';
   setSession(vol.id);closeModal('modalLogin');document.getElementById('loginId').value='';document.getElementById('loginMobile').value='';
