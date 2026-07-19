@@ -946,7 +946,8 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.78);}
         <div class="form-grid-2"><div class="field"><label>Full Name *</label><input type="text" id="regName" placeholder="Enter your full name" required></div><div class="field"><label>Date of Birth *</label><input type="date" id="regDob" required></div></div>
         <div class="form-grid-2"><div class="field"><label>Father's Name *</label><input type="text" id="regFather" placeholder="Father's full name" required></div><div class="field"><label>Mother's Name *</label><input type="text" id="regMother" placeholder="Mother's full name" required></div></div>
         <div class="form-grid-2"><div class="field"><label>Occupation *</label><input type="text" id="regOccupation" placeholder="e.g., Student, Farmer, Teacher" required></div><div class="field"><label>Mobile Number *</label><input type="tel" id="regMobile" placeholder="10-digit mobile number" maxlength="10" required></div></div>
-        <div class="form-sec-title">🏠 Address Details</div>
+        <div class="field"><label>Email Address *</label><input type="email" id="regEmail" placeholder="your@email.com" required></div>
+         <div class="form-sec-title">🏠 Address Details</div>
         <div class="form-grid-2"><div class="field"><label>AT (Village) *</label><input type="text" id="regAt" placeholder="Village / Area name" required></div><div class="field"><label>Post *</label><input type="text" id="regPost" placeholder="Post office name" required></div></div>
         <div class="form-grid-2"><div class="field"><label>District *</label><input type="text" id="regDistrict" placeholder="District name" required></div><div class="field"><label>PIN Code *</label><input type="text" id="regPin" placeholder="6-digit PIN code" maxlength="6" required></div></div>
         <div class="field"><label>State *</label><select id="regState" style="padding:10px 14px;border:1.5px solid var(--gray-lt);border-radius:9px;font-size:14px;font-family:inherit;color:var(--text);background:#fff;outline:none;width:100%;" required><option value="">Select State</option><option value="Odisha" selected>Odisha</option><option value="West Bengal">West Bengal</option><option value="Jharkhand">Jharkhand</option><option value="Chhattisgarh">Chhattisgarh</option><option value="Andhra Pradesh">Andhra Pradesh</option><option value="Other">Other</option></select></div>
@@ -1031,10 +1032,10 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.78);}
         <div class="pfield-grid"><div class="pfield"><label>Full Name</label><input type="text" id="pName"></div><div class="pfield"><label>Date of Birth</label><input type="date" id="pDob"></div></div>
         <div class="pfield-grid"><div class="pfield"><label>Father's Name</label><input type="text" id="pFather"></div><div class="pfield"><label>Mother's Name</label><input type="text" id="pMother"></div></div>
         <div class="pfield-grid"><div class="pfield"><label>Occupation</label><input type="text" id="pOccupation"></div><div class="pfield"><label>Mobile Number</label><input type="tel" id="pMobile" maxlength="10"></div></div>
-        <div class="pfield"><label>Aadhaar Number</label><input type="text" id="pAadhaar" readonly><span class="locked-note">🔒 Aadhaar is masked for security.</span></div>
+        <div class="pfield"><label>Email Address</label><input type="email" id="pEmail"></div>
         <div class="p-section-title">🏠 Address Information</div>
         <div class="pfield-grid"><div class="pfield"><label>AT (Village)</label><input type="text" id="pAt"></div><div class="pfield"><label>Post</label><input type="text" id="pPost"></div></div>
-        <div class="pfield-grid"><div class="pfield"><label>Police Station</label><input type="text" id="pPs"></div><div class="pfield"><label>District</label><input type="text" id="pDistrict"></div></div>
+        <div class="pfield"><label>District</label><input type="text" id="pDistrict"></div>
         <div class="pfield-grid"><div class="pfield"><label>State</label><select id="pState"><option>Odisha</option><option>West Bengal</option><option>Jharkhand</option><option>Chhattisgarh</option><option>Andhra Pradesh</option><option>Other</option></select></div><div class="pfield"><label>PIN Code</label><input type="text" id="pPin" maxlength="6"></div></div>
         <div class="p-section-title">📋 Account Information</div>
         <div class="pfield-grid"><div class="pfield"><label>Volunteer ID</label><input type="text" id="pVolid" readonly></div><div class="pfield"><label>Joined On</label><input type="text" id="pJoined" readonly></div></div>
@@ -1321,17 +1322,16 @@ function toggleSubmit(){var checked=document.getElementById('tcCheckbox').checke
 function submitRegistration(e){
   e.preventDefault();
   if(!document.getElementById('tcCheckbox').checked){showToast('Please agree to Terms & Conditions','error');return;}
-  var aadhaar=document.getElementById('regAadhaar').value.trim();
   var mobile=document.getElementById('regMobile').value.trim();
+  var email=document.getElementById('regEmail').value.trim();
   var pin=document.getElementById('regPin').value.trim();
-  if(aadhaar.length!==12||!/^\d+$/.test(aadhaar)){showToast('Valid 12-digit Aadhaar required','error');return;}
   if(mobile.length!==10||!/^\d+$/.test(mobile)){showToast('Valid 10-digit mobile required','error');return;}
   if(pin.length!==6||!/^\d+$/.test(pin)){showToast('Valid 6-digit PIN required','error');return;}
-  var vols=getVols();var ak=aadhaar.substring(0,8)+aadhaar.slice(-4);
-  if(vols.some(function(v){return v.aadhaarKey===ak;})){showToast('Account with this Aadhaar already exists!','error');return;}
+  var vols=getVols();
+  if(vols.some(function(v){return v.mobile===mobile;})){showToast('Account with this mobile number already exists!','error');return;}
   var regType=document.getElementById('regType').value||'V';
   var volId=generateId(regType);
-  var vol={id:volId,type:regType,name:document.getElementById('regName').value.trim(),dob:document.getElementById('regDob').value,fatherName:document.getElementById('regFather').value.trim(),motherName:document.getElementById('regMother').value.trim(),occupation:document.getElementById('regOccupation').value.trim(),mobile:mobile,aadhaarDisplay:'**** **** '+aadhaar.slice(-4),aadhaarKey:ak,at:document.getElementById('regAt').value.trim(),post:document.getElementById('regPost').value.trim(),ps:document.getElementById('regPs').value.trim(),district:document.getElementById('regDistrict').value.trim(),state:document.getElementById('regState').value,pin:pin,joinDate:new Date().toISOString().split('T')[0],status:'Active',photo:''};
+  var vol={id:volId,type:regType,name:document.getElementById('regName').value.trim(),dob:document.getElementById('regDob').value,fatherName:document.getElementById('regFather').value.trim(),motherName:document.getElementById('regMother').value.trim(),occupation:document.getElementById('regOccupation').value.trim(),mobile:mobile,email:email,at:document.getElementById('regAt').value.trim(),post:document.getElementById('regPost').value.trim(),district:document.getElementById('regDistrict').value.trim(),state:document.getElementById('regState').value,pin:pin,joinDate:new Date().toISOString().split('T')[0],status:'Active',photo:''};
   vols.push(vol);saveVols(vols);setSession(volId);
   closeModal('modalRegister');document.getElementById('regForm').reset();
   document.getElementById('tcCheckbox').checked=false;document.getElementById('submitBtn').disabled=true;
@@ -1366,8 +1366,8 @@ function openProfile(){
   var vol=getCurrentVol();if(!vol){openModal('modalLogin');return;}
   function sv(id,val){var el=document.getElementById(id);if(el&&val!=null)el.value=val;}
   sv('pName',vol.name);sv('pDob',vol.dob);sv('pFather',vol.fatherName);sv('pMother',vol.motherName);
-  sv('pOccupation',vol.occupation);sv('pMobile',vol.mobile);sv('pAadhaar',vol.aadhaarDisplay);
-  sv('pAt',vol.at);sv('pPost',vol.post);sv('pPs',vol.ps);sv('pDistrict',vol.district);
+  sv('pOccupation',vol.occupation);sv('pMobile',vol.mobile);sv('pEmail',vol.email);
+  sv('pAt',vol.at);sv('pPost',vol.post);sv('pDistrict',vol.district);
   sv('pState',vol.state);sv('pPin',vol.pin);sv('pVolid',vol.id);sv('pJoined',formatDate(vol.joinDate));
   var dn=document.getElementById('displayName');if(dn)dn.textContent=vol.name;
   var di=document.getElementById('displayVolId');if(di)di.textContent=vol.id;
@@ -1379,7 +1379,7 @@ function openProfile(){
 function saveProfileChanges(){
   var vol=getCurrentVol();if(!vol)return;var vols=getVols();var idx=vols.findIndex(function(v){return v.id===vol.id;});if(idx===-1)return;
   function g(id){var el=document.getElementById(id);return el?el.value.trim():'';}
-  vols[idx]=Object.assign({},vols[idx],{name:g('pName'),dob:g('pDob'),fatherName:g('pFather'),motherName:g('pMother'),occupation:g('pOccupation'),mobile:g('pMobile'),at:g('pAt'),post:g('pPost'),ps:g('pPs'),district:g('pDistrict'),state:g('pState'),pin:g('pPin')});
+  vols[idx]=Object.assign({},vols[idx],{name:g('pName'),dob:g('pDob'),fatherName:g('pFather'),motherName:g('pMother'),occupation:g('pOccupation'),mobile:g('pMobile'),email:g('pEmail'),at:g('pAt'),post:g('pPost'),district:g('pDistrict'),state:g('pState'),pin:g('pPin')});
   saveVols(vols);var dn=document.getElementById('displayName');if(dn)dn.textContent=vols[idx].name;showToast('Profile updated! ✅','success');buildNotices();
 }
 function handlePhotoUpload(event){var file=event.target.files[0];if(!file)return;if(file.size>2*1024*1024){showToast('Image must be under 2MB','error');return;}var reader=new FileReader();reader.onload=function(e){var base64=e.target.result;var vol=getCurrentVol();if(!vol)return;var vols=getVols();var idx=vols.findIndex(function(v){return v.id===vol.id;});if(idx>-1){vols[idx].photo=base64;saveVols(vols);}var oldEl=document.getElementById('profilePhotoDisplay');var newImg=document.createElement('img');newImg.src=base64;newImg.className='profile-photo';newImg.id='profilePhotoDisplay';newImg.alt='Profile';oldEl.replaceWith(newImg);showToast('Photo updated! 📷','success');};reader.readAsDataURL(file);}
